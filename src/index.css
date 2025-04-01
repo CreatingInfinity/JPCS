@@ -108,35 +108,57 @@
     font-style: italic;
 }
 
-.text-hover{
-    color: black;
+.text-hover {
+    color: white;
     padding: 30px 10px;
-    font-size: 13px;
 }
 
-.text-hover:hover{
-    color: #4d4d4d;
-    transition: color 0.3s ease-in-out;
+#buttonShadow {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;}
+
+.text-hover:hover {
+    color: black;
+    transition: color 0.2s;
 }
 
-#dropMenu{
+
+
+#dropMenu {
     display: flex;
     align-items: center;
 }
 
-.flag{
+#videoHero {
+    height: 100vh;
+    background-size: cover;
+}
+
+.button-color {
+    background-color: gold;
+}
+
+.flag {
     width: 20px;
 }
 
-.backDropMenu:hover{
+.backDropMenu:hover {
     cursor: pointer;
+    color: #3d3d3d;
 }
 
-#dropDownProduct div{
+#dropDownProduct div {
     margin: 10px 0;
     padding: 10px 40px;
 }
 
 #dropDownProduct div:not(:last-child) {
     border-right: 1px solid #adadad;
+}
+
+#dropDownIcon {
+    filter: invert(1);
+}
+
+#dropDownIconII {
+    filter: invert(1);
 }
