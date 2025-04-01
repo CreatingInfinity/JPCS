@@ -1,41 +1,59 @@
 import gsap from "gsap";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { chinaFlag, downArrow, franceFlag, uaeFlag, usFlag } from "../utils";
 import DropDown from "./DropDown";
+import logo from "../assets/C1.png";
 
 const NavBar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isDropdownOpenII, setIsDropdownOpenII] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false); 
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) { 
+                setIsScrolled(true); 
+            } else {
+                setIsScrolled(false); 
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const handleMouseEnterProduct = () => {
         setIsDropdownOpen(true);
-        gsap.to("#dropDownIcon", {  filter: "invert(1)",opacity: 1, duration: 0.1, rotation: 180 });
+        gsap.to("#dropDownIcon", { filter: "invert(1)", opacity: 1, duration: 0.1, rotation: 180 });
         gsap.to("#dropDown", { color: "white", duration: 0.2 });
     };
 
     const handleMouseLeaveProduct = () => {
         setIsDropdownOpen(false);
-        gsap.to("#dropDown", { color: "lightgray", duration: 0.2 , transition: "all 0.2s ease-in-out"});
-        gsap.to("#dropDownIcon", {  filter:"invert(1)" ,opacity:.6,duration: .1, rotation: 0 });
+        gsap.to("#dropDown", { color: "lightgray", duration: 0.2, transition: "all 0.2s ease-in-out" });
+        gsap.to("#dropDownIcon", { filter: "invert(1)", opacity: .6, duration: .1, rotation: 0 });
     };
 
     const handleMouseEnterII = () => {
         setIsDropdownOpenII(true);
         gsap.to("#dropDownII", { color: "white", duration: 0.2 });
-        gsap.to("#dropDownIconII", { filter:"invert(0)",opacity: 1, duration: 0.2, rotation: 180 });
+        gsap.to("#dropDownIconII", { filter: "invert(0)", opacity: 1, duration: 0.2, rotation: 180 });
     };
 
     const handleMouseLeaveII = () => {
         setIsDropdownOpenII(false);
         gsap.to("#dropDownII", { color: "lightgray", duration: 0.2 });
-        gsap.to("#dropDownIconII", { filter:"invert(1)",opacity: .5, duration: .5, rotation: 0 });
+        gsap.to("#dropDownIconII", { filter: "invert(1)", opacity: .5, duration: .5, rotation: 0 });
     };
 
     return (
         <div className="px-20 fixed w-full z-100 ">
-            <nav className="flex justify-between items-center border-b border-white">
+            <nav className={`flex justify-between items-center border-b border-white ${isScrolled ? 'bg-black' : ''} max-w-screen-xl mx-auto`}>
                 <div className="flex items-center space-x-20">
-                    <div className="text-white text-lg font-bold">LOGO</div>
+                    <img src={logo} alt="Logo" className="h-12 bg-white p-2 rounded-full" />
                     <ul id="dropMenu" className="flex space-x-10 text-xs">
                         <li>
                             <a href="#" className="text-hover">
