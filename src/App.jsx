@@ -3,7 +3,7 @@ import './App.css'
 import NavBar from './components/NavBar'
 import Hero from './components/Hero'
 import Highlights from './components/Highlights'
-import High from './components/High'
+
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       </nav>
       <Hero />
       <Highlights />
-      <High />
+      
     </>
   )
 }
