@@ -11,10 +11,12 @@ const NavBar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) { 
-                setIsScrolled(true); 
+            if (window.scrollY > 40) { 
+                gsap.to("#navigationP", { backgroundColor: "black", duration: 0.1, transition: "all 0.5s ease-in-out" });
+                gsap.to("#navChild", { border: "none", duration: 0.5 });
             } else {
-                setIsScrolled(false); 
+                gsap.to("#navigationP", { backgroundColor: "transparent", duration: 0.5 });
+                gsap.to("#navChild", { borderBottom: "1px solid white", duration: 0.5 });
             }
         };
 
@@ -50,8 +52,8 @@ const NavBar = () => {
     };
 
     return (
-        <div className="px-20 fixed w-full z-100 ">
-            <nav className={`flex justify-between items-center border-b border-white ${isScrolled ? 'bg-black' : ''} max-w-screen-xl mx-auto`}>
+        <div id="navigationP" className="bg-transparent px-20 fixed w-full z-100 ">
+            <nav id="navChild" className={`flex justify-between items-center border-b border-white max-w-screen-xl mx-auto`}>
                 <div className="flex items-center space-x-20">
                     <img src={logo} alt="Logo" className="h-12 bg-white p-2 rounded-full" />
                     <ul id="dropMenu" className="flex space-x-10 text-xs">
