@@ -5,20 +5,19 @@ import Hero from './components/Hero'
 import Highlights from './components/Highlights'
 
 
-
 function App() {
 
   return (
-    <>
-      <main>
-        <nav className='poppins-medium '>
-          <NavBar />
-        </nav>
-        <Hero />
-        <Highlights />
-      </main>
-    </>
-  )
-}
+    <Router>
+      <nav className='poppins-medium '>
+        <NavBar />
+      </nav>
+      <Routes>
+        <Route path="/home" element={<Hero />} />
+        <Route path='/IT' element={<ITServices />}></Route>
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
