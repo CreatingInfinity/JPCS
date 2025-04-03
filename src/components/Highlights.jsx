@@ -3,7 +3,7 @@ import { ITServiceImage } from '../utils';
 
 const Highlights = () => {
   return (
-    <div className='w-full grid justify-center'>
+    <div className='w-full pt-200 grid justify-center'>
       <div className='pt-20 text-center'>
         <header className='text-5xl poppins-semibold font-josefin'>
           PRODUCTS AND SERVICES

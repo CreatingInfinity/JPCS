@@ -9,12 +9,13 @@ function App() {
 
   return (
     <>
-      <nav className='poppins-medium '>
-        <NavBar />
-      </nav>
-      <Hero />
-      <Highlights />
-      
+      <main>
+        <nav className='poppins-medium '>
+          <NavBar />
+        </nav>
+        <Hero />
+        <Highlights />
+      </main>
     </>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 const MarketingStrategies = () => {
   return (
-    <div className='backDropMenu'>Marketing Strategies and Management</div>
+    <div>MarketingStrategies</div>
   )
 }
 
