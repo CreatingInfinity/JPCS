@@ -1,20 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import NavBar from './components/NavBar'
-import Hero from './components/Hero'
-import Highlights from './components/Highlights'
-
+import { useState } from 'react';
+import './App.css';
+import NavBar from './components/NavBar';
+import Hero from './components/Hero';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-
   return (
     <Router>
-      <nav className='poppins-medium '>
+      <nav className='poppins-medium'>
         <NavBar />
       </nav>
       <Routes>
-        <Route path="/home" element={<Hero />} />
-        <Route path='/IT' element={<ITServices />}></Route>
+        <Route path="/" element={<Hero />} />
       </Routes>
     </Router>
   );
