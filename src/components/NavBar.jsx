@@ -49,7 +49,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center bg-transparent backdrop-blur-sm bg-linear-to-r from-[rgba(255,255,255,0.2)] to-black px-10 text-white fixed w-full z-50" id="navParent">
+    <div className="flex h-30 justify-between items-center bg-transparent backdrop-blur-xl bg-gradient-to-r from-black via-[rgba(255, 255, 255, 0.5)] to-black px-10 text-white fixed w-full z-50" id="navParent">
       <img className="h-10 invert" src={menuIcon} alt="" />
       <img className="h-15" src={logoWhite2} alt="" />
       <img className="h-10 invert" src={searchIcon} alt="" />
