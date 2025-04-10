@@ -1,59 +1,86 @@
-import React, { useEffect } from "react";
-import { heroVideo } from "../utils";
 import gsap from "gsap";
-import Highlights from "./Highlights";
+import { ScrollTrigger } from "gsap/all";
+import React, { useEffect } from "react";
+import {
+  businessImage,
+  downArrow,
+  employmentImage,
+  ITServiceImage,
+  marketingImage,
+} from "../utils";
+
+const img = {
+  businessImage,
+  employmentImage,
+  ITServiceImage,
+  marketingImage,
+};
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  const timeline = gsap.timeline();
   useEffect(() => {
-    timeline
-      .to("#text1", { opacity: 1, y: -10, duration: 0.5, delay: 0.5 })
-      .to("#text2", { opacity: 1, y: -10, duration: 0.5 });
-  });
+    gsap.to("#ball", {
+      scrollTrigger: {
+        trigger: "#ball",
+        start: "bottom bottom",
+        end: "bottom top",
+        markers: true,
+        scrub: 1,
+      },
+      scale: 100,
+      duration: 1, // Animation duration
+      ease: "power1.inOut", // Smooth easing
+    });
+    gsap.to("#prim", {
+      y: 10,
+      duration: 1,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+  }, []);
+
   return (
-    <main>
-      <div className="relative poppins-regular">
-        <div className="fixed bg-black h-full w-full overflow-hidden">
-          <video
-            id="videoHero"
-            className="absolute top-0 opacity-50 left-0 w-full object-cover "
-            src={heroVideo}
-            autoPlay
-            muted
-            playsInline
-            loop
-          />
-        </div>
-        {/* Add glass morphism !!!IMPORTANT!!! */}
-        <div className="absolute top-50 gap-18 grid w-full h-full justify-center">
-          <div id="text1" className="flex justify-center opacity-0">
-            <h1 className="poppins-bold text-white text-center text-5xl w-180 text-wrap drop-shadow-xl">
-              EMPOWERING BUSINESSES, ONE SOLUTION AT A TIME.
-            </h1>
+    <div className="relative overflow-hidden">
+      <div className="relative top z-1 h-screen w-full bg-white py-30">
+        <span className="bold text-6xl p-10">
+          Empowering businesses, one solution at a time.
+        </span>        
+        <div
+          id="ball"
+          className="absolute -bottom-10 -right-10 z-5 bg-amber-400 h-10 w-10 rounded-full"
+        ></div>
+      </div>
+      <div className="relative h-screen z-9 p-20">
+        <span className="text-white bold text-5xl ">
+          OUR PRODUCTS & SERVICES
+        </span>
+        <div>
+          <div>
+            <img className="imgWeb" src={ITServiceImage} alt="" />
           </div>
-          <div
-            id="text2"
-            className="border border-gray-200 text-white opacity-0 w-250 p-8 text-center space-y-10 rounded-2xl shadow-lg bg-transparent backdrop-blur-md"
-          >
-            <h1 className="text-2xl text-center poppins-semibold">
-              Delivering Tailored Solutions to Drive Growth and Efficiency
-            </h1>
-            <p className="text-sm">
-              JP Consulting & Services, we believe in empowering businesses by
-              offering tailored solutions that meet their unique challenges.
-              With every project we undertake, we focus on delivering impact
-              strategies that drive growth, efficiency, and success.
-            </p>
-            <div className="w-full flex justify-center">
-              <button className="px-10 py-3 rounded-full cursor-pointer text-white border border-white hover:bg-orange-500">
-                Contact Us
-              </button>
-            </div>
+          <div>
+            <img className="imgWeb" src={businessImage} alt="" />
+          </div>
+          <div>
+            <img className="imgWeb" src={marketingImage} alt="" />
+          </div>
+          <div>
+            <img className="imgWeb" src={employmentImage} alt="" />
           </div>
         </div>
       </div>
-      <Highlights />
-    </main>
+      <div className="h-screen"></div>
+
+      <div
+        id="prim"
+        className="fixed grid justify-items-center opacity-40 text-xs poppins-semibold z-20 bottom-5 right-[50%]"
+      >
+        <span>SCROLL DOWN</span>
+        <img className="h-10" src={downArrow} alt="" />
+      </div>
+    </div>
   );
 };
 

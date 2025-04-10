@@ -20,6 +20,9 @@ import jpcsLogoWhite2 from "/assets/images/logowhite.png";
 import hero from "/assets/videos/bg-video.mp4";
 export const heroVideo = hero;
 
+import hero2 from "/assets/videos/video2.mp4";
+export const heroVideo2 = hero2;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;
