@@ -50,6 +50,31 @@ import photosIcon from "/assets/images/photos.jpg";
 export const photosIconImage = photosIcon;
 export const photoImage = photo;
 
+import pro from "/assets/images/pro.jpg";
+import provIcon from "/assets/images/prov.jpg";
+export const provIconImage = provIcon;
+export const proImage = pro;
+
+import re from "/assets/images/re.jpg";
+import resIcon from "/assets/images/res.jpg";
+export const resIconImage = resIcon;
+export const reImage = re;
+
+import sec from "/assets/images/sec.jpg";
+import secsIcon from "/assets/images/secs.jpg";
+export const secsIconImage = secsIcon;
+export const secImage = sec;
+
+import tran from "/assets/images/tran.jpg";
+import transIcon from "/assets/images/trans.jpg";
+export const transIconImage = transIcon;
+export const tranImage = tran;
+
+import typo from "/assets/images/typo.jpg";
+import typosIcon from "/assets/images/typos.jpg";
+export const typosIconImage = typosIcon;
+export const typoImage = typo;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;
