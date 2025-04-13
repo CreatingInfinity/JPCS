@@ -30,6 +30,26 @@ import blueprintingIcon from "/assets/images/blueprintingIcon.jpg";
 export const blueprintingIconImage = blueprintingIcon;
 export const blueprintingImage = blueprinting;
 
+import documente from "/assets/images/documente.jpg";
+import documentsIcon from "/assets/images/documents.jpg";
+export const documentsIconImage = documentsIcon;
+export const documenteImage = documente;
+
+import set from "/assets/images/set.jpg";
+import setsIcon from "/assets/images/sets.jpg";
+export const setsIconImage = setsIcon;
+export const setImage = set;
+
+import dup from "/assets/images/dup.jpg";
+import dupsIcon from "/assets/images/dups.jpg";
+export const dupsIconImage = dupsIcon;
+export const dupImage = dup;
+
+import photo from "/assets/images/photo.jpg";
+import photosIcon from "/assets/images/photos.jpg";
+export const photosIconImage = photosIcon;
+export const photoImage = photo;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;
