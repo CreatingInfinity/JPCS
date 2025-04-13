@@ -4,6 +4,24 @@ body {
     overflow: overlay;
 }
 
+
+.josefin{
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#navLi li{
+    padding: 0 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+li:hover{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
 .swiper-button-next {
     --swiper-theme-color: #f1f1f18e;
 }
@@ -141,4 +159,15 @@ body {
 .imgWeb{
     height: 400px;
     width: 1000px;
+}
+
+.shadow{
+    transform-origin: center center;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form{
+    padding: 10px 2px;
+    border: 1px solid #a3a3a3;
+    border-radius: 5px;
 }

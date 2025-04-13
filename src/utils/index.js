@@ -23,6 +23,13 @@ export const heroVideo = hero;
 import hero2 from "/assets/videos/video2.mp4";
 export const heroVideo2 = hero2;
 
+
+// BUSINESS
+import blueprinting from "/assets/images/blueprinting.jpg";
+import blueprintingIcon from "/assets/images/blueprintingIcon.jpg";
+export const blueprintingIconImage = blueprintingIcon;
+export const blueprintingImage = blueprinting;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;
