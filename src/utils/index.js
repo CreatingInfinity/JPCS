@@ -75,6 +75,31 @@ import typosIcon from "/assets/images/typos.jpg";
 export const typosIconImage = typosIcon;
 export const typoImage = typo;
 
+import cast from "/assets/images/cast.jpg";
+import castsIcon from "/assets/images/casts.jpg";
+export const castsIconImage = castsIcon;
+export const castImage = cast;
+
+import per from "/assets/images/per.jpg";
+import persIcon from "/assets/images/pers.jpg";
+export const persIconImage = persIcon;
+export const perImage = per;
+
+import on from "/assets/images/on.jpg";
+import onsIcon from "/assets/images/ons.jpg";
+export const onsIconImage = onsIcon;
+export const onImage = on;
+
+import al from "/assets/images/al.jpg";
+import alsIcon from "/assets/images/als.jpg";
+export const alsIconImage = alsIcon;
+export const alImage = al;
+
+import cy from "/assets/images/cy.jpg";
+import cysIcon from "/assets/images/cys.jpg";
+export const cysIconImage = cysIcon;
+export const cyImage = cy;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;
