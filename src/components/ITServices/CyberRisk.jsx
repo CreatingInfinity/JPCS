@@ -22,26 +22,26 @@ const CyberRisk = () => {
         { x: 0, duration: 1, delay: 1, opacity: 1 },
         1
       );
-    gsap.fromTo(
-      "cysIcon",
-      {
-        x: -200,
-        opacity: 0
-      },
-      {
-        scrollTrigger: {
-          trigger: '#cystsIcon',
-
-          start: 'top center',
-          end: '20% 30%',
-          scrub: 1,
+      gsap.fromTo(
+        "#cysIcon",
+        {
+          x: -200,
+          opacity: 0
         },
-        opacity: 1,
-        duration: 1.5,
-        x: 0,
-      }
-    );
-
+        {
+          scrollTrigger: {
+            trigger: '#cysIcon',
+  
+            start: 'top center',
+            end: '20% 30%',
+            scrub: 1,
+          },
+          opacity: 1,
+          duration: 1.5,
+          x: 0,
+        }
+      );
+  
     gsap.fromTo(
       "#section1",
       {
