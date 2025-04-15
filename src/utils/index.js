@@ -100,6 +100,31 @@ import cysIcon from "/assets/images/cys.jpg";
 export const cysIconImage = cysIcon;
 export const cyImage = cy;
 
+import cyb from "/assets/images/cyb.jpg";
+import cybsIcon from "/assets/images/cybs.jpg";
+export const cybsIconImage = cybsIcon;
+export const cybImage = cyb;
+
+import it from "/assets/images/it.jpg";
+import itsIcon from "/assets/images/its.jpg";
+export const itsIconImage = itsIcon;
+export const itImage = it;
+
+import sy from "/assets/images/sy.jpg";
+import sysIcon from "/assets/images/sys.jpg";
+export const sysIconImage = sysIcon;
+export const syImage = sy;
+
+import se from "/assets/images/se.jpg";
+import sesIcon from "/assets/images/ses.jpg";
+export const sesIconImage = sesIcon;
+export const seImage = se;
+
+import so from "/assets/images/so.jpg";
+import sosIcon from "/assets/images/sos.jpg";
+export const sosIconImage = sosIcon;
+export const soImage = so;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;

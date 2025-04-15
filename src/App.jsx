@@ -19,7 +19,11 @@ import Personel from './components/EmploymentServices/Personel';
 import OnLine from './components/EmploymentServices/OnLine';
 import Al from './components/ITServices/AI';
 import CyberRisk from './components/ITServices/CyberRisk';
-
+import CyberSecurity from './components/ITServices/CyberSecurity';
+import ITSecurity from './components/ITServices/ITSercurity';
+import SecuritySystem from './components/ITServices/SecuritySystem';
+import SettingUp from './components/ITServices/SettingUp';
+import SoftwareInstall from './components/ITServices/SoftwareInstall';
 
 function App() {
   const menuRef = useRef(null);
@@ -47,6 +51,11 @@ function App() {
         <Route path='/EmploymentServices/OnLine' element={<OnLine />}/>
         <Route path='/ITServices/Al' element={<Al />}/>
         <Route path='/ITServices/CyberRisk' element={<CyberRisk />}/>
+        <Route path='/ITServices/CyberSecurity' element={<CyberSecurity />}/>
+        <Route path='/ITServices/ITSecurity' element={<ITSecurity />}/>
+        <Route path='/ITServices/SecuritySystem' element={<SecuritySystem />}/>
+        <Route path='/ITServices/SettingUp' element={<SettingUp />}/>
+        <Route path='/ITServices/SoftwareInstall' element={<SoftwareInstall />}/>
       </Routes>
     </Router>
   );
