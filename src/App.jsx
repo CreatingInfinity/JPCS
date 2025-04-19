@@ -24,6 +24,22 @@ import ITSecurity from './components/ITServices/ITSercurity';
 import SecuritySystem from './components/ITServices/SecuritySystem';
 import SettingUp from './components/ITServices/SettingUp';
 import SoftwareInstall from './components/ITServices/SoftwareInstall';
+import Advice from './components/MarketingStrategies/Advice';
+import CargoFreight from './components/MarketingStrategies/CargoFreight';
+import Desing from './components/MarketingStrategies/Desing';
+import DigitalContent from './components/MarketingStrategies/DigitalContent';
+import HealthManagement from './components/MarketingStrategies/HealthManagement';
+import HospitalityConsultancy from './components/MarketingStrategies/HospitalityConsultancy';
+import ImmigrationConsultancy from './components/MarketingStrategies/ImmigrationConsultancy';
+import Lobbying from './components/MarketingStrategies/Lobbying';
+import Logistic from './components/MarketingStrategies/Logistic';
+import MarketingConsultancy from './components/MarketingStrategies/MarketingConsultancy';
+import ProcurementConsulting from './components/MarketingStrategies/ProcurementConsulting';
+import ProjectManagement from './components/MarketingStrategies/ProjectManagement';
+import PublicRelationManagement from './components/MarketingStrategies/PublicRelationManagement';
+import QualityConsultancy from './components/MarketingStrategies/QualityConsultancy';
+import Strategy from './components/MarketingStrategies/Strategy';
+
 
 function App() {
   const menuRef = useRef(null);
@@ -56,6 +72,21 @@ function App() {
         <Route path='/ITServices/SecuritySystem' element={<SecuritySystem />}/>
         <Route path='/ITServices/SettingUp' element={<SettingUp />}/>
         <Route path='/ITServices/SoftwareInstall' element={<SoftwareInstall />}/>
+        <Route path='/MarketingStrategies/Advice' element={<Advice />}/>
+        <Route path='/MarketingStrategies/CargoFreight' element={<CargoFreight />}/>
+        <Route path='/MarketingStrategies/Desing' element={<Desing />}/>
+        <Route path='/MarketingStrategies/DigitalContent' element={<DigitalContent />}/>
+        <Route path='/MarketingStrategies/HealthManagement' element={<HealthManagement />}/>
+        <Route path='/MarketingStrategies/HospitalityConsultancy' element={<HospitalityConsultancy />}/>
+        <Route path='/MarketingStrategies/ImmigrationConsultancy' element={<ImmigrationConsultancy />}/>
+        <Route path='/MarketingStrategies/Lobbying' element={<Lobbying />}/>
+        <Route path='/MarketingStrategies/Logistic' element={<Logistic />}/>
+        <Route path='/MarketingStrategies/MarketingConsultancy' element={<MarketingConsultancy />}/>
+        <Route path='/MarketingStrategies/ProcurementConsulting' element={<ProcurementConsulting />}/>
+        <Route path='/MarketingStrategies/ProjectManagement' element={<ProjectManagement />}/>
+        <Route path='/MarketingStrategies/PublicRelationManagement' element={<PublicRelationManagement />}/>
+        <Route path='/MarketingStrategies/QualityConsultancy' element={<QualityConsultancy />}/>
+        <Route path='/MarketingStrategies/Strategy' element={<Strategy />}/>
       </Routes>
     </Router>
   );
