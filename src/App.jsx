@@ -2,6 +2,9 @@ import { useState, useRef } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
+import About from './components/About'
+import Services from './components/Services'
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Blueprinting from './components/BusinessSetup/Blueprinting';
 import DocumentEditing from './components/BusinessSetup/DocumentEditing';
@@ -24,6 +27,10 @@ import ITSecurity from './components/ITServices/ITSercurity';
 import SecuritySystem from './components/ITServices/SecuritySystem';
 import SettingUp from './components/ITServices/SettingUp';
 import SoftwareInstall from './components/ITServices/SoftwareInstall';
+import BusinessSetup from './components/BusinessSetup';
+import EmploymentServices from './components/EmploymentServices';
+import ITServices from './components/ITServices';
+import MarketingStrategies from './components/MarketingStrategies';
 
 function App() {
   const menuRef = useRef(null);
@@ -36,6 +43,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path='/Contact' element={<Contact />}/>
+        <Route path='/About' element={<About />} />
+        <Route path='/Services' element={<Services />} />
+
+        <Route path='/Business' element={<BusinessSetup />} />
+        <Route path='/ITServices' element={<ITServices />} />
+        <Route path='/EmploymentServices' element={<EmploymentServices />} />
+        <Route path='/MarketingStrategies' element={<MarketingStrategies />} />
+
+        {/* Business */}
         <Route path='/Business/Blueprinting' element={<Blueprinting />}/>
         <Route path='/Business/DocumentEditing' element={<DocumentEditing />}/>
         <Route path='/Business/DocumentSetup' element={<DocumentSetup />}/>
@@ -46,9 +62,13 @@ function App() {
         <Route path='/Business/SecretarialSupport' element={<SecretarialSupport />}/>
         <Route path='/Business/Transcription' element={<Transcription />}/>
         <Route path='/Business/Typography' element={<Typography />}/>
+
+        {/* Employment */}
         <Route path='/EmploymentServices/CastingAgency' element={<CastingAgency />}/>
         <Route path='/EmploymentServices/Personel' element={<Personel />}/>
         <Route path='/EmploymentServices/OnLine' element={<OnLine />}/>
+
+        {/* IT Services4 */}
         <Route path='/ITServices/Al' element={<Al />}/>
         <Route path='/ITServices/CyberRisk' element={<CyberRisk />}/>
         <Route path='/ITServices/CyberSecurity' element={<CyberSecurity />}/>

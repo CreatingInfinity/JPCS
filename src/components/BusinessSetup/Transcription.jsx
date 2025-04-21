@@ -13,7 +13,7 @@ const Transcription = () => {
       .fromTo(
         "h1",
         { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: .5, opacity: 1 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
         1
       )
       .fromTo(
@@ -26,14 +26,14 @@ const Transcription = () => {
       "#transIcon",
       {
         x: -200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#transIcon',
+          trigger: "#transIcon",
 
-          start: 'top center',
-          end: '20% 30%',
+          start: "top center",
+          end: "20% 30%",
           scrub: 1,
         },
         opacity: 1,
@@ -46,14 +46,14 @@ const Transcription = () => {
       "#section1",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section1',
+          trigger: "#section1",
 
-          start: '-80% center',
-          end: 'center 30%',
+          start: "-80% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -64,14 +64,14 @@ const Transcription = () => {
       "#section2",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section2',
+          trigger: "#section2",
 
-          start: '-50% center',
-          end: 'center 30%',
+          start: "-50% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -82,14 +82,14 @@ const Transcription = () => {
       "#section3",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section3',
+          trigger: "#section3",
 
-          start: '-50% center',
-          end: 'center 30%',
+          start: "-50% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -100,21 +100,20 @@ const Transcription = () => {
       "#section4",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section4',
+          trigger: "#section4",
 
-          start: '-20% center',
-          end: 'center 30%',
+          start: "-20% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
         y: 150,
       }
     );
-
   });
   return (
     <div className="relative">
@@ -136,42 +135,71 @@ const Transcription = () => {
               alt=""
             />
             <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-            Transcription is the process of converting spoken words from audio or video recordings into accurate, written text. At JP Consulting & Services, our transcription solutions are tailored for clarity, precision, and confidentiality. Whether it’s business meetings, interviews, webinars, or legal content, we ensure every word is professionally captured to support documentation, analysis, and communication.
-             {" "}
-            
+              Transcription is the process of converting spoken words from audio
+              or video recordings into accurate, written text. At JP Consulting
+              & Services, our transcription solutions are tailored for clarity,
+              precision, and confidentiality. Whether it’s business meetings,
+              interviews, webinars, or legal content, we ensure every word is
+              professionally captured to support documentation, analysis, and
+              communication.{" "}
             </p>
           </div>
           <div className="h-full space-y-50 py-100">
             <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section1" className="w-120 h-full josefin space-y-5 justify-center">
+              <div
+                id="section1"
+                className="w-120 h-full josefin space-y-5 justify-center"
+              >
                 <p className="font-bold text-2xl text-center">
-                TURNING CONVERSATIONS INTO CLARITY
+                  TURNING CONVERSATIONS INTO CLARITY
                 </p>
                 <p className="text-center flex flex-col gap-2">
                   <span className="font-bold">
-                  Accurate, Reliable, and Professional
+                    Accurate, Reliable, and Professional
                   </span>
-                  At JP Consulting & Services, our Transcription Services ensure that your spoken words are transformed into high-quality written content. Whether it's meetings, interviews, webinars, or legal proceedings — we deliver clear, precise transcripts that capture every detail with accuracy and professionalism.
-               </p>
+                  At JP Consulting & Services, our Transcription Services ensure
+                  that your spoken words are transformed into high-quality
+                  written content. Whether it's meetings, interviews, webinars,
+                  or legal proceedings — we deliver clear, precise transcripts
+                  that capture every detail with accuracy and professionalism.
+                </p>
               </div>
-              <div id="section2" className="w-120 h-full josefin space-y-5 justify-center translate-y-50">
+              <div
+                id="section2"
+                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+              >
                 <p className="font-bold text-2xl text-center">
-                YOUR MESSAGE, PRESERVED PERFECTLY
+                  YOUR MESSAGE, PRESERVED PERFECTLY
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Tailored Transcriptions for Every Industry</span>
-                  We don’t just convert audio to text — we understand context, industry-specific terminology, and your business tone. Each transcription is customized to reflect the style and clarity you need, helping you preserve ideas, decisions, and insights in a format that’s easy to share and act on.
+                  <span className="font-bold">
+                    Tailored Transcriptions for Every Industry
+                  </span>
+                  We don’t just convert audio to text — we understand context,
+                  industry-specific terminology, and your business tone. Each
+                  transcription is customized to reflect the style and clarity
+                  you need, helping you preserve ideas, decisions, and insights
+                  in a format that’s easy to share and act on.
                 </p>
               </div>
             </section>
             <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section3" className="w-120 h-100 josefin space-y-5 justify-center">
+              <div
+                id="section3"
+                className="w-120 h-100 josefin space-y-5 justify-center"
+              >
                 <p className="font-bold text-2xl text-center">
-                WE UNDERSTAND WHAT YOU VALUE
+                  WE UNDERSTAND WHAT YOU VALUE
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Precision, Confidentiality, and Speed</span>
-                  We know that every word counts. That’s why our team is committed to providing transcriptions that are not only accurate, but also secure and delivered on time. Whether it's sensitive client discussions or internal strategy sessions — your content is in trusted hands.
+                  <span className="font-bold">
+                    Precision, Confidentiality, and Speed
+                  </span>
+                  We know that every word counts. That’s why our team is
+                  committed to providing transcriptions that are not only
+                  accurate, but also secure and delivered on time. Whether it's
+                  sensitive client discussions or internal strategy sessions —
+                  your content is in trusted hands.
                 </p>
                 <div className="text-center flex flex-col gap-2">
                   <span className="font-bold">WHAT WE TRANSCRIBE</span>
@@ -185,66 +213,53 @@ const Transcription = () => {
                   </ul>
                 </div>
               </div>
-              <div id="section4" className="w-120 h-100 josefin space-y-5 justify-center translate-y-50">
+              <div
+                id="section4"
+                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+              >
                 <p className="font-bold text-2xl text-center">
-                HOW WE HELP YOUR BUSINESS MOVE FORWARD
+                  HOW WE HELP YOUR BUSINESS MOVE FORWARD
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Smart Transcription Solutions</span>
-                  🔍 Verbatim or Edited Transcripts: Choose the format that fits your need<br></br>
-
-                  📈 Business-Ready Output: Professionally structured for clarity and usability<br></br>
-
-                  🛡️ Confidential & Secure Handling: Your files are safe and protected<br></br>
-
-                  ⏱️ Quick Turnaround: Get transcripts when you need them, without compromise
+                  <span className="font-bold">
+                    Smart Transcription Solutions
+                  </span>
+                  🔍 Verbatim or Edited Transcripts: Choose the format that fits
+                  your need<br></br>
+                  📈 Business-Ready Output: Professionally structured for
+                  clarity and usability<br></br>
+                  🛡️ Confidential & Secure Handling: Your files are safe and
+                  protected<br></br>
+                  ⏱️ Quick Turnaround: Get transcripts when you need them,
+                  without compromise
                 </p>
                 <div className="text-center flex flex-col gap-2">
                   <span className="font-bold">YOUR BENEFITS:</span>
                   <ul className="list-disc list-inside text-left">
                     <li>
-                    Save time by converting speech to searchable, editable content
+                      Save time by converting speech to searchable, editable
+                      content
                     </li>
                     <li>Improve record-keeping and internal documentation</li>
                     <li>
-                    Enhance communication with clear meeting notes and summaries
+                      Enhance communication with clear meeting notes and
+                      summaries
                     </li>
                     <li>
-                    Boost productivity by repurposing audio content into business assets
+                      Boost productivity by repurposing audio content into
+                      business assets
                     </li>
-                    <li>Ensure compliance and accuracy in legal and corporate settings</li>
-                    
+                    <li>
+                      Ensure compliance and accuracy in legal and corporate
+                      settings
+                    </li>
                   </ul>
                 </div>
               </div>
             </section>
           </div>
         </div>
-        <div className="h-screen bg-gray-100 border-t-2 border-black pt-30 space-y-10">
-          <p className="bold text-4xl text-center">
-            <span className="text-amber-600">JP</span> Consulting & Services
-          </p>
-          <p className="text-center josefin text-2xl">
-            Success is a journey, not a destination.
-          </p>
-          <div className=" flex flex-col gap-5 bg-amber-400 shadow rounded-lg items-center p-5 mx-25">
-            <p className="text-justify w-200 josefin text-lg font-semibold">
-              We work closely with businesses to understand their specific needs
-              and challenges. By offering personalized solutions, we help
-              clients navigate complex problems and unlock new opportunities for
-              success. From streamlining operations to strategic planning, we
-              aim to enhance your business performance, fostering long-term
-              growth and stability. Together, we empower your business to
-              achieve its full potential.
-            </p>
-            <button className="border-white bg-white text-black border-1 px-10 py-2 rounded-full josefin font-bold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              Contact Us
-            </button>
-            <button className="border-white bg-white text-black border-1 px-10 py-2 rounded-full josefin font-bold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              More About Us
-            </button>
-          </div>
-        </div>
+        <ContactUsFooter />
       </div>
       <img src={tranImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
