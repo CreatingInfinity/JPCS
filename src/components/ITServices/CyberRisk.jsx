@@ -13,7 +13,7 @@ const CyberRisk = () => {
       .fromTo(
         "h1",
         { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: .5, opacity: 1 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
         1
       )
       .fromTo(
@@ -22,38 +22,38 @@ const CyberRisk = () => {
         { x: 0, duration: 1, delay: 1, opacity: 1 },
         1
       );
-      gsap.fromTo(
-        "#cysIcon",
-        {
-          x: -200,
-          opacity: 0
+    gsap.fromTo(
+      "#cysIcon",
+      {
+        x: -200,
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: "#cysIcon",
+
+          start: "top center",
+          end: "20% 30%",
+          scrub: 1,
         },
-        {
-          scrollTrigger: {
-            trigger: '#cysIcon',
-  
-            start: 'top center',
-            end: '20% 30%',
-            scrub: 1,
-          },
-          opacity: 1,
-          duration: 1.5,
-          x: 0,
-        }
-      );
-  
+        opacity: 1,
+        duration: 1.5,
+        x: 0,
+      }
+    );
+
     gsap.fromTo(
       "#section1",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section1',
+          trigger: "#section1",
 
-          start: '-80% center',
-          end: 'center 30%',
+          start: "-80% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -64,14 +64,14 @@ const CyberRisk = () => {
       "#section2",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section2',
+          trigger: "#section2",
 
-          start: '-50% center',
-          end: 'center 30%',
+          start: "-50% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -82,14 +82,14 @@ const CyberRisk = () => {
       "#section3",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section3',
+          trigger: "#section3",
 
-          start: '-50% center',
-          end: 'center 30%',
+          start: "-50% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -100,21 +100,20 @@ const CyberRisk = () => {
       "#section4",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section4',
+          trigger: "#section4",
 
-          start: '-20% center',
-          end: 'center 30%',
+          start: "-20% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
         y: 150,
       }
     );
-
   });
   return (
     <div className="relative">
@@ -136,16 +135,25 @@ const CyberRisk = () => {
               alt=""
             />
             <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-            In today’s increasingly connected world, cyber threats — such as data breaches, ransomware, and phishing — are not just technical issues, but serious business risks. Managing cyber risk involves identifying these threats, assessing their potential impact, and implementing proactive measures to protect your organization.{" "}
+              In today’s increasingly connected world, cyber threats — such as
+              data breaches, ransomware, and phishing — are not just technical
+              issues, but serious business risks. Managing cyber risk involves
+              identifying these threats, assessing their potential impact, and
+              implementing proactive measures to protect your organization.{" "}
               <br />
               <br />
-              At JP Consulting & Services, we help businesses stay ahead of cyber threats by offering strategic risk assessments, security policy development, training, and compliance support — so you can operate confidently and securely in a digital environment.
-
+              At JP Consulting & Services, we help businesses stay ahead of
+              cyber threats by offering strategic risk assessments, security
+              policy development, training, and compliance support — so you can
+              operate confidently and securely in a digital environment.
             </p>
           </div>
           <div className="h-full space-y-50 py-100">
             <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section1" className="w-120 h-full josefin space-y-5 justify-center">
+              <div
+                id="section1"
+                className="w-120 h-full josefin space-y-5 justify-center"
+              >
                 <p className="font-bold text-2xl text-center">
                   PROTECTING YOUR FUTURE IN A DIGITAL WORLD
                 </p>
@@ -153,105 +161,111 @@ const CyberRisk = () => {
                   <span className="font-bold">
                     Strategic Protection, Real Peace of Mind
                   </span>
-                  At JP Consulting & Services, we understand that in today’s digital age, cybersecurity is business security. Our Cyber Risk services are designed to identify, assess, and mitigate threats before they impact your operations. We empower your business to stay secure, compliant, and resilient — even in an evolving risk landscape.
-
-
+                  At JP Consulting & Services, we understand that in today’s
+                  digital age, cybersecurity is business security. Our Cyber
+                  Risk services are designed to identify, assess, and mitigate
+                  threats before they impact your operations. We empower your
+                  business to stay secure, compliant, and resilient — even in an
+                  evolving risk landscape.
                 </p>
               </div>
-              <div id="section2" className="w-120 h-full josefin space-y-5 justify-center translate-y-50">
+              <div
+                id="section2"
+                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+              >
                 <p className="font-bold text-2xl text-center">
                   TAILORED RISK MANAGEMENT
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Custom Cyber Defense Solutions</span>
-                  We don’t offer generic security checklists — we provide tailored strategies that address your industry, infrastructure, and business needs. From startups to enterprise-level organizations, we help you safeguard what matters most.
-
-
+                  <span className="font-bold">
+                    Custom Cyber Defense Solutions
+                  </span>
+                  We don’t offer generic security checklists — we provide
+                  tailored strategies that address your industry,
+                  infrastructure, and business needs. From startups to
+                  enterprise-level organizations, we help you safeguard what
+                  matters most.
                 </p>
               </div>
             </section>
             <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section3" className="w-120 h-100 josefin space-y-5 justify-center">
+              <div
+                id="section3"
+                className="w-120 h-100 josefin space-y-5 justify-center"
+              >
                 <p className="font-bold text-2xl text-center">
                   KNOW YOUR THREATS
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Visibility is the First Step to Security</span>
-                  Cyber threats can strike at any time — data breaches, phishing attacks, ransomware, and insider threats are just a few risks modern businesses face. We help you identify vulnerabilities across your systems and create a proactive defense plan.
-
+                  <span className="font-bold">
+                    Visibility is the First Step to Security
+                  </span>
+                  Cyber threats can strike at any time — data breaches, phishing
+                  attacks, ransomware, and insider threats are just a few risks
+                  modern businesses face. We help you identify vulnerabilities
+                  across your systems and create a proactive defense plan.
                 </p>
                 <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">CYBER RISKS WE ADDRESS
-                  </span>
+                  <span className="font-bold">CYBER RISKS WE ADDRESS</span>
                   <ul className="list-disc list-inside text-left">
                     <li>Data breaches and information leaks</li>
                     <li>Ransomware and malware attacks</li>
                     <li>Phishing and social engineering threats</li>
                     <li>Weak internal access control</li>
-                    <li>Non-compliance with data protection laws (e.g., GDPR, HIPAA)</li>
+                    <li>
+                      Non-compliance with data protection laws (e.g., GDPR,
+                      HIPAA)
+                    </li>
                     <li>Outdated security infrastructure</li>
                   </ul>
                 </div>
               </div>
-              <div id="section4" className="w-120 h-100 josefin space-y-5 justify-center translate-y-50">
+              <div
+                id="section4"
+                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+              >
                 <p className="font-bold text-2xl text-center">
                   HOW WE PROTECT YOUR BUSINESS
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Strategic Innovation Consulting</span>
-                  🔍 Risk Assessments: Discover system vulnerabilities before attackers do<br />
-                  🔐 Policy Development: Define clear cybersecurity guidelines and employee protocols<br />
-                  🧠 Awareness Training: Educate your team to recognize and avoid common threats<br />
-                  🧰 Technology Integration: Implement modern, effective security tools<br />
-                  📄 Compliance Support: Ensure your systems align with legal and industry regulations
+                  <span className="font-bold">
+                    Strategic Innovation Consulting
+                  </span>
+                  🔍 Risk Assessments: Discover system vulnerabilities before
+                  attackers do
+                  <br />
+                  🔐 Policy Development: Define clear cybersecurity guidelines
+                  and employee protocols
+                  <br />
+                  🧠 Awareness Training: Educate your team to recognize and
+                  avoid common threats
+                  <br />
+                  🧰 Technology Integration: Implement modern, effective
+                  security tools
+                  <br />
+                  📄 Compliance Support: Ensure your systems align with legal
+                  and industry regulations
                 </p>
                 <div className="text-center flex flex-col gap-2">
                   <span className="font-bold">YOUR BENEFITS:</span>
                   <ul className="list-disc list-inside text-left">
-                    <li>
-                      Reduced risk of cyber attacks and business downtime
-                    </li>
+                    <li>Reduced risk of cyber attacks and business downtime</li>
                     <li>Stronger data privacy and regulatory compliance</li>
                     <li>
                       Increased trust from clients, investors, and partners
                     </li>
+                    <li>Long-term protection through continuous improvement</li>
                     <li>
-                      Long-term protection through continuous improvement
+                      Long-term protection through continuous improvement Peace
+                      of mind knowing your digital assets are secure
                     </li>
-                    <li>Long-term protection through continuous improvement
-
-                      Peace of mind knowing your digital assets are secure</li>
                   </ul>
                 </div>
               </div>
             </section>
           </div>
         </div>
-        <div className="h-screen bg-gray-100 border-t-2 border-black pt-30 space-y-10">
-          <p className="bold text-4xl text-center">
-            <span className="text-amber-600">JP</span> Consulting & Services
-          </p>
-          <p className="text-center josefin text-2xl">
-            Success is a journey, not a destination.
-          </p>
-          <div className=" flex flex-col gap-5 bg-amber-400 shadow rounded-lg items-center p-5 mx-25">
-            <p className="text-justify w-200 josefin text-lg font-semibold">
-              We work closely with businesses to understand their specific needs
-              and challenges. By offering personalized solutions, we help
-              clients navigate complex problems and unlock new opportunities for
-              success. From streamlining operations to strategic planning, we
-              aim to enhance your business performance, fostering long-term
-              growth and stability. Together, we empower your business to
-              achieve its full potential.
-            </p>
-            <button className="border-white bg-white text-black border-1 px-10 py-2 rounded-full josefin font-bold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              Contact Us
-            </button>
-            <button className="border-white bg-white text-black border-1 px-10 py-2 rounded-full josefin font-bold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              More About Us
-            </button>
-          </div>
-        </div>
+        <ContactUsFooter />
       </div>
       <img src={cyImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

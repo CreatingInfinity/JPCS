@@ -13,13 +13,13 @@ body {
 
 #navLi li{
     padding: 0 5px;
+    color: black;
     transition: all 0.2s ease-in-out;
 }
 
-li:hover{
-    background-color: black;
-    color: white;
-    border-radius: 5px;
+#navLi li:hover{
+    color: rgb(83, 83, 83);
+    cursor: pointer;
 }
 
 .swiper-button-next {
@@ -161,6 +161,26 @@ li:hover{
     width: 1000px;
 }
 
+.backDropMenu{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: #292929;
+    transition: all .2s ease;
+    font-weight: bold;
+}
+
+.backDropMenu:not(:last-child){
+    border-right: 1px solid rgba(124, 124, 124, 0.727);
+}
+
+.backDropMenu:hover{
+    background: #d8d8d8;
+    color: rgb(199, 116, 13);
+}
+
 .shadow{
     transform-origin: center center;
     box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
@@ -170,4 +190,9 @@ li:hover{
     padding: 10px 2px;
     border: 1px solid #a3a3a3;
     border-radius: 5px;
+}
+
+.transparent{
+    background: transparent;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.60), white,rgba(255, 255, 255, 0.60));
 }

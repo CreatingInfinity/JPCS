@@ -13,7 +13,7 @@ const Duplicating = () => {
       .fromTo(
         "h1",
         { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: .5, opacity: 1 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
         1
       )
       .fromTo(
@@ -26,14 +26,14 @@ const Duplicating = () => {
       "#dupsIcon",
       {
         x: -200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#dupsIcon',
+          trigger: "#dupsIcon",
 
-          start: 'top center',
-          end: '20% 30%',
+          start: "top center",
+          end: "20% 30%",
           scrub: 1,
         },
         opacity: 1,
@@ -46,14 +46,14 @@ const Duplicating = () => {
       "#section1",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section1',
+          trigger: "#section1",
 
-          start: '-80% center',
-          end: 'center 30%',
+          start: "-80% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -64,14 +64,14 @@ const Duplicating = () => {
       "#section2",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section2',
+          trigger: "#section2",
 
-          start: '-50% center',
-          end: 'center 30%',
+          start: "-50% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -82,14 +82,14 @@ const Duplicating = () => {
       "#section3",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section3',
+          trigger: "#section3",
 
-          start: '-50% center',
-          end: 'center 30%',
+          start: "-50% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
@@ -100,21 +100,20 @@ const Duplicating = () => {
       "#section4",
       {
         y: 200,
-        opacity: 0
+        opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: '#section4',
+          trigger: "#section4",
 
-          start: '-20% center',
-          end: 'center 30%',
+          start: "-20% center",
+          end: "center 30%",
         },
         opacity: 1,
         duration: 1.5,
         y: 150,
       }
     );
-
   });
   return (
     <div className="relative">
@@ -136,39 +135,69 @@ const Duplicating = () => {
               alt=""
             />
             <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-            At JP Consulting & Services, our Duplicating service provides accurate, efficient, and professional reproduction of your business documents — whether for daily operations, client deliverables, or compliance requirements. We understand the importance of precision and consistency in every copy you need, and our team ensures high-quality output every time. {" "}
+              At JP Consulting & Services, our Duplicating service provides
+              accurate, efficient, and professional reproduction of your
+              business documents — whether for daily operations, client
+              deliverables, or compliance requirements. We understand the
+              importance of precision and consistency in every copy you need,
+              and our team ensures high-quality output every time.{" "}
             </p>
           </div>
           <div className="h-full space-y-50 py-100">
             <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section1" className="w-120 h-full josefin space-y-5 justify-center">
+              <div
+                id="section1"
+                className="w-120 h-full josefin space-y-5 justify-center"
+              >
                 <p className="font-bold text-2xl text-center">
-                ACCURATE COPIES, SEAMLESS WORKFLOWS
+                  ACCURATE COPIES, SEAMLESS WORKFLOWS
                 </p>
                 <p className="text-center flex flex-col gap-2">
                   <span className="font-bold">
-                  Consistent Reproduction for Every Business Need
+                    Consistent Reproduction for Every Business Need
                   </span>
-                  At JP Consulting & Services, our Duplicating service ensures that every critical business document is reproduced with precision and quality. Whether you need physical or digital copies, we deliver fast, professional results that maintain the integrity of your original content — every time. </p>
+                  At JP Consulting & Services, our Duplicating service ensures
+                  that every critical business document is reproduced with
+                  precision and quality. Whether you need physical or digital
+                  copies, we deliver fast, professional results that maintain
+                  the integrity of your original content — every time.{" "}
+                </p>
               </div>
-              <div id="section2" className="w-120 h-full josefin space-y-5 justify-center translate-y-50">
+              <div
+                id="section2"
+                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+              >
                 <p className="font-bold text-2xl text-center">
-                SPEED, ACCURACY, AND QUALITY
+                  SPEED, ACCURACY, AND QUALITY
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Helping You Stay Organized and Prepared</span>
-                  From proposals to legal documents and operational files, having exact, high-quality copies is essential. Our duplicating process ensures your business has consistent, accessible documents — ready for meetings, audits, or daily operations.
+                  <span className="font-bold">
+                    Helping You Stay Organized and Prepared
+                  </span>
+                  From proposals to legal documents and operational files,
+                  having exact, high-quality copies is essential. Our
+                  duplicating process ensures your business has consistent,
+                  accessible documents — ready for meetings, audits, or daily
+                  operations.
                 </p>
               </div>
             </section>
             <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section3" className="w-120 h-100 josefin space-y-5 justify-center">
+              <div
+                id="section3"
+                className="w-120 h-100 josefin space-y-5 justify-center"
+              >
                 <p className="font-bold text-2xl text-center">
-                WE KNOW IT’S MORE THAN JUST DUPLICATING
+                  WE KNOW IT’S MORE THAN JUST DUPLICATING
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Preserve Quality. Protect Content. Deliver Results.</span>
-                  We understand the importance of brand consistency and information accuracy. That’s why our duplication services are done with care, ensuring every copy reflects the professionalism of your business.
+                  <span className="font-bold">
+                    Preserve Quality. Protect Content. Deliver Results.
+                  </span>
+                  We understand the importance of brand consistency and
+                  information accuracy. That’s why our duplication services are
+                  done with care, ensuring every copy reflects the
+                  professionalism of your business.
                 </p>
                 <div className="text-center flex flex-col gap-2">
                   <span className="font-bold">WHAT WE DUPLICATE</span>
@@ -182,33 +211,33 @@ const Duplicating = () => {
                   </ul>
                 </div>
               </div>
-              <div id="section4" className="w-120 h-100 josefin space-y-5 justify-center translate-y-50">
+              <div
+                id="section4"
+                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+              >
                 <p className="font-bold text-2xl text-center">
-                HOW WE SUPPORT YOUR OPERATIONS
+                  HOW WE SUPPORT YOUR OPERATIONS
                 </p>
                 <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Smart Document Duplication Solutions</span>
-                  📠 High-Quality Copying: Crisp and clear document reproduction<br></br>
-
-                  📂 Bulk Duplication: Scalable services for any quantity <br></br>
-
-                  🖨️ Digital & Print Formats: Flexible to your business needs<br></br>
-
-                  🔒 Confidential Handling: Your documents are treated with complete privacy and care
+                  <span className="font-bold">
+                    Smart Document Duplication Solutions
+                  </span>
+                  📠 High-Quality Copying: Crisp and clear document reproduction
+                  <br></br>
+                  📂 Bulk Duplication: Scalable services for any quantity{" "}
+                  <br></br>
+                  🖨️ Digital & Print Formats: Flexible to your business needs
+                  <br></br>
+                  🔒 Confidential Handling: Your documents are treated with
+                  complete privacy and care
                 </p>
                 <div className="text-center flex flex-col gap-2">
                   <span className="font-bold">YOUR BENEFITS:</span>
                   <ul className="list-disc list-inside text-left">
-                    <li>
-                    Reliable, professional-looking duplicates
-                    </li>
+                    <li>Reliable, professional-looking duplicates</li>
                     <li>Streamlined access to essential business materials</li>
-                    <li>
-                    Reduced manual workload and administrative errors
-                    </li>
-                    <li>
-                    Quick turnaround and flexible output formats
-                    </li>
+                    <li>Reduced manual workload and administrative errors</li>
+                    <li>Quick turnaround and flexible output formats</li>
                     <li>Consistency across all business documentation</li>
                   </ul>
                 </div>
@@ -216,31 +245,7 @@ const Duplicating = () => {
             </section>
           </div>
         </div>
-        <div className="h-screen bg-gray-100 border-t-2 border-black pt-30 space-y-10">
-          <p className="bold text-4xl text-center">
-            <span className="text-amber-600">JP</span> Consulting & Services
-          </p>
-          <p className="text-center josefin text-2xl">
-            Success is a journey, not a destination.
-          </p>
-          <div className=" flex flex-col gap-5 bg-amber-400 shadow rounded-lg items-center p-5 mx-25">
-            <p className="text-justify w-200 josefin text-lg font-semibold">
-              We work closely with businesses to understand their specific needs
-              and challenges. By offering personalized solutions, we help
-              clients navigate complex problems and unlock new opportunities for
-              success. From streamlining operations to strategic planning, we
-              aim to enhance your business performance, fostering long-term
-              growth and stability. Together, we empower your business to
-              achieve its full potential.
-            </p>
-            <button className="border-white bg-white text-black border-1 px-10 py-2 rounded-full josefin font-bold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              Contact Us
-            </button>
-            <button className="border-white bg-white text-black border-1 px-10 py-2 rounded-full josefin font-bold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              More About Us
-            </button>
-          </div>
-        </div>
+        <ContactUsFooter />
       </div>
       <img src={dupImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
