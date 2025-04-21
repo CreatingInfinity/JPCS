@@ -125,6 +125,81 @@ import sosIcon from "/assets/images/sos.jpg";
 export const sosIconImage = sosIcon;
 export const soImage = so;
 
+import ad from "/assets/images/ad.jpg";
+import adsIcon from "/assets/images/ads.jpg";
+export const adsIconImage = adsIcon;
+export const adImage = ad;
+
+import car from "/assets/images/car.jpg";
+import carsIcon from "/assets/images/cars.jpg";
+export const carsIconImage = carsIcon;
+export const carImage = car;
+
+import de from "/assets/images/de.jpg";
+import desIcon from "/assets/images/des.jpg";
+export const desIconImage = desIcon;
+export const deImage = de;
+
+import di from "/assets/images/di.jpg";
+import disIcon from "/assets/images/dis.jpg";
+export const disIconImage = disIcon;
+export const diImage = di;
+
+import he from "/assets/images/he.jpg";
+import hesIcon from "/assets/images/hes.jpg";
+export const hesIconImage = hesIcon;
+export const heImage = he;
+
+import ho from "/assets/images/ho.jpg";
+import hosIcon from "/assets/images/hos.jpg";
+export const hosIconImage = hosIcon;
+export const hoImage = ho;
+
+import im from "/assets/images/im.jpg";
+import imsIcon from "/assets/images/ims.jpg";
+export const imsIconImage = imsIcon;
+export const imImage = im;
+
+import lo from "/assets/images/lo.jpg";
+import losIcon from "/assets/images/los.jpg";
+export const losIconImage = losIcon;
+export const loImage = lo;
+
+import log from "/assets/images/log.jpg";
+import logsIcon from "/assets/images/logs.jpg";
+export const logsIconImage = logsIcon;
+export const logImage = log;
+
+import mar from "/assets/images/mar.jpg";
+import marsIcon from "/assets/images/mars.jpg";
+export const marsIconImage = marsIcon;
+export const marImage = mar;
+
+import proc from "/assets/images/proc.jpg";
+import procsIcon from "/assets/images/procs.jpg";
+export const procsIconImage = procsIcon;
+export const procImage = proc;
+
+import proj from "/assets/images/proj.jpg";
+import projsIcon from "/assets/images/projs.jpg";
+export const projsIconImage = projsIcon;
+export const projImage = proj;
+
+import pub from "/assets/images/pub.jpg";
+import pubsIcon from "/assets/images/pubs.jpg";
+export const pubsIconImage = pubsIcon;
+export const pubImage = pub;
+
+import qu from "/assets/images/qu.jpg";
+import qusIcon from "/assets/images/qus.jpg";
+export const qusIconImage = qusIcon;
+export const quImage = qu;
+
+import str from "/assets/images/str.jpg";
+import strsIcon from "/assets/images/strs.jpg";
+export const strsIconImage = strsIcon;
+export const strImage = str;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;
