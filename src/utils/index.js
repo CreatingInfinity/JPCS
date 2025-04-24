@@ -55,6 +55,17 @@ import provIcon from "/assets/images/prov.jpg";
 export const provIconImage = provIcon;
 export const proImage = pro;
 
+
+// FOOTER
+import qrCode from "/assets/images/qrCode.png"
+export const qr = qrCode;
+import call from "/assets/images/phone-call.png";
+export const callIcon = call;
+import location from "/assets/images/map.png";
+export const locationImage = location;
+import email from "/assets/images/gmail.png";
+export const emailIcon = email;
+
 import re from "/assets/images/re.jpg";
 import resIcon from "/assets/images/res.jpg";
 export const resIconImage = resIcon;

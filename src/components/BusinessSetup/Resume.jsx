@@ -256,7 +256,7 @@ const Resume = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={reImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

@@ -265,7 +265,7 @@ const CyberRisk = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={cyImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

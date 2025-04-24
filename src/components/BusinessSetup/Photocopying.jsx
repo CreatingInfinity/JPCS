@@ -246,7 +246,7 @@ const Photocopying = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={photoImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

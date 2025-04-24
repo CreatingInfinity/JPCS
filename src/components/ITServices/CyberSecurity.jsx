@@ -262,7 +262,7 @@ const CyberSecurity = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={cybImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

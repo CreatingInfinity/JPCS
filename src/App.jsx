@@ -33,8 +33,6 @@ import EmploymentServices from './components/EmploymentServices';
 import ITServices from './components/ITServices';
 import MarketingStrategies from './components/MarketingStrategies';
 
-import MarketingConsultancy from './components/MarketingStrategies/MarketingConsultancy';
-import ProcurementConsulting from './components/MarketingStrategies/ProcurementConsulting';
 import Advice from './components/MarketingStrategies/Advice';
 import CargoFreight from './components/MarketingStrategies/CargoFreight';
 import Desing from './components/MarketingStrategies/Desing';
@@ -50,6 +48,8 @@ import ProjectManagement from './components/MarketingStrategies/ProjectManagemen
 import PublicRelationManagement from './components/MarketingStrategies/PublicRelationManagement';
 import QualityConsultancy from './components/MarketingStrategies/QualityConsultancy';
 import Strategy from './components/MarketingStrategies/Strategy';
+import Footer from './components/Footer';
+import ContactUsFooter from './components/ContactUsFooter';
 
 
 function App() {
@@ -81,10 +81,10 @@ function App() {
         <Route path='/Business/Resume' element={<Resume />}/>
         <Route path='/Business/SecretarialSupport' element={<SecretarialSupport />}/>
         <Route path='/Business/Transcription' element={<Transcription />}/>
-        <Route path='/Business/Typography' element={<Typography />}/>
+        <Route path='/Business/Typography' element={<Typography />} />
 
         {/* Employment */}
-        <Route path='/EmploymentServices/CastingAgency' element={<CastingAgency />}/>
+        <Route path='/EmploymentServices/CastingAgency' element={<CastingAgency />} />
         <Route path='/EmploymentServices/Personel' element={<Personel />}/>
         <Route path='/EmploymentServices/OnLine' element={<OnLine />}/>
 
@@ -96,6 +96,8 @@ function App() {
         <Route path='/ITServices/SecuritySystem' element={<SecuritySystem />}/>
         <Route path='/ITServices/SettingUp' element={<SettingUp />}/>
         <Route path='/ITServices/SoftwareInstall' element={<SoftwareInstall />}/>
+
+        {/* Marketing Strategies */}
         <Route path='/MarketingStrategies/Advice' element={<Advice />}/>
         <Route path='/MarketingStrategies/CargoFreight' element={<CargoFreight />}/>
         <Route path='/MarketingStrategies/Desing' element={<Desing />}/>
@@ -112,6 +114,12 @@ function App() {
         <Route path='/MarketingStrategies/QualityConsultancy' element={<QualityConsultancy />}/>
         <Route path='/MarketingStrategies/Strategy' element={<Strategy />}/>
       </Routes>
+
+      <ContactUsFooter />
+
+      <footer>
+        <Footer />
+      </footer>
     </Router>
   );
 };

@@ -254,7 +254,7 @@ const Al = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={alImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

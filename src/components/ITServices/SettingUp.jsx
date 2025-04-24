@@ -254,7 +254,7 @@ const SettingUp = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={seImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

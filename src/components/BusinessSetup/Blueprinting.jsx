@@ -233,7 +233,7 @@ const Blueprinting = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={blueprintingImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
