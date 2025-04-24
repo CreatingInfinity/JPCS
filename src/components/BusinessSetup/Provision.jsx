@@ -254,7 +254,7 @@ const Provision = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={proImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

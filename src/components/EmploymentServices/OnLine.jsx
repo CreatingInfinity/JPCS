@@ -250,7 +250,7 @@ const OnLine = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={onImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

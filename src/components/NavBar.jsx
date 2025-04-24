@@ -9,6 +9,8 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef();
+  const dropRef = useRef();
+
 
   const handleClick = (menu) => {
     if (menu === "services") {
@@ -27,7 +29,7 @@ const NavBar = () => {
   useEffect(() => {
     if (isClicked) {
       gsap.fromTo(
-        "#drop",
+        dropRef.current,
         { opacity: 0, top: isScrolled ? "60px" : "90px" },
         {
           opacity: 1,
@@ -52,7 +54,7 @@ const NavBar = () => {
             duration: 0.4,
             ease: "power3.out",
           }).to(
-            "#drop",
+            dropRef.current,
             {
               top: "70px",
               duration: 0.4,
@@ -66,7 +68,7 @@ const NavBar = () => {
             duration: 0.4,
             ease: "power3.out",
           }).to(
-            "#drop",
+            dropRef.current,
             {
               delay: 0.5,
               top: "100px",
@@ -145,7 +147,7 @@ const NavBar = () => {
 
       {/* Dropdown */}
       {isClicked && (
-        <div id="drop" className="fixed w-full z-50">
+        <div ref={dropRef} className="fixed w-full z-50">
           <DropDown />
         </div>
       )}

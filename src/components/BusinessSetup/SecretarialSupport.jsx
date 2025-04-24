@@ -256,7 +256,7 @@ const SecretarialSupport = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={secImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

@@ -258,7 +258,7 @@ const SoftwareInstall = () => {
             </section>
           </div>
         </div>
-        <ContactUsFooter />
+               
       </div>
       <img src={soImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
