@@ -57,12 +57,10 @@ const ITServices = () => {
     <div className="p-6 min-h-screen">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold font-josefin">
-          IT Support & Troubleshooting
+          EMPLOYMENT SERVICES
         </h1>
         <p className="text-lg text-gray-700 font-medium">
-          We’re your behind-the-scenes tech superheroes — swiftly resolving
-          issues, upgrading systems, and empowering your team with training.
-          Experience a 30% drop in tech issues and a smoother workspace.
+          Our Employment Services help both job seekers and employers find the perfect match through personalized support, professional guidance, and efficient placement solutions.
         </p>
       </section>
 
