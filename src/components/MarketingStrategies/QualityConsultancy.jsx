@@ -120,14 +120,14 @@ const QualityConsultancy = () => {
         <div className="relative">
             <div className="relative z-8">
                 <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-                    <h1 className="text-6xl bold opacity-1 text-amber-400 tracking-wide">
+                    <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
                         QUALITY CONSULTANCY
                     </h1>
                     <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
                         JP Consulting & Services
                     </h2>
                 </div>
-                <div className="h-full bg-linear-to-b from-orange-100 to-white">
+                <div className="h-full bgSVG">
                     <div className=" pt-40 text-black flex justify-center items-center gap-10">
                         <img
                             id="qusIcon"

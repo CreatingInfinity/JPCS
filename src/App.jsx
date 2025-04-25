@@ -2,10 +2,10 @@ import { useState, useRef } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
-import About from './components/About'
-import Services from './components/Services'
+import About from './components/About';
+import Services from './components/Services';
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Blueprinting from './components/BusinessSetup/Blueprinting';
 import DocumentEditing from './components/BusinessSetup/DocumentEditing';
 import DocumentSetup from './components/BusinessSetup/DocumentSetup';
@@ -51,18 +51,19 @@ import Strategy from './components/MarketingStrategies/Strategy';
 import Footer from './components/Footer';
 import ContactUsFooter from './components/ContactUsFooter';
 
-
-function App() {
+function AppContent() {
+  const location = useLocation();
   const menuRef = useRef(null);
 
   return (
-    <Router>
+    <>
       <nav className='poppins-medium'>
         <NavBar />
       </nav>
+
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path='/Contact' element={<Contact />}/>
+        <Route path='/Contact' element={<Contact />} />
         <Route path='/About' element={<About />} />
         <Route path='/Services' element={<Services />} />
 
@@ -72,56 +73,64 @@ function App() {
         <Route path='/MarketingStrategies' element={<MarketingStrategies />} />
 
         {/* Business */}
-        <Route path='/Business/Blueprinting' element={<Blueprinting />}/>
-        <Route path='/Business/DocumentEditing' element={<DocumentEditing />}/>
-        <Route path='/Business/DocumentSetup' element={<DocumentSetup />}/>
-        <Route path='/Business/Duplicating' element={<Duplicating />}/>
-        <Route path='/Business/Photocopying' element={<Photocopying />}/>
-        <Route path='/Business/Provision' element={<Provision />}/>
-        <Route path='/Business/Resume' element={<Resume />}/>
-        <Route path='/Business/SecretarialSupport' element={<SecretarialSupport />}/>
-        <Route path='/Business/Transcription' element={<Transcription />}/>
+        <Route path='/Business/Blueprinting' element={<Blueprinting />} />
+        <Route path='/Business/DocumentEditing' element={<DocumentEditing />} />
+        <Route path='/Business/DocumentSetup' element={<DocumentSetup />} />
+        <Route path='/Business/Duplicating' element={<Duplicating />} />
+        <Route path='/Business/Photocopying' element={<Photocopying />} />
+        <Route path='/Business/Provision' element={<Provision />} />
+        <Route path='/Business/Resume' element={<Resume />} />
+        <Route path='/Business/SecretarialSupport' element={<SecretarialSupport />} />
+        <Route path='/Business/Transcription' element={<Transcription />} />
         <Route path='/Business/Typography' element={<Typography />} />
 
         {/* Employment */}
         <Route path='/EmploymentServices/CastingAgency' element={<CastingAgency />} />
-        <Route path='/EmploymentServices/Personel' element={<Personel />}/>
-        <Route path='/EmploymentServices/OnLine' element={<OnLine />}/>
+        <Route path='/EmploymentServices/Personel' element={<Personel />} />
+        <Route path='/EmploymentServices/OnLine' element={<OnLine />} />
 
-        {/* IT Services4 */}
-        <Route path='/ITServices/Al' element={<Al />}/>
-        <Route path='/ITServices/CyberRisk' element={<CyberRisk />}/>
-        <Route path='/ITServices/CyberSecurity' element={<CyberSecurity />}/>
-        <Route path='/ITServices/ITSecurity' element={<ITSecurity />}/>
-        <Route path='/ITServices/SecuritySystem' element={<SecuritySystem />}/>
-        <Route path='/ITServices/SettingUp' element={<SettingUp />}/>
-        <Route path='/ITServices/SoftwareInstall' element={<SoftwareInstall />}/>
+        {/* IT Services */}
+        <Route path='/ITServices/Al' element={<Al />} />
+        <Route path='/ITServices/CyberRisk' element={<CyberRisk />} />
+        <Route path='/ITServices/CyberSecurity' element={<CyberSecurity />} />
+        <Route path='/ITServices/ITSecurity' element={<ITSecurity />} />
+        <Route path='/ITServices/SecuritySystem' element={<SecuritySystem />} />
+        <Route path='/ITServices/SettingUp' element={<SettingUp />} />
+        <Route path='/ITServices/SoftwareInstall' element={<SoftwareInstall />} />
 
         {/* Marketing Strategies */}
-        <Route path='/MarketingStrategies/Advice' element={<Advice />}/>
-        <Route path='/MarketingStrategies/CargoFreight' element={<CargoFreight />}/>
-        <Route path='/MarketingStrategies/Desing' element={<Desing />}/>
-        <Route path='/MarketingStrategies/DigitalContent' element={<DigitalContent />}/>
-        <Route path='/MarketingStrategies/HealthManagement' element={<HealthManagement />}/>
-        <Route path='/MarketingStrategies/HospitalityConsultancy' element={<HospitalityConsultancy />}/>
-        <Route path='/MarketingStrategies/ImmigrationConsultancy' element={<ImmigrationConsultancy />}/>
-        <Route path='/MarketingStrategies/Lobbying' element={<Lobbying />}/>
-        <Route path='/MarketingStrategies/Logistic' element={<Logistic />}/>
-        <Route path='/MarketingStrategies/MarketingConsultancy' element={<MarketingConsultancy />}/>
-        <Route path='/MarketingStrategies/ProcurementConsulting' element={<ProcurementConsulting />}/>
-        <Route path='/MarketingStrategies/ProjectManagement' element={<ProjectManagement />}/>
-        <Route path='/MarketingStrategies/PublicRelationManagement' element={<PublicRelationManagement />}/>
-        <Route path='/MarketingStrategies/QualityConsultancy' element={<QualityConsultancy />}/>
-        <Route path='/MarketingStrategies/Strategy' element={<Strategy />}/>
+        <Route path='/MarketingStrategies/Advice' element={<Advice />} />
+        <Route path='/MarketingStrategies/CargoFreight' element={<CargoFreight />} />
+        <Route path='/MarketingStrategies/Desing' element={<Desing />} />
+        <Route path='/MarketingStrategies/DigitalContent' element={<DigitalContent />} />
+        <Route path='/MarketingStrategies/HealthManagement' element={<HealthManagement />} />
+        <Route path='/MarketingStrategies/HospitalityConsultancy' element={<HospitalityConsultancy />} />
+        <Route path='/MarketingStrategies/ImmigrationConsultancy' element={<ImmigrationConsultancy />} />
+        <Route path='/MarketingStrategies/Lobbying' element={<Lobbying />} />
+        <Route path='/MarketingStrategies/Logistic' element={<Logistic />} />
+        <Route path='/MarketingStrategies/MarketingConsultancy' element={<MarketingConsultancy />} />
+        <Route path='/MarketingStrategies/ProcurementConsulting' element={<ProcurementConsulting />} />
+        <Route path='/MarketingStrategies/ProjectManagement' element={<ProjectManagement />} />
+        <Route path='/MarketingStrategies/PublicRelationManagement' element={<PublicRelationManagement />} />
+        <Route path='/MarketingStrategies/QualityConsultancy' element={<QualityConsultancy />} />
+        <Route path='/MarketingStrategies/Strategy' element={<Strategy />} />
       </Routes>
 
-      <ContactUsFooter />
+      {location.pathname !== '/Contact' && <ContactUsFooter />}
 
       <footer>
         <Footer />
       </footer>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
-};
+}
 
 export default App;
