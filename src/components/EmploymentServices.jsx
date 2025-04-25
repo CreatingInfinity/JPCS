@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  castImage,
-  onImage,
-  perImage,
-} from "../utils";
+import { castImage, onImage, perImage } from "../utils";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -27,9 +23,8 @@ const services = [
       "Find the right people, right now. Our global network and expert recruiters zero in on high-potential candidates to fill your roles with confidence and speed.",
     image: perImage,
     link: "Personel",
-  }
+  },
 ];
-
 
 const ServiceCard = ({ title, description, image, link }) => (
   <div className="bg-transparent backdrop-blur-xs shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
@@ -54,15 +49,17 @@ const ServiceCard = ({ title, description, image, link }) => (
 
 const ITServices = () => {
   return (
-    <div className="p-6 min-h-screen">
+    <div className="p-6 min-h-screen text-gray-800">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold font-josefin">
-          IT Support & Troubleshooting
+          <span className="text-orange-600">Employment</span> & Recruitment Services
         </h1>
         <p className="text-lg text-gray-700 font-medium">
-          We’re your behind-the-scenes tech superheroes — swiftly resolving
-          issues, upgrading systems, and empowering your team with training.
-          Experience a 30% drop in tech issues and a smoother workspace.
+          We connect ambition with opportunity. Whether you're a company seeking
+          top-tier talent or a professional chasing your next big role, our
+          recruitment solutions are designed to deliver fast, reliable, and
+          impactful results matching the right people with the right roles,
+          every time.
         </p>
       </section>
 

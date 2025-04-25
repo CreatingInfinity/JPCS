@@ -3,8 +3,8 @@ import { callIcon, emailIcon, locationImage, logo, qr } from "../utils";
 
 const Footer = () => {
   return (
-    <div className="relative z-20 bg-white">
-      <div className="flex p-10 bg-white">
+    <div className="relative z-20 bg-white text-gray-800">
+      <div className="flex p-10">
         <div className="flex-2 space-y-10">
           <div className="flex gap-2 items-center">
             <img className="h-12 py-1" src={logo} alt="logo" />

@@ -5,7 +5,7 @@ const ContactUsFooter = () => {
   return (
     <div className="min-h-screen relative z-20 px-6 py-20 bg-gray-200 ">
       {/* Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 select-none">
         <h2 className="text-4xl font-bold text-gray-800">
           <span className="text-amber-600">JP</span> Consulting & Services
         </h2>

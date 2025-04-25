@@ -15,14 +15,14 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="text-gray-800">
       {/* Hero Section */}
       <section className="h-screen flex flex-col items-center justify-center josefin text-center px-6 fade-up">
         <h1 className="text-5xl font-bold mb-4">Our Services</h1>
         <p className="text-2xl font-semibold text-gray-700 mb-2">
-          JP Consulting & Services
+          <span className="text-orange-600">JP</span> Consulting & Services
         </p>
-        <p className="text-lg text-gray-600 max-w-xl">
+        <p className="text-lg text-gray-600 font-medium max-w-xl">
           We offer a wide range of services tailored to help you succeed.
         </p>
       </section>
@@ -65,7 +65,7 @@ const Services = () => {
               to={link}
               className="bg-white h-60 w-72 rounded-xl shadow-xl p-6 hover:scale-105 transition-transform duration-300 border border-gray-200 flex flex-col justify-center items-center"
             >
-              <h3 className="text-2xl font-bold text-amber-600">{title}</h3>
+              <h3 className="text-2xl font-bold text-orange-600">{title}</h3>
               <p className="text-gray-600 mt-2 text-md">{title}</p>
             </Link>
           ))}

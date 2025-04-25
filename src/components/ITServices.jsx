@@ -85,10 +85,10 @@ const ServiceCard = ({ title, description, image, link }) => (
 
 const ITServices = () => {
   return (
-    <div className="p-6 min-h-screen">
+    <div className="p-6 min-h-screen text-gray-800">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold font-josefin">
-          IT Support & Troubleshooting
+          <span className="text-orange-600">IT</span> Support & Troubleshooting
         </h1>
         <p className="text-lg text-gray-700 font-medium">
           We’re your behind-the-scenes tech superheroes — swiftly resolving
