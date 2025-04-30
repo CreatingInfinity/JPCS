@@ -103,7 +103,6 @@ const Hero = () => {
             1280: { slidesPerView: 4 },
           }}
           navigation
-          loop={true}
           pagination={{ clickable: true }}
           className="mt-10 max-w-7xl mx-auto px-2"
         >

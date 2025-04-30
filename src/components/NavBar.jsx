@@ -3,6 +3,7 @@ import { downArrow, logo, menuIcon, searchIcon } from "../utils";
 import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 import gsap from "gsap";
+import SearchBar from "./SearchBar";
 
 const NavBar = () => {
   const [isClicked, setIsClicked] = useState(null);
@@ -10,6 +11,45 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef();
   const dropRef = useRef();
+
+  const searchData = [
+    { title: "CASTING AGENCY", link: "CastingAgency" },
+    { title: "ONLINE EMPLOYMENT PLACEMENT AGENCIES", link: "OnLine" },
+    { title: "PERSONNEL SEARCH", link: "Personel" },
+    { title: "BLUEPRINTING", link: "Blueprinting" },
+    { title: "DOCUMENT EDITING", link: "DocumentEditing" },
+    { title: "DOCUMENT SETUP", link: "DocumentSetup" },
+    { title: "DUPLICATING", link: "Duplicating" },
+    { title: "PHOTOCOPYING", link: "Photocopying" },
+    { title: "PROVISION", link: "Provision" },
+    { title: "RESUME", link: "Resume" },
+    { title: "SECRETARIAL SUPPORT", link: "SecretarialSupport" },
+    { title: "TRANSCRIPTION", link: "Transcription" },
+    { title: "TYPOGRAPHY", link: "Typography" },
+    { title: "AI", link: "Al" },
+    { title: "CYBER RISK", link: "CyberRisk" },
+    { title: "CYBER SECURITY", link: "CyberSecurity" },
+    { title: "IT SECURITY", link: "ITSecurity" },
+    { title: "SECURITY SYSTEM", link: "SecuritySystem" },
+    { title: "SETTING UP", link: "SettingUp" },
+    { title: "SOFTWARE INSTALLATION", link: "SoftwareInstall" },
+    { title: "ADVICE", link: "Advice" },
+    { title: "CARGO FREIGHT", link: "CargoFreight" },
+    { title: "DESIGN OF ACCOUNTING METHODS", link: "Desing" },
+    { title: "DIGITAL CONTENT", link: "DigitalContent" },
+    { title: "HEALTH MANAGEMENT", link: "HealthManagement" },
+    { title: "HOSPITALITY MANAGEMENT", link: "HospitalityConsultancy" },
+    { title: "IMMIGRATION CONSULTANCY", link: "ImmigrationConsultancy" },
+    { title: "LOBBYING ACTIVITIES", link: "Lobbying" },
+    { title: "LOGISTIC CONSULTANCY", link: "Logistic" },
+    { title: "MARKETING CONSULTANCY", link: "MarketingConsultancy" },
+    { title: "PROCUREMENT CONSULTANCY", link: "ProcurementConsulting" },
+    { title: "PROJECT MANAGEMENT", link: "ProjectManagement" },
+    { title: "PUBLIC RELATION SERVICES", link: "PublicRelationManagement" },
+    { title: "QUALITY CONSULTANCY", link: "QualityConsultancy" },
+    { title: "STRATEGY ADVISORY SERVICES", link: "Strategy" }
+  ];
+  
 
   const handleClick = (menu) => {
     if (menu === "products") {
@@ -145,14 +185,7 @@ const NavBar = () => {
         </ul>
 
         {/* Search - Desktop */}
-        <div className="relative hidden sm:flex items-center flex-none">
-          <img className="h-6 translate-x-7" src={searchIcon} alt="search" />
-          <input
-            className="border-gray-500 py-2 font-bold text-black border w-full rounded-full josefin px-7"
-            type="text"
-            placeholder="Search"
-          />
-        </div>
+        <SearchBar />
 
         {/* Hamburger for small screens */}
         <div
