@@ -11,9 +11,8 @@ const NavBar = () => {
   const navRef = useRef();
   const dropRef = useRef();
 
-
   const handleClick = (menu) => {
-    if (menu === "services") {
+    if (menu === "products") {
       setIsClicked((prev) => {
         const next = !prev;
         gsap.to("#downArrow", {
@@ -84,28 +83,26 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className="relative z-[100]">
       {/* Nav Container */}
       <div
         ref={navRef}
-        className="flex justify-between w-full items-center shadow-md h-[100px] fixed gap-10 transparent px-5 sm:px-10 py-5 z-[100] transition-all duration-300 ease-in-out"
+        className="flex justify-between w-full items-center h-[100px] fixed gap-10 transparent px-5 sm:px-10 py-5 z-[100] transition-all duration-300 ease-in-out"
       >
         {/* Logo */}
         <div className="flex gap-2 items-center cursor-pointer">
           <img className="h-12 py-1" src={logo} alt="logo" />
           <span className="josefin font-bold text-sm sm:text-base md:text-lg whitespace-nowrap">
-            <span className="font-bold text-orange-600">JP</span>{" "}
-            CONSULTING & SERVICES
+            <span className="font-bold text-orange-600">JP</span> CONSULTING &
+            SERVICES
           </span>
-        </div>
-
-        {/* Hamburger for small screens */}
-        <div
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex lg:hidden flex-col gap-1 cursor-pointer"
-        >
-          <img className="h-10" src={menuIcon} alt="" />
         </div>
 
         {/* Nav Links Desktop */}
@@ -114,23 +111,36 @@ const NavBar = () => {
           className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-7 josefin transition-all duration-300 ease-in-out"
         >
           <li>
-            <Link to="/" reloadDocument>Home</Link>
+            <Link to="/" reloadDocument>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/About" reloadDocument>About</Link>
+            <Link to="/About" reloadDocument>
+              About
+            </Link>
           </li>
           <li
             className="flex gap-1 items-center cursor-pointer"
-            onClick={() => handleClick("services")}
+            onClick={() => handleClick("products")}
           >
             Products
-            <img id="downArrow" className="h-3 opacity-60" src={downArrow} alt="arrow" />
+            <img
+              id="downArrow"
+              className="h-3 opacity-60"
+              src={downArrow}
+              alt="arrow"
+            />
           </li>
           <li>
-            <Link to="/Services" reloadDocument>Services</Link>
+            <Link to="/Services" reloadDocument>
+              Services
+            </Link>
           </li>
           <li>
-            <Link to="/Contact" reloadDocument>Contact Us</Link>
+            <Link to="/Contact" reloadDocument>
+              Contact Us
+            </Link>
           </li>
         </ul>
 
@@ -143,6 +153,36 @@ const NavBar = () => {
             placeholder="Search"
           />
         </div>
+
+        {/* Hamburger for small screens */}
+        <div
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex lg:hidden flex-col gap-1 cursor-pointer"
+        >
+          <div className="relative">
+            {/* Hamburger Icon */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden relative w-8 h-8 flex flex-col justify-between items-center p-2 group"
+            >
+              <span
+                className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ease-in-out
+            ${menuOpen ? "rotate-45 translate-y-2" : ""}
+          `}
+              ></span>
+              <span
+                className={`block h-0.5 w-full bg-gray-800 transition-all duration-300 ease-in-out
+            ${menuOpen ? "opacity-0" : ""}
+          `}
+              ></span>
+              <span
+                className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ease-in-out
+            ${menuOpen ? "-rotate-45 -translate-y-2" : ""}
+          `}
+              ></span>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Dropdown */}
@@ -152,28 +192,28 @@ const NavBar = () => {
         </div>
       )}
 
-      {/* Mobile Nav Links */}
       {mobileMenuOpen && (
         <div className="fixed top-[100px] z-40 w-full bg-white lg:hidden p-5 shadow-md">
           <ul className="flex flex-col gap-5 text-center josefin font-semibold">
             <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/" reloadDocument>Home</Link>
+              <Link to="/" reloadDocument>
+                Home
+              </Link>
             </li>
             <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/About" reloadDocument>About</Link>
-            </li>
-            <li
-              className="flex justify-center gap-1 items-center"
-              onClick={() => handleClick("services")}
-            >
-              Products
-              <img id="downArrow" className="h-3 opacity-60" src={downArrow} alt="arrow" />
+              <Link to="/About" reloadDocument>
+                About
+              </Link>
             </li>
             <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/Services" reloadDocument>Services</Link>
+              <Link to="/Services" reloadDocument>
+                Services
+              </Link>
             </li>
             <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/Contact" reloadDocument>Contact Us</Link>
+              <Link to="/Contact" reloadDocument>
+                Contact Us
+              </Link>
             </li>
           </ul>
         </div>
