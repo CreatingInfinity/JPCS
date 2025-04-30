@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import ThankYou from './components/ThankYou';
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Blueprinting from './components/BusinessSetup/Blueprinting';
@@ -55,17 +56,23 @@ function AppContent() {
   const location = useLocation();
   const menuRef = useRef(null);
 
+  const isStandalonePage = location.pathname === "/redirectHomePage";
+
   return (
     <>
-      <nav className='poppins-medium'>
-        <NavBar />
-      </nav>
+      {!isStandalonePage && (
+        <nav className='poppins-medium'>
+          <NavBar />
+        </nav>
+      )}
 
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/About' element={<About />} />
         <Route path='/Services' element={<Services />} />
+
+        <Route path="/redirectHomePage" element={<ThankYou />} />
 
         <Route path='/Business' element={<BusinessSetup />} />
         <Route path='/ITServices' element={<ITServices />} />
@@ -116,11 +123,12 @@ function AppContent() {
         <Route path='/MarketingStrategies/Strategy' element={<Strategy />} />
       </Routes>
 
-      {location.pathname !== '/Contact' && <ContactUsFooter />}
-
-      <footer>
-        <Footer />
-      </footer>
+      {!isStandalonePage && <ContactUsFooter />}
+      {!isStandalonePage && (
+        <footer>
+          <Footer />
+        </footer>
+      )}
     </>
   );
 }

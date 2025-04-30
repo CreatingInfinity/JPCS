@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="">
       {/* Section 1: Company Overview */}
-      <section className="min-h-screen pt-40 px-6 space-y-10 josefin flex flex-col items-center text-center animate-fade-in">
+      <section className="min-h-screen pt-60 px-6 space-y-10 josefin flex flex-col items-center text-center animate-fade-in">
         <h1 className="text-4xl font-bold text-gray-800">
           About{" "}
           <span className="text-orange-600">JP Consulting & Services</span>
