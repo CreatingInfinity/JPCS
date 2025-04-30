@@ -149,10 +149,10 @@ const ServiceCard = ({ title, description, image, link }) => (
 
 const MarketingStrategies = () => {
   return (
-    <div className="p-6 min-h-screen">
+    <div className="p-6 min-h-screen text-gray-800">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold font-josefin">
-          Marketing Strategies & Management
+          <span className="text-orange-600">Marketing</span> Strategies & Management
         </h1>
         <p className="text-lg text-gray-700 font-medium">
         We create customized plans that align with your business goals, leveraging digital marketing, content creation, SEO, and more to attract and engage your target audience effectively.
