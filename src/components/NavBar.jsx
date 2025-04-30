@@ -139,7 +139,7 @@ const NavBar = () => {
         {/* Logo */}
         <div className="flex gap-2 items-center cursor-pointer">
           <img className="h-12 py-1" src={logo} alt="logo" />
-          <span className="josefin font-bold text-sm sm:text-base md:text-lg whitespace-nowrap">
+          <span className="josefin font-bold text-sm sm:text-base text-gray-800 md:text-lg whitespace-nowrap">
             <span className="font-bold text-orange-600">JP</span> CONSULTING &
             SERVICES
           </span>
