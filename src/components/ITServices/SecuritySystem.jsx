@@ -22,6 +22,7 @@ const SecuritySystem = () => {
         { x: 0, duration: 1, delay: 1, opacity: 1 },
         1
       );
+
     gsap.fromTo(
       "#sysIcon",
       {
@@ -31,7 +32,6 @@ const SecuritySystem = () => {
       {
         scrollTrigger: {
           trigger: "#sysIcon",
-
           start: "top center",
           end: "20% 30%",
           scrub: 1,
@@ -51,7 +51,6 @@ const SecuritySystem = () => {
       {
         scrollTrigger: {
           trigger: "#section1",
-
           start: "-80% center",
           end: "center 30%",
         },
@@ -60,6 +59,7 @@ const SecuritySystem = () => {
         y: 0,
       }
     );
+
     gsap.fromTo(
       "#section2",
       {
@@ -69,7 +69,6 @@ const SecuritySystem = () => {
       {
         scrollTrigger: {
           trigger: "#section2",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -78,6 +77,7 @@ const SecuritySystem = () => {
         y: 150,
       }
     );
+
     gsap.fromTo(
       "#section3",
       {
@@ -87,7 +87,6 @@ const SecuritySystem = () => {
       {
         scrollTrigger: {
           trigger: "#section3",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -96,6 +95,7 @@ const SecuritySystem = () => {
         y: 0,
       }
     );
+
     gsap.fromTo(
       "#section4",
       {
@@ -105,7 +105,6 @@ const SecuritySystem = () => {
       {
         scrollTrigger: {
           trigger: "#section4",
-
           start: "-20% center",
           end: "center 30%",
         },
@@ -115,26 +114,27 @@ const SecuritySystem = () => {
       }
     );
   });
+
   return (
     <div className="relative">
       <div className="relative z-8">
         <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+          <h1 className="text-4xl sm:text-6xl font-bold opacity-1 text-orange-500 tracking-wide">
             SECURITY SYSTEM
           </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-xl sm:text-2xl font-medium mt-1 josefin text-white mb-12">
             JP Consulting & Services
           </h2>
         </div>
         <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+          <div className="pt-40 text-black flex flex-col sm:flex-row justify-center items-center gap-10 px-5 sm:px-0">
             <img
               id="sysIcon"
               src={sysIconImage}
-              className="h-80 rounded-lg"
+              className="h-64 sm:h-80 rounded-lg"
               alt=""
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base sm:text-lg josefin font-semibold text-center sm:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
               Security Systems are essential in today’s fast-moving business
               world. At JP Consulting & Services, we provide intelligent,
               integrated solutions to protect your business from physical and
@@ -147,13 +147,13 @@ const SecuritySystem = () => {
               protection, operational safety, and complete peace of mind.
             </p>
           </div>
-          <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
+          <div className="h-full space-y-16 sm:space-y-50 py-20 sm:py-40">
+            <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
               <div
                 id="section1"
-                className="w-120 h-full josefin space-y-5 justify-center"
+                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-2xl sm:text-3xl text-center">
                   PROTECTING WHAT MATTERS MOST
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -170,9 +170,9 @@ const SecuritySystem = () => {
               </div>
               <div
                 id="section2"
-                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center translate-y-50"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-2xl sm:text-3xl text-center">
                   YOUR SAFETY, OUR PRIORITY
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -187,12 +187,12 @@ const SecuritySystem = () => {
                 </p>
               </div>
             </section>
-            <section className="w-full flex gap-10 justify-center items-center">
+            <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
               <div
                 id="section3"
-                className="w-120 h-100 josefin space-y-5 justify-center"
+                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-2xl sm:text-3xl text-center">
                   UNDERSTANDING YOUR RISKS
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -218,9 +218,9 @@ const SecuritySystem = () => {
               </div>
               <div
                 id="section4"
-                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center translate-y-50"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-2xl sm:text-3xl text-center">
                   HOW WE HELP YOU STAY SECURED
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -241,13 +241,9 @@ const SecuritySystem = () => {
                   <span className="font-bold">YOUR BENEFITS:</span>
                   <ul className="list-disc list-inside text-left">
                     <li>Enhanced protection for physical and digital assets</li>
-                    <li>
-                      Deterrence of theft, intrusion, and unauthorized access
-                    </li>
+                    <li>Deterrence of theft, intrusion, and unauthorized access</li>
                     <li>24/7 monitoring for quick incident response</li>
-                    <li>
-                      Safer working environments for employees and customers
-                    </li>
+                    <li>Safer working environments for employees and customers</li>
                     <li>Increased operational control and peace of mind</li>
                   </ul>
                 </div>
@@ -255,7 +251,6 @@ const SecuritySystem = () => {
             </section>
           </div>
         </div>
-               
       </div>
       <img src={syImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>

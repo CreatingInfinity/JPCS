@@ -31,7 +31,6 @@ const SettingUp = () => {
       {
         scrollTrigger: {
           trigger: "#sesIcon",
-
           start: "top center",
           end: "20% 30%",
           scrub: 1,
@@ -51,7 +50,6 @@ const SettingUp = () => {
       {
         scrollTrigger: {
           trigger: "#section1",
-
           start: "-80% center",
           end: "center 30%",
         },
@@ -69,7 +67,6 @@ const SettingUp = () => {
       {
         scrollTrigger: {
           trigger: "#section2",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -87,7 +84,6 @@ const SettingUp = () => {
       {
         scrollTrigger: {
           trigger: "#section3",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -105,7 +101,6 @@ const SettingUp = () => {
       {
         scrollTrigger: {
           trigger: "#section4",
-
           start: "-20% center",
           end: "center 30%",
         },
@@ -115,26 +110,27 @@ const SettingUp = () => {
       }
     );
   });
+
   return (
     <div className="relative">
       <div className="relative z-8">
         <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+          <h1 className="text-4xl sm:text-6xl font-bold opacity-1 text-orange-500 tracking-wide">
             SETTING UP
           </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-xl sm:text-2xl font-medium mt-1 josefin text-white mb-12">
             JP Consulting & Services
           </h2>
         </div>
         <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+          <div className="pt-40 text-black flex justify-center items-center gap-10 flex-wrap">
             <img
               id="sesIcon"
               src={sesIconImage}
-              className="h-80 rounded-lg"
+              className="h-64 sm:h-80 rounded-lg"
               alt=""
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base sm:text-lg josefin font-semibold text-center sm:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
               Our Installation of Computer Setup service ensures your business
               technology is installed, configured, and optimized from the start.
               We handle everything from hardware assembly and software
@@ -142,16 +138,16 @@ const SettingUp = () => {
               you're launching a new office, upgrading your infrastructure, or
               starting from scratch, JP Consulting & Services provides a
               seamless, stress-free experience — ensuring your systems are ready
-              to support your operations with speed, security, and reliability.{" "}
+              to support your operations with speed, security, and reliability.
             </p>
           </div>
           <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
+            <section className="w-full flex flex-wrap gap-10 justify-center items-center">
               <div
                 id="section1"
-                className="w-120 h-full josefin space-y-5 justify-center"
+                className="w-full sm:w-1/2 lg:w-1/3 h-full josefin space-y-5 justify-center"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-xl sm:text-2xl text-center">
                   SMART TECH, SMARTER START
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -168,9 +164,9 @@ const SettingUp = () => {
               </div>
               <div
                 id="section2"
-                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+                className="w-full sm:w-1/2 lg:w-1/3 h-full josefin space-y-5 justify-center translate-y-50"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-xl sm:text-2xl text-center">
                   TAILORED TO YOUR WORKFLOW
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -186,12 +182,12 @@ const SettingUp = () => {
                 </p>
               </div>
             </section>
-            <section className="w-full flex gap-10 justify-center items-center">
+            <section className="w-full flex flex-wrap gap-10 justify-center items-center">
               <div
                 id="section3"
-                className="w-120 h-100 josefin space-y-5 justify-center"
+                className="w-full sm:w-1/2 lg:w-1/3 h-full josefin space-y-5 justify-center"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-xl sm:text-2xl text-center">
                   WE HANDLE THE TECH, YOU GET THE RESULTS
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -217,9 +213,9 @@ const SettingUp = () => {
               </div>
               <div
                 id="section4"
-                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+                className="w-full sm:w-1/2 lg:w-1/3 h-full josefin space-y-5 justify-center translate-y-50"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-xl sm:text-2xl text-center">
                   HOW WE HELP YOUR BUSINESS GROW
                 </p>
                 <p className="text-center flex flex-col gap-2">
@@ -254,7 +250,6 @@ const SettingUp = () => {
             </section>
           </div>
         </div>
-               
       </div>
       <img src={seImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
