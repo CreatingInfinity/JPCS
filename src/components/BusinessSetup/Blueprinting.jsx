@@ -88,7 +88,7 @@ const Blueprinting = () => {
               alt="Blueprint Icon"
             />
             <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
-              Blueprinting is more than documentation—it's the architecture of
+              <span className="orange">Blueprinting</span> is more than documentation—it's the architecture of
               success. It provides clarity, prevents costly missteps, and aligns
               your team with your long-term business vision. With a strategic
               blueprint, you position your company for scalability and sustained
@@ -107,7 +107,7 @@ const Blueprinting = () => {
               id="section1"
               className="text-center max-w-4xl mx-auto space-y-6"
             >
-              <h3 className="text-2xl font-bold">OUR PROMISE TO YOU</h3>
+              <h3 className="text-2xl font-bold"><span className="orange">OUR PROMISE</span> TO YOU</h3>
               <p className="text-base md:text-lg font-josefin">
                 <span className="font-bold block">
                   Transformative Results, Tailored to Your Business
@@ -123,7 +123,7 @@ const Blueprinting = () => {
               id="section2"
               className="text-center max-w-4xl mx-auto space-y-6"
             >
-              <h3 className="text-2xl font-bold">YOUR PATH TO SUCCESS</h3>
+              <h3 className="text-2xl font-bold"><span className="orange">YOUR PATH</span> TO SUCCESS</h3>
               <p className="text-base md:text-lg font-josefin">
                 <span className="font-bold block">Personalized Strategy</span>
                 We develop solutions specifically for your business—tailored to
@@ -136,7 +136,7 @@ const Blueprinting = () => {
               id="section3"
               className="text-center max-w-5xl mx-auto space-y-6"
             >
-              <h3 className="text-2xl font-bold">UNDERSTAND YOUR CHALLENGES</h3>
+              <h3 className="text-2xl font-bold"><span className="orange">UNDERSTAND</span> YOUR CHALLENGES</h3>
               <p className="text-base md:text-lg font-josefin">
                 <span className="font-bold block">Your Needs Are Our Priority</span>
                 Whether it’s streamlining workflows, tech integration, or
@@ -159,7 +159,7 @@ const Blueprinting = () => {
               id="section4"
               className="text-center max-w-5xl mx-auto space-y-6"
             >
-              <h3 className="text-2xl font-bold">HOW WE HELP YOUR BUSINESS GROW</h3>
+              <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOUR BUSINESS GROW</h3>
               <p className="text-base md:text-lg font-josefin">
                 <span className="font-bold block">Custom Consulting Services</span>
                 From developing winning strategies to integrating modern tech
@@ -181,7 +181,7 @@ const Blueprinting = () => {
           {/* Call to Action */}
           <div className="text-center pt-20">
             <p className="text-lg font-semibold">
-              Ready to map your journey to success?
+              <span className="text-orange-600">Ready</span> to map your journey to success?
             </p>
           </div>
         </div>
