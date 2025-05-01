@@ -59,7 +59,7 @@ const Blueprinting = () => {
   }, []);
 
   return (
-    <div className="relative bg-white text-black overflow-x-hidden">
+    <div className="relative text-black overflow-x-hidden">
       {/* Background Image */}
       <img
         src={blueprintingImage}
@@ -78,7 +78,7 @@ const Blueprinting = () => {
           </h2>
         </div>
 
-        <div className="bg-white text-black px-4 md:px-16 py-16 space-y-24">
+        <div className="bgSVG text-black px-4 md:px-16 py-16 space-y-24">
           {/* Icon and Intro */}
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
