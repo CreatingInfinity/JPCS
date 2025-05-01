@@ -16,6 +16,7 @@ import {
   downArrow,
   heroVideo2,
 } from "../utils";
+import WhyChooseUs from "./WhyChooseUs";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,21 +129,26 @@ const Hero = () => {
         </Swiper>
       </div>
 
+      <WhyChooseUs />
+
+
       {/* Why Choose Us Section */}
       <div className="h-screen bg-gray-100 flex flex-col justify-center items-center px-4 text-center">
         <h2 className="text-3xl sm:text-5xl font-bold text-gray-800">
-          Why Choose Us?
+          What Makes Us Different?
         </h2>
         <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-lg sm:max-w-2xl">
           We are committed to delivering exceptional service and innovative solutions tailored to your unique needs.
         </p>
         <Link
           to="/About"
+          reloadDocument
           className="mt-8 bg-orange-500 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold transition-all hover:bg-orange-600"
         >
           Learn More
         </Link>
       </div>
+
 
       {/* Scroll Indicator */}
       <div

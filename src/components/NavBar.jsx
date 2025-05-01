@@ -204,7 +204,7 @@ const NavBar = () => {
             {/* Hamburger Icon */}
             <button 
               onClick={toggleMenu}
-              className="md:hidden relative w-8 h-8 flex flex-col justify-between items-center p-2 group"
+              className="xl:hidden relative w-8 h-8 flex flex-col justify-between items-center p-2 group"
             >
               <span
                 className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ease-in-out
@@ -232,19 +232,22 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white z-40">
+        <div ref={dropRef} className="fixed top-16 md:top-20 left-0 right-0 bg-white z-40">
           <ul className="flex flex-col gap-6 px-10 py-5 text-gray-800">
-            <li>
-              <Link to="/">Home</Link>
+            <li className="flex md:hidden">
+              <SearchBarMobile />
             </li>
             <li>
-              <Link to="/About">About</Link>
+              <Link to="/" reloadDocument>Home</Link>
             </li>
             <li>
-              <Link to="/Services">Services</Link>
+              <Link to="/About" reloadDocument>About</Link>
             </li>
             <li>
-              <Link to="/Contact">Contact Us</Link>
+              <Link to="/Services" reloadDocument>Services</Link>
+            </li>
+            <li>
+              <Link to="/Contact" reloadDocument>Contact Us</Link>
             </li>
           </ul>
         </div>
