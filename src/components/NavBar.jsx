@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 import gsap from "gsap";
 import SearchBar from "./SearchBar";
+import SearchBarMobile from "./SearchBarMobile";
 
 const NavBar = () => {
   const [isClicked, setIsClicked] = useState(null);
@@ -49,7 +50,6 @@ const NavBar = () => {
     { title: "QUALITY CONSULTANCY", link: "QualityConsultancy" },
     { title: "STRATEGY ADVISORY SERVICES", link: "Strategy" }
   ];
-  
 
   const handleClick = (menu) => {
     if (menu === "products") {
@@ -128,8 +128,8 @@ const NavBar = () => {
   const menuColor = () => {
     gsap.to(navRef.current, {
       backgroundColor: menuOpen ? "transparent" : "white",
-    })
-  }
+    });
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -146,15 +146,14 @@ const NavBar = () => {
         <div className="flex gap-2 items-center cursor-pointer">
           <img className="h-12 py-1" src={logo} alt="logo" />
           <span className="josefin font-bold text-sm sm:text-base text-gray-800 md:text-lg whitespace-nowrap">
-            <span className="font-bold text-orange-600">JP</span> CONSULTING &
-            SERVICES
+            <span className="font-bold text-orange-600">JP</span> CONSULTING & SERVICES
           </span>
         </div>
 
         {/* Nav Links Desktop */}
         <ul
           id="navLi"
-          className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-7 josefin transition-all duration-300 ease-in-out"
+          className="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 gap-7 josefin transition-all duration-300 ease-in-out"
         >
           <li>
             <Link to="/" reloadDocument>
@@ -195,29 +194,29 @@ const NavBar = () => {
 
         {/* Hamburger for small screens */}
         <div
-          onClick={() => {setMobileMenuOpen(!mobileMenuOpen); menuColor()}}
-          className="flex lg:hidden flex-col gap-1 cursor-pointer"
+          onClick={() => {
+            setMobileMenuOpen(!mobileMenuOpen);
+            menuColor();
+          }}
+          className="xl:hidden flex flex-col gap-1 cursor-pointer"
         >
           <div className="relative">
             {/* Hamburger Icon */}
-            <button
+            <button 
               onClick={toggleMenu}
               className="md:hidden relative w-8 h-8 flex flex-col justify-between items-center p-2 group"
             >
               <span
                 className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ease-in-out
-            ${menuOpen ? "rotate-45 translate-y-2" : ""}
-          `}
+            ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
               ></span>
               <span
                 className={`block h-0.5 w-full bg-gray-800 transition-all duration-300 ease-in-out
-            ${menuOpen ? "opacity-0" : ""}
-          `}
+            ${menuOpen ? "opacity-0" : ""}`}
               ></span>
               <span
                 className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ease-in-out
-            ${menuOpen ? "-rotate-45 -translate-y-2" : ""}
-          `}
+            ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
               ></span>
             </button>
           </div>
@@ -231,28 +230,21 @@ const NavBar = () => {
         </div>
       )}
 
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="fixed top-[100px] z-40 w-full bg-white lg:hidden p-5 shadow-md">
-          <ul className="flex flex-col gap-5 text-center josefin font-semibold">
-            <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/" reloadDocument>
-                Home
-              </Link>
+        <div className="absolute top-16 left-0 right-0 bg-white z-40">
+          <ul className="flex flex-col gap-6 px-10 py-5 text-gray-800">
+            <li>
+              <Link to="/">Home</Link>
             </li>
-            <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/About" reloadDocument>
-                About
-              </Link>
+            <li>
+              <Link to="/About">About</Link>
             </li>
-            <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/Services" reloadDocument>
-                Services
-              </Link>
+            <li>
+              <Link to="/Services">Services</Link>
             </li>
-            <li onClick={() => setMobileMenuOpen(false)}>
-              <Link to="/Contact" reloadDocument>
-                Contact Us
-              </Link>
+            <li>
+              <Link to="/Contact">Contact Us</Link>
             </li>
           </ul>
         </div>

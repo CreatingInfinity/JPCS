@@ -330,7 +330,7 @@ const DropDown = () => {
             {business.map((item, index) => (
               <Link
                 key={index}
-                to={`/EmploymentServices/${item.link}`}
+                to={`/Business/${item.link}`}
                 className="flex items-start relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
@@ -363,7 +363,7 @@ const DropDown = () => {
             {itservices.map((item, index) => (
               <Link
                 key={index}
-                to={`/EmploymentServices/${item.link}`}
+                to={`/ITServices/${item.link}`}
                 className="flex items-start relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
@@ -427,11 +427,11 @@ const DropDown = () => {
 
         {/* Submenu appears when hovered */}
         {mHovered && (
-          <section className="absolute top-full left-0 w-full h-120 overflow-y-scroll bg-white shadow-lg p-4 flex flex-col space-y-4 z-20">
+          <section className="absolute top-full left-0 w-full h-120 overflow-y-scroll bg-amber-100 shadow-lg p-4 flex flex-col space-y-4 z-20">
             {marketing.map((item, index) => (
               <Link
                 key={index}
-                to={`/EmploymentServices/${item.link}`}
+                to={`/MarketingStrategies/${item.link}`}
                 className="flex items-start relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
