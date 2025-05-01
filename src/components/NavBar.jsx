@@ -125,6 +125,12 @@ const NavBar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const menuColor = () => {
+    gsap.to(navRef.current, {
+      backgroundColor: menuOpen ? "transparent" : "white",
+    })
+  }
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -189,7 +195,7 @@ const NavBar = () => {
 
         {/* Hamburger for small screens */}
         <div
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => {setMobileMenuOpen(!mobileMenuOpen); menuColor()}}
           className="flex lg:hidden flex-col gap-1 cursor-pointer"
         >
           <div className="relative">

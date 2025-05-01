@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { searchIcon } from "../utils";
 import gsap from "gsap";
 
-const SearchBar = () => {
+const SearchBarMobile = () => {
   const [query, setQuery] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const searchRef = useRef(null);
@@ -212,7 +212,7 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <div ref={searchRef} className="relative hidden sm:flex opacity-100 items-center flex-none">
+    <div ref={searchRef} className="relative flex opacity-100 items-center flex-none">
       <img className="h-6 translate-x-7" src={searchIcon} alt="search" />
       <input
         className="border-gray-500 py-2 font-bold text-black border w-full rounded-full josefin px-7"
@@ -249,4 +249,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBarMobile;
