@@ -22,6 +22,7 @@ const ITSecurity = () => {
         { x: 0, duration: 1, delay: 1, opacity: 1 },
         1
       );
+
     gsap.fromTo(
       "#itsIcon",
       {
@@ -31,7 +32,6 @@ const ITSecurity = () => {
       {
         scrollTrigger: {
           trigger: "#itsIcon",
-
           start: "top center",
           end: "20% 30%",
           scrub: 1,
@@ -44,14 +44,10 @@ const ITSecurity = () => {
 
     gsap.fromTo(
       "#section1",
-      {
-        y: 200,
-        opacity: 0,
-      },
+      { y: 200, opacity: 0 },
       {
         scrollTrigger: {
           trigger: "#section1",
-
           start: "-80% center",
           end: "center 30%",
         },
@@ -62,14 +58,10 @@ const ITSecurity = () => {
     );
     gsap.fromTo(
       "#section2",
-      {
-        y: 200,
-        opacity: 0,
-      },
+      { y: 200, opacity: 0 },
       {
         scrollTrigger: {
           trigger: "#section2",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -80,14 +72,10 @@ const ITSecurity = () => {
     );
     gsap.fromTo(
       "#section3",
-      {
-        y: 200,
-        opacity: 0,
-      },
+      { y: 200, opacity: 0 },
       {
         scrollTrigger: {
           trigger: "#section3",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -98,14 +86,10 @@ const ITSecurity = () => {
     );
     gsap.fromTo(
       "#section4",
-      {
-        y: 200,
-        opacity: 0,
-      },
+      { y: 200, opacity: 0 },
       {
         scrollTrigger: {
           trigger: "#section4",
-
           start: "-20% center",
           end: "center 30%",
         },
@@ -115,26 +99,28 @@ const ITSecurity = () => {
       }
     );
   });
+
   return (
     <div className="relative">
       <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+        <div className="h-screen w-full justify-center flex flex-col items-center text-white px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             IT SECURITY
           </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-lg md:text-2xl font-medium mt-1 josefin text-white mb-12">
             JP Consulting & Services
           </h2>
         </div>
+
         <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+          <div className="pt-20 px-4 text-black flex flex-col lg:flex-row justify-center items-center gap-10">
             <img
               id="itsIcon"
               src={itsIconImage}
-              className="h-80 rounded-lg"
-              alt=""
+              className="h-60 md:h-80 rounded-lg"
+              alt="IT Icon"
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
               IT Security refers to the strategies, tools, and practices used to
               protect your company’s digital infrastructure, data, and
               operations from cyber threats. At JP Consulting & Services, we
@@ -149,16 +135,15 @@ const ITSecurity = () => {
               continuity, regulatory compliance, and peace of mind.
             </p>
           </div>
-          <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
+
+          <div className="space-y-20 py-24 px-4">
+            <section className="w-full flex flex-col lg:flex-row gap-10 justify-center items-center">
               <div
                 id="section1"
-                className="w-120 h-full josefin space-y-5 justify-center"
+                className="w-full lg:w-1/2 josefin space-y-5 text-center"
               >
-                <p className="font-bold text-2xl text-center">
-                  PROTECTING YOUR BUSINESS, SECURING YOUR FUTURE
-                </p>
-                <p className="text-center flex flex-col gap-2">
+                <p className="font-bold text-2xl">PROTECTING YOUR BUSINESS, SECURING YOUR FUTURE</p>
+                <p className="flex flex-col gap-2">
                   <span className="font-bold">
                     Comprehensive Protection. Strategic Peace of Mind.
                   </span>
@@ -171,12 +156,10 @@ const ITSecurity = () => {
               </div>
               <div
                 id="section2"
-                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+                className="w-full lg:w-1/2 josefin space-y-5 text-center"
               >
-                <p className="font-bold text-2xl text-center">
-                  YOUR PATH TO DIGITAL CONFIDENCE
-                </p>
-                <p className="text-center flex flex-col gap-2">
+                <p className="font-bold text-2xl">YOUR PATH TO DIGITAL CONFIDENCE</p>
+                <p className="flex flex-col gap-2">
                   <span className="font-bold">
                     Customized Cybersecurity Strategies
                   </span>
@@ -187,15 +170,14 @@ const ITSecurity = () => {
                 </p>
               </div>
             </section>
-            <section className="w-full flex gap-10 justify-center items-center">
+
+            <section className="w-full flex flex-col lg:flex-row gap-10 justify-center items-center">
               <div
                 id="section3"
-                className="w-120 h-100 josefin space-y-5 justify-center"
+                className="w-full lg:w-1/2 josefin space-y-5 text-center"
               >
-                <p className="font-bold text-2xl text-center">
-                  WE UNDERSTAND WHAT’S AT RISK
-                </p>
-                <p className="text-center flex flex-col gap-2">
+                <p className="font-bold text-2xl">WE UNDERSTAND WHAT’S AT RISK</p>
+                <p className="flex flex-col gap-2">
                   <span className="font-bold">
                     Cyber Threats Are Constant—So Are We
                   </span>
@@ -203,7 +185,7 @@ const ITSecurity = () => {
                   threats; they’re daily realities. We help you stay ahead of
                   risks like data breaches, ransomware, and system
                   vulnerabilities by building a proactive, layered security
-                  defense around your business
+                  defense around your business.
                 </p>
                 <div className="text-center flex flex-col gap-2">
                   <span className="font-bold">WHAT WE SECURE</span>
@@ -217,24 +199,21 @@ const ITSecurity = () => {
                   </ul>
                 </div>
               </div>
+
               <div
                 id="section4"
-                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+                className="w-full lg:w-1/2 josefin space-y-5 text-center"
               >
-                <p className="font-bold text-2xl text-center">
-                  HOW WE HELP YOU STAY PROTECTED
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Strategic IT Security Services
-                  </span>
+                <p className="font-bold text-2xl">HOW WE HELP YOU STAY PROTECTED</p>
+                <p className="flex flex-col gap-2">
+                  <span className="font-bold">Strategic IT Security Services</span>
                   🔍 Risk Assessment & Vulnerability Scanning
                   <br />
                   🛡️ Firewall & Intrusion Detection Systems (IDS)
                   <br />
                   🔐 Access Control & Identity Management
                   <br />
-                  🔄 Data Backup & Disaster Recovery Planninge
+                  🔄 Data Backup & Disaster Recovery Planning
                   <br />
                   📚 Cybersecurity Awareness Training for Teams
                   <br />
@@ -256,9 +235,9 @@ const ITSecurity = () => {
             </section>
           </div>
         </div>
-               
       </div>
-      <img src={itImage} className="fixed blur-sm top-0 z-1" alt="" />
+
+      <img src={itImage} className="fixed blur-sm top-0 left-0 w-full h-full object-cover z-0" alt="IT Background" />
     </div>
   );
 };
