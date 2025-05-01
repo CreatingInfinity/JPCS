@@ -6,14 +6,55 @@ import { useNavigate } from "react-router-dom";
 const Contact = () => {
   const navigate = useNavigate();
 
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredTitles, setFilteredTitles] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const allTitles = [
+    "CASTING AGENCY",
+    "ONLINE EMPLOYMENT PLACEMENT AGENCIES",
+    "PERSONNEL SEARCH",
+    "BLUEPRINTING",
+    "DOCUMENT EDITING",
+    "DOCUMENT SETUP",
+    "DUPLICATING",
+    "PHOTOCOPYING",
+    "PROVISION",
+    "RESUME",
+    "SECRETARIAL SUPPORT",
+    "TRANSCRIPTION",
+    "TYPOGRAPHY",
+    "AI",
+    "CYBER RISK",
+    "CYBER SECURITY",
+    "IT SECURITY",
+    "SECURITY SYSTEM",
+    "SETTING UP",
+    "SOFTWARE INSTALLATION",
+    "ADVICE",
+    "CARGO FREIGHT",
+    "DESIGN OF ACCOUNTING METHODS",
+    "DIGITAL CONTENT",
+    "HEALTH MANAGEMENT",
+    "HOSPITALITY MANAGEMENT",
+    "IMMIGRATION CONSULTANCY",
+    "LOBBYING ACTIVITIES",
+    "LOGISTIC CONSULTANCY",
+    "MARKETING CONSULTANCY",
+    "PROCUREMENT CONSULTANCY",
+    "PROJECT MANAGEMENT",
+    "PUBLIC RELATION SERVICES",
+    "QUALITY CONSULTANCY",
+    "STRATEGY ADVISORY SERVICES",
+  ];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     product: "",
-    message: ""
+    message: "",
   });
-  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,7 +69,7 @@ const Contact = () => {
         email: "",
         phone: "",
         product: "",
-        message: ""
+        message: "",
       });
 
       navigate("/redirectHomePage");
@@ -49,7 +90,8 @@ const Contact = () => {
           <div>
             <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
             <p className="text-gray-600 mb-6">
-              We're here to help! Send us a message and we'll get back to you as soon as possible.
+              We're here to help! Send us a message and we'll get back to you as
+              soon as possible.
             </p>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -80,19 +122,57 @@ const Contact = () => {
                 className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               />
 
-              <div>
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Enter the product you'd like to inquire about:
                 </label>
-                <span className="block text-xs text-gray-500 mb-2">(Optional)</span>
+                <span className="block text-xs text-gray-500 mb-2">
+                  (Optional)
+                </span>
                 <input
                   name="product"
                   value={formData.product}
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    const input = e.target.value;
+                    setFormData({ ...formData, product: input });
+
+                    if (input.trim() !== "") {
+                      const filtered = allTitles.filter((title) =>
+                        title.toLowerCase().includes(input.toLowerCase())
+                      );
+                      setFilteredTitles(filtered);
+                      setShowSuggestions(true);
+                    } else {
+                      setShowSuggestions(false);
+                    }
+                  }}
+                  onFocus={() => {
+                    if (filteredTitles.length > 0) setShowSuggestions(true);
+                  }}
+                  onBlur={() => {
+                    setTimeout(() => setShowSuggestions(false), 200); // Delay to allow click
+                  }}
                   type="text"
                   placeholder="Your product"
                   className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                 />
+
+                {showSuggestions && filteredTitles.length > 0 && (
+                  <ul className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded-md shadow-lg max-h-40 overflow-auto">
+                    {filteredTitles.map((title, index) => (
+                      <li
+                        key={index}
+                        onMouseDown={() => {
+                          setFormData({ ...formData, product: title });
+                          setShowSuggestions(false);
+                        }}
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                      >
+                        {title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <textarea
@@ -115,9 +195,15 @@ const Contact = () => {
           </div>
 
           <div className="mt-8 text-sm text-gray-700">
-            <p><strong>Email:</strong> info@yourdomain.com</p>
-            <p><strong>Phone:</strong> +971-123-4567</p>
-            <p><strong>Address:</strong> SPC Free Zone, Sharjah, UAE</p>
+            <p>
+              <strong>Email:</strong> info@yourdomain.com
+            </p>
+            <p>
+              <strong>Phone:</strong> +971-123-4567
+            </p>
+            <p>
+              <strong>Address:</strong> SPC Free Zone, Sharjah, UAE
+            </p>
           </div>
         </div>
 

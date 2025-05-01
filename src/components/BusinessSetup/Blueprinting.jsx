@@ -13,7 +13,7 @@ const Blueprinting = () => {
       .fromTo(
         "h1",
         { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: .5, opacity: 1 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
         1
       )
       .fromTo(
@@ -22,18 +22,15 @@ const Blueprinting = () => {
         { x: 0, duration: 1, delay: 1, opacity: 1 },
         1
       );
+
     gsap.fromTo(
       "#blueprintIcon",
-      {
-        x: -200,
-        opacity: 0
-      },
+      { x: -200, opacity: 0 },
       {
         scrollTrigger: {
-          trigger: '#blueprintIcon',
-          
-          start: 'top center',
-          end: '20% 30%',
+          trigger: "#blueprintIcon",
+          start: "top center",
+          end: "20% 30%",
           scrub: 1,
         },
         opacity: 1,
@@ -42,200 +39,153 @@ const Blueprinting = () => {
       }
     );
 
-    gsap.fromTo(
-      "#section1",
-      {
-        y: 200,
-        opacity: 0
-      },
-      {
-        scrollTrigger: {
-          trigger: '#section1',
-          
-          start: '-80% center',
-          end: 'center 30%',
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section2",
-      {
-        y: 200,
-        opacity: 0
-      },
-      {
-        scrollTrigger: {
-          trigger: '#section2',
-          
-          start: '-50% center',
-          end: 'center 30%',
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-    gsap.fromTo(
-      "#section3",
-      {
-        y: 200,
-        opacity: 0
-      },
-      {
-        scrollTrigger: {
-          trigger: '#section3',
-          
-          start: '-50% center',
-          end: 'center 30%',
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section4",
-      {
-        y: 200,
-        opacity: 0
-      },
-      {
-        scrollTrigger: {
-          trigger: '#section4',
-          
-          start: '-20% center',
-          end: 'center 30%',
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-    
-  });
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
+    });
+  }, []);
+
   return (
-    <div className="relative">
-      <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+    <div className="relative bg-white text-black overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={blueprintingImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Blueprint Background"
+      />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             BLUEPRINTING
           </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
-        <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+
+        <div className="bg-white text-black px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
               id="blueprintIcon"
               src={blueprintingIconImage}
-              className="h-80 rounded-lg"
-              alt=""
+              className="w-full max-w-md rounded-lg"
+              alt="Blueprint Icon"
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-              Blueprinting is not just about creating a document; it’s about
-              laying a solid foundation that ensures every aspect of your
-              business aligns with your long-term goals. Whether you’re starting
-              a new business or scaling an existing one, having a detailed
-              blueprint helps prevent costly mistakes, allows for smoother
-              operations, and sets clear expectations for everyone involved.{" "}
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              Blueprinting is more than documentation—it's the architecture of
+              success. It provides clarity, prevents costly missteps, and aligns
+              your team with your long-term business vision. With a strategic
+              blueprint, you position your company for scalability and sustained
+              growth in today’s competitive marketplace.
               <br />
               <br />
-              By taking the time to plan and strategize, you give your business
-              the best chance for success and growth in a competitive market.
+              When you plan with intention, you create space for innovation and
+              efficiency.
             </p>
           </div>
-          <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section1" className="w-120 h-full josefin space-y-5 justify-center">
-                <p className="font-bold text-2xl text-center">
-                  OUR PROMISE TO YOU
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Transformative Results, Tailored to Your Business
-                  </span>
-                  At JP Consulting & Services, our mission is to provide
-                  customized, actionable solutions that deliver real, measurable
-                  improvements in your business. Whether you're looking to
-                  optimize processes, scale operations, or implement
-                  cutting-edge strategies, we're here to help you succeed.
-                </p>
-              </div>
-              <div id="section2" className="w-120 h-full josefin space-y-5 justify-center translate-y-50">
-                <p className="font-bold text-2xl text-center">
-                  YOUR PATH TO SUCCESS
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Personalized Strategy</span>
-                  We don't believe in one-size-fits-all solutions. We take the
-                  time to get to know your business, your goals, and your
-                  market, then develop a personalized strategy that is as unique
-                  as your company.
-                </p>
+
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section
+              id="section1"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">OUR PROMISE TO YOU</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">
+                  Transformative Results, Tailored to Your Business
+                </span>
+                Our consulting approach guarantees measurable improvements,
+                whether you're optimizing your workflow, launching a new venture,
+                or scaling your current business.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section
+              id="section2"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">YOUR PATH TO SUCCESS</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Personalized Strategy</span>
+                We develop solutions specifically for your business—tailored to
+                your goals, challenges, and market dynamics.
+              </p>
+            </section>
+
+            {/* Section 3 */}
+            <section
+              id="section3"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">UNDERSTAND YOUR CHALLENGES</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Your Needs Are Our Priority</span>
+                Whether it’s streamlining workflows, tech integration, or
+                long-term visioning, we help identify root problems and unlock
+                opportunities.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Pain Points We Solve</p>
+                <ul className="list-disc list-inside">
+                  <li>Streamlining complex business processes</li>
+                  <li>Expanding your market reach</li>
+                  <li>Integrating innovative technologies</li>
+                  <li>Reducing overhead and inefficiencies</li>
+                </ul>
               </div>
             </section>
-            <section className="w-full flex gap-10 justify-center items-center">
-              <div id="section3" className="w-120 h-100 josefin space-y-5 justify-center">
-                <p className="font-bold text-2xl text-center">
-                  UNDERSTAND YOUR CHALLENGES
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR NEEDS ARE OUR PRIORITY</span>
-                  We understand that every business faces unique challenges,
-                  whether it's operational inefficiencies, technology
-                  integration, or strategic planning. Our consulting services
-                  are designed to directly address these challenges and help you
-                  unlock your business's full potential.
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">PAIN POINTS WE SOLVE</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Streamlining complex business processes</li>
-                    <li>Expanding your market reach</li>
-                    <li>Integrating innovative technologies seamlessly</li>
-                    <li>Improving operational efficiency and reducing costs</li>
-                  </ul>
-                </div>
-              </div>
-              <div id="section4" className="w-120 h-100 josefin space-y-5 justify-center translate-y-50">
-                <p className="font-bold text-2xl text-center">
-                  HOW WE HELP YOUR BUSINESS GROW
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">CUSTOM CONSULTING SERVICES</span>
-                  Strategy Development: Helping you craft a roadmap for success,
-                  whether you're a startup or scaling to the next level.
-                  Integration: Adopting and integrating the right technology
-                  solutions to make your business more efficient and
-                  competitive.
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>
-                      Enhanced operational efficiency and reduced overhead costs
-                    </li>
-                    <li>A clearer, more actionable business strategy</li>
-                    <li>
-                      Increased profitability and better resource utilization
-                    </li>
-                    <li>
-                      Improved customer satisfaction through better services and
-                      quicker responses
-                    </li>
-                  </ul>
-                </div>
+
+            {/* Section 4 */}
+            <section
+              id="section4"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">HOW WE HELP YOUR BUSINESS GROW</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Custom Consulting Services</span>
+                From developing winning strategies to integrating modern tech
+                stacks, we work closely with you to enhance your operational
+                performance and market edge.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside">
+                  <li>Clear strategic direction</li>
+                  <li>Operational efficiency</li>
+                  <li>Higher customer satisfaction</li>
+                  <li>Increased ROI</li>
+                </ul>
               </div>
             </section>
           </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              Ready to map your journey to success?
+            </p>
+          </div>
         </div>
-               
       </div>
-      <img src={blueprintingImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
   );
 };
