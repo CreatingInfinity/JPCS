@@ -54,7 +54,7 @@ const DocumentEditing = () => {
         </div>
 
         {/* Content Section */}
-        <div className="h-full bg-gradient-to-b from-orange-100 to-white">
+        <div className="h-full bgSVG to-white">
           {/* Introduction Section */}
           <div className="pt-20 md:pt-40 text-black flex flex-col md:flex-row justify-center items-center gap-10 px-4 md:px-10">
             <img
