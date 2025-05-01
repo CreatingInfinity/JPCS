@@ -31,7 +31,6 @@ const Logistic = () => {
             {
                 scrollTrigger: {
                     trigger: '#logsIcon',
-
                     start: 'top center',
                     end: '20% 30%',
                     scrub: 1,
@@ -51,7 +50,6 @@ const Logistic = () => {
             {
                 scrollTrigger: {
                     trigger: '#section1',
-
                     start: '-80% center',
                     end: 'center 30%',
                 },
@@ -69,7 +67,6 @@ const Logistic = () => {
             {
                 scrollTrigger: {
                     trigger: '#section2',
-
                     start: '-50% center',
                     end: 'center 30%',
                 },
@@ -87,7 +84,6 @@ const Logistic = () => {
             {
                 scrollTrigger: {
                     trigger: '#section3',
-
                     start: '-50% center',
                     end: 'center 30%',
                 },
@@ -105,7 +101,6 @@ const Logistic = () => {
             {
                 scrollTrigger: {
                     trigger: '#section4',
-
                     start: '-20% center',
                     end: 'center 30%',
                 },
@@ -119,64 +114,64 @@ const Logistic = () => {
     return (
         <div className="relative">
             <div className="relative z-8">
-                <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-                    <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+                <div className="h-screen w-full flex justify-center flex-col items-center text-white px-6">
+                    <h1 className="text-4xl md:text-6xl font-bold opacity-1 text-orange-500 tracking-wide">
                         LOGISTIC CONSULTANCY
                     </h1>
-                    <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+                    <h2 className="text-xl md:text-2xl font-medium mt-1 josefin text-white mb-12">
                         JP Consulting & Services
                     </h2>
                 </div>
                 <div className="h-full bgSVG">
-                    <div className=" pt-40 text-black flex justify-center items-center gap-10">
+                    <div className="pt-40 text-black flex flex-col md:flex-row justify-center items-center gap-10">
                         <img
                             id="logsIcon"
                             src={logsIconImage}
-                            className="h-80 rounded-lg"
-                            alt=""
+                            className="h-48 md:h-80 rounded-lg"
+                            alt="Logistics Icon"
                         />
                         <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-                           Logistic Consultancy focuses on evaluating, designing, and improving the supply chain and logistics operations of a business. It encompasses everything from procurement, inventory management, and warehousing to transportation, distribution, and last-mile delivery.{" "}
+                            Logistic Consultancy focuses on evaluating, designing, and improving the supply chain and logistics operations of a business. It encompasses everything from procurement, inventory management, and warehousing to transportation, distribution, and last-mile delivery.{" "}
                             <br />
                             <br />
-                           At JP Consulting & Services, we help businesses develop smarter logistics strategies that reduce costs, enhance operational flow, and increase customer satisfaction. Whether you’re a growing company or an established enterprise, our experts work to streamline your logistics and unlock long-term efficiency.
+                            At JP Consulting & Services, we help businesses develop smarter logistics strategies that reduce costs, enhance operational flow, and increase customer satisfaction. Whether you’re a growing company or an established enterprise, our experts work to streamline your logistics and unlock long-term efficiency.
                             <br />
                             <br />
                             With deep industry knowledge and a hands-on approach, our consultancy ensures your logistics systems are agile, scalable, and built for success in today’s competitive marketplace.
-                       </p>
+                        </p>
                     </div>
-                    <div className="h-full space-y-50 py-100">
-                        <section className="w-full flex gap-10 justify-center items-center">
-                            <div id="section1" className="w-120 h-full josefin space-y-5 justify-center">
+                    <div className="h-full space-y-12 py-16">
+                        <section className="w-full flex flex-col md:flex-row gap-10 justify-center items-center">
+                            <div id="section1" className="w-full md:w-1/2 h-full josefin space-y-5 justify-center">
                                 <p className="font-bold text-2xl text-center">
-                               SMARTER LOGISTICS, STRONGER BUSINESS
+                                    SMARTER LOGISTICS, STRONGER BUSINESS
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">
-                                   Streamlined Supply Chains, Seamless Operations
+                                        Streamlined Supply Chains, Seamless Operations
                                     </span>
-                                  At JP Consulting & Services, our Logistic Consultancy is designed to help businesses unlock efficiency, reduce costs, and gain full control over their supply chain. Whether you're launching a logistics-driven business or optimizing an existing operation, we deliver tailored solutions that improve performance at every stage.
-                              </p>
+                                    At JP Consulting & Services, our Logistic Consultancy is designed to help businesses unlock efficiency, reduce costs, and gain full control over their supply chain. Whether you're launching a logistics-driven business or optimizing an existing operation, we deliver tailored solutions that improve performance at every stage.
+                                </p>
                             </div>
-                            <div id="section2" className="w-120 h-full josefin space-y-5 justify-center translate-y-50">
+                            <div id="section2" className="w-full md:w-1/2 h-full josefin space-y-5 justify-center translate-y-50">
                                 <p className="font-bold text-2xl text-center">
-                             YOUR SUPPLY CHAIN, SIMPLIFIED
+                                    YOUR SUPPLY CHAIN, SIMPLIFIED
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">Customized Strategies for Maximum Efficiency</span>
-                                  We take a hands-on, strategic approach to understanding your logistics needs — from inventory and warehousing to transportation and delivery. Our team creates custom plans that align with your goals, ensuring your supply chain becomes a competitive advantage, not a liability.
-                               </p>
+                                    We take a hands-on, strategic approach to understanding your logistics needs — from inventory and warehousing to transportation and delivery. Our team creates custom plans that align with your goals, ensuring your supply chain becomes a competitive advantage, not a liability.
+                                </p>
                             </div>
                         </section>
-                        <section className="w-full flex gap-10 justify-center items-center">
-                            <div id="section3" className="w-120 h-100 josefin space-y-5 justify-center">
+                        <section className="w-full flex flex-col md:flex-row gap-10 justify-center items-center">
+                            <div id="section3" className="w-full md:w-1/2 h-100 josefin space-y-5 justify-center">
                                 <p className="font-bold text-2xl text-center">
-                            OVERCOME YOUR LOGISTICS CHALLENGES
+                                    OVERCOME YOUR LOGISTICS CHALLENGES
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">Efficiency, Visibility & Control</span>
-                                   Logistics is complex — but it doesn’t have to be chaotic. We help you address common pain points like delays, high costs, and miscommunication across your supply chain with expert insight and practical solutions.
-                              </p>
+                                    Logistics is complex — but it doesn’t have to be chaotic. We help you address common pain points like delays, high costs, and miscommunication across your supply chain with expert insight and practical solutions.
+                                </p>
                                 <div className="text-center flex flex-col gap-2">
                                     <span className="font-bold">PAIN POINTS WE SOLVE</span>
                                     <ul className="list-disc list-inside text-left">
@@ -185,43 +180,35 @@ const Logistic = () => {
                                         <li>Inventory control issues</li>
                                         <li>Lack of supply chain visibility</li>
                                         <li>Slow delivery timelines and unhappy customers</li>
-                                       
                                     </ul>
                                 </div>
                             </div>
-                            <div id="section4" className="w-120 h-100 josefin space-y-5 justify-center translate-y-50">
+                            <div id="section4" className="w-full md:w-1/2 h-100 josefin space-y-5 justify-center translate-y-50">
                                 <p className="font-bold text-2xl text-center">
-                              HOW WE OPTIMIZE YOUR OPERATIONS
-
+                                    HOW WE OPTIMIZE YOUR OPERATIONS
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">Logistics Solutions That Drive Growth</span>
                                     🚚 Supply Chain Analysis: Identify weaknesses and improvement areas<br />
                                     🧭 Route Optimization: Plan smarter transportation strategies<br />
                                     📦 Inventory Management: Improve stock control and reduce waste<br />
-                                   🔗 Vendor Coordination: Streamline communication and scheduling<br />
-                                   📊 Data-Driven Decisions: Use analytics to boost logistics performance
-                                    
+                                    🔗 Vendor Coordination: Streamline communication and scheduling<br />
+                                    📊 Data-Driven Decisions: Use analytics to boost logistics performance
                                 </p>
                                 <div className="text-center flex flex-col gap-2">
                                     <span className="font-bold">YOUR BENEFITS:</span>
                                     <ul className="list-disc list-inside text-left">
-                                        <li>
-                                        Reduced operational costs and delays</li>
+                                        <li>Reduced operational costs and delays</li>
                                         <li>Improved customer satisfaction through faster, more reliable delivery</li>
-                                        <li>
-                                        Better inventory turnover and warehouse efficiency</li>
-                                        <li>
-                                        Stronger relationships with logistics vendors</li>
+                                        <li>Better inventory turnover and warehouse efficiency</li>
+                                        <li>Stronger relationships with logistics vendors</li>
                                         <li>Scalable systems that grow with your business</li>
-                                       
                                     </ul>
                                 </div>
                             </div>
                         </section>
                     </div>
                 </div>
-                       
             </div>
             <img src={logImage} className="fixed blur-sm top-0 z-1" alt="" />
         </div>

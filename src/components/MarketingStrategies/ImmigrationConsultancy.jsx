@@ -31,7 +31,6 @@ const ImmigrationConsultancy = () => {
             {
                 scrollTrigger: {
                     trigger: '#imsIcon',
-
                     start: 'top center',
                     end: '20% 30%',
                     scrub: 1,
@@ -51,7 +50,6 @@ const ImmigrationConsultancy = () => {
             {
                 scrollTrigger: {
                     trigger: '#section1',
-
                     start: '-80% center',
                     end: 'center 30%',
                 },
@@ -69,7 +67,6 @@ const ImmigrationConsultancy = () => {
             {
                 scrollTrigger: {
                     trigger: '#section2',
-
                     start: '-50% center',
                     end: 'center 30%',
                 },
@@ -87,7 +84,6 @@ const ImmigrationConsultancy = () => {
             {
                 scrollTrigger: {
                     trigger: '#section3',
-
                     start: '-50% center',
                     end: 'center 30%',
                 },
@@ -105,7 +101,6 @@ const ImmigrationConsultancy = () => {
             {
                 scrollTrigger: {
                     trigger: '#section4',
-
                     start: '-20% center',
                     end: 'center 30%',
                 },
@@ -114,66 +109,66 @@ const ImmigrationConsultancy = () => {
                 y: 150,
             }
         );
-
     });
+
     return (
         <div className="relative">
             <div className="relative z-8">
-                <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-                    <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
-                        IMMEGRATION CONSULTANCY
+                <div className="h-screen w-full flex flex-col items-center justify-center text-white">
+                    <h1 className="text-4xl sm:text-6xl font-bold opacity-1 text-orange-500 tracking-wide">
+                        IMMIGRATION CONSULTANCY
                     </h1>
-                    <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+                    <h2 className="text-lg sm:text-2xl font-medium mt-1 josefin text-white mb-12">
                         JP Consulting & Services
                     </h2>
                 </div>
                 <div className="h-full bgSVG">
-                    <div className=" pt-40 text-black flex justify-center items-center gap-10">
+                    <div className="pt-40 text-black flex flex-col md:flex-row justify-center items-center gap-10 px-4 sm:px-0">
                         <img
                             id="imsIcon"
                             src={imsIconImage}
-                            className="h-80 rounded-lg"
+                            className="h-64 sm:h-80 rounded-lg"
                             alt=""
                         />
-                        <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-                            Immigration Consultancy involves guiding individuals, families, and businesses through the legal and procedural requirements of relocating to another country. At JP Consulting & Services, our Immigration Consultancy services are designed to simplify complex immigration laws, ensure compliance with all regulations, and support clients with every aspect of the process — from visa selection and document preparation to application submission and follow-ups.{" "}
+                        <p className="text-base sm:text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 mt-8 sm:mt-0 italic">
+                            Immigration Consultancy involves guiding individuals, families, and businesses through the legal and procedural requirements of relocating to another country. At JP Consulting & Services, our Immigration Consultancy services are designed to simplify complex immigration laws, ensure compliance with all regulations, and support clients with every aspect of the process — from visa selection and document preparation to application submission and follow-ups.
                             <br />
                             <br />
                             Whether you're seeking permanent residency, work permits, or business migration solutions, we provide expert advice and personalized strategies to help you achieve your global goals with confidence and clarity.
-                       </p>
+                        </p>
                     </div>
                     <div className="h-full space-y-50 py-100">
-                        <section className="w-full flex gap-10 justify-center items-center">
-                            <div id="section1" className="w-120 h-full josefin space-y-5 justify-center">
+                        <section className="w-full flex flex-col md:flex-row gap-10 justify-center items-center">
+                            <div id="section1" className="w-full md:w-120 h-full josefin space-y-5">
                                 <p className="font-bold text-2xl text-center">
-                               NAVIGATING BORDERS WITH CONFIDENCE
+                                    NAVIGATING BORDERS WITH CONFIDENCE
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">
-                                   Strategic Guidance for Global Opportunities
+                                        Strategic Guidance for Global Opportunities
                                     </span>
-                                  At JP Consulting & Services, our Immigration Consultancy is designed to simplify complex immigration processes and empower individuals, families, and businesses to move forward with confidence. Whether you're seeking residency, work permits, or business migration solutions, we provide clear, compliant, and customized support every step of the way.
-                               </p>
+                                    At JP Consulting & Services, our Immigration Consultancy is designed to simplify complex immigration processes and empower individuals, families, and businesses to move forward with confidence. Whether you're seeking residency, work permits, or business migration solutions, we provide clear, compliant, and customized support every step of the way.
+                                </p>
                             </div>
-                            <div id="section2" className="w-120 h-full josefin space-y-5 justify-center translate-y-50">
+                            <div id="section2" className="w-full md:w-120 h-full josefin space-y-5">
                                 <p className="font-bold text-2xl text-center">
-                              YOUR GOALS, OUR EXPERTISE
+                                    YOUR GOALS, OUR EXPERTISE
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">Personalized Immigration Solutions</span>
-                                  We take the time to understand your unique situation, aspirations, and timeline — then build a tailored immigration strategy that aligns with your goals. From application to approval, we ensure every detail is accurate and every step is guided by experience.
-                               </p>
+                                    We take the time to understand your unique situation, aspirations, and timeline — then build a tailored immigration strategy that aligns with your goals. From application to approval, we ensure every detail is accurate and every step is guided by experience.
+                                </p>
                             </div>
                         </section>
-                        <section className="w-full flex gap-10 justify-center items-center">
-                            <div id="section3" className="w-120 h-100 josefin space-y-5 justify-center">
+                        <section className="w-full flex flex-col md:flex-row gap-10 justify-center items-center">
+                            <div id="section3" className="w-full md:w-120 h-full josefin space-y-5">
                                 <p className="font-bold text-2xl text-center">
-                               YOUR CHALLENGES, OUR PRIORITY
+                                    YOUR CHALLENGES, OUR PRIORITY
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">Solving the Complexities of Immigration</span>
-                                   Navigating visa regulations, legal documentation, and government processes can be overwhelming. Our consultants provide clarity, reduce stress, and handle the paperwork — so you can focus on your next chapter.
-                              </p>
+                                    Navigating visa regulations, legal documentation, and government processes can be overwhelming. Our consultants provide clarity, reduce stress, and handle the paperwork — so you can focus on your next chapter.
+                                </p>
                                 <div className="text-center flex flex-col gap-2">
                                     <span className="font-bold">SERVICES WE OFFER</span>
                                     <ul className="list-disc list-inside text-left">
@@ -186,39 +181,33 @@ const ImmigrationConsultancy = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div id="section4" className="w-120 h-100 josefin space-y-5 justify-center translate-y-50">
+                            <div id="section4" className="w-full md:w-120 h-full josefin space-y-5">
                                 <p className="font-bold text-2xl text-center">
-                                HOW WE SUPPORT YOUR JOURNEY
+                                    HOW WE SUPPORT YOUR JOURNEY
                                 </p>
                                 <p className="text-center flex flex-col gap-2">
                                     <span className="font-bold">Comprehensive Immigration Services</span>
                                     🧭 Consultation & Planning: Identify the right pathway based on your goals<br />
                                     📑 Documentation Support: Accurate, complete, and professionally prepared<br />
                                     💬 Government Liaison: Communicate and coordinate with relevant authorities<br />
-                                   🔍 Compliance Assurance: Ensure all processes meet current legal standards<br />
-                                    
+                                    🔍 Compliance Assurance: Ensure all processes meet current legal standards
                                 </p>
                                 <div className="text-center flex flex-col gap-2">
                                     <span className="font-bold">YOUR BENEFITS:</span>
                                     <ul className="list-disc list-inside text-left">
-                                        <li>
-                                        Smooth and stress-free immigration process</li>
+                                        <li>Smooth and stress-free immigration process</li>
                                         <li>Minimized risk of application rejection or delays</li>
-                                        <li>
-                                        Expert handling of legal and compliance requirements</li>
-                                        <li>
-                                        Strategic advice tailored to long-term relocation goals</li>
+                                        <li>Expert handling of legal and compliance requirements</li>
+                                        <li>Strategic advice tailored to long-term relocation goals</li>
                                         <li>Peace of mind through professional, end-to-end support</li>
-                                       
                                     </ul>
                                 </div>
                             </div>
                         </section>
                     </div>
                 </div>
-                       
             </div>
-            <img src={imImage} className="fixed blur-sm top-0 z-1" alt="" />
+            <img src={imImage} className="fixed blur-sm top-0 z-1 w-full object-cover" alt="" />
         </div>
     );
 };

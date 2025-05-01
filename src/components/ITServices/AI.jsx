@@ -31,7 +31,6 @@ const Al = () => {
       {
         scrollTrigger: {
           trigger: "#alsIcon",
-
           start: "top center",
           end: "20% 30%",
           scrub: 1,
@@ -51,7 +50,6 @@ const Al = () => {
       {
         scrollTrigger: {
           trigger: "#section1",
-
           start: "-80% center",
           end: "center 30%",
         },
@@ -69,7 +67,6 @@ const Al = () => {
       {
         scrollTrigger: {
           trigger: "#section2",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -87,7 +84,6 @@ const Al = () => {
       {
         scrollTrigger: {
           trigger: "#section3",
-
           start: "-50% center",
           end: "center 30%",
         },
@@ -105,7 +101,6 @@ const Al = () => {
       {
         scrollTrigger: {
           trigger: "#section4",
-
           start: "-20% center",
           end: "center 30%",
         },
@@ -118,36 +113,36 @@ const Al = () => {
   return (
     <div className="relative">
       <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+        <div className="h-screen w-full flex flex-col items-center justify-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             A.I
           </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-lg md:text-2xl font-medium mt-1 josefin text-white mb-12">
             JP Consulting & Services
           </h2>
         </div>
         <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+          <div className="pt-20 px-4 text-black flex flex-col md:flex-row justify-center items-center gap-10">
             <img
               id="alsIcon"
               src={alsIconImage}
-              className="h-80 rounded-lg"
+              className="h-60 md:h-80 rounded-lg"
               alt=""
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
               At JP Consulting & Services, we help businesses embrace the power
               of innovation and artificial intelligence to stay competitive,
               agile, and future-ready. Our research-driven consultancy approach
               combines deep technical knowledge with strategic insight —
               enabling your business to unlock smarter, faster, and more
-              impactful solutions.{" "}
+              impactful solutions.
             </p>
           </div>
           <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
+            <section className="w-full flex flex-col lg:flex-row gap-10 justify-center items-center px-4">
               <div
                 id="section1"
-                className="w-120 h-full josefin space-y-5 justify-center"
+                className="w-full lg:w-1/2 h-auto josefin space-y-5 justify-center"
               >
                 <p className="font-bold text-2xl text-center">
                   DRIVING THE FUTURE OF BUSINESS
@@ -166,7 +161,7 @@ const Al = () => {
               </div>
               <div
                 id="section2"
-                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+                className="w-full lg:w-1/2 h-auto josefin space-y-5 justify-center"
               >
                 <p className="font-bold text-2xl text-center">
                   TURNING TECHNOLOGY INTO STRATEGY
@@ -183,10 +178,10 @@ const Al = () => {
                 </p>
               </div>
             </section>
-            <section className="w-full flex gap-10 justify-center items-center">
+            <section className="w-full flex flex-col lg:flex-row gap-10 justify-center items-center px-4">
               <div
                 id="section3"
-                className="w-120 h-100 josefin space-y-5 justify-center"
+                className="w-full lg:w-1/2 h-auto josefin space-y-5 justify-center"
               >
                 <p className="font-bold text-2xl text-center">
                   INNOVATION WITH PURPOSE
@@ -213,7 +208,7 @@ const Al = () => {
               </div>
               <div
                 id="section4"
-                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+                className="w-full lg:w-1/2 h-auto josefin space-y-5 justify-center"
               >
                 <p className="font-bold text-2xl text-center">
                   HOW WE HELP YOU INNOVATE
@@ -254,9 +249,12 @@ const Al = () => {
             </section>
           </div>
         </div>
-               
       </div>
-      <img src={alImage} className="fixed blur-sm top-0 z-1" alt="" />
+      <img
+        src={alImage}
+        className="fixed inset-0 w-full h-full object-cover blur-sm z-[-1]"
+        alt=""
+      />
     </div>
   );
 };
