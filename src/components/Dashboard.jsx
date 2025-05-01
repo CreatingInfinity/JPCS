@@ -9,7 +9,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "submissions"));
+        const querySnapshot = await getDocs(collection(db, "clientSubmission"));
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
@@ -26,33 +26,49 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">Dashboard - All Submissions</h1>
-      {loading ? (
-        <p>Loading submissions...</p>
-      ) : submissions.length === 0 ? (
-        <p>No submissions found.</p>
-      ) : (
-        <table className="w-full border-collapse border border-gray-300">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border border-gray-300 px-4 py-2">#</th>
-              <th className="border border-gray-300 px-4 py-2">Product</th>
-              <th className="border border-gray-300 px-4 py-2">Date</th>
-              {/* Add more columns as needed */}
-            </tr>
-          </thead>
-          <tbody>
-            {submissions.map((item, index) => (
-              <tr key={item.id}>
-                <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">{item.product}</td>
-                <td className="border px-4 py-2">{item.createdAt || "N/A"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h1 className="text-3xl font-semibold text-gray-800 mb-6">Client Submissions Dashboard</h1>
+          
+          {loading ? (
+            <div className="flex justify-center items-center h-64">
+              <span className="text-lg text-gray-600">Loading submissions...</span>
+            </div>
+          ) : submissions.length === 0 ? (
+            <div className="flex justify-center items-center h-64">
+              <span className="text-lg text-gray-600">No submissions found.</span>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border-collapse">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="text-left text-sm font-semibold text-gray-600 py-3 px-6">#</th>
+                    <th className="text-left text-sm font-semibold text-gray-600 py-3 px-6">Name</th>
+                    <th className="text-left text-sm font-semibold text-gray-600 py-3 px-6">Email</th>
+                    <th className="text-left text-sm font-semibold text-gray-600 py-3 px-6">Phone Number</th>
+                    <th className="text-left text-sm font-semibold text-gray-600 py-3 px-6">Product</th>
+                    <th className="text-left text-sm font-semibold text-gray-600 py-3 px-6">Message</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {submissions.map((item, index) => (
+                    <tr key={item.id} className="border-t hover:bg-gray-50">
+                      <td className="py-3 px-6 text-sm text-gray-600">{index + 1}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">{item.name}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">{item.email}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">{item.phone}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">{item.product}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">{item.message}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

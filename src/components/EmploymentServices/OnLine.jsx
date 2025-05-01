@@ -13,25 +13,23 @@ const OnLine = () => {
       .fromTo(
         "h1",
         { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
-        1
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 }
       )
       .fromTo(
         "h2",
         { x: -200, opacity: 0 },
-        { x: 0, duration: 1, delay: 1, opacity: 1 },
-        1
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 }
       );
+
     gsap.fromTo(
-      "omsIcon",
+      "#onsIcon",
       {
         x: -200,
         opacity: 0,
       },
       {
         scrollTrigger: {
-          trigger: "#onstsIcon",
-
+          trigger: "#onsIcon",
           start: "top center",
           end: "20% 30%",
           scrub: 1,
@@ -42,217 +40,116 @@ const OnLine = () => {
       }
     );
 
-    gsap.fromTo(
-      "#section1",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section1",
+    ["#section1", "#section2", "#section3", "#section4"].forEach((id, i) => {
+      gsap.fromTo(
+        id,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: id,
+            start: "-50% center",
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: i % 2 === 0 ? 0 : 150,
+        }
+      );
+    });
+  }, []);
 
-          start: "-80% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section2",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section2",
-
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-    gsap.fromTo(
-      "#section3",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section3",
-
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section4",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section4",
-
-          start: "-20% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-  });
   return (
     <div className="relative">
-      <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
-            ONLINE
-          </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
-            JP Consulting & Services
-          </h2>
+      <div className="relative z-10">
+        {/* Header Section */}
+        <div className="h-screen w-full flex flex-col justify-center items-center text-white px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">ONLINE</h1>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 josefin mb-12">JP Consulting & Services</h2>
         </div>
-        <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+
+        {/* Description Section */}
+        <div className="bgSVG py-16 px-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-10">
             <img
               id="onsIcon"
               src={onsIconImage}
-              className="h-80 rounded-lg"
-              alt=""
+              className="h-60 md:h-80 rounded-lg"
+              alt="Online Service Icon"
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-              At JP Consulting & Services, we simplify the process of hiring,
-              onboarding, and managing remote employees. Whether you need
-              full-time virtual staff or project-based freelancers, our Online
-              Employment service ensures you get the right talent—legally
-              compliant, performance-ready, and aligned with your business
-              goals. <br />
-              <br />
-              This service is ideal for startups, SMEs, and scaling enterprises
-              looking to reduce overhead, increase productivity, and adapt to
-              the evolving digital work landscape.
+            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-xl leading-relaxed border-l-4 border-black pl-4 italic">
+              At JP Consulting & Services, we simplify the process of hiring, onboarding, and managing remote employees. Whether you need full-time virtual staff or project-based freelancers, our Online Employment service ensures you get the right talent—legally compliant, performance-ready, and aligned with your business goals.
+              <br /><br />
+              This service is ideal for startups, SMEs, and scaling enterprises looking to reduce overhead, increase productivity, and adapt to the evolving digital work landscape.
             </p>
           </div>
-          <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
-              <div
-                id="section1"
-                className="w-120 h-full josefin space-y-5 justify-center"
-              >
-                <p className="font-bold text-2xl text-center">
-                  BRIDGING OPPORTUNITIES IN THE DIGITAL AGE
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Hire Smarter. Work Remotely. Grow Faster.
-                  </span>
-                  At JP Consulting & Services, our Online Employment service
-                  connects businesses with top-tier remote talent and supports
-                  entrepreneurs in building lean, scalable teams. Whether you're
-                  hiring locally or globally, we make virtual employment
-                  seamless, secure, and strategic.
-                </p>
-              </div>
-              <div
-                id="section2"
-                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
-              >
-                <p className="font-bold text-2xl text-center">
-                  YOUR TEAM, WITHOUT BORDERS
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Flexible Staffing for Modern Business Needs
-                  </span>
-                  We help you tap into a global talent pool — from
-                  administrative support and customer service to tech
-                  development and digital marketing. Our approach is designed to
-                  align your hiring strategy with your long-term vision,
-                  ensuring every hire adds measurable value.
-                </p>
-              </div>
-            </section>
-            <section className="w-full flex gap-10 justify-center items-center">
-              <div
-                id="section3"
-                className="w-120 h-100 josefin space-y-5 justify-center"
-              >
-                <p className="font-bold text-2xl text-center">
-                  UNDERSTANDING YOUR GOALS
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Smart Hiring That Supports Growth
-                  </span>
-                  Managing a remote workforce presents unique challenges. That’s
-                  why we guide you through every step — from sourcing and
-                  vetting to contracts, onboarding, and productivity tracking.
-                  You focus on growth; we handle the logistics.
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">SOLUTIONS WE PROVIDE</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Sourcing qualified remote professionals</li>
-                    <li>Setting up online employment platforms</li>
-                    <li>Drafting remote work contracts and policies</li>
-                    <li>Managing onboarding and payroll support</li>
-                    <li>Ensuring legal compliance and data security</li>
-                  </ul>
+
+          {/* Sections */}
+          <div className="py-20 space-y-20">
+            {[1, 2, 3, 4].map((i) => (
+              <section key={i} className="flex flex-col md:flex-row gap-10 justify-center items-center px-4" id={`section${i}`}>
+                <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
+                  {i === 1 && (
+                    <>
+                      <p className="font-bold text-xl md:text-2xl">BRIDGING OPPORTUNITIES IN THE DIGITAL AGE</p>
+                      <p>
+                        <span className="font-bold">Hire Smarter. Work Remotely. Grow Faster.</span><br />
+                        Our Online Employment service connects businesses with top-tier remote talent and supports entrepreneurs in building lean, scalable teams.
+                      </p>
+                    </>
+                  )}
+                  {i === 2 && (
+                    <>
+                      <p className="font-bold text-xl md:text-2xl">YOUR TEAM, WITHOUT BORDERS</p>
+                      <p>
+                        <span className="font-bold">Flexible Staffing for Modern Business Needs</span><br />
+                        Tap into a global talent pool — from admin support to digital marketing — all legally compliant and scalable.
+                      </p>
+                    </>
+                  )}
+                  {i === 3 && (
+                    <>
+                      <p className="font-bold text-xl md:text-2xl">UNDERSTANDING YOUR GOALS</p>
+                      <p>
+                        <span className="font-bold">Smart Hiring That Supports Growth</span><br />
+                        We guide you through sourcing, vetting, onboarding, and productivity tracking.
+                      </p>
+                      <ul className="list-disc list-inside text-left text-sm">
+                        <li>Sourcing remote professionals</li>
+                        <li>Setting up online platforms</li>
+                        <li>Remote contracts and policies</li>
+                        <li>Onboarding and payroll support</li>
+                        <li>Legal compliance & security</li>
+                      </ul>
+                    </>
+                  )}
+                  {i === 4 && (
+                    <>
+                      <p className="font-bold text-xl md:text-2xl">HOW WE HELP YOU SCALE</p>
+                      <p>
+                        <span className="font-bold">Efficient, Agile Workforce Solutions</span><br />
+                        🌍 Global Reach <br />
+                        🔒 Legal Compliance <br />
+                        📈 Performance Tracking <br />
+                        💼 Cost-Effective Operations
+                      </p>
+                      <ul className="list-disc list-inside text-left text-sm">
+                        <li>Faster hiring</li>
+                        <li>Lower HR costs</li>
+                        <li>Scalable team growth</li>
+                        <li>24/7 global support</li>
+                        <li>Future-ready workforce</li>
+                      </ul>
+                    </>
+                  )}
                 </div>
-              </div>
-              <div
-                id="section4"
-                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
-              >
-                <p className="font-bold text-2xl text-center">
-                  HOW WE HELP YOU SCALE
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Efficient, Agile Workforce Solutions
-                  </span>
-                  🌍 Global Reach: Access skilled professionals from anywhere
-                  <br />
-                  🔒 Compliance & Security: Ensure legally sound hiring
-                  practices
-                  <br />
-                  📈 Performance Tracking: Monitor KPIs and productivity
-                  remotely
-                  <br />
-                  💼 Cost-Effective: Build efficient teams without overhead
-                  costs
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Faster hiring with vetted, skilled candidates</li>
-                    <li>Reduced HR costs and overhead expenses</li>
-                    <li>Scalable operations that grow with your needs</li>
-                    <li>24/7 support availability across time zones</li>
-                    <li>A modern workforce ready for the future of work</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
+              </section>
+            ))}
           </div>
         </div>
-               
       </div>
-      <img src={onImage} className="fixed blur-sm top-0 z-1" alt="" />
+
+      {/* Background Image */}
+      <img src={onImage} className="fixed blur-sm top-0 z-0 w-full h-full object-cover" alt="" />
     </div>
   );
 };

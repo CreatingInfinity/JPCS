@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="font-bold text-amber-600">JP</span> CONSULTING & SERVICES
             </span>
           </div>
-          <p className="text-sm md:text-lg josefin font-medium max-w-md">
+          <p className="text-sm md:text-lg josefin font-medium text-center md:text-left max-w-md">
             JP Consulting & Services is a dynamic consulting firm dedicated to
             helping businesses grow, adapt, and lead in an ever-evolving market.
             We specialize in delivering innovative, results-driven solutions

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { castsIconImage, castImage } from "../../utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -6,260 +6,193 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const CastingAgency = () => {
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const iconRef = useRef(null);
+  const sectionRefs = useRef([]);
+
   useEffect(() => {
-    const timeline = gsap.timeline();
-
-    timeline
-      .fromTo(
-        "h1",
-        { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
-        1
-      )
-      .fromTo(
-        "h2",
-        { x: -200, opacity: 0 },
-        { x: 0, duration: 1, delay: 1, opacity: 1 },
-        1
-      );
+    // Entrance animation for title and subtitle
     gsap.fromTo(
-      "#castsIcon",
-      {
-        x: -200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#castsIcon",
+      titleRef.current,
+      { x: 200, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1 }
+    );
 
-          start: "top center",
-          end: "20% 30%",
-          scrub: 1,
-        },
-        opacity: 1,
-        duration: 1.5,
+    gsap.fromTo(
+      subtitleRef.current,
+      { x: -200, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1, delay: 0.5 }
+    );
+
+    // Scroll animation for icon
+    gsap.fromTo(
+      iconRef.current,
+      { x: -200, opacity: 0 },
+      {
         x: 0,
-      }
-    );
-
-    gsap.fromTo(
-      "#section1",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section1",
-
-          start: "-80% center",
-          end: "center 30%",
-        },
         opacity: 1,
         duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section2",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
         scrollTrigger: {
-          trigger: "#section2",
-
-          start: "-50% center",
-          end: "center 30%",
+          trigger: iconRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
       }
     );
-    gsap.fromTo(
-      "#section3",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section3",
 
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
+    // Scroll animation for all sections
+    sectionRefs.current.forEach((ref, i) => {
+      if (ref) {
+        gsap.fromTo(
+          ref,
+          { y: 100, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            scrollTrigger: {
+              trigger: ref,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
-    );
-    gsap.fromTo(
-      "#section4",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section4",
+    });
+  }, []);
 
-          start: "-20% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-  });
   return (
     <div className="relative">
-      <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-6xl bold opacity-1     text-orange-500    tracking-wide">
+      <div className="relative z-10">
+        <div className="h-screen w-full flex flex-col justify-center items-center text-white px-4 text-center">
+          <h1
+            ref={titleRef}
+            className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide"
+          >
             CASTING AGENCY
           </h1>
-          <h2 className="text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2
+            ref={subtitleRef}
+            className="text-lg md:text-2xl font-medium mt-2 josefin mb-12"
+          >
             JP Consulting & Services
           </h2>
         </div>
-        <div className="h-full bgSVG">
-          <div className=" pt-40 text-black flex justify-center items-center gap-10">
+
+        <div className="h-full bgSVG px-4">
+          <div className="pt-20 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto">
             <img
-              id="castsIcon"
+              ref={iconRef}
               src={castsIconImage}
-              className="h-80 rounded-lg"
-              alt=""
+              className="w-full max-w-sm rounded-lg"
+              alt="Casting Icon"
             />
-            <p className="text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left leading-relaxed border-l-4 border-black pl-4 italic">
               At JP Consulting & Services, our Casting Agency specializes in
-              connecting businesses and creatives with the right talent to bring
-              their visions to life. Whether you're producing a commercial, a
-              corporate campaign, a fashion shoot, or a digital content series,
-              we source, screen, and secure top-tier talent that aligns with
-              your goals and brand identity. <br />
-              <br />
-              We understand that the right cast can elevate your message —
-              making it memorable, relatable, and impactful. That's why we offer
-              a personalized approach to casting, ensuring that every role is
-              filled with the perfect fit, from professional models and actors
-              to voice-over artists and event hosts.
+              discovering and connecting top-tier talent with extraordinary
+              opportunities. We understand that the right cast can elevate any
+              project, and our dedicated team is committed to making perfect
+              matches between talent and client needs.
               <br />
               <br />
-              Our services are fast, reliable, and comprehensive — designed to
-              streamline your production process and deliver talent that
-              performs with professionalism and purpose.
+              Whether you're looking for actors, models, or voice-over artists,
+              we provide a diverse portfolio of professionals suited for
+              commercials, films, photo shoots, corporate videos, and more.
+              <br />
+              <br />
+              Our streamlined casting process ensures efficiency, reliability,
+              and satisfaction. Let us bring your vision to life with the ideal
+              cast.
             </p>
           </div>
-          <div className="h-full space-y-50 py-100">
-            <section className="w-full flex gap-10 justify-center items-center">
+
+          <div className="py-20 space-y-24">
+            <section className="flex flex-col md:flex-row gap-10 justify-center items-start max-w-6xl mx-auto">
               <div
-                id="section1"
-                className="w-120 h-full josefin space-y-5 justify-center"
+                ref={(el) => (sectionRefs.current[0] = el)}
+                className="w-full md:w-1/2 space-y-5 text-center md:text-left"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-2xl">
                   FINDING THE RIGHT FACES FOR YOUR VISION
                 </p>
-                <p className="text-center flex flex-col gap-2">
+                <p>
                   <span className="font-bold">
                     Talent That Brings Your Brand to Life
                   </span>
-                  At JP Consulting & Services, our Casting Agency division is
-                  dedicated to sourcing, vetting, and connecting you with the
-                  ideal talent for your project — whether it's a commercial,
-                  corporate video, brand campaign, or event. We match the right
-                  people to your creative and business goals, ensuring
-                  authenticity, diversity, and excellence.
+                  <br />
+                  Our Casting Agency thrives on recognizing and promoting
+                  outstanding talent. From screen to stage, our actors and
+                  models are carefully selected to suit each project’s unique
+                  demands. With a keen eye for potential and a heart for the
+                  craft, we bridge the gap between talent and opportunity.
                 </p>
               </div>
               <div
-                id="section2"
-                className="w-120 h-full josefin space-y-5 justify-center translate-y-50"
+                ref={(el) => (sectionRefs.current[1] = el)}
+                className="w-full md:w-1/2 space-y-5 text-center md:text-left"
               >
-                <p className="font-bold text-2xl text-center">
-                  YOUR CAST, YOUR MESSAGE
-                </p>
-                <p className="text-center flex flex-col gap-2">
+                <p className="font-bold text-2xl">YOUR CAST, YOUR MESSAGE</p>
+                <p>
                   <span className="font-bold">Tailored Talent Solutions</span>
-                  We don’t believe in generic casting. Our approach starts with
-                  understanding your concept, audience, and brand tone. From
-                  there, we handpick talent that aligns perfectly with your
-                  vision — whether you're looking for professionals, models,
-                  voice-over artists, or character-specific roles.
+                  <br />
+                  No two brands are the same, and neither are their stories. Our
+                  casting solutions are tailored to meet your exact creative
+                  vision. Whether it's for film, fashion, digital content, or
+                  corporate videos, we provide a wide range of talents from
+                  fresh faces to experienced professionals, ensuring your
+                  message hits home.
                 </p>
               </div>
             </section>
-            <section className="w-full flex gap-10 justify-center items-center">
+
+            <section className="flex flex-col md:flex-row gap-10 justify-center items-start max-w-6xl mx-auto">
               <div
-                id="section3"
-                className="w-120 h-100 josefin space-y-5 justify-center"
+                ref={(el) => (sectionRefs.current[2] = el)}
+                className="w-full md:w-1/2 space-y-5 text-center md:text-left"
               >
-                <p className="font-bold text-2xl text-center">
+                <p className="font-bold text-2xl">
                   WE UNDERSTAND YOUR CREATIVE NEEDS
                 </p>
-                <p className="text-center flex flex-col gap-2">
+                <p>
                   <span className="font-bold">
                     Precision, Professionalism, and Performance
                   </span>
-                  Choosing the wrong cast can weaken the impact of your message.
-                  That’s why we focus on details — from the first brief to final
-                  booking — ensuring each individual we recommend is skilled,
-                  reliable, and project-ready.
+                  <br />
+                  Our experienced casting directors collaborate closely with
+                  clients and production teams to understand each project's
+                  tone, pace, and visual identity. With a vast network and
+                  detailed audition processes, we ensure the final cast is not
+                  only talented but a seamless fit for the role.
                 </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">WHAT WE PROVIDE</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Commercial & TV Ad Casting</li>
-                    <li>Social Media & Influencer Campaign Talent</li>
-                    <li>Corporate Video Presenters & Actors</li>
-                    <li>Fashion & Editorial Models</li>
-                    <li>Voice-Over Artists</li>
-                    <li>Event Hosts, Brand Ambassadors & Emcees</li>
-                  </ul>
-                </div>
               </div>
+
               <div
-                id="section4"
-                className="w-120 h-100 josefin space-y-5 justify-center translate-y-50"
+                ref={(el) => (sectionRefs.current[3] = el)}
+                className="w-full md:w-1/2 space-y-5 text-center md:text-left"
               >
-                <p className="font-bold text-2xl text-center">
-                  HOW WE HELP YOU SUCCEED
+                <p className="font-bold text-2xl">HOW WE HELP YOU SUCCEED</p>
+                <p>
+                  <span className="font-bold">
+                    Seamless Casting Experience
+                  </span>
+                  <br />
+                  From scouting and auditions to bookings and on-set support, we
+                  manage the entire casting workflow so you can focus on
+                  creativity. We believe in building lasting relationships with
+                  both talent and clients, fostering growth, reliability, and
+                  artistic success.
                 </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Seamless Casting Experience</span>
-                  🎯 Targeted Talent Search: We source talent based on your
-                  specific brief
-                  <br />
-                  ✅ Pre-screened & Vetted Talent: Professionalism guaranteed
-                  <br />
-                  🤝 Flexible Contracts & Coordination: From casting to call
-                  sheets — we handle it
-                  <br />
-                  🎬 On-Set Support (Optional): We stay involved to make sure
-                  production runs smoothly
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Access to a diverse, professional talent pool</li>
-                    <li>Faster casting with minimal stress</li>
-                    <li>Tailored selections that fit your brand image</li>
-                    <li>Reduced risk through pre-vetted, experienced talent</li>
-                    <li>
-                      A polished final product that resonates with your audience
-                    </li>
-                  </ul>
-                </div>
               </div>
             </section>
           </div>
         </div>
-               
       </div>
-      <img src={castImage} className="fixed blur-sm top-0 z-1" alt="" />
+      <img
+        src={castImage}
+        className="fixed blur-sm top-0 z-0 w-full h-full object-cover"
+        alt=""
+      />
     </div>
   );
 };
