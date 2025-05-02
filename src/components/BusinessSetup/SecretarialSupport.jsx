@@ -13,87 +13,111 @@ const SecretarialSupport = () => {
       .fromTo("h1", { x: 200, opacity: 0 }, { x: 0, duration: 1, delay: 0.5, opacity: 1 }, 1)
       .fromTo("h2", { x: -200, opacity: 0 }, { x: 0, duration: 1, delay: 1, opacity: 1 }, 1);
 
-    const sections = ["#secsIcon", "#section1", "#section2", "#section3", "#section4"];
+    gsap.fromTo(
+      "#secsIcon",
+      { x: -200, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: "#secsIcon",
+          start: "top center",
+          end: "20% 30%",
+          scrub: 1,
+        },
+        opacity: 1,
+        duration: 1.5,
+        x: 0,
+      }
+    );
+
+    const sections = ["section1", "section2", "section3", "section4"];
     sections.forEach((id, index) => {
       gsap.fromTo(
-        id,
+        `#${id}`,
         { y: 200, opacity: 0 },
         {
           scrollTrigger: {
-            trigger: id,
-            start: "-80% center",
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
             end: "center 30%",
-            scrub: index === 0 ? 1 : false,
           },
           opacity: 1,
           duration: 1.5,
-          y: index % 2 === 0 ? 0 : 150,
+          y: 0,
         }
       );
     });
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={secImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Secretarial Support Background"
+      />
+
+      {/* Main Content */}
       <div className="relative z-10">
-        {/* Header */}
-        <div className="h-screen w-full flex flex-col justify-center items-center text-white px-4 text-center">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             SECRETARIAL SUPPORT
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 josefin text-white mb-10">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
 
-        {/* Content */}
-        <div className="bgSVG py-20 px-4 md:px-20">
-          {/* Intro */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
               id="secsIcon"
               src={secsIconImage}
-              className="h-60 md:h-80 rounded-lg"
+              className="w-full max-w-md rounded-lg"
               alt="Secretarial Icon"
             />
-            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-xl leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               Secretarial Support refers to a range of administrative and compliance services that ensure a business operates efficiently and in line with legal and regulatory requirements.
-              <br /><br />
+              <br />
+              <br />
               At JP Consulting & Services, our Secretarial Support helps manage critical tasks such as company registration, statutory filings, document preparation, and record maintenance — all while maintaining the highest standards of confidentiality and professionalism.
-              <br /><br />
+              <br />
+              <br />
               From preparing meeting minutes to filing annual returns, we ensure nothing is overlooked, so you can stay focused on strategic growth.
             </p>
           </div>
 
-          {/* Sections 1 & 2 */}
-          <section className="flex flex-col md:flex-row gap-10 justify-center items-start mb-20">
-            <div id="section1" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">YOUR BACK-OFFICE POWERHOUSE</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Reliable Support, Seamless Operations</span>
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">YOUR BACK-OFFICE POWERHOUSE</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Reliable Support, Seamless Operations</span>
                 Our Secretarial Support service takes the pressure off your administrative tasks so you can focus on growing your business. We manage compliance and keep things running smoothly.
               </p>
-            </div>
-            <div id="section2" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">PARTNERS IN YOUR ADMINISTRATION</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Professional, Confidential, and Efficient</span>
+            </section>
+
+            {/* Section 2 */}
+            <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">PARTNERS IN YOUR ADMINISTRATION</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Professional, Confidential, and Efficient</span>
                 Whether you’re a startup or an established business, we treat your admin like our own — with confidentiality, precision, and reliability.
               </p>
-            </div>
-          </section>
+            </section>
 
-          {/* Sections 3 & 4 */}
-          <section className="flex flex-col md:flex-row gap-10 justify-center items-start">
-            <div id="section3" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">WHY IT MATTERS</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Compliance Isn’t Optional — It’s Essential</span>
+            {/* Section 3 */}
+            <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">WHY IT MATTERS</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Compliance Isn’t Optional — It’s Essential</span>
                 Missing filings can cost your business more than just fees. We keep your records current, compliant, and audit-ready.
               </p>
-              <div className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">WHAT WE HANDLE</span>
-                <ul className="list-disc list-inside text-left">
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">What We Handle</p>
+                <ul className="list-disc list-inside">
                   <li>Company incorporation and registration</li>
                   <li>Maintenance of statutory records</li>
                   <li>Annual returns & compliance filing</li>
@@ -103,19 +127,21 @@ const SecretarialSupport = () => {
                   <li>Document drafting & review</li>
                 </ul>
               </div>
-            </div>
-            <div id="section4" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">HOW WE SUPPORT YOUR GROWTH</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Strategic Secretarial Services</span>
+            </section>
+
+            {/* Section 4 */}
+            <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">HOW WE SUPPORT YOUR GROWTH</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Strategic Secretarial Services</span>
                 🗂️ Document Management<br />
                 🕒 Deadline Monitoring<br />
                 📄 Legal Documentation<br />
                 🤝 End-to-End Support
               </p>
-              <div className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">YOUR BENEFITS:</span>
-                <ul className="list-disc list-inside text-left">
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside">
                   <li>Peace of mind with compliance</li>
                   <li>More time to focus on core work</li>
                   <li>Pro handling of critical documents</li>
@@ -123,13 +149,17 @@ const SecretarialSupport = () => {
                   <li>Reduced legal & regulatory risk</li>
                 </ul>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to streamline your business?
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* Background Image */}
-      <img src={secImage} className="fixed top-0 left-0 w-full h-full object-cover blur-sm z-0" alt="Background" />
     </div>
   );
 };

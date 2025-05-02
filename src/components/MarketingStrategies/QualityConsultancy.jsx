@@ -6,215 +6,149 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const QualityConsultancy = () => {
-    useEffect(() => {
-        const timeline = gsap.timeline();
+  useEffect(() => {
+    const timeline = gsap.timeline();
+    timeline
+      .fromTo("h1", { x: 200, opacity: 0 }, { x: 0, duration: 1, delay: 0.5, opacity: 1 }, 1)
+      .fromTo("h2", { x: -200, opacity: 0 }, { x: 0, duration: 1, delay: 1, opacity: 1 }, 1);
 
-        timeline
-            .fromTo(
-                "h1",
-                { x: 200, opacity: 0 },
-                { x: 0, duration: 1, delay: .5, opacity: 1 },
-                1
-            )
-            .fromTo(
-                "h2",
-                { x: -200, opacity: 0 },
-                { x: 0, duration: 1, delay: 1, opacity: 1 },
-                1
-            );
-        gsap.fromTo(
-            "#qusIcon",
-            {
-                x: -200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#qusIcon',
-
-                    start: 'top center',
-                    end: '20% 30%',
-                    scrub: 1,
-                },
-                opacity: 1,
-                duration: 1.5,
-                x: 0,
-            }
-        );
-
-        gsap.fromTo(
-            "#section1",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section1',
-
-                    start: '-80% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 0,
-            }
-        );
-        gsap.fromTo(
-            "#section2",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section2',
-
-                    start: '-50% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 150,
-            }
-        );
-        gsap.fromTo(
-            "#section3",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section3',
-
-                    start: '-50% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 0,
-            }
-        );
-        gsap.fromTo(
-            "#section4",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section4',
-
-                    start: '-20% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 150,
-            }
-        );
+    gsap.fromTo("#qualityIcon", { x: -200, opacity: 0 }, {
+      scrollTrigger: {
+        trigger: "#qualityIcon",
+        start: "top center",
+        end: "20% 30%",
+        scrub: 1,
+      },
+      opacity: 1,
+      duration: 1.5,
+      x: 0,
     });
 
-    return (
-        <div className="relative">
-            <div className="relative z-8">
-                <div className="h-screen w-full flex justify-center flex-col items-center text-white">
-                    <h1 className="text-4xl sm:text-6xl font-bold opacity-1 text-orange-500 tracking-wide">
-                        QUALITY CONSULTANCY
-                    </h1>
-                    <h2 className="text-xl sm:text-2xl font-medium mt-1 josefin text-white mb-12">
-                        JP Consulting & Services
-                    </h2>
-                </div>
-                <div className="h-full bgSVG">
-                    <div className="pt-20 sm:pt-40 text-black flex flex-col sm:flex-row justify-center items-center gap-10">
-                        <img
-                            id="qusIcon"
-                            src={qusIconImage}
-                            className="h-48 sm:h-80 rounded-lg"
-                            alt="Quality Consultancy Icon"
-                        />
-                        <p className="text-base sm:text-lg josefin font-semibold text-center sm:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-                            At JP Consulting & Services, our Quality, Standardization, and Measuring Consultancy is designed to help businesses establish consistent, high-performing operations through effective frameworks and measurable systems. We guide companies in developing quality management practices, setting internal standards, and implementing key performance indicators (KPIs) that align with industry benchmarks.
-                            <br />
-                            <br />
-                            Our goal is to ensure that your products, services, and processes not only meet compliance requirements but also exceed customer expectations. With a focus on continuous improvement, we help organizations build scalable systems that support long-term growth, operational efficiency, and market competitiveness.
-                        </p>
-                    </div>
-                    <div className="h-full space-y-12 sm:space-y-20 py-20 sm:py-40">
-                        <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-                            <div id="section1" className="w-full sm:w-1/2 space-y-5 justify-center text-center sm:text-left">
-                                <p className="font-bold text-xl sm:text-2xl">
-                                    BUILDING EXCELLENCE FROM THE GROUND UP
-                                </p>
-                                <p className="flex flex-col gap-2">
-                                    <span className="font-bold">
-                                        Driven by Quality. Defined by Standards.
-                                    </span>
-                                    At JP Consulting & Services, we help businesses implement quality frameworks, establish standardized processes, and adopt effective measurement systems to ensure consistent performance and long-term success. Our consultancy bridges the gap between vision and execution—so your operations reflect the high standards your brand stands for.
-                                </p>
-                            </div>
-                            <div id="section2" className="w-full sm:w-1/2 space-y-5 justify-center text-center sm:text-left">
-                                <p className="font-bold text-xl sm:text-2xl">
-                                    YOUR ROADMAP TO OPERATIONAL EXCELLENCE
-                                </p>
-                                <p className="flex flex-col gap-2">
-                                    <span className="font-bold">Tailored Quality Systems That Work for You</span>
-                                    We don’t believe in off-the-shelf solutions. We design quality and standardization systems tailored to your industry, team, and growth goals—ensuring efficiency, compliance, and measurable performance from day one.
-                                </p>
-                            </div>
-                        </section>
-                        <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-                            <div id="section3" className="w-full sm:w-1/2 space-y-5 justify-center text-center sm:text-left">
-                                <p className="font-bold text-xl sm:text-2xl">
-                                    UNDERSTANDING YOUR QUALITY CHALLENGES
-                                </p>
-                                <p className="flex flex-col gap-2">
-                                    <span className="font-bold">Identifying Gaps. Elevating Performance.</span>
-                                    Many businesses struggle with inconsistencies, inefficiencies, or a lack of quality benchmarks. We analyze your current processes, identify gaps, and build systems that improve reliability and reduce waste—setting the foundation for scalable, high-performance operations.
-                                </p>
-                                <div className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">WHAT WE OFFER</span>
-                                    <ul className="list-disc list-inside text-left">
-                                        <li>Development of quality management systems (QMS)</li>
-                                        <li>Standard operating procedure (SOP) creation</li>
-                                        <li>ISO and regulatory compliance consultancy</li>
-                                        <li>Performance measurement and KPI design</li>
-                                        <li>Process improvement and benchmarking</li>
-                                        <li>Staff training on quality and standardization</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="section4" className="w-full sm:w-1/2 space-y-5 justify-center text-center sm:text-left">
-                                <p className="font-bold text-xl sm:text-2xl">
-                                    HOW WE DRIVE TRANSFORMATION
-                                </p>
-                                <p className="flex flex-col gap-2">
-                                    <span className="font-bold">Smart Systems for Lasting Success</span>
-                                    ⚙️ Standardization: Create consistent, repeatable processes<br />
-                                    📊 Measuring What Matters: Define KPIs aligned with your business goals<br />
-                                    📈 Continuous Improvement: Build systems that adapt, scale, and evolve<br />
-                                    ✅ Compliance & Accreditation Readiness: Prepare for ISO, regulatory, or industry audits with confidence
-                                </p>
-                                <div className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">YOUR BENEFITS:</span>
-                                    <ul className="list-disc list-inside text-left">
-                                        <li>Improved product and service consistency</li>
-                                        <li>Streamlined processes with reduced errors and delays</li>
-                                        <li>Data-driven decision-making through smart measurement tools</li>
-                                        <li>Easier scalability and onboarding of new teams</li>
-                                        <li>Stronger market reputation through documented quality excellence</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <img src={quImage} className="fixed blur-sm top-0 z-1 w-full h-full object-cover" alt="Background" />
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
+    });
+  }, []);
+
+  return (
+    <div className="relative overflow-x-hidden">
+      {/* Background */}
+      <img
+        src={quImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Background"
+      />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">QUALITY CONSULTANCY</h1>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">JP Consulting & Services</h2>
         </div>
-    );
+
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
+            <img
+              id="qualityIcon"
+              src={qusIconImage}
+              className="w-full max-w-md rounded-lg"
+              alt="Quality Consultancy Icon"
+            />
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              At JP Consulting & Services, our <span className="orange">Quality, Standardization, and Measuring</span> Consultancy
+              empowers businesses to develop frameworks that ensure performance,
+              compliance, and scalability. We help establish internal standards, define KPIs,
+              and foster operational excellence that drives growth and customer satisfaction.
+            </p>
+          </div>
+
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">BUILDING EXCELLENCE</span> FROM THE GROUND UP</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Driven by Quality. Defined by Standards.</span>
+                We help businesses implement structured processes, build effective quality systems,
+                and measure outcomes for continuous improvement.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">YOUR ROADMAP</span> TO OPERATIONAL EXCELLENCE</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Tailored Systems, Tangible Results</span>
+                We design quality and compliance systems that are custom-fit to your business—
+                helping you grow with confidence and efficiency.
+              </p>
+            </section>
+
+            {/* Section 3 */}
+            <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">UNDERSTAND</span> YOUR QUALITY CHALLENGES</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Identifying Gaps. Elevating Performance.</span>
+                We audit existing workflows to find inefficiencies, define KPIs, and ensure
+                quality practices that support reliable scaling.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">What We Offer</p>
+                <ul className="list-disc list-inside">
+                  <li>Quality management systems (QMS)</li>
+                  <li>SOP and process design</li>
+                  <li>Regulatory/ISO readiness</li>
+                  <li>KPIs and performance analytics</li>
+                  <li>Training and implementation</li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Section 4 */}
+            <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">TRANSFORMING</span> QUALITY INTO ADVANTAGE</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Smarter Systems. Lasting Results.</span>
+                From reducing errors to building customer trust, our consulting ensures your business
+                becomes synonymous with quality.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside">
+                  <li>Better product/service consistency</li>
+                  <li>Streamlined processes and reduced rework</li>
+                  <li>Data-backed decisions with measurable KPIs</li>
+                  <li>Stronger audit and certification readiness</li>
+                  <li>Improved team alignment and onboarding</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to build a quality-first business culture?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default QualityConsultancy;

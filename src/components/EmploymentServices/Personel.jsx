@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { persIconImage, perImage } from "../../utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -6,167 +6,166 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const Personel = () => {
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const timeline = gsap.timeline();
+  useEffect(() => {
+    const timeline = gsap.timeline();
 
-      timeline
-        .fromTo(
-          "h1",
-          { x: 200, opacity: 0 },
-          { x: 0, duration: 1, delay: 0.3, opacity: 1 }
-        )
-        .fromTo(
-          "h2",
-          { x: -200, opacity: 0 },
-          { x: 0, duration: 1, delay: 0.2, opacity: 1 },
-          "-=0.8"
-        );
+    timeline
+      .fromTo(
+        "h1",
+        { x: 200, opacity: 0 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
+        1
+      )
+      .fromTo(
+        "h2",
+        { x: -200, opacity: 0 },
+        { x: 0, duration: 1, delay: 1, opacity: 1 },
+        1
+      );
 
-      const sections = ["#persIcon", "#section1", "#section2", "#section3", "#section4"];
-      sections.forEach((id, i) => {
-        gsap.fromTo(
-          id,
-          { y: 100, opacity: 0 },
-          {
-            scrollTrigger: {
-              trigger: id,
-              start: "top 80%",
-              end: "bottom 60%",
-              scrub: false,
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-          }
-        );
-      });
+    gsap.fromTo(
+      "#persIcon",
+      { x: -200, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: "#persIcon",
+          start: "top center",
+          end: "20% 30%",
+          scrub: 1,
+        },
+        opacity: 1,
+        duration: 1.5,
+        x: 0,
+      }
+    );
 
-      ScrollTrigger.refresh();
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
     });
-
-    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="relative">
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="min-h-screen w-full flex flex-col items-center justify-center text-white px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
-            PERSONNEL
-          </h1>
-          <h2 className="text-lg md:text-2xl font-medium mt-2 josefin mb-12">
-            JP Consulting & Services
-          </h2>
-        </div>
-
-        {/* Content Section */}
-        <div className="h-full bgSVG px-6 md:px-16">
-          {/* Icon and Intro */}
-          <div className="pt-20 flex flex-col md:flex-row gap-10 items-center justify-center text-black">
-            <img
-              id="persIcon"
-              src={persIconImage}
-              className="w-60 md:w-80 rounded-lg"
-              alt=""
-            />
-            <p className="text-base md:text-lg josefin font-semibold max-w-xl leading-relaxed border-l-4 border-black pl-4 italic text-center md:text-left">
-              At JP Consulting & Services, we support businesses by optimizing
-              their personnel structure, improving team alignment, and implementing HR
-              strategies that enhance efficiency and engagement...
-            </p>
-          </div>
-
-          {/* Sections */}
-          <div className="space-y-28 mt-20">
-            {/* Section Group 1 */}
-            <section className="flex flex-col md:flex-row gap-12 justify-center items-start">
-              <div id="section1" className="max-w-xl space-y-4 text-center md:text-left">
-                <p className="font-bold text-2xl">
-                  BUILDING YOUR TEAM, STRENGTHENING YOUR BUSINESS
-                </p>
-                <p>
-                  <span className="font-bold block">
-                    The Right People Make All the Difference
-                  </span>
-                  At JP Consulting & Services, we understand that a business is
-                  only as strong as its people...
-                </p>
-              </div>
-
-              <div id="section2" className="max-w-xl space-y-4 text-center md:text-left">
-                <p className="font-bold text-2xl">
-                  TAILORED TALENT STRATEGIES
-                </p>
-                <p>
-                  <span className="font-bold block">
-                    Built Around Your Business Needs
-                  </span>
-                  Every company is unique — and so are its staffing needs...
-                </p>
-              </div>
-            </section>
-
-            {/* Section Group 2 */}
-            <section className="flex flex-col md:flex-row gap-12 justify-center items-start">
-              <div id="section3" className="max-w-xl space-y-4 text-center md:text-left">
-                <p className="font-bold text-2xl">
-                  UNDERSTANDING YOUR TEAM CHALLENGES
-                </p>
-                <p>
-                  <span className="font-bold block">We Focus on What Matters Most</span>
-                  From inefficient hiring processes to high turnover rates...
-                </p>
-                <div>
-                  <span className="font-bold block">PAIN POINTS WE SOLVE</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Ineffective recruitment strategies</li>
-                    <li>High employee turnover</li>
-                    <li>Misaligned team roles</li>
-                    <li>Lack of HR processes</li>
-                    <li>Skills gaps</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div id="section4" className="max-w-xl space-y-4 text-center md:text-left">
-                <p className="font-bold text-2xl">
-                  HOW WE HELP YOUR BUSINESS GROW
-                </p>
-                <p>
-                  <span className="font-bold block">
-                    Comprehensive Personnel Solutions
-                  </span>
-                  🧩 Recruitment Support...<br />
-                  📊 Organizational Structuring...<br />
-                  📘 Policy & Handbook Creation...<br />
-                  🎯 Performance Management...<br />
-                  🤝 Team Alignment Workshops...
-                </p>
-                <div>
-                  <span className="font-bold block">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Stronger hiring decisions</li>
-                    <li>Improved team cohesion</li>
-                    <li>Clear HR documentation</li>
-                    <li>Reduced turnover</li>
-                    <li>Scalable growth</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-
+    <div className="relative overflow-x-hidden">
       {/* Background Image */}
       <img
         src={perImage}
         className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
-        alt=""
+        alt="Personnel Background"
       />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">PERSONNEL</h1>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">JP Consulting & Services</h2>
+        </div>
+
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
+            <img
+              id="persIcon"
+              src={persIconImage}
+              className="w-full max-w-md rounded-lg"
+              alt="Personnel Icon"
+            />
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              At JP Consulting & Services, we support businesses by optimizing their personnel structure, improving team alignment, and implementing HR strategies that enhance efficiency and engagement. Our personnel consulting services help ensure you have the right people in the right roles — and the systems to support them.
+            </p>
+          </div>
+
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">BUILDING YOUR TEAM</span>, STRENGTHENING YOUR BUSINESS</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">The Right People Make All the Difference</span>
+                A business is only as strong as its people. We align talent with company goals, optimize roles, and ensure everyone contributes to growth.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">TAILORED</span> TALENT STRATEGIES</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Built Around Your Business Needs</span>
+                Whether you’re scaling or restructuring, we provide staffing solutions, training plans, and development roadmaps customized to your goals.
+              </p>
+            </section>
+
+            {/* Section 3 */}
+            <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">UNDERSTANDING</span> YOUR TEAM CHALLENGES</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">We Focus on What Matters Most</span>
+                From inefficient hiring processes to high turnover, we target core issues that block team performance.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Pain Points We Solve</p>
+                <ul className="list-disc list-inside text-sm">
+                  <li>Ineffective recruitment strategies</li>
+                  <li>High employee turnover</li>
+                  <li>Misaligned team roles</li>
+                  <li>Lack of HR processes</li>
+                  <li>Skills gaps</li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Section 4 */}
+            <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOUR BUSINESS GROW</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Comprehensive Personnel Solutions</span>
+                We deliver people-first strategies backed by data, structure, and coaching to drive sustainable team growth.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Our Services</p>
+                <ul className="list-disc list-inside text-sm">
+                  <li>Recruitment support</li>
+                  <li>Organizational structuring</li>
+                  <li>Policy & handbook creation</li>
+                  <li>Performance management</li>
+                  <li>Team alignment workshops</li>
+                </ul>
+              </div>
+              <div className="text-left mx-auto max-w-md mt-6">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside text-sm">
+                  <li>Stronger hiring decisions</li>
+                  <li>Improved team cohesion</li>
+                  <li>Clear HR documentation</li>
+                  <li>Reduced turnover</li>
+                  <li>Scalable growth</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to optimize your team?
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -10,8 +10,16 @@ const Resume = () => {
     const timeline = gsap.timeline();
 
     timeline
-      .fromTo("h1", { x: 200, opacity: 0 }, { x: 0, duration: 1, delay: 0.5, opacity: 1 }, 1)
-      .fromTo("h2", { x: -200, opacity: 0 }, { x: 0, duration: 1, delay: 1, opacity: 1 }, 1);
+      .fromTo(
+        "h1",
+        { x: 200, opacity: 0 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 }
+      )
+      .fromTo(
+        "h2",
+        { x: -200, opacity: 0 },
+        { x: 0, duration: 1, delay: 1, opacity: 1 }
+      );
 
     const sections = ["#resIcon", "#section1", "#section2", "#section3", "#section4"];
     sections.forEach((id, index) => {
@@ -34,64 +42,83 @@ const Resume = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={reImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Resume Background"
+      />
+
+      {/* Main Content */}
       <div className="relative z-10">
-        {/* Header Section */}
-        <div className="h-screen w-full flex flex-col justify-center items-center text-white px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">RESUME</h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 josefin text-white mb-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
+            RESUME
+          </h1>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
 
-        {/* Content Section */}
-        <div className="bgSVG py-20 px-4 md:px-20">
-          {/* Icon + Intro Paragraph */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
-            <img id="resIcon" src={resIconImage} alt="Resume Icon" className="h-60 md:h-80 rounded-lg" />
-            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-xl leading-relaxed border-l-4 border-black pl-4 italic">
-              A resume is a concise document that highlights a person's professional experience, education,
-              skills, and achievements. It serves as a personal marketing tool, providing potential employers
-              with a quick overview of who you are, what you’ve accomplished, and what you can bring to their
-              organization. <br /><br />
-              At JP Consulting & Services, we view the resume as more than just a list of experiences — it’s
-              a strategic document that tells your career story and sets the tone for future opportunities.
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
+            <img
+              id="resIcon"
+              src={resIconImage}
+              className="w-full max-w-md rounded-lg"
+              alt="Resume Icon"
+            />
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              A resume is a concise document that highlights a person's professional experience, education, skills,
+              and achievements. It serves as a personal marketing tool, providing potential employers with a quick
+              overview of who you are, what you’ve accomplished, and what you can bring to their organization. <br />
+              <br />
+              At JP Consulting & Services, we view the resume as more than just a list of experiences — it’s a
+              strategic document that tells your career story and sets the tone for future opportunities.
             </p>
           </div>
 
-          {/* Section 1 & 2 */}
-          <section className="flex flex-col md:flex-row gap-10 justify-center items-start mb-20">
-            <div id="section1" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">CRAFTED FOR IMPACT</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Highlight Your Strengths. Stand Out with Confidence.</span>
-                At JP Consulting & Services, our Resume Editing service is designed to help professionals
-                present their skills, experiences, and career goals with clarity and impact.
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section
+              id="section1"
+              className="text-center max-w-4xl mx-auto space-y-6 min-h-[250px]"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">CRAFTED FOR IMPACT</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                At JP Consulting & Services, our Resume Editing service is designed to help professionals present
+                their skills, experiences, and career goals with clarity and impact.
               </p>
-            </div>
+            </section>
 
-            <div id="section2" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">YOUR STORY, PROFESSIONALLY TOLD</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Personalized Resume Strategy</span>
-                We don’t just edit resumes — we refine your professional narrative. By understanding your
-                background and career goals, we optimize your resume to showcase your value and help you stand out.
+            {/* Section 2 */}
+            <section
+              id="section2"
+              className="text-center max-w-4xl mx-auto space-y-6 min-h-[250px]"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">YOUR STORY, PROFESSIONALLY TOLD</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                We don’t just edit resumes — we refine your professional narrative. By understanding your background
+                and career goals, we optimize your resume to showcase your value and help you stand out.
               </p>
-            </div>
-          </section>
+            </section>
 
-          {/* Section 3 & 4 */}
-          <section className="flex flex-col md:flex-row gap-10 justify-center items-start">
-            <div id="section3" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">YOUR SUCCESS STARTS HERE</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Clarity and Strategy Built In</span>
-                Recruiters often spend less than 10 seconds reviewing a resume. We sharpen your message,
-                highlight achievements, and align your resume with job market expectations.
+            {/* Section 3 */}
+            <section
+              id="section3"
+              className="text-center max-w-5xl mx-auto space-y-6 min-h-[250px] py-16"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">YOUR SUCCESS STARTS HERE</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                Recruiters often spend less than 10 seconds reviewing a resume. We sharpen your message, highlight
+                achievements, and align your resume with job market expectations.
               </p>
-              <div className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">WHAT WE PROVIDE</span>
-                <ul className="list-disc list-inside text-left">
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">What We Provide:</p>
+                <ul className="list-disc list-inside">
                   <li>Executive Resumes</li>
                   <li>Entry-Level & Graduate CVs</li>
                   <li>Career Transition Resumes</li>
@@ -99,33 +126,40 @@ const Resume = () => {
                   <li>LinkedIn Profile Optimization (optional add-on)</li>
                 </ul>
               </div>
-            </div>
+            </section>
 
-            <div id="section4" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">HOW WE ENHANCE YOUR RESUME</p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">Strategic Resume Editing Services</span>
-                ✍️ Professional Tone & Language<br />
-                🧠 Formatting & Design<br />
-                🚀 Achievement-Focused<br />
+            {/* Section 4 */}
+            <section
+              id="section4"
+              className="text-center max-w-5xl mx-auto space-y-6 min-h-[250px] py-16"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">HOW WE ENHANCE YOUR RESUME</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                ✍️ Professional Tone & Language <br />
+                🧠 Formatting & Design <br />
+                🚀 Achievement-Focused <br />
                 🔍 Keyword Optimization
               </p>
-              <div className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">YOUR BENEFITS:</span>
-                <ul className="list-disc list-inside text-left">
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits:</p>
+                <ul className="list-disc list-inside">
                   <li>A resume that reflects your strengths and value</li>
                   <li>Increased interview callbacks and recruiter interest</li>
                   <li>Better alignment with target roles and industries</li>
                   <li>Enhanced confidence in your job search</li>
                 </ul>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to take your career to the next level?
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* Background Image */}
-      <img src={reImage} className="fixed top-0 left-0 w-full h-full object-cover blur-sm z-0" alt="Background" />
     </div>
   );
 };
