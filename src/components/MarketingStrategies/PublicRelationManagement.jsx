@@ -6,219 +6,184 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const PublicRelationManagement = () => {
-    useEffect(() => {
-        const timeline = gsap.timeline();
+  useEffect(() => {
+    const timeline = gsap.timeline();
 
-        timeline
-            .fromTo(
-                "h1",
-                { x: 200, opacity: 0 },
-                { x: 0, duration: 1, delay: .5, opacity: 1 },
-                1
-            )
-            .fromTo(
-                "h2",
-                { x: -200, opacity: 0 },
-                { x: 0, duration: 1, delay: 1, opacity: 1 },
-                1
-            );
-        gsap.fromTo(
-            "#pubsIcon",
-            {
-                x: -200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#pubsIcon',
+    timeline
+      .fromTo(
+        "h1",
+        { x: 200, opacity: 0 },
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
+        1
+      )
+      .fromTo(
+        "h2",
+        { x: -200, opacity: 0 },
+        { x: 0, duration: 1, delay: 1, opacity: 1 },
+        1
+      );
 
-                    start: 'top center',
-                    end: '20% 30%',
-                    scrub: 1,
-                },
-                opacity: 1,
-                duration: 1.5,
-                x: 0,
-            }
-        );
-
-        gsap.fromTo(
-            "#section1",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section1',
-
-                    start: '-80% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 0,
-            }
-        );
-        gsap.fromTo(
-            "#section2",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section2',
-
-                    start: '-50% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 150,
-            }
-        );
-        gsap.fromTo(
-            "#section3",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section3',
-
-                    start: '-50% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 0,
-            }
-        );
-        gsap.fromTo(
-            "#section4",
-            {
-                y: 200,
-                opacity: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: '#section4',
-
-                    start: '-20% center',
-                    end: 'center 30%',
-                },
-                opacity: 1,
-                duration: 1.5,
-                y: 150,
-            }
-        );
-
-    });
-    return (
-        <div className="relative">
-            <div className="relative z-8">
-                <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-                    <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-orange-500 tracking-wide">
-                        PUBLIC RELATION SERVICES
-                    </h1>
-                    <h2 className="text-xl sm:text-2xl font-medium mt-1 josefin text-white mb-12">
-                        JP Consulting & Services
-                    </h2>
-                </div>
-                <div className="h-full bgSVG">
-                    <div className="pt-20 sm:pt-40 text-black flex flex-col sm:flex-row justify-center items-center gap-10">
-                        <img
-                            id="pubsIcon"
-                            src={pubsIconImage}
-                            className="h-48 sm:h-64 lg:h-80 rounded-lg object-contain"
-                            alt="Public Relations Icon"
-                        />
-                        <p className="text-sm sm:text-lg josefin font-semibold text-center sm:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-                            Public Relations (PR) is all about managing how your business is perceived by the public, media, stakeholders, and customers. At JP Consulting & Services, our PR services focus on building a strong, positive reputation for your brand through clear, consistent, and strategic communication. 
-                            <br />
-                            <br />
-                            Whether you're launching a new business, handling a sensitive issue, or looking to boost your brand awareness, our team helps you create and share the right messages at the right time — across the right channels.
-                            <br />
-                            <br />
-                            We specialize in crafting compelling stories, securing media coverage, handling crisis communication, and ensuring your brand is trusted and respected. Public Relations isn’t just about publicity — it’s about connection, credibility, and long-term growth.
-                        </p>
-                    </div>
-                    <div className="h-full space-y-12 sm:space-y-20 py-24 sm:py-32">
-                        <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-                            <div id="section1" className="w-full sm:w-1/2 h-full josefin space-y-5">
-                                <p className="font-bold text-2xl text-center">
-                                    BUILDING BRIDGES, ELEVATING BRANDS
-                                </p>
-                                <p className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">
-                                        Your Reputation, Strategically Managed
-                                    </span>
-                                    At JP Consulting & Services, our Public Relations service is designed to shape, protect, and promote your brand's reputation. Whether you're launching a business, managing a crisis, or aiming to increase visibility, we help you craft messages that resonate and connect with your audience.
-                                </p>
-                            </div>
-                            <div id="section2" className="w-full sm:w-1/2 h-full josefin space-y-5 translate-y-10 sm:translate-y-0">
-                                <p className="font-bold text-2xl text-center">
-                                    COMMUNICATE WITH PURPOSE
-                                </p>
-                                <p className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">Strategic Messaging That Drives Results</span>
-                                    We don’t just generate publicity — we help you tell your story. From press releases to stakeholder communication, every message we craft is rooted in your values and business goals, helping you build trust and long-term relationships with your audience.
-                                </p>
-                            </div>
-                        </section>
-                        <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-                            <div id="section3" className="w-full sm:w-1/2 h-full josefin space-y-5">
-                                <p className="font-bold text-2xl text-center">
-                                    WE UNDERSTAND YOUR IMAGE MATTERS
-                                </p>
-                                <p className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">Perception is Power</span>
-                                    In today’s fast-paced business environment, how you're perceived can define your success. We help you proactively manage your public image to ensure consistency, credibility, and clarity across every channel.
-                                </p>
-                                <div className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">WHAT WE OFFER</span>
-                                    <ul className="list-disc list-inside text-left">
-                                        <li>Brand Reputation Management</li>
-                                        <li>Media Relations & Press Release Writing</li>
-                                        <li>Crisis Communication Planning</li>
-                                        <li>Public Announcements & Stakeholder Messaging</li>
-                                        <li>PR Strategy & Campaign Planning</li>
-                                        <li>Event & Launch Communication</li>
-                                        <li>Internal Communication Enhancement</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="section4" className="w-full sm:w-1/2 h-full josefin space-y-5">
-                                <p className="font-bold text-2xl text-center">
-                                    HOW WE MAKE AN IMPACT
-                                </p>
-                                <p className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">Comprehensive PR Solutions</span>
-                                    🗣 Message Development: Craft compelling narratives that align with your brand<br />
-                                    📣 Media Engagement: Secure meaningful coverage and build media relationships<br />
-                                    🧩 Crisis Management: Navigate reputational challenges with confidence<br />
-                                    🤝 Stakeholder Communication: Keep investors, clients, and partners informed and engaged
-                                </p>
-                                <div className="text-center flex flex-col gap-2">
-                                    <span className="font-bold">YOUR BENEFITS:</span>
-                                    <ul className="list-disc list-inside text-left">
-                                        <li>Increased brand awareness and positive media coverage</li>
-                                        <li>Improved trust with customers, partners, and stakeholders</li>
-                                        <li>Stronger internal and external communication strategies</li>
-                                        <li>Enhanced reputation and market positioning</li>
-                                        <li>Peace of mind knowing your public image is in expert hands</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <img src={pubImage} className="fixed blur-sm top-0 left-0 right-0 z-1 w-full object-cover" alt="" />
-        </div>
+    gsap.fromTo(
+      "#pubsIcon",
+      { x: -200, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: "#pubsIcon",
+          start: "top center",
+          end: "20% 30%",
+          scrub: 1,
+        },
+        opacity: 1,
+        duration: 1.5,
+        x: 0,
+      }
     );
+
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
+    });
+  }, []);
+
+  return (
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={pubImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Public Relations Background"
+      />
+
+      {/* Foreground Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
+            PUBLIC RELATION SERVICES
+          </h1>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+            JP Consulting & Services
+          </h2>
+        </div>
+
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Intro Icon & Paragraph */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
+            <img
+              id="pubsIcon"
+              src={pubsIconImage}
+              className="w-full max-w-md rounded-lg"
+              alt="PR Icon"
+            />
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              At <span className="orange">JP Consulting & Services</span>, Public Relations is about more than publicity — it's about building trust, shaping narratives, and making lasting connections. From launching brands to managing crises, we ensure your story is seen, heard, and remembered.
+              <br />
+              <br />
+              Reputation is your most valuable asset. We help you protect it and grow it with clarity, purpose, and confidence.
+            </p>
+          </div>
+
+          {/* Content Sections */}
+          <div className="space-y-32">
+            <section
+              id="section1"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">BUILDING BRIDGES</span>, ELEVATING BRANDS
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">
+                  Your Reputation, Strategically Managed
+                </span>
+                From business launches to brand repositioning, our PR services are tailored to ensure every message aligns with your identity and connects authentically with your audience.
+              </p>
+            </section>
+
+            <section
+              id="section2"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">COMMUNICATE</span> WITH PURPOSE
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Strategic Messaging That Drives Results</span>
+                Whether it's media coverage, press releases, or stakeholder messaging, we craft clear, powerful stories that build credibility and drive engagement.
+              </p>
+            </section>
+
+            <section
+              id="section3"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">YOUR IMAGE</span> MATTERS
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Perception is Power</span>
+                Consistency, clarity, and trust — we help you shape how the world sees you.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">What We Offer</p>
+                <ul className="list-disc list-inside">
+                  <li>Brand Reputation Management</li>
+                  <li>Media Relations & Press Release Writing</li>
+                  <li>Crisis Communication Planning</li>
+                  <li>Stakeholder Messaging</li>
+                  <li>PR Strategy & Campaign Planning</li>
+                  <li>Event & Launch Communication</li>
+                  <li>Internal Communication Support</li>
+                </ul>
+              </div>
+            </section>
+
+            <section
+              id="section4"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">OUR IMPACT</span> IN ACTION
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Comprehensive PR Solutions</span>
+                From reputation management to crisis response, we ensure you’re always ready to communicate with confidence.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside">
+                  <li>Enhanced public perception</li>
+                  <li>Greater media visibility</li>
+                  <li>Improved communication with stakeholders</li>
+                  <li>Proactive crisis readiness</li>
+                  <li>Stronger brand trust and authority</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to elevate your public image?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default PublicRelationManagement;

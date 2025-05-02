@@ -13,24 +13,38 @@ const CargoFreight = () => {
       .fromTo(
         "h1",
         { x: 200, opacity: 0 },
-        { x: 0, duration: 1, delay: 0.5, opacity: 1 },
-        1
+        { x: 0, duration: 1, delay: 0.5, opacity: 1 }
       )
       .fromTo(
         "h2",
         { x: -200, opacity: 0 },
-        { x: 0, duration: 1, delay: 1, opacity: 1 },
-        1
+        { x: 0, duration: 1, delay: 1, opacity: 1 }
       );
+
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
+    });
+
     gsap.fromTo(
-      "#carsIcon",
-      {
-        x: -200,
-        opacity: 0,
-      },
+      "#cargoIcon",
+      { x: -200, opacity: 0 },
       {
         scrollTrigger: {
-          trigger: "#carsIcon",
+          trigger: "#cargoIcon",
           start: "top center",
           end: "20% 30%",
           scrub: 1,
@@ -40,171 +54,146 @@ const CargoFreight = () => {
         x: 0,
       }
     );
-
-    gsap.fromTo(
-      "#section1",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section1",
-          start: "-80% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section2",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section2",
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-    gsap.fromTo(
-      "#section3",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section3",
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section4",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section4",
-          start: "-20% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-  });
+  }, []);
 
   return (
-    <div className="relative">
-      <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl bold opacity-1 text-orange-500 tracking-wide">
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={carImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Cargo Background"
+      />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             CARGO FREIGHT
           </h1>
-          <h2 className="text-xl sm:text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
-        <div className="h-full bgSVG">
-          <div className="pt-20 sm:pt-40 text-black flex flex-col sm:flex-row justify-center items-center gap-10">
+
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
-              id="carsIcon"
+              id="cargoIcon"
               src={carsIconImage}
-              className="h-60 sm:h-80 md:h-96 rounded-lg"
+              className="w-full max-w-md rounded-lg"
               alt="Cargo Icon"
             />
-            <p className="text-base sm:text-lg md:text-xl josefin font-semibold text-center sm:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-              Cargo Freight Consultancy is the specialized service of guiding businesses through the complexities of freight transportation, logistics planning, and supply chain optimization. At JP Consulting & Services, we help you choose the right carriers, routes, and cost-effective strategies to ensure your goods move efficiently — whether across cities or across borders. <br />
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              Cargo Freight Consultancy is a specialized service that helps
+              businesses navigate the complexities of freight transportation,
+              logistics planning, and supply chain optimization. Whether you are
+              shipping products locally or globally, we work closely with you to
+              find the best strategies to reduce costs and ensure efficiency.
               <br />
-              Our consultancy ensures that your freight operations are aligned with industry standards, compliant with international trade regulations, and optimized for speed, cost, and reliability. Whether you're a startup looking to ship your first container or an established business aiming to reduce logistics costs, our freight experts are here to guide you every step of the way.
+              <br />
+              By aligning your logistics strategies with your business goals, we
+              ensure that your supply chain operates seamlessly.
             </p>
           </div>
-          <div className="h-full space-y-10 sm:space-y-20 py-20 sm:py-40">
-            <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-              <div id="section1" className="w-full sm:w-1/2 h-full josefin space-y-5 justify-center">
-                <p className="font-bold text-xl sm:text-2xl text-center">
-                  MOVING BUSINESS FORWARD, EFFICIENTLY
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Logistics Solutions Designed for Growth</span>
-                  At JP Consulting & Services, our Cargo Freight Consultancy is built to help businesses optimize their supply chain operations, reduce costs, and ensure smooth movement of goods locally and globally. We simplify complex freight challenges so you can focus on scaling your business with confidence.
-                </p>
-              </div>
-              <div id="section2" className="w-full sm:w-1/2 h-full josefin space-y-5 justify-center translate-y-10 sm:translate-y-0">
-                <p className="font-bold text-xl sm:text-2xl text-center">
-                  STRATEGY THAT MOVES WITH YOU
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Tailored Freight Solutions</span>
-                  No two businesses ship the same way — that’s why we offer personalized freight strategies based on your unique operational needs, shipment volumes, and target markets. From warehousing to last-mile delivery, we streamline every step of the logistics process.
-                </p>
+
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section
+              id="section1"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">OUR PROMISE</span> TO YOU
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">
+                  Streamlining Freight Operations for Success
+                </span>
+                At JP Consulting & Services, we ensure your freight operations
+                are optimized for efficiency, cost-effectiveness, and compliance
+                with international trade regulations.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section
+              id="section2"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">YOUR PATH</span> TO EFFICIENCY
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Customized Solutions</span>
+                We tailor our services to your business's specific needs and
+                goals, ensuring that your logistics process is streamlined and
+                efficient from start to finish.
+              </p>
+            </section>
+
+            {/* Section 3 */}
+            <section
+              id="section3"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">UNDERSTAND</span> YOUR CHALLENGES
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Identifying and Solving Issues</span>
+                We help you identify operational inefficiencies, compliance
+                challenges, and cost drivers, providing strategic solutions that
+                help you achieve greater efficiency in your freight operations.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Challenges We Address</p>
+                <ul className="list-disc list-inside">
+                  <li>Costly and inefficient shipping methods</li>
+                  <li>Regulatory hurdles and compliance issues</li>
+                  <li>Inaccurate tracking and delayed deliveries</li>
+                  <li>Managing high-volume shipments</li>
+                </ul>
               </div>
             </section>
-            <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-              <div id="section3" className="w-full sm:w-1/2 h-full josefin space-y-5 justify-center">
-                <p className="font-bold text-xl sm:text-2xl text-center">
-                  WE UNDERSTAND YOUR LOGISTICS CHALLENGES
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Clear Paths Through Complex Logistics</span>
-                  Navigating global and domestic freight regulations, unpredictable costs, and supply chain delays can be overwhelming. Our experts help you make informed decisions, ensuring your logistics setup supports your business goals and budget.
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">SERVICES WE OFFER</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Freight Process Optimization</li>
-                    <li>Carrier & Vendor Selection Support</li>
-                    <li>Cost Analysis & Budget Planning</li>
-                    <li>Customs Advisory & Documentation Guidance</li>
-                    <li>Route Planning & Risk Mitigation</li>
-                    <li>Warehousing & Inventory Strategy</li>
-                  </ul>
-                </div>
-              </div>
-              <div id="section4" className="w-full sm:w-1/2 h-full josefin space-y-5 justify-center translate-y-10 sm:translate-y-0">
-                <p className="font-bold text-xl sm:text-2xl text-center">
-                  HOW WE DRIVE RESULTS
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">Freight Strategy That Works for You</span>
-                  🚛 Seamless Freight Coordination: Ensuring timely deliveries through trusted carrier networks<br />
-                  📊 Cost Efficiency Analysis: Identifying ways to save without compromising quality<br />
-                  🌎 Regulatory Guidance: Ensuring full compliance with international trade laws<br />
-                  🧩 Integrated Logistics Planning: Aligning freight with broader supply chain strategies
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Reduced freight costs and increased transparency</li>
-                    <li>Faster, more reliable shipping times</li>
-                    <li>Stronger supply chain resilience and risk management</li>
-                    <li>Improved documentation and customs compliance</li>
-                    <li>Better customer satisfaction through on-time deliveries</li>
-                  </ul>
-                </div>
+
+            {/* Section 4 */}
+            <section
+              id="section4"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold">
+                <span className="orange">HOW WE HELP</span> YOUR BUSINESS THRIVE
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Strategic Freight Solutions</span>
+                We work with you to design the most efficient freight plan for
+                your business, from vendor selection and route optimization to
+                cost analysis and real-time tracking.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside">
+                  <li>Optimized shipping routes and reduced costs</li>
+                  <li>Faster and more reliable delivery times</li>
+                  <li>Improved supply chain resilience</li>
+                  <li>Better compliance with international regulations</li>
+                </ul>
               </div>
             </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to optimize your
+              freight operations?
+            </p>
           </div>
         </div>
       </div>
-      <img src={carImage} className="fixed blur-sm top-0 z-1" alt="Background" />
     </div>
   );
 };

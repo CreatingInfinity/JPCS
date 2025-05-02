@@ -25,10 +25,7 @@ const ITSecurity = () => {
 
     gsap.fromTo(
       "#itsIcon",
-      {
-        x: -200,
-        opacity: 0,
-      },
+      { x: -200, opacity: 0 },
       {
         scrollTrigger: {
           trigger: "#itsIcon",
@@ -42,91 +39,62 @@ const ITSecurity = () => {
       }
     );
 
-    gsap.fromTo(
-      "#section1",
-      { y: 200, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: "#section1",
-          start: "-80% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section2",
-      { y: 200, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: "#section2",
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-    gsap.fromTo(
-      "#section3",
-      { y: 200, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: "#section3",
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-    gsap.fromTo(
-      "#section4",
-      { y: 200, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: "#section4",
-          start: "-20% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-  });
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
+    });
+  }, []);
 
   return (
-    <div className="relative">
-      <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white px-4 text-center">
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={itImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="IT Security Background"
+      />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             IT SECURITY
           </h1>
-          <h2 className="text-lg md:text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
 
-        <div className="h-full bgSVG">
-          <div className="pt-20 px-4 text-black flex flex-col lg:flex-row justify-center items-center gap-10">
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
               id="itsIcon"
               src={itsIconImage}
-              className="h-60 md:h-80 rounded-lg"
-              alt="IT Icon"
+              className="w-full max-w-md rounded-lg"
+              alt="IT Security Icon"
             />
-            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               IT Security refers to the strategies, tools, and practices used to
               protect your company’s digital infrastructure, data, and
               operations from cyber threats. At JP Consulting & Services, we
               provide robust IT security solutions designed to defend against
               hacking, data breaches, malware, and other cyber risks that could
-              disrupt your business or compromise sensitive information. <br />
+              disrupt your business or compromise sensitive information. 
+              <br />
               <br />
               From firewalls and network monitoring to data encryption and
               employee awareness training, our IT Security services are tailored
@@ -136,108 +104,109 @@ const ITSecurity = () => {
             </p>
           </div>
 
-          <div className="space-y-20 py-24 px-4">
-            <section className="w-full flex flex-col lg:flex-row gap-10 justify-center items-center">
-              <div
-                id="section1"
-                className="w-full lg:w-1/2 josefin space-y-5 text-center"
-              >
-                <p className="font-bold text-2xl">PROTECTING YOUR BUSINESS, SECURING YOUR FUTURE</p>
-                <p className="flex flex-col gap-2">
-                  <span className="font-bold">
-                    Comprehensive Protection. Strategic Peace of Mind.
-                  </span>
-                  At JP Consulting & Services, our IT Security solutions are
-                  built to safeguard your business from evolving cyber threats.
-                  From risk assessment to full-scale protection, we ensure your
-                  digital assets, customer data, and operational integrity
-                  remain secure—24/7.
-                </p>
-              </div>
-              <div
-                id="section2"
-                className="w-full lg:w-1/2 josefin space-y-5 text-center"
-              >
-                <p className="font-bold text-2xl">YOUR PATH TO DIGITAL CONFIDENCE</p>
-                <p className="flex flex-col gap-2">
-                  <span className="font-bold">
-                    Customized Cybersecurity Strategies
-                  </span>
-                  We understand that no two businesses have the same security
-                  needs. That’s why we tailor our solutions to your
-                  infrastructure, industry, and goals—so you can operate with
-                  confidence, knowing your systems are resilient and protected.
-                </p>
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section
+              id="section1"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">PROTECTING</span> YOUR BUSINESS, SECURING YOUR FUTURE</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">
+                  Comprehensive Protection. Strategic Peace of Mind.
+                </span>
+                At JP Consulting & Services, our IT Security solutions are
+                built to safeguard your business from evolving cyber threats.
+                From risk assessment to full-scale protection, we ensure your
+                digital assets, customer data, and operational integrity
+                remain secure—24/7.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section
+              id="section2"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">YOUR PATH</span> TO DIGITAL CONFIDENCE</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Customized Cybersecurity Strategies</span>
+                We understand that no two businesses have the same security
+                needs. That’s why we tailor our solutions to your
+                infrastructure, industry, and goals—so you can operate with
+                confidence, knowing your systems are resilient and protected.
+              </p>
+            </section>
+
+            {/* Section 3 */}
+            <section
+              id="section3"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">WE UNDERSTAND</span> WHAT’S AT RISK</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Cyber Threats Are Constant—So Are We</span>
+                In today’s digital-first world, cyberattacks aren’t just
+                threats; they’re daily realities. We help you stay ahead of
+                risks like data breaches, ransomware, and system
+                vulnerabilities by building a proactive, layered security
+                defense around your business.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">What We Secure</p>
+                <ul className="list-disc list-inside">
+                  <li>Company Networks & Servers</li>
+                  <li>Cloud Environments & SaaS Platforms</li>
+                  <li>Employee Devices & Endpoint Security</li>
+                  <li>Business Applications & CRMs</li>
+                  <li>Client Data & Intellectual Property</li>
+                  <li>Remote Work Infrastructure</li>
+                </ul>
               </div>
             </section>
 
-            <section className="w-full flex flex-col lg:flex-row gap-10 justify-center items-center">
-              <div
-                id="section3"
-                className="w-full lg:w-1/2 josefin space-y-5 text-center"
-              >
-                <p className="font-bold text-2xl">WE UNDERSTAND WHAT’S AT RISK</p>
-                <p className="flex flex-col gap-2">
-                  <span className="font-bold">
-                    Cyber Threats Are Constant—So Are We
-                  </span>
-                  In today’s digital-first world, cyberattacks aren’t just
-                  threats; they’re daily realities. We help you stay ahead of
-                  risks like data breaches, ransomware, and system
-                  vulnerabilities by building a proactive, layered security
-                  defense around your business.
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">WHAT WE SECURE</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Company Networks & Servers</li>
-                    <li>Cloud Environments & SaaS Platforms</li>
-                    <li>Employee Devices & Endpoint Security</li>
-                    <li>Business Applications & CRMs</li>
-                    <li>Client Data & Intellectual Property</li>
-                    <li>Remote Work Infrastructure</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div
-                id="section4"
-                className="w-full lg:w-1/2 josefin space-y-5 text-center"
-              >
-                <p className="font-bold text-2xl">HOW WE HELP YOU STAY PROTECTED</p>
-                <p className="flex flex-col gap-2">
-                  <span className="font-bold">Strategic IT Security Services</span>
-                  🔍 Risk Assessment & Vulnerability Scanning
-                  <br />
-                  🛡️ Firewall & Intrusion Detection Systems (IDS)
-                  <br />
-                  🔐 Access Control & Identity Management
-                  <br />
-                  🔄 Data Backup & Disaster Recovery Planning
-                  <br />
-                  📚 Cybersecurity Awareness Training for Teams
-                  <br />
-                  🧠 Security Policy Development & Compliance Readiness
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Strengthened protection against cyber threats</li>
-                    <li>Reduced downtime and data loss</li>
-                    <li>Increased client trust and regulatory compliance</li>
-                    <li>Enhanced productivity with secure systems</li>
-                    <li>
-                      Long-term peace of mind for your business operations
-                    </li>
-                  </ul>
-                </div>
+            {/* Section 4 */}
+            <section
+              id="section4"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOU STAY PROTECTED</h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Strategic IT Security Services</span>
+                🔍 Risk Assessment & Vulnerability Scanning
+                <br />
+                🛡️ Firewall & Intrusion Detection Systems (IDS)
+                <br />
+                🔐 Access Control & Identity Management
+                <br />
+                🔄 Data Backup & Disaster Recovery Planning
+                <br />
+                📚 Cybersecurity Awareness Training for Teams
+                <br />
+                🧠 Security Policy Development & Compliance Readiness
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">Your Benefits</p>
+                <ul className="list-disc list-inside">
+                  <li>Strengthened protection against cyber threats</li>
+                  <li>Reduced downtime and data loss</li>
+                  <li>Increased client trust and regulatory compliance</li>
+                  <li>Enhanced productivity with secure systems</li>
+                  <li>Long-term peace of mind for your business operations</li>
+                </ul>
               </div>
             </section>
           </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to secure your digital future?
+            </p>
+          </div>
         </div>
       </div>
-
-      <img src={itImage} className="fixed blur-sm top-0 left-0 w-full h-full object-cover z-0" alt="IT Background" />
     </div>
   );
 };

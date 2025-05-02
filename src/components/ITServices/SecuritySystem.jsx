@@ -25,10 +25,7 @@ const SecuritySystem = () => {
 
     gsap.fromTo(
       "#sysIcon",
-      {
-        x: -200,
-        opacity: 0,
-      },
+      { x: -200, opacity: 0 },
       {
         scrollTrigger: {
           trigger: "#sysIcon",
@@ -42,217 +39,134 @@ const SecuritySystem = () => {
       }
     );
 
-    gsap.fromTo(
-      "#section1",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section1",
-          start: "-80% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-
-    gsap.fromTo(
-      "#section2",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section2",
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-
-    gsap.fromTo(
-      "#section3",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section3",
-          start: "-50% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 0,
-      }
-    );
-
-    gsap.fromTo(
-      "#section4",
-      {
-        y: 200,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: "#section4",
-          start: "-20% center",
-          end: "center 30%",
-        },
-        opacity: 1,
-        duration: 1.5,
-        y: 150,
-      }
-    );
-  });
+    const sections = ["section1", "section2", "section3", "section4"];
+    sections.forEach((id, index) => {
+      gsap.fromTo(
+        `#${id}`,
+        { y: 200, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `#${id}`,
+            start: `${-80 + index * 20}% center`,
+            end: "center 30%",
+          },
+          opacity: 1,
+          duration: 1.5,
+          y: 0,
+        }
+      );
+    });
+  }, []);
 
   return (
-    <div className="relative">
-      <div className="relative z-8">
-        <div className="h-screen w-full justify-center flex flex-col items-center text-white">
-          <h1 className="text-4xl sm:text-6xl font-bold opacity-1 text-orange-500 tracking-wide">
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={syImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Security Background"
+      />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
+          <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             SECURITY SYSTEM
           </h1>
-          <h2 className="text-xl sm:text-2xl font-medium mt-1 josefin text-white mb-12">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
-        <div className="h-full bgSVG">
-          <div className="pt-40 text-black flex flex-col sm:flex-row justify-center items-center gap-10 px-5 sm:px-0">
+
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
               id="sysIcon"
               src={sysIconImage}
-              className="h-64 sm:h-80 rounded-lg"
-              alt=""
+              className="w-full max-w-md rounded-lg"
+              alt="Security Icon"
             />
-            <p className="text-base sm:text-lg josefin font-semibold text-center sm:text-left max-w-lg leading-relaxed border-l-4 border-black pl-4 italic">
-              Security Systems are essential in today’s fast-moving business
-              world. At JP Consulting & Services, we provide intelligent,
-              integrated solutions to protect your business from physical and
-              digital threats. Our security systems include advanced
-              surveillance, access control, and alarm technologies designed to
-              monitor, detect, and prevent potential risks. <br />
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+              Security Systems are essential in today’s fast-moving business world. At JP Consulting & Services, we provide intelligent, integrated solutions to protect your business from physical and digital threats. Our security systems include advanced surveillance, access control, and alarm technologies designed to monitor, detect, and prevent potential risks.
               <br />
-              From small offices to large commercial setups, we assess your
-              unique needs and deliver customized systems that ensure 24/7
-              protection, operational safety, and complete peace of mind.
+              <br />
+              From small offices to large commercial setups, we assess your unique needs and deliver customized systems that ensure 24/7 protection, operational safety, and complete peace of mind.
             </p>
           </div>
-          <div className="h-full space-y-16 sm:space-y-50 py-20 sm:py-40">
-            <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-              <div
-                id="section1"
-                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center"
-              >
-                <p className="font-bold text-2xl sm:text-3xl text-center">
-                  PROTECTING WHAT MATTERS MOST
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Intelligent Protection, Tailored for Your Business
-                  </span>
-                  At JP Consulting & Services, we offer advanced security system
-                  solutions designed to safeguard your assets, people, and
-                  operations. Whether you're setting up a new business or
-                  upgrading your existing security infrastructure, we provide
-                  customized systems that bring peace of mind and 24/7
-                  protection.
-                </p>
-              </div>
-              <div
-                id="section2"
-                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center translate-y-50"
-              >
-                <p className="font-bold text-2xl sm:text-3xl text-center">
-                  YOUR SAFETY, OUR PRIORITY
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Customized Security That Fits Your Needs
-                  </span>
-                  We understand that every business is different — from retail
-                  stores and corporate offices to warehouses and facilities.
-                  That’s why we tailor our security solutions to your space,
-                  risks, and goals. Our team ensures a smooth setup, seamless
-                  integration, and ongoing support.
-                </p>
+
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold">
+                <span className="orange">PROTECTING WHAT MATTERS MOST</span>
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                Intelligent Protection, Tailored for Your Business. At JP Consulting & Services, we offer advanced security system solutions designed to safeguard your assets, people, and operations.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold">
+                <span className="orange">YOUR SAFETY, OUR PRIORITY</span>
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                Customized Security That Fits Your Needs. Whether it’s setting up a new business or upgrading your existing security infrastructure, we provide tailored solutions.
+              </p>
+            </section>
+
+            {/* Section 3 */}
+            <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold">
+                <span className="orange">UNDERSTANDING YOUR RISKS</span>
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                Proactive Planning, Real-Time Protection. We assess vulnerabilities, anticipate threats, and design systems that not only detect but deter unauthorized access and incidents.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">SOLUTIONS WE PROVIDE</p>
+                <ul className="list-disc list-inside">
+                  <li>Surveillance Camera Systems (CCTV & IP Cameras)</li>
+                  <li>Access Control & Biometric Systems</li>
+                  <li>Alarm & Intrusion Detection</li>
+                  <li>Intercom & Visitor Management</li>
+                  <li>Smart Monitoring & Remote Access</li>
+                  <li>Network & Cybersecurity Integration</li>
+                </ul>
               </div>
             </section>
-            <section className="w-full flex flex-col sm:flex-row gap-10 justify-center items-center">
-              <div
-                id="section3"
-                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center"
-              >
-                <p className="font-bold text-2xl sm:text-3xl text-center">
-                  UNDERSTANDING YOUR RISKS
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    Proactive Planning, Real-Time Protection
-                  </span>
-                  Security isn’t just about cameras and alarms — it’s about
-                  planning, prevention, and control. We assess vulnerabilities,
-                  anticipate threats, and design systems that not only detect,
-                  but deter unauthorized access and incidents.
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">SOLUTIONS WE PROVIDE</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Surveillance Camera Systems (CCTV & IP Cameras)</li>
-                    <li>Access Control & Biometric Systems</li>
-                    <li>Alarm & Intrusion Detection</li>
-                    <li>Intercom & Visitor Management</li>
-                    <li>Smart Monitoring & Remote Access</li>
-                    <li>Network & Cybersecurity Integration</li>
-                  </ul>
-                </div>
-              </div>
-              <div
-                id="section4"
-                className="w-full sm:w-1/3 h-full josefin space-y-5 justify-center translate-y-50"
-              >
-                <p className="font-bold text-2xl sm:text-3xl text-center">
-                  HOW WE HELP YOU STAY SECURED
-                </p>
-                <p className="text-center flex flex-col gap-2">
-                  <span className="font-bold">
-                    End-to-End Security Services
-                  </span>
-                  🔍 Site Assessment & Risk Evaluation
-                  <br />
-                  🛠 Custom System Design & Installation
-                  <br />
-                  🔒 Smart Integration with Existing Infrastructure
-                  <br />
-                  📲 Remote Monitoring & Management Solutions
-                  <br />
-                  🧑‍🔧 Ongoing Maintenance & Support
-                </p>
-                <div className="text-center flex flex-col gap-2">
-                  <span className="font-bold">YOUR BENEFITS:</span>
-                  <ul className="list-disc list-inside text-left">
-                    <li>Enhanced protection for physical and digital assets</li>
-                    <li>Deterrence of theft, intrusion, and unauthorized access</li>
-                    <li>24/7 monitoring for quick incident response</li>
-                    <li>Safer working environments for employees and customers</li>
-                    <li>Increased operational control and peace of mind</li>
-                  </ul>
-                </div>
+
+            {/* Section 4 */}
+            <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
+              <h3 className="text-2xl font-bold">
+                <span className="orange">HOW WE HELP YOU STAY SECURED</span>
+              </h3>
+              <p className="text-base md:text-lg font-josefin">
+                End-to-End Security Services. From site assessment to ongoing maintenance, we ensure your system runs efficiently and effectively.
+              </p>
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">YOUR BENEFITS:</p>
+                <ul className="list-disc list-inside">
+                  <li>Enhanced protection for physical and digital assets</li>
+                  <li>Deterrence of theft, intrusion, and unauthorized access</li>
+                  <li>24/7 monitoring for quick incident response</li>
+                  <li>Safer working environments for employees and customers</li>
+                  <li>Increased operational control and peace of mind</li>
+                </ul>
               </div>
             </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to secure your business?
+            </p>
           </div>
         </div>
       </div>
-      <img src={syImage} className="fixed blur-sm top-0 z-1" alt="" />
     </div>
   );
 };

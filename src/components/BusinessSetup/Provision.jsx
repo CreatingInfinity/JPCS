@@ -50,8 +50,9 @@ const Provision = () => {
         {
           scrollTrigger: {
             trigger: id,
-            start: "-80% center",
-            end: "center 30%",
+            start: "top 80%", // Adjusted for more space between sections
+            end: "bottom center", // Adjusted to avoid overlap
+            scrub: 1,
           },
           opacity: 1,
           duration: 1.5,
@@ -62,28 +63,35 @@ const Provision = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div className="relative z-8">
-        {/* Hero Section */}
-        <div className="h-screen w-full flex flex-col justify-center items-center text-white px-4 md:px-0 text-center">
+    <div className="relative overflow-x-hidden">
+      {/* Background Image */}
+      <img
+        src={proImage}
+        className="fixed top-0 left-0 w-full h-full object-cover z-0 blur-sm"
+        alt="Provision Background"
+      />
+
+      {/* Main Content */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             PROVISION
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 josefin text-white mb-10">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
           </h2>
         </div>
 
-        <div className="bgSVG py-16 px-4 md:px-20">
-          {/* Intro Section with Icon and Description */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-10 mb-20">
+        <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
+          {/* Icon and Intro */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img
               id="provIcon"
               src={provIconImage}
-              className="h-60 md:h-80 rounded-lg"
+              className="w-full max-w-md rounded-lg"
               alt="Provision Icon"
             />
-            <p className="text-base md:text-lg josefin font-semibold text-center md:text-left max-w-xl leading-relaxed border-l-4 border-black pl-4 italic">
+            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               Provision is the backbone of a successful business setup. At JP
               Consulting & Services, we ensure that your company is equipped
               with the right tools, templates, and operational systems to
@@ -99,14 +107,16 @@ const Provision = () => {
             </p>
           </div>
 
-          {/* Section 1 & 2 */}
-          <section className="flex flex-col md:flex-row gap-10 justify-center items-start mb-20">
-            <div id="section1" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">
-                EQUIPPING YOUR BUSINESS FOR SUCCESS
-              </p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">
+          {/* Sections */}
+          <div className="space-y-32">
+            {/* Section 1 */}
+            <section
+              id="section1"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">EQUIPPING YOUR BUSINESS FOR SUCCESS</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">
                   Comprehensive Support from the Ground Up
                 </span>
                 At JP Consulting & Services, our Provision service ensures that
@@ -116,62 +126,57 @@ const Provision = () => {
                 backbone your business needs to operate with confidence and
                 control.
               </p>
-            </div>
+            </section>
 
-            <div id="section2" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">
-                BUILT FOR YOUR BUSINESS
-              </p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">
-                  Customized Solutions to Fit Your Setup
-                </span>
+            {/* Section 2 */}
+            <section
+              id="section2"
+              className="text-center max-w-4xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">BUILT FOR YOUR BUSINESS</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Customized Solutions to Fit Your Setup</span>
                 We don’t believe in generic setups. We take the time to
                 understand the nature of your business and provide provisions
                 tailored to your goals, industry requirements, and operational
                 scale — so you’re always ready to move forward.
               </p>
-            </div>
-          </section>
+            </section>
 
-          {/* Section 3 & 4 */}
-          <section className="flex flex-col md:flex-row gap-10 justify-center items-start">
-            <div id="section3" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">
-                STRONG FOUNDATIONS START HERE
-              </p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">
-                  Structure. Systems. Scalability.
-                </span>
+            {/* Section 3 */}
+            <section
+              id="section3"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">STRONG FOUNDATIONS START HERE</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Structure. Systems. Scalability.</span>
                 The right provisions at the beginning can save time, reduce
                 cost, and avoid unnecessary roadblocks. Our team ensures your
                 business has the right documentation, tools, and infrastructure
                 from day one.
               </p>
-              <div className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">WHAT WE PROVIDE</span>
-                <ul className="list-disc list-inside text-left">
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">WHAT WE PROVIDE</p>
+                <ul className="list-disc list-inside">
                   <li>Operational Tools & Setup Kits</li>
-                  <li>
-                    Foundational Templates (Invoices, HR forms, Contracts, etc.)
-                  </li>
+                  <li>Foundational Templates (Invoices, HR forms, Contracts, etc.)</li>
                   <li>Policy Drafts & Compliance Checklists</li>
                   <li>Business Structure Outlines</li>
                   <li>Resource & Equipment Planning</li>
                   <li>Document Filing & Organization Systems</li>
                 </ul>
               </div>
-            </div>
+            </section>
 
-            <div id="section4" className="md:w-1/2 space-y-5 text-center md:text-left">
-              <p className="font-bold text-xl md:text-2xl">
-                HOW WE EMPOWER YOUR OPERATIONS
-              </p>
-              <p className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">
-                  Provision Services That Scale With You
-                </span>
+            {/* Section 4 */}
+            <section
+              id="section4"
+              className="text-center max-w-5xl mx-auto space-y-6"
+            >
+              <h3 className="text-2xl font-bold"><span className="orange">HOW WE EMPOWER YOUR OPERATIONS</span></h3>
+              <p className="text-base md:text-lg font-josefin">
+                <span className="font-bold block">Provision Services That Scale With You</span>
                 🛠️ Systematic Setup: Equip your business with necessary tools
                 and processes <br />
                 📂 Organized Documentation: Streamline business workflows from
@@ -181,9 +186,9 @@ const Provision = () => {
                 🤝 Compliance & Readiness: Ensure you're aligned with industry
                 standards and ready to launch
               </p>
-              <div className="text-base md:text-lg flex flex-col gap-2">
-                <span className="font-bold">YOUR BENEFITS:</span>
-                <ul className="list-disc list-inside text-left">
+              <div className="text-left mx-auto max-w-md">
+                <p className="font-bold text-center mb-2">YOUR BENEFITS:</p>
+                <ul className="list-disc list-inside">
                   <li>Faster and smoother business setup process</li>
                   <li>Reduced startup delays and operational confusion</li>
                   <li>Professionally prepared documentation and templates</li>
@@ -191,13 +196,17 @@ const Provision = () => {
                   <li>Peace of mind knowing everything is in place</li>
                 </ul>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center pt-20">
+            <p className="text-lg font-semibold">
+              <span className="text-orange-600">Ready</span> to equip your business for success?
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* Background Image */}
-      <img src={proImage} className="fixed blur-sm top-0 z-1 w-full h-full object-cover" alt="Background" />
     </div>
   );
 };
