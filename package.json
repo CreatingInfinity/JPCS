@@ -7,14 +7,21 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server.js"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@lottiefiles/dotlottie-react": "^0.13.3",
     "@tailwindcss/vite": "^4.0.17",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "emailjs-com": "^3.2.0",
+    "express": "^5.1.0",
     "firebase": "^11.6.1",
     "gsap": "^3.12.7",
     "gsap-trial": "^3.12.7",
+    "nodemailer": "^6.10.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.1",
@@ -31,5 +38,18 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "vite": "^6.2.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CreatingInfinity/JPCS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CreatingInfinity/JPCS/issues"
+  },
+  "homepage": "https://github.com/CreatingInfinity/JPCS#readme"
 }

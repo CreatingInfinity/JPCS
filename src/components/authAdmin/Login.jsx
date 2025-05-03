@@ -44,7 +44,11 @@ const Login = () => {
       const isValid = await checkAdminCredentials(username, password);
 
       if (isValid) {
-        navigate("dashboard"); // Redirect to the dashboard
+        if (isValid) {
+          localStorage.setItem("isAdminAuthenticated", "true");
+          navigate("dashboard");
+        }
+        
       } else {
         setError("Invalid username or password");
       }
