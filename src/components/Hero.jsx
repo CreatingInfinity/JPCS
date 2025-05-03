@@ -82,10 +82,6 @@ const Hero = () => {
           <h2 className="text-4xl font-bold text-orange-400">50+</h2>
           <p className="text-lg">Custom Solutions</p>
         </div>
-        <div>
-          <h2 className="text-4xl font-bold text-orange-400">10 Years</h2>
-          <p className="text-lg">Industry Experience</p>
-        </div>
       </div>
 
       {/* Services Section */}
