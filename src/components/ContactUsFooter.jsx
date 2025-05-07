@@ -35,11 +35,13 @@ const ContactUsFooter = () => {
           <div className="flex flex-col md:justify-center md:items-start items-center gap-4 w-full md:w-auto">
             <Link
               to="/Contact"
+              reloadDocument
               className="px-6 py-2 border border-gray-800 rounded-full cursor-pointer hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm bg-white text-black"
             >
               Contact Us
             </Link>
             <Link
+            reloadDocument
               to="/About"
               className="px-6 py-2 border border-gray-800 rounded-full cursor-pointer hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm bg-white text-black"
             >
