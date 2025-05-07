@@ -53,6 +53,8 @@ import Strategy from './components/MarketingStrategies/Strategy';
 import Footer from './components/Footer';
 import ContactUsFooter from './components/ContactUsFooter';
 import Dashboard from './components/Dashboard';
+import ChatBot from './ChatBot';
+import Australia from './components/Australia';
 
 function AppContent() {
   const location = useLocation();
@@ -68,6 +70,8 @@ function AppContent() {
           <NavBar />
         </nav>
       )}
+
+      <Australia />
 
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -127,6 +131,8 @@ function AppContent() {
         <Route path='/MarketingStrategies/QualityConsultancy' element={<QualityConsultancy />} />
         <Route path='/MarketingStrategies/Strategy' element={<Strategy />} />
       </Routes>
+
+      <ChatBot />
 
       {!isStandalonePage && location.pathname !== '/Contact' && <ContactUsFooter />}
       {!isStandalonePage && (

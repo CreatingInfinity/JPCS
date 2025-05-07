@@ -55,6 +55,12 @@ import provIcon from "/assets/images/prov.jpg";
 export const provIconImage = provIcon;
 export const proImage = pro;
 
+// CHAT BOT
+import ChatBot from "/assets/images/chat-bot.png";
+export const chatBot = ChatBot;
+
+import animChat from "/assets/videos/chat-bot.gif";
+export const chatBotAnimation = animChat;
 
 // FOOTER
 import qrCode from "/assets/images/qrCode.png"
