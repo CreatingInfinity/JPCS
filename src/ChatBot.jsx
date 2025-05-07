@@ -49,14 +49,14 @@ const ChatBot = () => {
       {/* Floating ChatBot Icon */}
       <div
         onClick={() => setOpen(!open)}
-        className="fixed bottom-7 border border-white rounded-full cursor-pointer bg-white right-7 z-50 shadow-lg"
+        className="fixed bottom-7 right-7 border border-white rounded-full cursor-pointer bg-white z-50 shadow-lg"
       >
         <img id="chatBot" className="" src={chatBot} alt="chatBot" />
       </div>
 
       {/* Chat Window */}
       {open && (
-        <div className="fixed bottom-20 right-7 w-90 h-110 bg-white shadow-lg border border-gray-300 rounded-lg px-5 py-5 z-45 flex flex-col">
+        <div className="fixed bottom-21 h-80 sm:bottom-21 right-4 w-[90vw] max-w-sm md:h-90 lg:h-105 bg-white shadow-lg border border-gray-300 rounded-lg px-4 py-4 z-45 flex flex-col">
           {/* Chat Messages */}
           <div
             ref={chatRef}
@@ -83,7 +83,7 @@ const ChatBot = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 border-1 border-gray-800 rounded-l px-2 py-1 text-sm focus:outline-none"
+              className="flex-1 border border-gray-800 rounded-l px-2 py-1 text-sm focus:outline-none"
               placeholder="Type your message..."
             />
             <button
