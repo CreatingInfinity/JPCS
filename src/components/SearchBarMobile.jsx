@@ -74,6 +74,26 @@ const SearchBarMobile = () => {
           title: "TYPOGRAPHY",
           link: "Typography",
         },
+        {
+          title: "UNLIMITED VISA ALLOCATION",
+          link: "UnlimitedVisa",
+        },
+        {
+          title: "WIDE RANGE BUSINESS ACTIVITIES",
+          link: "Wide",
+        },
+        {
+          title: "CORPORATE BANKING SERVICES",
+          link: "Corporate",
+        },
+        {
+          title: "VIP MEDICAL AND EMIRATES ID",
+          link: "Vip",
+        },
+        {
+          title: "DEPENDENT VISAS",
+          link: "Dependent",
+        },
       ],
     },
     {

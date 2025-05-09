@@ -217,6 +217,31 @@ import strsIcon from "/assets/images/strs.jpg";
 export const strsIconImage = strsIcon;
 export const strImage = str;
 
+import vi from "/assets/images/vi.jpg";
+import visIcon from "/assets/images/vis.jpg";
+export const visIconImage = visIcon;
+export const viImage = vi;
+
+import wide from "/assets/images/wide.jpg";
+import widesIcon from "/assets/images/wides.jpg";
+export const widesIconImage = widesIcon;
+export const wideImage = wide;
+
+import cor from "/assets/images/cor.jpg";
+import corsIcon from "/assets/images/cors.jpg";
+export const corsIconImage = corsIcon;
+export const corImage = cor;
+
+import vip from "/assets/images/vip.jpg";
+import vipsIcon from "/assets/images/vips.jpg";
+export const vipsIconImage = vipsIcon;
+export const vipImage = vip;
+
+import dep from "/assets/images/dep.jpg";
+import depsIcon from "/assets/images/deps.jpg";
+export const depsIconImage = depsIcon;
+export const depImage = dep;
+
 export const downArrow = down;
 export const menuIcon = menu;
 export const searchIcon = search;

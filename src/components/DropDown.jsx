@@ -37,6 +37,11 @@ import {
   pubImage,
   quImage,
   strImage,
+  viImage,
+  wideImage,
+  vipImage,
+  depImage,
+  corImage,
 } from "../utils";
 // Import images if needed
 
@@ -135,11 +140,46 @@ const business = [
     image: typoImage,
     link: "Typography",
   },
+  {
+    title: "UNLIMITED VISA ALLOCATION",
+    description:
+      "This allocation model removes barriers commonly associated with restricted visa quotas, enabling businesses to scale their workforce efficiently and compliantly.",
+    image: viImage,
+    link: "UnlimitedVisa",
+  },
+   {
+    title: "WIDE RANGE BUSINESS ACTIVIES",
+    description:
+      "We offer a comprehensive portfolio of business solutions designed to meet the diverse needs of our clients across various industries.",
+    image: wideImage,
+    link: "Wide",
+  },
+  {
+    title: "CORPORATE BANKING SERVICES",
+    description:
+      "We offer specialized Corporate Banking Services designed to support the financial operations and growth strategies of businesses of all sizes.",
+    image: wideImage,
+    link: "Corporate",
+  },
+  {
+    title: "VIP MEDICAL AND EMIRATES ID",
+    description:
+      "We provide fast-track VIP Medical and Emirates ID services to ensure a smooth and efficient immigration process for professionals, investors, and their families. ",
+    image: vipImage,
+    link: "Vip",
+  },
+  {
+    title: "DEPENDENT VISAS",
+    description:
+      "We offer comprehensive Dependent Visa Services to help individuals reunite with their families while living and working abroad ",
+    image: depImage,
+    link: "Dependent",
+  },
 ];
 
 const itservices = [
   {
-    title: "AI",
+    title: "INNOVATION AND ARTIFICIAL INTELLEGENCE",
     description:
       "Step into the future with AI-powered innovation! We help transform complex data into intelligent decisions, boosting efficiency and growth.",
     image: alImage,

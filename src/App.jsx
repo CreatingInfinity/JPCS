@@ -19,6 +19,11 @@ import Resume from './components/BusinessSetup/Resume';
 import SecretarialSupport from './components/BusinessSetup/SecretarialSupport';
 import Transcription from './components/BusinessSetup/Transcription';
 import Typography from './components/BusinessSetup/Typography';
+import UnlimitedVisa from './components/BusinessSetup/UnlimitedVisa';
+import Wide from './components/BusinessSetup/Wide';
+import Corporate from './components/BusinessSetup/Corporate';
+import Vip from './components/BusinessSetup/Vip';
+import Dependent from './components/BusinessSetup/Dependent';
 import CastingAgency from './components/EmploymentServices/CastingAgency';
 import Personel from './components/EmploymentServices/Personel';
 import OnLine from './components/EmploymentServices/OnLine';
@@ -55,6 +60,8 @@ import ContactUsFooter from './components/ContactUsFooter';
 import Dashboard from './components/Dashboard';
 import ChatBot from './ChatBot';
 import Australia from './components/Australia';
+import AustraliaPage from './components/AustraliaPage';
+
 
 function AppContent() {
   const location = useLocation();
@@ -72,6 +79,7 @@ function AppContent() {
       )}
 
       <Australia />
+      <AustraliaPage />
 
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -99,6 +107,11 @@ function AppContent() {
         <Route path='/Business/SecretarialSupport' element={<SecretarialSupport />} />
         <Route path='/Business/Transcription' element={<Transcription />} />
         <Route path='/Business/Typography' element={<Typography />} />
+        <Route path='/Business/UnlimitedVisa' element={<UnlimitedVisa />} />
+        <Route path='/Business/Wide' element={<Wide />} />
+        <Route path='/Business/Corporate' element={<Corporate />} />
+        <Route path='/Business/Vip' element={<Vip />} />
+        <Route path='/Business/Dependent' element={<Dependent />} />
 
         {/* Employment */}
         <Route path='/EmploymentServices/CastingAgency' element={<CastingAgency />} />
