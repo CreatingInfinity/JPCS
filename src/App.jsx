@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import './App.css';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -78,8 +77,6 @@ function AppContent() {
         </nav>
       )}
 
-      <Australia />
-      <AustraliaPage />
 
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -88,6 +85,7 @@ function AppContent() {
         <Route path="/admin/" element={<Login />} />
         <Route path='/Services' element={<Services />} />
         <Route path= "/admin/dashboard" element={<Dashboard />} />
+        <Route path="/Australia" element={<AustraliaPage />} />
 
         <Route path="/redirectHomePage" element={<ThankYou />} />
 
@@ -147,7 +145,7 @@ function AppContent() {
 
       <ChatBot />
 
-      {!isStandalonePage && location.pathname !== '/Contact' && <ContactUsFooter />}
+      {!isStandalonePage && location.pathname !== '/Contact' && location.pathname !== '/Australia' && <ContactUsFooter />}
       {!isStandalonePage && (
         <footer>
           <Footer />
