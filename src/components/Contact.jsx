@@ -80,7 +80,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 md:px-6 py-12 poppins-regular">
+    <div className="min-h-screen bg-gray-50 px-4 md:px-6 py-30 poppins-regular">
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-800">
         Contact Us
       </h1>

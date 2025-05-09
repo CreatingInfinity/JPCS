@@ -268,3 +268,8 @@ body {
     height: 70px;
     padding: 0;
 }
+
+#au:hover{
+    transform: scale(1.005);
+    transition: all 0.2s ease-in-out;
+}

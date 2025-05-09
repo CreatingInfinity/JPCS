@@ -17,6 +17,7 @@ import {
   heroVideo2,
 } from "../utils";
 import WhyChooseUs from "./WhyChooseUs";
+import Australia from "./Australia";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,6 +72,8 @@ const Hero = () => {
           Get in Touch
         </Link>
       </div>
+
+      <Australia />
 
       {/* Quick Stats Section */}
       <div className="flex flex-col sm:flex-row justify-around items-center gap-10 py-16 bg-black fade-in text-center px-4">
