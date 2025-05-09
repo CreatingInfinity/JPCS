@@ -37,7 +37,7 @@ const AustraliaPage = () => {
         <p className="text-center text-gray-600 mb-6 text-lg font-medium">
           Professional Visa Services & Fees in Australia
         </p>
-        
+
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-200 rounded-lg overflow-hidden">
             <thead className="bg-orange-600 text-white">
@@ -58,9 +58,12 @@ const AustraliaPage = () => {
         </div>
 
         <div className="mt-10 text-center">
-          <p className="text-sm text-gray-500 italic">
+          <p className="text-sm text-gray-500 italic mb-6">
             Fees are indicative and may vary based on individual case complexity. Contact us for a tailored quote.
           </p>
+          <button className="bg-black hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transition-all duration-300">
+            Are You Interested?
+          </button>
         </div>
       </div>
     </div>
