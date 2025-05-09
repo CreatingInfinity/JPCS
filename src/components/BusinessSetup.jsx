@@ -10,6 +10,11 @@ import {
   secImage,
   tranImage,
   typoImage,
+  viImage,
+  vipImage,
+  corImage,
+  wideImage,
+  depImage,
 } from "../utils";
 import { Link } from "react-router-dom";
 
@@ -83,7 +88,42 @@ const services = [
       "We focus on creating visually appealing and effective text designs. From font selection to layout optimization, we ensure your message is presented in a way that enhances readability and impact.",
     image: typoImage,
     link: "Typography",
-  }
+  },
+  {
+    title: "UNLIMITED VISA ALLOCATION",
+    description:
+      "This allocation model removes barriers commonly associated with restricted visa quotas, enabling businesses to scale their workforce efficiently and compliantly.",
+    image: viImage,
+    link: "UnlimitedVisa",
+  },
+  {
+    title: "WIDE RANGE BUSINESS ACTIVITIES",
+    description:
+      "We offer a comprehensive portfolio of business solutions designed to meet the diverse needs of our clients across various industries.",
+    image: wideImage,
+    link: "Wide",
+  },
+  {
+    title: "CORPORATE BANKING SERVICES",
+    description:
+      "We offer specialized Corporate Banking Services designed to support the financial operations and growth strategies of businesses of all sizes.",
+    image: corImage,
+    link: "Corporate",
+  },
+  {
+    title: "VIP MEDICAL AND EMIRATES ID",
+    description:
+      "We provide fast-track VIP Medical and Emirates ID services to ensure a smooth and efficient immigration process for professionals, investors, and their families.",
+    image: vipImage,
+    link: "Vip",
+  },
+   {
+    title: "DEPENDENT VISAS",
+    description:
+      "We offer comprehensive Dependent Visa Services to help individuals reunite with their families while living and working abroad.",
+    image: depImage,
+    link: "Dependent",
+  },
 ];
 
 

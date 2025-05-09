@@ -71,7 +71,7 @@ const Al = () => {
       <div className="relative z-10">
         <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
-            A.I
+            INNOVATION AND ARTIFICIAL INTELLIGENCE
           </h1>
           <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
             JP Consulting & Services
