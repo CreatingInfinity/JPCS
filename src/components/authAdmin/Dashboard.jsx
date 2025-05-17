@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../Firebase";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { db, auth } from "../../Firebase";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Dashboard = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -16,10 +17,21 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem("isAdminAuthenticated");
-    if (isAuthenticated !== "true") {
-      navigate("/");
-    }
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        navigate("/");
+        return;
+      }
+
+      const docRef = doc(db, "adminAuth", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (!docSnap.exists() || docSnap.data().role !== "dashboardJPCS") {
+        navigate("/unauthorized"); // or redirect elsewhere
+      }
+    });
+
+    return () => unsubscribe();
   }, []);
 
   useEffect(() => {

@@ -62,7 +62,7 @@ const AustraliaPage = () => {
           <p className="text-sm text-gray-500 italic mb-6">
             Fees are indicative and may vary based on individual case complexity. Contact us for a tailored quote.
           </p>
-          <Link className="bg-orange-500 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-full shadow-md cursor-pointer transition-all duration-300">
+          <Link to="/AustraliaForm" className="bg-orange-500 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-full shadow-md cursor-pointer transition-all duration-300">
             Are You Interested?
           </Link>
         </div>
