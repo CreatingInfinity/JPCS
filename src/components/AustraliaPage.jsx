@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { australiaImage, kagarooImage } from "../utils";
 
 const visaData = [
   { description: "Administrative Appeals Tribunal" },
@@ -32,35 +33,65 @@ const visaData = [
 
 const AustraliaPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-30 px-4 flex justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-5xl">
-        <h1 className="text-4xl font-bold text-orange-500 text-center mb-8">What We Provide</h1>
-        <p className="text-center text-gray-600 mb-6 text-lg font-medium">
-          Professional Visa Services in Australia
+    <div className="min-h-screen bg-gray-50 py-25 flex flex-col items-center scroll-smooth">
+      <div className="relative w-full max-w-6xl bg-black">
+        <img className="absolute h-20 rounded-full top-0 left-5 z-10" src={kagarooImage} alt="Australian Kangaroo" />
+        <img
+          src={australiaImage}
+          className="w-full h-80 object-cover opacity-50 rounded-lg shadow-lg"
+          alt="Australia"
+        />
+        <h1 className="absolute bold top-25 left-5 text-white text-6xl/19">
+          AUSTRALIAN
+          <br />
+          VISA
+        </h1>
+        <div className="absolute flex flex-col top-10 w-120 items-end gap-20 right-5 text-white text-gray-200 text-sm">
+          <p className="text-end">
+            Explore a range of Australian visa services tailored to your 
+            migration needs, from skilled work to family and business visas.
+          </p>
+          <div className="flex items-center justify-center gap-2">
+            <p className="text-center">Check out our products</p>
+            <a href="#whatweprovide" className="px-5 py-2 rounded-full bg-transparent backdrop-blur-xs bg-linear-to-r from-orange-500/50 to-orange-500/50 cursor-pointer hover:bg-orange-500/60 transition-all duration-300">Click Here!</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p></p>
+      </div>
+
+      <div id="whatweprovide" className="bg-white p-10 mt-10 rounded-xl shadow-xl w-full max-w-6xl">
+        <h1  className="text-5xl font-bold text-orange-500 text-center mb-6">
+          What We <span className="text-gray-800">Provide</span>
+        </h1>
+        <p className="text-center text-gray-600 text-lg max-w-3xl mx-auto mb-8">
+          Our expert migration agents specialize in a wide range of Australian
+          visa services. Whether you're applying for a skilled visa, family
+          reunion, or student visa, we offer professional guidance every step of
+          the way.
         </p>
 
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-200 rounded-lg overflow-hidden">
-            <thead className="bg-orange-600 text-white">
-              <tr>
-                <th className="text-left px-6 py-3 text-sm font-semibold uppercase">Description</th>
-              </tr>
-            </thead>
-            <tbody className="text-gray-700 text-md">
-              {visaData.map((item, index) => (
-                <tr key={index} id='au' className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                  <td className="px-6 py-4">{item.description}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {visaData.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-1 p-4 bg-gray-50 hover:bg-orange-50 rounded-lg shadow-sm transition duration-200"
+            >
+              <p className="text-gray-800 text-md">{item.description}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <p className="text-sm text-gray-500 italic mb-6">
             Contact us to discuss your case and receive a tailored quote.
           </p>
-          <Link to="/AustraliaForm" className="bg-orange-500 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-full shadow-md cursor-pointer transition-all duration-300">
+          <Link
+            to="/AustraliaForm"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300"
+          >
             Are You Interested?
           </Link>
         </div>

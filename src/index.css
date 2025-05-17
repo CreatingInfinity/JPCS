@@ -193,14 +193,14 @@ body {
 
 
 .transparent {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.286), rgba(255, 255, 255, 0.303));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 768px) {
     .transparent {
-        backdrop-filter: blur(2px);
+        backdrop-filter: blur(20px);
         background-image: linear-gradient(to right, rgba(255, 255, 255, 0.155), rgba(255, 255, 255, 0.682), rgba(255, 255, 255, 0.155));
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
@@ -277,4 +277,10 @@ body {
 #au:hover {
     transform: scale(1.005);
     transition: all 0.2s ease-in-out;
+}
+
+.borderInput input {
+    border: 1px solid #a3a3a3;
+    border-radius: 5px;
+    padding: 10px 5px;
 }
