@@ -5,6 +5,8 @@ import About from './components/About';
 import Services from './components/Services';
 import ThankYou from './components/ThankYou';
 import Login from './components/authAdmin/Login';
+import DashboardAUS from './components/authAdmin/DashboardAUS';
+import Dashboard from './components/authAdmin/Dashboard';
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Blueprinting from './components/BusinessSetup/Blueprinting';
@@ -54,17 +56,18 @@ import QualityConsultancy from './components/MarketingStrategies/QualityConsulta
 import Strategy from './components/MarketingStrategies/Strategy';
 import Footer from './components/Footer';
 import ContactUsFooter from './components/ContactUsFooter';
-import Dashboard from './components/Dashboard';
 import ChatBot from './ChatBot';
 import Australia from './components/Australia';
 import AustraliaPage from './components/AustraliaPage';
+import FormAUS from './components/authAdmin/FormAUS';
+
 
 
 function AppContent() {
   const location = useLocation();
   const menuRef = useRef(null);
 
-  const isStandalonePage = location.pathname === "/redirectHomePage"  || location.pathname === "/admin"  || location.pathname === "/admin/dashboard";
+  const isStandalonePage = location.pathname === "/redirectHomePage"  || location.pathname === "/admin"  || location.pathname === "/admin/dashboard" || location.pathname === "/admin/dashboard-au" || location.pathname === "/AustraliaForm";
   
   
   return (
@@ -83,7 +86,9 @@ function AppContent() {
         <Route path="/admin/" element={<Login />} />
         <Route path='/Services' element={<Services />} />
         <Route path= "/admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/dashboard-AU" element={<DashboardAUS />} />
         <Route path="/Australia" element={<AustraliaPage />} />
+        <Route path="/AustraliaForm" element={<FormAUS />} />
 
         <Route path="/redirectHomePage" element={<ThankYou />} />
 

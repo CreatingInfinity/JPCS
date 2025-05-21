@@ -1,14 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../../Firebase"; // Path to your firebase.js file
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../Firebase"; 
+import { doc, getDoc } from "firebase/firestore";
+
 
 const Login = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
 
-  const [credentials, setCredentials] = useState({ username: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -23,39 +25,34 @@ const Login = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const checkAdminCredentials = async (username, password) => {
-    const adminRef = collection(db, "adminAuth");
-    const q = query(
-      adminRef,
-      where("username", "==", username),
-      where("password", "==", password)
-    );
-
-    const querySnapshot = await getDocs(q);
-
-    return !querySnapshot.empty;
-  };
-
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { username, password } = credentials;
+  e.preventDefault();
+  const { email, password } = credentials;
 
-    try {
-      const isValid = await checkAdminCredentials(username, password);
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-      if (isValid) {
-        if (isValid) {
-          localStorage.setItem("isAdminAuthenticated", "true");
-          navigate("dashboard");
-        }
-        
+    const docRef = doc(db, "adminAuth", user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const role = docSnap.data().role;
+
+      if (role === "dashboardJPCS") {
+        navigate("dashboard");
+      } else if (role === "dashboardAUS") {
+        navigate("dashboard-au");
       } else {
-        setError("Invalid username or password");
+        setError("Invalid user role.");
       }
-    } catch (error) {
-      setError("An error occurred. Please try again.");
+    } else {
+      setError("User role not found.");
     }
-  };
+  } catch (err) {
+    setError("Invalid email or password");
+  }
+};
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-900">
@@ -69,11 +66,11 @@ const Login = () => {
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
 
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-gray-700">Username</label>
+          <label className="block mb-1 font-semibold text-gray-700">Email</label>
           <input
-            type="text"
-            name="username"
-            value={credentials.username}
+            type="email"
+            name="email"
+            value={credentials.email}
             onChange={handleChange}
             className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
             required
