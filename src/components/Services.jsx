@@ -45,7 +45,7 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl">
           {[
             {
-              title: "Business Setup",
+              title: "Business Set Up",
               image: businessImage,
               link: "/Business",
               textTitle: "End-to-End Business Setup",
@@ -66,7 +66,7 @@ const Services = () => {
               text: "From SEO to PPC and social media, we help businesses grow online by boosting their digital visibility and engagement."
             },
             {
-              title: "Employment Services",
+              title: "Employment & Recruitment Services",
               image: employmentImage,
               link: "/EmploymentServices",
               textTitle: "Recruitment & Talent Acquisition",

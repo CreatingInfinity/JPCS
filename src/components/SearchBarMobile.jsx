@@ -51,16 +51,8 @@ const SearchBarMobile = () => {
           link: "Duplicating",
         },
         {
-          title: "PHOTOCOPYING",
-          link: "Photocopying",
-        },
-        {
           title: "PROVISION",
           link: "Provision",
-        },
-        {
-          title: "RESUME",
-          link: "Resume",
         },
         {
           title: "SECRETARIAL SUPPORT",

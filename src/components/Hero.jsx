@@ -75,17 +75,6 @@ const Hero = () => {
 
       <Australia />
 
-      {/* Quick Stats Section */}
-      <div className="flex flex-col sm:flex-row justify-around items-center gap-10 py-16 bg-black fade-in text-center px-4">
-        <div>
-          <h2 className="text-4xl font-bold text-orange-400">100+</h2>
-          <p className="text-lg">Clients Served</p>
-        </div>
-        <div>
-          <h2 className="text-4xl font-bold text-orange-400">50+</h2>
-          <p className="text-lg">Custom Solutions</p>
-        </div>
-      </div>
 
       {/* Services Section */}
       <div className="pt-24 pb-20 text-white bg-black snap-start px-4">
@@ -107,8 +96,8 @@ const Hero = () => {
           className="mt-10 max-w-7xl mx-auto px-2"
         >
           {[
-            { title: "BUSINESS SETUP", image: businessImage, link: "/Business" },
-            { title: "EMPLOYMENT & CONSULTING SERVICES", image: castImage, link: "/EmploymentServices" },
+            { title: "BUSINESS SET UP", image: businessImage, link: "/Business" },
+            { title: "EMPLOYMENT & RECRUITMENT SERVICES", image: castImage, link: "/EmploymentServices" },
             { title: "IT Services", image: setImage, link: "/ITServices" },
             { title: "Marketing Strategies & Management", image: marketingImage, link: "/MarketingStrategies" },
           ].map(({ title, image, link }, i) => (
