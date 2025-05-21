@@ -4,9 +4,7 @@ import {
   documenteImage,
   setImage,
   dupImage,
-  photoImage,
   proImage,
-  reImage,
   secImage,
   tranImage,
   typoImage,
@@ -48,25 +46,11 @@ const services = [
     link: "Duplicating",
   },
   {
-    title: "PHOTOCOPYING",
-    description:
-      "We provides clear, high-quality copies for all your documents. Whether it's black & white or color, single or bulk copies, we’ve got you covered with fast and efficient service.",
-    image: photoImage,
-    link: "Photocopying",
-  },
-  {
     title: "PROVISION",
     description:
       "We supply businesses with the essential tools, resources, and services they need to operate smoothly. From office supplies to administrative support, JP Consulting & Services ensures you're always well-equipped",
     image: proImage,
     link: "Provision",
-  },
-  {
-    title: "RESUME",
-    description:
-      "We help you create a professional, polished resume that highlights your strengths and stands out to employers. Whether you're starting fresh or updating your CV, we make sure it reflects your skills and goals.",
-    image: reImage,
-    link: "Resume",
   },
   {
     title: "SECRETARIAL SUPPORT",
@@ -153,7 +137,7 @@ const BusinessSetup = () => {
     <div className="p-6 min-h-screen text-gray-800">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold font-josefin">
-          <span className="text-orange-600">Business</span> Setup
+          <span className="text-orange-600">Business</span> Set Up
         </h1>
         <p className="text-lg text-gray-700 font-medium">
         From choosing the right structure to handling registrations and legal requirements, we guide you every step of the way so you can launch with confidence and focus on growth..

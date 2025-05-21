@@ -45,11 +45,6 @@ import dupsIcon from "/assets/images/dups.jpg";
 export const dupsIconImage = dupsIcon;
 export const dupImage = dup;
 
-import photo from "/assets/images/photo.jpg";
-import photosIcon from "/assets/images/photos.jpg";
-export const photosIconImage = photosIcon;
-export const photoImage = photo;
-
 import pro from "/assets/images/pro.jpg";
 import provIcon from "/assets/images/prov.jpg";
 export const provIconImage = provIcon;
@@ -71,11 +66,6 @@ import location from "/assets/images/map.png";
 export const locationImage = location;
 import email from "/assets/images/gmail.png";
 export const emailIcon = email;
-
-import re from "/assets/images/re.jpg";
-import resIcon from "/assets/images/res.jpg";
-export const resIconImage = resIcon;
-export const reImage = re;
 
 import sec from "/assets/images/sec.jpg";
 import secsIcon from "/assets/images/secs.jpg";

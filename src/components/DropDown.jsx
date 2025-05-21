@@ -9,9 +9,7 @@ import {
   documenteImage,
   setImage,
   dupImage,
-  photoImage,
   proImage,
-  reImage,
   secImage,
   tranImage,
   typoImage,
@@ -99,25 +97,11 @@ const business = [
     link: "Duplicating",
   },
   {
-    title: "PHOTOCOPYING",
-    description:
-      "We provides clear, high-quality copies for all your documents. Whether it's black & white or color, single or bulk copies, we’ve got you covered with fast and efficient service.",
-    image: photoImage,
-    link: "Photocopying",
-  },
-  {
     title: "PROVISION",
     description:
       "We supply businesses with the essential tools, resources, and services they need to operate smoothly. From office supplies to administrative support, JP Consulting & Services ensures you're always well-equipped",
     image: proImage,
     link: "Provision",
-  },
-  {
-    title: "RESUME",
-    description:
-      "We help you create a professional, polished resume that highlights your strengths and stands out to employers. Whether you're starting fresh or updating your CV, we make sure it reflects your skills and goals.",
-    image: reImage,
-    link: "Resume",
   },
   {
     title: "SECRETARIAL SUPPORT",
@@ -362,7 +346,7 @@ const DropDown = () => {
         onMouseLeave={() => setBHovered(false)}
       >
         <Link to="/Business" reloadDocument className="w-full">
-          <p>Business Setup</p>
+          <p>Business Set Up</p>
         </Link>
         {/* Submenu appears when hovered */}
         {bHovered && (
@@ -428,7 +412,7 @@ const DropDown = () => {
         onMouseLeave={() => setHovered(false)}
       >
         <Link to="/EmploymentServices" reloadDocument>
-          <p>Employment Services</p>
+          <p>Employment & Recruitment Services</p>
         </Link>
 
         {/* Submenu appears when hovered */}
