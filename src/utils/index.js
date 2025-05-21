@@ -23,6 +23,14 @@ export const heroVideo = hero;
 import hero2 from "/assets/videos/video2.mp4";
 export const heroVideo2 = hero2;
 
+// AUSTRALIA
+import australianFlag from "/assets/videos/australianFlag.mp4";
+export const australianFlagVideo = australianFlag;
+
+import ausImage from "/assets/images/aus.jpg";
+export const australiaImage = ausImage;
+import kagarooImg from "/assets/images/kangaroo.png";
+export const kagarooImage = kagarooImg;
 
 // BUSINESS
 import blueprinting from "/assets/images/blueprinting.jpg";
@@ -229,6 +237,7 @@ export const vipImage = vip;
 
 import dep from "/assets/images/dep.jpg";
 import depsIcon from "/assets/images/deps.jpg";
+import e from "cors";
 export const depsIconImage = depsIcon;
 export const depImage = dep;
 
