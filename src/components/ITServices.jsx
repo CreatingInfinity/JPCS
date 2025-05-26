@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "INNOVATION AND ARTIFICAL INTELLIGENCE ",
+    title: "INNOVATION AND ARTIFICIAL INTELLIGENCE ",
     description:
       "Step into the future with AI-powered innovation! We help transform complex data into intelligent decisions, boosting efficiency and growth.",
     image: alImage,

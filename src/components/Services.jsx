@@ -45,7 +45,7 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl">
           {[
             {
-              title: "Business Set Up",
+              title: "Consulting & Business Set Up",
               image: businessImage,
               link: "/Business",
               textTitle: "End-to-End Business Setup",
