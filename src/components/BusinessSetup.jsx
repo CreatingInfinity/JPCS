@@ -137,7 +137,7 @@ const BusinessSetup = () => {
     <div className="p-6 min-h-screen text-gray-800">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold font-josefin">
-          <span className="text-orange-600">Business</span> Set Up
+          <span className="text-orange-600">Consulting & Business</span> Set Up
         </h1>
         <p className="text-lg text-gray-700 font-medium">
         From choosing the right structure to handling registrations and legal requirements, we guide you every step of the way so you can launch with confidence and focus on growth..

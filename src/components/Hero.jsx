@@ -96,10 +96,10 @@ const Hero = () => {
           className="mt-10 max-w-7xl mx-auto px-2"
         >
           {[
-            { title: "BUSINESS SET UP", image: businessImage, link: "/Business" },
+            { title: "CONSULTING & BUSINESS SET UP", image: businessImage, link: "/Business" },
             { title: "EMPLOYMENT & RECRUITMENT SERVICES", image: castImage, link: "/EmploymentServices" },
-            { title: "IT Services", image: setImage, link: "/ITServices" },
-            { title: "Marketing Strategies & Management", image: marketingImage, link: "/MarketingStrategies" },
+            { title: "IT SERVICES", image: setImage, link: "/ITServices" },
+            { title: "MARKETING STRATEGIES & MANAGEMENT", image: marketingImage, link: "/MarketingStrategies" },
           ].map(({ title, image, link }, i) => (
             <SwiperSlide key={i}>
               <Link to={link} reloadDocument className="relative group block">

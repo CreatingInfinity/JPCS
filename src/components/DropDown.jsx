@@ -346,7 +346,7 @@ const DropDown = () => {
         onMouseLeave={() => setBHovered(false)}
       >
         <Link to="/Business" reloadDocument className="w-full">
-          <p>Business Set Up</p>
+          <p>Consulting & Business Set Up</p>
         </Link>
         {/* Submenu appears when hovered */}
         {bHovered && (
