@@ -35,7 +35,11 @@ const AustraliaPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-25 flex flex-col items-center scroll-smooth">
       <div className="relative w-full max-w-6xl bg-black">
-        <img className="absolute h-20 rounded-full top-0 left-5 z-10" src={kagarooImage} alt="Australian Kangaroo" />
+        <img
+          className="absolute h-20 rounded-full top-0 left-5 z-10"
+          src={kagarooImage}
+          alt="Australian Kangaroo"
+        />
         <img
           src={australiaImage}
           className="w-full h-80 object-cover opacity-50 rounded-lg shadow-lg"
@@ -48,12 +52,17 @@ const AustraliaPage = () => {
         </h1>
         <div className="absolute flex flex-col top-10 w-120 items-end gap-20 right-5 text-white text-gray-200 text-sm">
           <p className="text-end">
-            Explore a range of Australian visa services tailored to your 
+            Explore a range of Australian visa services tailored to your
             migration needs, from skilled work to family and business visas.
           </p>
           <div className="flex items-center justify-center gap-2">
             <p className="text-center">Check out our products</p>
-            <a href="#whatweprovide" className="px-5 py-2 rounded-full bg-transparent backdrop-blur-xs bg-linear-to-r from-orange-500/50 to-orange-500/50 cursor-pointer hover:bg-orange-500/60 transition-all duration-300">Click Here!</a>
+            <a
+              href="#whatweprovide"
+              className="px-5 py-2 rounded-full bg-transparent backdrop-blur-xs bg-linear-to-r from-orange-500/50 to-orange-500/50 cursor-pointer hover:bg-orange-500/60 transition-all duration-300"
+            >
+              Click Here!
+            </a>
           </div>
         </div>
       </div>
@@ -62,8 +71,11 @@ const AustraliaPage = () => {
         <p></p>
       </div>
 
-      <div id="whatweprovide" className="bg-white p-10 mt-10 rounded-xl shadow-xl w-full max-w-6xl">
-        <h1  className="text-5xl font-bold text-orange-500 text-center mb-6">
+      <div
+        id="whatweprovide"
+        className="bg-white p-10 mt-10 rounded-xl shadow-xl w-full max-w-6xl"
+      >
+        <h1 className="text-5xl font-bold text-orange-500 text-center mb-6">
           What We <span className="text-gray-800">Provide</span>
         </h1>
         <p className="text-center text-gray-600 text-lg max-w-3xl mx-auto mb-8">
@@ -89,6 +101,7 @@ const AustraliaPage = () => {
             Contact us to discuss your case and receive a tailored quote.
           </p>
           <Link
+            reloadDocument
             to="/AustraliaForm"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300"
           >

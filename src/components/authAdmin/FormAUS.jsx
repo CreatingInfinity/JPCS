@@ -3,6 +3,7 @@ import { logo } from "../../utils";
 import { db } from "../../Firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import Passport from "./Passport";
+import { Link } from "react-router-dom";
 
 const VisaApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -140,12 +141,12 @@ const VisaApplicationForm = () => {
   return (
     <div className="bg-gray-50 borderInput">
       <div className="min-h-screen flex flex-col items-center relative z-15 text-gray-800 p-6">
-        <div className="flex items-center mb-6 josefin font-bold gap-5 text-2xl">
+        <Link to="/" className="flex items-center mb-6 josefin font-bold gap-5 text-2xl">
           <img className="h-15" src={logo} alt="" />
           <p>
             <span className="text-orange-500">JP</span> Consulting & Services
           </p>
-        </div>
+        </Link>
 
         <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-8">
           <h2 className="text-2xl font-bold mb-6 text-center">
