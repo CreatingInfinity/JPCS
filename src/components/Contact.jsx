@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { db } from "../Firebase"; // Adjust path if needed
+import { db } from "../Firebase"; 
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
@@ -73,7 +73,7 @@ const Contact = () => {
       navigate("/redirectHomePage");
     } catch (err) {
       console.error("Error sending message: ", err);
-      alert("Failed to send message. Please try again.");
+      alert("Failed to send message. Please try again."); 
     }
   };
 
