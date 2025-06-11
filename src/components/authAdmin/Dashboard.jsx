@@ -27,7 +27,7 @@ const Dashboard = () => {
       const docSnap = await getDoc(docRef);
 
       if (!docSnap.exists() || docSnap.data().role !== "dashboardJPCS") {
-        navigate("/unauthorized"); // or redirect elsewhere
+        navigate("/"); // or redirect elsewhere
       }
     });
 

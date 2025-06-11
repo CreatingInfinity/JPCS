@@ -21,13 +21,6 @@ const Dashboard = () => {
         navigate("/");
         return;
       }
-
-      // const docRef = doc(db, "adminAuth", user.uid);
-      // const docSnap = await getDoc(docRef);
-
-      // if (!docSnap.exists() || docSnap.data().role !== "dashboardUAS") {
-      //   navigate("/unauthorized");
-      // }
     });
 
     return () => unsubscribe();

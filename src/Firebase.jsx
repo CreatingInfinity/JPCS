@@ -1,19 +1,21 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth"; 
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBi753JZ3yplJXbtPiK-Jos-FrJ_RRpOW0",
-  authDomain: "jpcs-1dbb7.firebaseapp.com",
-  projectId: "jpcs-1dbb7",
-  storageBucket: "jpcs-1dbb7.appspot.com",
-  messagingSenderId: "417572839338",
-  appId: "1:417572839338:web:67880c9ad93e0e2137d5d3",
-  measurementId: "G-W2J9QXHEJ1"
+  apiKey: "AIzaSyBb01LleXkXBIY2B7jb65p4DVAAq_j7KBQ",
+  authDomain: "jpcs-website.firebaseapp.com",
+  projectId: "jpcs-website",
+  storageBucket: "jpcs-website.firebasestorage.app",
+  messagingSenderId: "1026378720637",
+  appId: "1:1026378720637:web:57c046992581840b9e9814",
+  measurementId: "G-4Q5R63H7QR"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app); 
+const storage = getStorage(app);
 
-export { db, auth }; 
+export { db, auth, storage }; 
