@@ -1,0 +1,68 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { filepinoLogo, logo } from "../../../utils";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../Firebase";
+
+const DashboardSidebarAUS = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/admin");
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="basis-1/4 min-w-[240px] bg-white rounded flex flex-col justify-between">
+      <div>
+        <div
+          onClick={() => navigate("/")}
+          className="flex gap-2 p-4 items-center justify-center cursor-pointer"
+        >
+            <img className="h-30" src={filepinoLogo} alt="" />
+        </div>
+
+        <div className="flex flex-col">
+          <button
+            onClick={() => scrollToSection("inquiry")}
+            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+          >
+            Inquiries
+          </button>
+          {/* <button
+            onClick={() => scrollToSection("analytics")}
+            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+          >
+            Analytics
+          </button>
+          <button
+            onClick={() => scrollToSection("approved")}
+            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+          >
+            Approved
+          </button> */}
+        </div>
+      </div>
+
+      <button
+        onClick={handleLogout}
+        className="bg-red-500 text-white px-4 py-2 m-4 rounded hover:bg-red-600 transition"
+      >
+        Logout
+      </button>
+    </div>
+  );
+};
+
+export default DashboardSidebarAUS;

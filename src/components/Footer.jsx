@@ -1,8 +1,13 @@
 import React from "react";
 import { callIcon, emailIcon, locationImage, logo, qr } from "../utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleAdmin = () => {
+    navigate("/admin");
+  }
   return (
     <div className="relative z-20 bg-white text-gray-800">
       <div className="flex flex-col md:flex-row p-6 md:p-10 gap-10 md:gap-0">
@@ -22,6 +27,7 @@ const Footer = () => {
             tailored to meet the unique needs of each client — from startups to
             established enterprises.
           </p>
+          <a onClick={handleAdmin} className="text-sm josefin font-medium cursor-pointer">Are you an Admin?</a>
         </div>
 
         {/* Quick Links */}
