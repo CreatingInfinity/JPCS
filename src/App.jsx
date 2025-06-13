@@ -5,8 +5,8 @@ import About from './components/About';
 import Services from './components/Services';
 import ThankYou from './components/ThankYou';
 import Login from './components/authAdmin/Login';
-import DashboardAUS from './components/authAdmin/DashboardAUS';
-import Dashboard from './components/authAdmin/Dashboard';
+import Dashboard from './components/authAdmin/dashboardJPCS/Dashboard';
+
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Blueprinting from './components/BusinessSetup/Blueprinting';
@@ -60,6 +60,7 @@ import ChatBot from './ChatBot';
 import Australia from './components/Australia';
 import AustraliaPage from './components/AustraliaPage';
 import FormAUS from './components/authAdmin/FormAUS';
+import DashboardAUS from './components/authAdmin/dashboardAU/DashboardAUS';
 
 
 
@@ -86,7 +87,7 @@ function AppContent() {
         <Route path="/admin/" element={<Login />} />
         <Route path='/Services' element={<Services />} />
         <Route path= "/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/dashboard-AU" element={<DashboardAUS />} />
+        <Route path="/admin/dashboard-au" element={<DashboardAUS />} />
         <Route path="/Australia" element={<AustraliaPage />} />
         <Route path="/AustraliaForm" element={<FormAUS />} />
 

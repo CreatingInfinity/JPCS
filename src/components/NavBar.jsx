@@ -148,8 +148,8 @@ const NavBar = () => {
         {/* Logo */}
         <Link to='/' reloadDocument className="flex gap-2 items-center cursor-pointer">
           <img className="h-12 py-1" src={logo} alt="logo" />
-          <span className="josefin font-bold text-sm sm:text-base text-gray-800 md:text-lg whitespace-nowrap">
-            <span className="font-bold text-orange-600">JP</span> CONSULTING & SERVICES
+          <span className="josefin font-bold text-sm sm:text-base text-black md:text-lg whitespace-nowrap">
+            <span className="font-bold text-orange-500">JP</span> CONSULTING & SERVICES
           </span>
         </Link>
 

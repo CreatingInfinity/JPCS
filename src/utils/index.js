@@ -32,6 +32,9 @@ export const australiaImage = ausImage;
 import kagarooImg from "/assets/images/kangaroo.png";
 export const kagarooImage = kagarooImg;
 
+import filepino from "/assets/images/filepino_logo.jpeg";
+export const filepinoLogo = filepino;
+
 // BUSINESS
 import blueprinting from "/assets/images/blueprinting.jpg";
 import blueprintingIcon from "/assets/images/blueprintingIcon.jpg";
