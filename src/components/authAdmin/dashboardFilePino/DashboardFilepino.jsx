@@ -13,7 +13,7 @@ const DashboardFilepino = () => {
     <section className="flex w-full h-screen p-4 gap-2 font-bold relative overflow-hidden">
       {/* Hamburger Icon */}
       <div
-        className="md:hidden absolute top-4 right-4 z-50"
+        className="lg:hidden border-1 border-gray-800 bg-white p-2 rounded-full absolute top-4 right-2 z-50"
         onClick={toggleMenu}
       >
         <button className="relative w-8 h-8 flex flex-col justify-between items-center p-1 group">
@@ -33,13 +33,13 @@ const DashboardFilepino = () => {
       </div>
 
       {/* Sidebar (Desktop) */}
-      <div className="hidden md:flex">
+      <div className="hidden lg:flex">
         <SidebarFP />
       </div>
 
       {/* Sidebar (Mobile) */}
       {menuOpen && (
-        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-30 z-40 md:hidden">
+        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-30 z-40 lg:hidden">
           <div className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50">
             <SidebarFP />
           </div>
