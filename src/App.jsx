@@ -60,7 +60,8 @@ import ChatBot from './ChatBot';
 import Australia from './components/Australia';
 import AustraliaPage from './components/AustraliaPage';
 import FormAUS from './components/authAdmin/FormAUS';
-import DashboardAUS from './components/authAdmin/dashboardAU/DashboardAUS';
+import DashboardAUS from './components/authAdmin/dashboardJPCS/DashboardAUS';
+import DashboardFilepino from './components/authAdmin/dashboardFilePino/DashboardFilepino';
 
 
 
@@ -68,7 +69,7 @@ function AppContent() {
   const location = useLocation();
   const menuRef = useRef(null);
 
-  const isStandalonePage = location.pathname === "/redirectHomePage"  || location.pathname === "/admin"  || location.pathname === "/admin/dashboard" || location.pathname === "/admin/dashboard-au" || location.pathname === "/AustraliaForm";
+  const isStandalonePage = location.pathname === "/redirectHomePage"  || location.pathname === "/admin"  || location.pathname === "/admin/dashboard" || location.pathname === "/admin/dashboard-filepino" || location.pathname === "/admin/dashboard-au" || location.pathname === "/AustraliaForm";
   
   
   return (
@@ -88,6 +89,8 @@ function AppContent() {
         <Route path='/Services' element={<Services />} />
         <Route path= "/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/dashboard-au" element={<DashboardAUS />} />
+        <Route path="/admin/dashboard-filepino" element={<DashboardFilepino />} />
+
         <Route path="/Australia" element={<AustraliaPage />} />
         <Route path="/AustraliaForm" element={<FormAUS />} />
 

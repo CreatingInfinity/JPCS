@@ -4,8 +4,9 @@ import { db, auth } from "../../../Firebase";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
+import { australiaImage, australianFlagVideo, flagAUS } from "../../../utils";
 
-const InquiryAUS = () => {
+const InquiryFP = () => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,31 +15,31 @@ const InquiryAUS = () => {
   const [adminMessage, setAdminMessage] = useState("");
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        navigate("/");
-        return;
-      }
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, async (user) => {
+  //     if (!user) {
+  //       navigate("/");
+  //       return;
+  //     }
 
-      const docRef = doc(db, "adminAuth", user.uid);
-      const docSnap = await getDoc(docRef);
+  //     const docRef = doc(db, "adminAuth", user.uid);
+  //     const docSnap = await getDoc(docRef);
 
-      if (!docSnap.exists() || docSnap.data().role !== "dashboardAUS") {
-        navigate("/");
-      }
-    });
+  //     if (!docSnap.exists() || docSnap.data().role !== "dashboardAUS") {
+  //       navigate("/");
+  //     }
+  //   });
 
-    return () => unsubscribe();
-  }, []);
+  //   return () => unsubscribe();
+  // }, []);
 
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
         const querySnapshot = await getDocs(
-          collection(db, "australiaSubmission")
+          collection(db, "filepinoSubmission")
         );
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -98,10 +99,13 @@ const InquiryAUS = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white p-8 rounded-lg shadow-md">
-          <h1 className="text-3xl font-semibold text-gray-800 mb-6">
-            Australia Visa Submissions Dashboard
-          </h1>
+        <div className="bg-white p-8 rounded-lg shadow-md josefin">
+          <div className="flex justify-between">
+            <h1 className="text-3xl font-semibold text-gray-800 mb-6">
+              Australia Visa Applications Dashboard
+            </h1>
+            <img className="h-10 rounded" src={flagAUS} alt="" />
+          </div>
 
           {loading ? (
             <div className="flex justify-center items-center h-64">
@@ -190,16 +194,37 @@ const InquiryAUS = () => {
 
       {showModal && selectedClient && (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">
-              Reply to {selectedClient.firstName} {selectedClient.lastName}
-            </h2>
-            <textarea
-              className="w-full border border-gray-300 rounded p-3 h-40 resize-none"
-              value={adminMessage}
-              onChange={(e) => setAdminMessage(e.target.value)}
-              placeholder="Write your message here..."
-            />
+          <div className="bg-white rounded-lg shadow-lg h-[50%] flex flex-col justify-between w-full max-w-lg p-6">
+            <div>
+              <h2 className="text-xl josefin font-semibold mb-4">
+                Reply to {selectedClient.email}
+              </h2>
+              <textarea
+                className="w-full p-3 h-90 josefin font-bold resize-none outline-none"
+                value={adminMessage}
+                onChange={(e) => setAdminMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Tab" || e.key === "Enter") {
+                    e.preventDefault(); // prevent focus change
+                    const { selectionStart, selectionEnd } = e.target;
+                    const value = adminMessage;
+                    const newValue =
+                      value.substring(0, selectionStart) +
+                      "\n    " +
+                      value.substring(selectionEnd); // 4 spaces
+
+                    setAdminMessage(newValue);
+
+                    // Move cursor after inserted spaces
+                    setTimeout(() => {
+                      e.target.selectionStart = e.target.selectionEnd =
+                        selectionStart + 4;
+                    }, 0);
+                  }
+                }}
+                placeholder={`Dear ${selectedClient.firstName},`}
+              />
+            </div>
             <div className="mt-4 flex justify-end gap-3">
               <button
                 className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
@@ -219,106 +244,132 @@ const InquiryAUS = () => {
       )}
 
       {showDetailsModal && selectedClient && (
-        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-40 flex justify-center items-center z-50">
-          <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 relative">
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center font-sans">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative space-y-8">
+            {/* Close Button */}
             <button
               onClick={() => setShowDetailsModal(false)}
-              className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold"
+              className="absolute top-4 right-5 text-gray-500 hover:text-red-600 text-3xl"
+              aria-label="Close"
             >
               &times;
             </button>
 
-            <h2 className="text-2xl font-semibold text-blue-600 mb-4 text-center">
+            {/* Header */}
+            <h2 className="text-3xl font-semibold text-center text-gray-800">
               Client Details
             </h2>
 
-            <div className="space-y-3 text-sm text-gray-800">
-              <div className="flex justify-between">
-                <p>
-                  <strong>Full Name:</strong> {selectedClient.firstName}{" "}
-                  {selectedClient.middleName} {selectedClient.lastName}
-                </p>
-                <p>
-                  <strong>Birth Date:</strong> {selectedClient.birthDate}
-                </p>
-                <p>
-                  <strong>Birth Place:</strong> {selectedClient.birthPlace}
-                </p>
-              </div>
-
-              <div className="flex justify-between">
-                <p>
-                  <strong>Email:</strong> {selectedClient.email}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {selectedClient.phone}
-                </p>
-              </div>
+            {/* Info Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 text-sm">
               <p>
-                <strong>Address:</strong> {selectedClient.address}
-              </p>
-              <div className="flex justify-between">
-                <p>
-                  <strong>Purpose:</strong> {selectedClient.purpose}
-                </p>
-                <p>
-                  <strong>Travel Date:</strong> {selectedClient.travelDate}
-                </p>
-                <p>
-                  <strong>Return Date:</strong> {selectedClient.returnDate}
-                </p>
-              </div>
-              <p>
-                <strong>Passport Number:</strong>{" "}
-                {selectedClient.passportNumber}
+                <strong>Full Name:</strong> {selectedClient.firstName}{" "}
+                {selectedClient.middleName} {selectedClient.lastName}
               </p>
               <p>
-                <strong>Passport Issue Date:</strong>{" "}
-                {selectedClient.passportIssueDate}
+                <strong>Birth Date:</strong> {selectedClient.birthDate}
               </p>
               <p>
-                <strong>Passport Expiry Date:</strong>{" "}
+                <strong>Birth Place:</strong> {selectedClient.birthPlace?.city},{" "}
+                {selectedClient.birthPlace?.state},{" "}
+                {selectedClient.birthPlace?.country}
+              </p>
+              <p>
+                <strong>Email:</strong> {selectedClient.email}
+              </p>
+              <p>
+                <strong>Phone:</strong> {selectedClient.phone}
+              </p>
+              <p className="md:col-span-2">
+                <strong>Address:</strong> {selectedClient.address?.street},{" "}
+                {selectedClient.address?.city}, {selectedClient.address?.state}{" "}
+                {selectedClient.address?.zip}, {selectedClient.address?.country}
+              </p>
+              <p>
+                <strong>Purpose:</strong> {selectedClient.purpose}
+              </p>
+              <p>
+                <strong>Passport No.:</strong> {selectedClient.passportNumber}
+              </p>
+              <p>
+                <strong>Issue Date:</strong> {selectedClient.passportIssueDate}
+              </p>
+              <p>
+                <strong>Expiry Date:</strong>{" "}
                 {selectedClient.passportExpiryDate}
               </p>
-              <p>
-                <strong>Notes:</strong> {selectedClient.notes}
-              </p>
-
-              <section className="flex align-center gap-5">
-                <div>
-                  <p className="font-semibold mb-1">Passport Image:</p>
-                  <img
-                    src={selectedClient.passportUrl}
-                    alt="Passport"
-                    className="h-20 rounded-lg border shadow-md"
-                  />
-                </div>
-
-                <div>
-                  <p className="font-semibold mb-1">Immigration Image:</p>
-                  <img
-                    src={selectedClient.immigrationUrl}
-                    alt="Immigration"
-                    className="h-20 rounded-lg border shadow-md"
-                  />
-                </div>
-              </section>
             </div>
 
-            <div className="mt-6 flex justify-end gap-3">
+            {/* Images */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+              {/* Passport Document */}
+              <div>
+                <p className="font-semibold mb-2 text-gray-700">
+                  Passport Document:
+                </p>
+                <a
+                  href={selectedClient.passportUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <embed
+                    src={selectedClient.passportUrl}
+                    alt="Passport PDF"
+                    className="w-full max-w-xs h-32 object-cover rounded-lg overflow-y-hidden border shadow hover:scale-105 transition-transform"
+                  />
+                </a>
+                <a
+                  href={selectedClient.passportUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mt-2 hover:text-orange-800 text-sm"
+                >
+                  Open Full View
+                </a>
+              </div>
+
+              {/* Immigration Document */}
+              <div>
+                <p className="font-semibold mb-2 text-gray-700">
+                  Immigration Document:
+                </p>
+                <a
+                  href={selectedClient.immigrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <embed
+                    src={selectedClient.immigrationUrl}
+                    alt="Immigration PDF"
+                    className="w-full max-w-xs h-32 object-cover rounded-lg border shadow hover:scale-105 transition-transform"
+                  />
+                </a>
+                <a
+                  href={selectedClient.immigrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mt-2 hover:text-orange-800 text-sm"
+                >
+                  Open Full View
+                </a>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex justify-end gap-4 pt-6">
               <button
                 onClick={() => {
                   setShowDetailsModal(false);
                   setShowModal(true);
                   handleReplyClick(selectedClient);
                 }}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
               >
                 Reply
               </button>
               <button
                 onClick={() => setShowDetailsModal(false)}
-                className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition"
+                className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2 rounded-lg transition"
               >
                 Close
               </button>
@@ -330,4 +381,4 @@ const InquiryAUS = () => {
   );
 };
 
-export default InquiryAUS;
+export default InquiryFP;

@@ -1,10 +1,11 @@
 import React from "react";
-import DashboardSidebarAUS from "./DashboardSidebarAU";
 import InquiryAUS from "./InquiryAUS";
+import DashboardSidebar from "./DashboardSidebar";
+import DashboardSidebarAUS from "./DashboardSidebarAU";
 
 const DashboardAUS = () => {
   return (
-    <section className="flex w-full h-screen p-4 gap-2">
+    <section className="flex w-full h-screen p-4 gap-2 josefin font-bold">
       <DashboardSidebarAUS />
 
       <div className="flex-1 overflow-y-hidden rounded space-y-4">

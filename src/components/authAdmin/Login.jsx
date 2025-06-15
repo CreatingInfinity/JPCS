@@ -42,7 +42,7 @@ const Login = () => {
       if (role === "dashboardJPCS") {
         navigate("dashboard");
       } else if (role === "dashboardAUS") {
-        navigate("dashboard-au");
+        navigate("dashboard-filepino");
       } else {
         setError("Invalid user role.");
       }
