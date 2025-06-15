@@ -14,6 +14,26 @@ const InquiryAUS = () => {
   const [adminMessage, setAdminMessage] = useState("");
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
+  const navigate = useNavigate();
+  
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          navigate("/");
+          return;
+        }
+  
+        const docRef = doc(db, "adminAuth", user.uid);
+        const docSnap = await getDoc(docRef);
+  
+        if (!docSnap.exists() || docSnap.data().role !== "dashboardJPCS") {
+          navigate("/"); // or redirect elsewhere
+        }
+      });
+  
+      return () => unsubscribe();
+    }, []);
+
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {

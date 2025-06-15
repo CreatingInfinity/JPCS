@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../Firebase";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { auth, db } from "../../../Firebase";
 import emailjs from "@emailjs/browser";
 import { flagAUS } from "../../../utils";
+import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 
 const InquiryFP = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -13,10 +15,32 @@ const InquiryFP = () => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [sortDirection, setSortDirection] = useState("desc");
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        navigate("/");
+        return;
+      }
+
+      const docRef = doc(db, "adminAuth", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (!docSnap.exists() || docSnap.data().role !== "dashboardAUS") {
+        navigate("/"); 
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "filepinoSubmission"));
+        const querySnapshot = await getDocs(
+          collection(db, "filepinoSubmission")
+        );
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -104,25 +128,45 @@ const InquiryFP = () => {
 
           {loading ? (
             <div className="flex justify-center items-center h-64">
-              <span className="text-lg text-gray-600">Loading submissions...</span>
+              <span className="text-lg text-gray-600">
+                Loading submissions...
+              </span>
             </div>
           ) : sortedSubmissions.length === 0 ? (
             <div className="flex justify-center items-center h-64">
-              <span className="text-lg text-gray-600">No submissions found.</span>
+              <span className="text-lg text-gray-600">
+                No submissions found.
+              </span>
             </div>
           ) : (
             <div className="overflow-y-auto max-h-[60vh] border rounded">
               <table className="min-w-full bg-white border-collapse">
                 <thead className="bg-gray-100 sticky top-0 z-10">
                   <tr>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">#</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Full Name</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Birth Date</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Email</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Phone</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Purpose</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Submitted</th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">Action</th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      #
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Full Name
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Birth Date
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Email
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Phone
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Purpose
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Submitted
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Action
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -132,14 +176,24 @@ const InquiryFP = () => {
                       className="border-t hover:bg-blue-50 transition-all cursor-pointer"
                       onClick={() => handleRowClick(item)}
                     >
-                      <td className="py-3 px-6 text-sm text-gray-600">{index + 1}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">
+                        {index + 1}
+                      </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.firstName} {item.middleName} {item.lastName}
                       </td>
-                      <td className="py-3 px-6 text-sm text-gray-600">{item.birthDate}</td>
-                      <td className="py-3 px-6 text-sm text-gray-600">{item.email}</td>
-                      <td className="py-3 px-6 text-sm text-gray-600">{item.phone}</td>
-                      <td className="py-3 px-6 text-sm text-gray-600">{item.purpose}</td>
+                      <td className="py-3 px-6 text-sm text-gray-600">
+                        {item.birthDate}
+                      </td>
+                      <td className="py-3 px-6 text-sm text-gray-600">
+                        {item.email}
+                      </td>
+                      <td className="py-3 px-6 text-sm text-gray-600">
+                        {item.phone}
+                      </td>
+                      <td className="py-3 px-6 text-sm text-gray-600">
+                        {item.purpose}
+                      </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.submittedAt?.toDate().toLocaleString() || "N/A"}
                       </td>
@@ -175,7 +229,7 @@ const InquiryFP = () => {
                 onChange={(e) => setAdminMessage(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Tab" || e.key === "Enter") {
-                    e.preventDefault(); 
+                    e.preventDefault();
                     const { selectionStart, selectionEnd } = e.target;
                     const value = adminMessage;
                     const newValue =
@@ -184,7 +238,6 @@ const InquiryFP = () => {
                       value.substring(selectionEnd);
 
                     setAdminMessage(newValue);
-
 
                     setTimeout(() => {
                       e.target.selectionStart = e.target.selectionEnd =
