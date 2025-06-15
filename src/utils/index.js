@@ -38,6 +38,9 @@ export const kagarooImage = kagarooImg;
 import filepino from "/assets/images/filepino_logo.jpeg";
 export const filepinoLogo = filepino;
 
+import mlhuiller from "/assets/images/mlhuillier-logo.webp";
+export const mlhuillerLogo = mlhuiller;
+
 // BUSINESS
 import blueprinting from "/assets/images/blueprinting.jpg";
 import blueprintingIcon from "/assets/images/blueprintingIcon.jpg";

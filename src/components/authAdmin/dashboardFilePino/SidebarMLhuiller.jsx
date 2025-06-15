@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { filepinoLogo, logo } from "../../../utils";
+import { filepinoLogo, logo, mlhuillerLogo } from "../../../utils";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../Firebase";
 
-const SidebarFP = () => {
+const SidebarML = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -28,9 +28,9 @@ const SidebarFP = () => {
       <div>
         <div
           onClick={() => navigate("/")}
-          className="flex gap-2 p-4 items-center relative justify-center cursor-pointer"
+          className="flex gap-2 p-4 my-10 items-center relative justify-center cursor-pointer"
         >
-          <img className="h-30 py-1" src={filepinoLogo} alt="logo" />
+          <img className="h-10 py-1" src={mlhuillerLogo} alt="logo" />
           <span className="font-bold text-sm sm:text-base text-gray-800 md:text-lg whitespace-nowrap">
           </span>
         </div>
@@ -40,7 +40,7 @@ const SidebarFP = () => {
             onClick={() => scrollToSection("inquiry")}
             className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
-            FilePino VISA Submissions
+            M-Lhuillier VISA Submissions
           </button>
         </div>
       </div>
@@ -72,4 +72,4 @@ const SidebarFP = () => {
   );
 };
 
-export default SidebarFP;
+export default SidebarML;
