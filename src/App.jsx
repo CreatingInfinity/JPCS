@@ -62,6 +62,7 @@ import AustraliaPage from './components/AustraliaPage';
 import FormAUS from './components/authAdmin/FormAUS';
 import DashboardAUS from './components/authAdmin/dashboardJPCS/DashboardAUS';
 import DashboardFilepino from './components/authAdmin/dashboardFilePino/DashboardFilepino';
+import DashboardMLhuiller from './components/authAdmin/dashboardFilePino/DashboardMLhuiller';
 
 
 
@@ -69,7 +70,7 @@ function AppContent() {
   const location = useLocation();
   const menuRef = useRef(null);
 
-  const isStandalonePage = location.pathname === "/redirectHomePage"  || location.pathname === "/admin"  || location.pathname === "/admin/dashboard" || location.pathname === "/admin/dashboard-filepino" || location.pathname === "/admin/dashboard-au" || location.pathname === "/AustraliaForm";
+  const isStandalonePage = location.pathname === "/redirectHomePage"  || location.pathname === "/admin"  || location.pathname === "/admin/dashboard" || location.pathname === "/admin/dashboard-Mlhuiller" || location.pathname === "/admin/dashboard-filepino" || location.pathname === "/admin/dashboard-au" || location.pathname === "/AustraliaForm";
   
   
   return (
@@ -90,6 +91,7 @@ function AppContent() {
         <Route path= "/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/dashboard-au" element={<DashboardAUS />} />
         <Route path="/admin/dashboard-filepino" element={<DashboardFilepino />} />
+        <Route path="/admin/dashboard-Mlhuiller" element={<DashboardMLhuiller />} />
 
         <Route path="/Australia" element={<AustraliaPage />} />
         <Route path="/AustraliaForm" element={<FormAUS />} />
