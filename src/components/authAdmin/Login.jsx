@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../Firebase"; 
+import { auth, db } from "../../Firebase";
 import { doc, getDoc } from "firebase/firestore";
-
 
 const Login = () => {
   const formRef = useRef(null);
@@ -26,72 +25,78 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  const { email, password } = credentials;
+    e.preventDefault();
+    const { email, password } = credentials;
 
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-    const docRef = doc(db, "adminAuth", user.uid);
-    const docSnap = await getDoc(docRef);
+      const docRef = doc(db, "adminAuth", user.uid);
+      const docSnap = await getDoc(docRef);
 
-    if (docSnap.exists()) {
-      const role = docSnap.data().role;
+      if (docSnap.exists()) {
+        const role = docSnap.data().role;
 
-      if (role === "dashboardJPCS") {
-        navigate("dashboard");
-      } else if (role === "dashboardAUS") {
-        navigate("dashboard-filepino");
+        if (role === "dashboardJPCS") {
+          navigate("dashboard");
+        } else if (role === "dashboardAUS") {
+          navigate("dashboard-filepino");
+        } else {
+          setError("Invalid user role.");
+        }
       } else {
-        setError("Invalid user role.");
+        setError("User role not found.");
       }
-    } else {
-      setError("User role not found.");
+    } catch (err) {
+      setError("Invalid email or password");
     }
-  } catch (err) {
-    setError("Invalid email or password");
-  }
-};
+  };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-800 via-gray-900 to-black px-4">
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
+        className="bg-white/90 backdrop-blur-md shadow-2xl rounded-xl p-8 w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800">Admin Login</h2>
 
-        {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
+        {error && (
+          <p className="text-center text-red-600 bg-red-100 px-4 py-2 rounded text-sm">
+            {error}
+          </p>
+        )}
 
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold text-gray-700">Email</label>
+        <div>
+          <label className="block text-gray-700 font-semibold mb-1">Email</label>
           <input
             type="email"
             name="email"
             value={credentials.email}
             onChange={handleChange}
-            className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="you@example.com"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
             required
           />
         </div>
 
-        <div className="mb-6">
-          <label className="block mb-1 font-semibold text-gray-700">Password</label>
+        <div>
+          <label className="block text-gray-700 font-semibold mb-1">Password</label>
           <input
             type="password"
             name="password"
             value={credentials.password}
             onChange={handleChange}
-            className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="••••••••"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
             required
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition duration-300"
+          className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-lg transition duration-300"
         >
           Log In
         </button>
