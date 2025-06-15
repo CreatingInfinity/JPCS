@@ -179,7 +179,7 @@ const InquiryAUS = () => {
 
         {/* Reply Modal */}
         {showModal && selectedClient && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs bg-opacity-40">
             <div className="bg-white p-6 w-full max-w-lg rounded-xl shadow-2xl">
               <h2 className="text-xl font-semibold mb-4">
                 Reply to {selectedClient.email}
@@ -210,7 +210,7 @@ const InquiryAUS = () => {
 
         {/* Details Modal */}
         {showDetailsModal && selectedClient && (
-          <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center font-sans">
+          <div className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center font-sans">
             <div className="bg-white p-6 w-full max-w-3xl rounded-xl shadow-2xl relative">
               <button
                 className="absolute top-3 right-4 text-gray-400 hover:text-red-500 text-xl"

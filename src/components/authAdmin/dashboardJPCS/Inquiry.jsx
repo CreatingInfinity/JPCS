@@ -189,28 +189,27 @@ const Inquiry = () => {
       {/* Modal for composing email */}
       {showModal && selectedClient && (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg h-[50%] flex flex-col justify-between w-full max-w-lg p-6">
+          <div className="bg-white rounded-lg shadow-lg flex flex-col justify-between w-full max-w-lg p-6">
             <div>
               <h2 className="text-xl josefin font-semibold mb-4">
                 Reply to {selectedClient.email}
               </h2>
               <textarea
-                className="w-full p-3 h-90 josefin font-bold resize-none outline-none"
+                className="w-full p-3 josefin font-bold resize-y outline-none"
                 value={adminMessage}
                 onChange={(e) => setAdminMessage(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Tab" || e.key === "Enter") {
-                    e.preventDefault(); // prevent focus change
+                    e.preventDefault();
                     const { selectionStart, selectionEnd } = e.target;
                     const value = adminMessage;
                     const newValue =
                       value.substring(0, selectionStart) +
                       "\n    " +
-                      value.substring(selectionEnd); // 4 spaces
+                      value.substring(selectionEnd);
 
                     setAdminMessage(newValue);
 
-                    // Move cursor after inserted spaces
                     setTimeout(() => {
                       e.target.selectionStart = e.target.selectionEnd =
                         selectionStart + 4;
