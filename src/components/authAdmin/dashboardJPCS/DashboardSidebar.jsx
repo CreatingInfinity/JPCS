@@ -24,8 +24,9 @@ const DashboardSidebar = () => {
   };
 
   return (
-    <div className="basis-1/4 min-w-[240px] bg-white rounded flex font-bold flex-col justify-between">
+    <div className="basis-1/4 min-w-[320px] bg-white josefin rounded flex flex-col h-full font-bold justify-between">
       <div>
+        {/* Logo and Branding */}
         <div
           onClick={() => navigate("/")}
           className="flex gap-2 p-4 items-center justify-center cursor-pointer"
@@ -36,6 +37,7 @@ const DashboardSidebar = () => {
           </span>
         </div>
 
+        {/* Navigation Buttons */}
         <div className="flex flex-col">
           <button
             onClick={() => scrollToSection("inquiry")}
@@ -43,22 +45,24 @@ const DashboardSidebar = () => {
           >
             Client Inquiries
           </button>
-          {/* <button
+          {/* Uncomment if needed later
+          <button
             onClick={() => scrollToSection("analytics")}
-            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+            className="text-md text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
             Analytics
           </button>
           <button
             onClick={() => scrollToSection("approved")}
-            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+            className="text-md text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
             Approved
           </button> */}
         </div>
       </div>
 
-      <div className="">
+      {/* Language/Version Switch + Logout */}
+      <div className="flex flex-col">
         <div className="flex justify-center gap-2 px-4 py-2">
           <button
             onClick={() => navigate("/admin/dashboard")}
