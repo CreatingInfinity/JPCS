@@ -1,18 +1,18 @@
 import React from "react";
-import DashboardSidebar from "./DashboardSidebar";
-import Inquiry from "./Inquiry";
+import SidebarFP from "./SidebarFilepino";
+import InquiryFP from "./InquiryFilepino";
 
-const Dashboard = () => {
+const DashboardFilepino = () => {
   return (
-    <section className="flex w-full josefin font-semibold h-screen p-4 gap-2">
-      <DashboardSidebar />
+    <section className="flex w-full h-screen p-4 gap-2 font-bold">
+      <SidebarFP />
 
       <div className="flex-1 overflow-y-hidden rounded space-y-4">
         <div
           id="inquiry"
           className="w-full min-h-screen rounded"
         >
-          <Inquiry />
+          <InquiryFP />
         </div>
 
         <div
@@ -35,4 +35,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardFilepino;

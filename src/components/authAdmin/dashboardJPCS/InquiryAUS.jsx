@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 
-const Inquiry = () => {
+const InquiryAUS = () => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,30 +14,32 @@ const Inquiry = () => {
   const [adminMessage, setAdminMessage] = useState("");
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        navigate("/");
-        return;
-      }
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, async (user) => {
+  //     if (!user) {
+  //       navigate("/");
+  //       return;
+  //     }
 
-      const docRef = doc(db, "adminAuth", user.uid);
-      const docSnap = await getDoc(docRef);
+  //     const docRef = doc(db, "adminAuth", user.uid);
+  //     const docSnap = await getDoc(docRef);
 
-      if (!docSnap.exists() || docSnap.data().role !== "dashboardJPCS") {
-        navigate("/"); // or redirect elsewhere
-      }
-    });
+  //     if (!docSnap.exists() || docSnap.data().role !== "dashboardAUS") {
+  //       navigate("/");
+  //     }
+  //   });
 
-    return () => unsubscribe();
-  }, []);
+  //   return () => unsubscribe();
+  // }, []);
 
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "clientSubmission"));
+        const querySnapshot = await getDocs(
+          collection(db, "australiaSubmission")
+        );
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -70,7 +72,7 @@ const Inquiry = () => {
     }
 
     const templateParams = {
-      to_name: selectedClient.name,
+      to_name: `${selectedClient.firstName} ${selectedClient.lastName}`,
       to_email: selectedClient.email,
       message: adminMessage,
     };
@@ -82,7 +84,7 @@ const Inquiry = () => {
         templateParams,
         "Iv7RzQsVofIVfwg2I"
       )
-      .then((response) => {
+      .then(() => {
         alert(`Email sent to ${selectedClient.email}`);
         setShowModal(false);
         setAdminMessage("");
@@ -98,7 +100,7 @@ const Inquiry = () => {
       <div className="max-w-7xl mx-auto">
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h1 className="text-3xl font-semibold text-gray-800 mb-6">
-            Client Submissions Dashboard
+            Australia Visa Submissions Dashboard
           </h1>
 
           {loading ? (
@@ -122,7 +124,10 @@ const Inquiry = () => {
                       #
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
-                      Name
+                      Full Name
+                    </th>
+                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                      Birth Date
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
                       Email
@@ -131,10 +136,7 @@ const Inquiry = () => {
                       Phone
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
-                      Product
-                    </th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
-                      Message
+                      Purpose
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
                       Action
@@ -152,7 +154,10 @@ const Inquiry = () => {
                         {index + 1}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.name}
+                        {item.firstName} {item.middleName} {item.lastName}
+                      </td>
+                      <td className="py-3 px-6 text-sm text-gray-600">
+                        {item.birthDate}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.email}
@@ -161,10 +166,7 @@ const Inquiry = () => {
                         {item.phone}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.product}
-                      </td>
-                      <td className="py-3 px-6 text-sm text-gray-600 truncate max-w-xs">
-                        {item.message}
+                        {item.purpose}
                       </td>
                       <td className="py-3 px-6 text-sm">
                         <button
@@ -186,7 +188,6 @@ const Inquiry = () => {
         </div>
       </div>
 
-      {/* Modal for composing email */}
       {showModal && selectedClient && (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg shadow-lg h-[50%] flex flex-col justify-between w-full max-w-lg p-6">
@@ -238,47 +239,118 @@ const Inquiry = () => {
         </div>
       )}
 
-      {/* Modal for details */}
       {showDetailsModal && selectedClient && (
-        <div className="fixed inset-0 backdrop-blur bg-linear-to-r from-blue-300/20 to-blue-300/20 bg-opacity-40 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-md grid gap-10 space-y-2 p-6">
-            <h2 className="text-xl font-semibold mb-4">Client Details</h2>
-            <div className="flex justify-between">
-              <p>
-                <strong>Name:</strong> {selectedClient.name}
-              </p>
-              <p>
-                <strong>Email:</strong> {selectedClient.email}
-              </p>
-            </div>
-            <div className="flex justify-between">
-              <p>
-              <strong>Phone:</strong> {selectedClient.phone}
-            </p>
-            <p>
-              <strong>Product:</strong> {selectedClient.product}
-            </p>
-            </div>
-            <p>
-              <strong>Message:</strong>
-              <br />
-              {selectedClient.message}
-            </p>
+        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 relative">
+            <button
+              onClick={() => setShowDetailsModal(false)}
+              className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold"
+            >
+              &times;
+            </button>
 
-            <div className="mt-5 text-right space-x-3">
+            <h2 className="text-2xl font-semibold mb-4 text-center">
+              Client Details
+            </h2>
+
+            <div className="space-y-3 text-sm text-gray-800">
+              <div className="flex justify-between">
+                <p>
+                  <strong>Full Name:</strong> {selectedClient.firstName}{" "}
+                  {selectedClient.middleName} {selectedClient.lastName}
+                </p>
+                <p>
+                  <strong>Birth Date:</strong> {selectedClient.birthDate}
+                </p>
+                <p>
+                  <strong>Birth Place:</strong> {selectedClient.birthPlace}
+                </p>
+              </div>
+
+              <div className="flex justify-between">
+                <p>
+                  <strong>Email:</strong> {selectedClient.email}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {selectedClient.phone}
+                </p>
+              </div>
+              <p>
+                <strong>Address:</strong> {selectedClient.address}
+              </p>
+              <div className="flex justify-between">
+                <p>
+                  <strong>Purpose:</strong> {selectedClient.purpose}
+                </p>
+                <p>
+                  <strong>Travel Date:</strong> {selectedClient.travelDate}
+                </p>
+                <p>
+                  <strong>Return Date:</strong> {selectedClient.returnDate}
+                </p>
+              </div>
+              <p>
+                <strong>Passport Number:</strong>{" "}
+                {selectedClient.passportNumber}
+              </p>
+              <p>
+                <strong>Passport Issue Date:</strong>{" "}
+                {selectedClient.passportIssueDate}
+              </p>
+              <p>
+                <strong>Passport Expiry Date:</strong>{" "}
+                {selectedClient.passportExpiryDate}
+              </p>
+              <p>
+                <strong>Notes:</strong> {selectedClient.notes}
+              </p>
+              <section className="flex items-center gap-5">
+                <div>
+                  <p className="font-semibold mb-1">Passport Image:</p>
+                  <a
+                    href={selectedClient.passportUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={selectedClient.passportUrl}
+                      alt="Passport"
+                      className="h-20 rounded-lg border shadow-md cursor-pointer hover:scale-105 transition-transform"
+                    />
+                  </a>
+                </div>
+
+                <div>
+                  <p className="font-semibold mb-1">Immigration Image:</p>
+                  <a
+                    href={selectedClient.immigrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={selectedClient.immigrationUrl}
+                      alt="Immigration"
+                      className="h-20 rounded-lg border shadow-md cursor-pointer hover:scale-105 transition-transform"
+                    />
+                  </a>
+                </div>
+              </section>
+            </div>
+
+            <div className="mt-6 flex justify-end gap-3">
               <button
                 onClick={() => {
-                  setShowDetailsModal(false); // close details modal
-                  setShowModal(true); // open reply modal
-                  handleReplyClick(selectedClient); // pass client data
+                  setShowDetailsModal(false);
+                  setShowModal(true);
+                  handleReplyClick(selectedClient);
                 }}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
               >
                 Reply
               </button>
               <button
                 onClick={() => setShowDetailsModal(false)}
-                className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition"
               >
                 Close
               </button>
@@ -290,4 +362,4 @@ const Inquiry = () => {
   );
 };
 
-export default Inquiry;
+export default InquiryAUS;

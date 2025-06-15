@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../../../utils";
+import { filepinoLogo, logo } from "../../../utils";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../Firebase";
 
-const DashboardSidebar = () => {
+const DashboardSidebarAUS = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -24,7 +24,7 @@ const DashboardSidebar = () => {
   };
 
   return (
-    <div className="basis-1/4 min-w-[240px] bg-white rounded flex font-bold flex-col justify-between">
+    <div className="basis-1/4 min-w-[240px] bg-white rounded flex flex-col font-bold justify-between">
       <div>
         <div
           onClick={() => navigate("/")}
@@ -39,19 +39,19 @@ const DashboardSidebar = () => {
         <div className="flex flex-col">
           <button
             onClick={() => scrollToSection("inquiry")}
-            className="text-md text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+            className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
-            Client Inquiries
+            Client Immigration Application
           </button>
           {/* <button
             onClick={() => scrollToSection("analytics")}
-            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+            className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
             Analytics
           </button>
           <button
             onClick={() => scrollToSection("approved")}
-            className="text-md font-medium text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+            className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
             Approved
           </button> */}
@@ -62,13 +62,13 @@ const DashboardSidebar = () => {
         <div className="flex justify-center gap-2 px-4 py-2">
           <button
             onClick={() => navigate("/admin/dashboard")}
-            className="flex-1 text-sm bg-gray-100 text-gray-800 py-2 px-4 rounded hover:bg-gray-200 transition"
+            className="flex-1 text-sm  bg-gray-100 text-gray-800 py-2 px-4 rounded hover:bg-gray-200 transition"
           >
             JPCS
           </button>
           <button
             onClick={() => navigate("/admin/dashboard-au")}
-            className="flex-1 text-sm bg-gray-100 text-gray-800 py-2 px-4 rounded hover:bg-gray-200 transition"
+            className="flex-1 text-sm  bg-gray-100 text-gray-800 py-2 px-4 rounded hover:bg-gray-200 transition"
           >
             AUS VISA
           </button>
@@ -85,4 +85,4 @@ const DashboardSidebar = () => {
   );
 };
 
-export default DashboardSidebar;
+export default DashboardSidebarAUS;

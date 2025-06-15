@@ -27,6 +27,9 @@ export const heroVideo2 = hero2;
 import australianFlag from "/assets/videos/australianFlag.mp4";
 export const australianFlagVideo = australianFlag;
 
+import ausflag from "/assets/images/ausflag.png";
+export const flagAUS = ausflag;
+
 import ausImage from "/assets/images/aus.jpg";
 export const australiaImage = ausImage;
 import kagarooImg from "/assets/images/kangaroo.png";
