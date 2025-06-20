@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  deleteDoc,
+  setDoc,
+} from "firebase/firestore";
 import { auth, db } from "../../../Firebase";
 import emailjs from "@emailjs/browser";
 import { flagAUS } from "../../../utils";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 
-const InquiryFP = () => {
+const LogMLhuillier = () => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -38,9 +45,7 @@ const InquiryFP = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const querySnapshot = await getDocs(
-          collection(db, "filepinoSubmissions")
-        );
+        const querySnapshot = await getDocs(collection(db, "log-MLhuiller"));
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -56,70 +61,31 @@ const InquiryFP = () => {
     fetchSubmissions();
   }, []);
 
-  const handleReplyClick = (item) => {
-    setSelectedClient(item);
-    setShowModal(true);
-  };
-
   const handleRowClick = (item) => {
     setSelectedClient(item);
     setShowDetailsModal(true);
   };
 
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this submission?"
+  const handleRestore = async (item) => {
+    const confirm = window.confirm(
+      "Are you sure you want to restore this submission?"
     );
-    if (!confirmDelete) return;
+    if (!confirm) return;
 
     try {
-      const submissionToDelete = submissions.find((sub) => sub.id === id);
-      if (!submissionToDelete) throw new Error("Submission not found.");
+      const restoredData = { ...item };
+      delete restoredData.deletedAt; 
 
-      await setDoc(doc(db, "log-Filepino", id), {
-        ...submissionToDelete,
-        deletedAt: new Date(),
-      });
+      await setDoc(doc(db, "mlhuillerSubmissions", item.id), restoredData);
 
-      await deleteDoc(doc(db, "filepinoSubmissions", id));
+      await deleteDoc(doc(db, "log-MLhuiller", item.id));
 
-      setSubmissions((prev) => prev.filter((sub) => sub.id !== id));
+      alert("Submission restored successfully!");
 
-      alert("Submission deleted successfully!");
     } catch (error) {
-      console.error("Error deleting submission:", error);
-      alert("Failed to delete submission.");
+      console.error("Error restoring submission:", error);
+      alert("Failed to restore submission.");
     }
-  };
-
-  const sendEmail = () => {
-    if (!adminMessage.trim()) {
-      alert("Please write a message before sending.");
-      return;
-    }
-
-    const templateParams = {
-      to_name: `${selectedClient.firstName} ${selectedClient.lastName}`,
-      to_email: selectedClient.email,
-      message: adminMessage,
-    };
-
-    emailjs
-      .send(
-        "service_9jiaa2l",
-        "template_daa2yw1",
-        templateParams,
-        "Iv7RzQsVofIVfwg2I"
-      )
-      .then(() => {
-        alert(`Email sent to ${selectedClient.email}`);
-        setShowModal(false);
-        setAdminMessage("");
-      })
-      .catch((error) => {
-        console.error("Email error:", error.text);
-        alert("Failed to send email.");
-      });
   };
 
   const toggleSort = () => {
@@ -138,7 +104,7 @@ const InquiryFP = () => {
         <div className="bg-white p-8 rounded-lg shadow-md josefin">
           <div className="flex justify-between">
             <h1 className="text-3xl font-semibold text-gray-800 mb-6">
-              Australia Visa Applications Dashboard
+              Deleted Applications
             </h1>
             <img className="h-10 rounded" src={flagAUS} alt="flag" />
           </div>
@@ -190,7 +156,7 @@ const InquiryFP = () => {
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
                       Submitted
                     </th>
-                    <th className="py-3 px-6 text-center text-sm font-semibold text-gray-600">
+                    <th className="py-3 px-3 text-left text-sm font-semibold text-gray-600">
                       Action
                     </th>
                   </tr>
@@ -223,24 +189,15 @@ const InquiryFP = () => {
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.submittedAt?.toDate().toLocaleString() || "N/A"}
                       </td>
-                      <td className="py-3 px-5 text-sm flex justify-center gap-4">
+                      <td className="py-3 px-3 text-sm">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleReplyClick(item);
+                            handleRestore(item);
                           }}
-                          className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600"
+                          className="bg-teal-600 text-white px-4 py-1 rounded hover:bg-teal-700"
                         >
-                          Reply
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDelete(item.id);
-                          }}
-                          className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
-                        >
-                          Delete
+                          Restore
                         </button>
                       </td>
                     </tr>
@@ -251,55 +208,6 @@ const InquiryFP = () => {
           )}
         </div>
       </div>
-      {showModal && selectedClient && (
-        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg flex flex-col justify-between w-full max-w-lg p-6">
-            <div>
-              <h2 className="text-xl josefin font-semibold mb-4">
-                Reply to {selectedClient.email}
-              </h2>
-              <textarea
-                className="w-full p-3 josefin font-bold resize-y outline-none"
-                value={adminMessage}
-                onChange={(e) => setAdminMessage(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Tab" || e.key === "Enter") {
-                    e.preventDefault();
-                    const { selectionStart, selectionEnd } = e.target;
-                    const value = adminMessage;
-                    const newValue =
-                      value.substring(0, selectionStart) +
-                      "\n    " +
-                      value.substring(selectionEnd);
-
-                    setAdminMessage(newValue);
-
-                    setTimeout(() => {
-                      e.target.selectionStart = e.target.selectionEnd =
-                        selectionStart + 4;
-                    }, 0);
-                  }
-                }}
-                placeholder={`Dear ${selectedClient.firstName},`}
-              />
-            </div>
-            <div className="mt-4 flex justify-end gap-3">
-              <button
-                className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
-                onClick={() => setShowModal(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                onClick={sendEmail}
-              >
-                Send
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {showDetailsModal && selectedClient && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center font-sans">
@@ -435,16 +343,6 @@ const InquiryFP = () => {
             {/* Action Buttons */}
             <div className="flex justify-end gap-4 pt-6">
               <button
-                onClick={() => {
-                  setShowDetailsModal(false);
-                  setShowModal(true);
-                  handleReplyClick(selectedClient);
-                }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
-              >
-                Reply
-              </button>
-              <button
                 onClick={() => setShowDetailsModal(false)}
                 className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2 rounded-lg transition"
               >
@@ -458,4 +356,4 @@ const InquiryFP = () => {
   );
 };
 
-export default InquiryFP;
+export default LogMLhuillier;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SidebarFP from "./SidebarFilepino";
 import InquiryFP from "./InquiryFilepino";
+import LogFilePino from "./LogFilePino";
 
 const DashboardFilepino = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,6 +51,9 @@ const DashboardFilepino = () => {
       <div className="flex-1 overflow-y-auto rounded space-y-4 z-0">
         <div id="inquiry" className="w-full min-h-screen rounded">
           <InquiryFP />
+        </div>
+        <div id="log" className="w-full min-h-screen rounded">
+          <LogFilePino />
         </div>
       </div>
     </section>

@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  deleteDoc,
+  setDoc,
+} from "firebase/firestore";
 import { auth, db } from "../../../Firebase";
 import emailjs from "@emailjs/browser";
 import { flagAUS } from "../../../utils";
@@ -28,7 +35,7 @@ const InquiryML = () => {
       const docSnap = await getDoc(docRef);
 
       if (!docSnap.exists() || docSnap.data().role !== "dashboardAUS") {
-        navigate("/"); 
+        navigate("/");
       }
     });
 
@@ -64,6 +71,32 @@ const InquiryML = () => {
   const handleRowClick = (item) => {
     setSelectedClient(item);
     setShowDetailsModal(true);
+  };
+
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this submission?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      const submissionToDelete = submissions.find((sub) => sub.id === id);
+      if (!submissionToDelete) throw new Error("Submission not found.");
+
+      await setDoc(doc(db, "log-MLhuiller", id), {
+        ...submissionToDelete,
+        deletedAt: new Date(),
+      });
+
+      await deleteDoc(doc(db, "mlhuillerSubmissions", id));
+
+      setSubmissions((prev) => prev.filter((sub) => sub.id !== id));
+
+      alert("Submission deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting submission:", error);
+      alert("Failed to delete submission.");
+    }
   };
 
   const sendEmail = () => {
@@ -164,7 +197,7 @@ const InquiryML = () => {
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
                       Submitted
                     </th>
-                    <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
+                    <th className="py-3 px-3 text-center text-sm font-semibold text-gray-600">
                       Action
                     </th>
                   </tr>
@@ -180,7 +213,7 @@ const InquiryML = () => {
                         {index + 1}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.firstName} {item.middleName} {item.lastName}
+                        {item.fullName}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.birthDate}
@@ -192,12 +225,12 @@ const InquiryML = () => {
                         {item.phone}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.purpose}
+                        {item.selection}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.submittedAt?.toDate().toLocaleString() || "N/A"}
                       </td>
-                      <td className="py-3 px-6 text-sm">
+                      <td className="py-3 px-5 text-sm flex justify-center gap-4">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -206,6 +239,15 @@ const InquiryML = () => {
                           className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600"
                         >
                           Reply
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(item.id);
+                          }}
+                          className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+                        >
+                          Delete
                         </button>
                       </td>
                     </tr>
@@ -286,16 +328,10 @@ const InquiryML = () => {
             {/* Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 text-sm">
               <p>
-                <strong>Full Name:</strong> {selectedClient.firstName}{" "}
-                {selectedClient.middleName} {selectedClient.lastName}
+                <strong>Full Name:</strong> {selectedClient.fullName}
               </p>
               <p>
                 <strong>Birth Date:</strong> {selectedClient.birthDate}
-              </p>
-              <p>
-                <strong>Birth Place:</strong> {selectedClient.birthPlace?.city},{" "}
-                {selectedClient.birthPlace?.state},{" "}
-                {selectedClient.birthPlace?.country}
               </p>
               <p>
                 <strong>Email:</strong> {selectedClient.email}
@@ -303,23 +339,48 @@ const InquiryML = () => {
               <p>
                 <strong>Phone:</strong> {selectedClient.phone}
               </p>
-              <p className="md:col-span-2">
-                <strong>Address:</strong> {selectedClient.address?.street},{" "}
-                {selectedClient.address?.city}, {selectedClient.address?.state}{" "}
-                {selectedClient.address?.zip}, {selectedClient.address?.country}
+              <p>
+                <strong>Purpose:</strong> {selectedClient.selection}
               </p>
               <p>
-                <strong>Purpose:</strong> {selectedClient.purpose}
+                <strong>Submitted At:</strong>{" "}
+                {new Date(
+                  selectedClient.submittedAt?.seconds * 1000
+                ).toLocaleString()}
+              </p>
+            </div>
+
+            <div className="mt-4 text-sm text-gray-700 space-y-1">
+              <h3 className="font-semibold text-lg text-gray-800">Education</h3>
+              <p>
+                <strong>Course:</strong>{" "}
+                {selectedClient.education?.course || "—"}
               </p>
               <p>
-                <strong>Passport No.:</strong> {selectedClient.passportNumber}
+                <strong>Duration:</strong>{" "}
+                {selectedClient.education?.duration || "—"}
               </p>
               <p>
-                <strong>Issue Date:</strong> {selectedClient.passportIssueDate}
+                <strong>University:</strong>{" "}
+                {selectedClient.education?.university || "—"}
+              </p>
+            </div>
+
+            {/* Work History Info */}
+            <div className="mt-4 text-sm text-gray-700 space-y-1">
+              <h3 className="font-semibold text-lg text-gray-800">
+                Work History
+              </h3>
+              <p>
+                <strong>Company:</strong>{" "}
+                {selectedClient.workHistory?.company || "—"}
               </p>
               <p>
-                <strong>Expiry Date:</strong>{" "}
-                {selectedClient.passportExpiryDate}
+                <strong>Start:</strong>{" "}
+                {selectedClient.workHistory?.start || "—"}
+              </p>
+              <p>
+                <strong>End:</strong> {selectedClient.workHistory?.end || "—"}
               </p>
             </div>
 
@@ -354,7 +415,7 @@ const InquiryML = () => {
               {/* Immigration Document */}
               <div>
                 <p className="font-semibold mb-2 text-gray-700">
-                  Immigration Document:
+                  Resume Document:
                 </p>
                 <a
                   href={selectedClient.immigrationUrl}

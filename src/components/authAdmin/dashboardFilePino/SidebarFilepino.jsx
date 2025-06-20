@@ -42,6 +42,12 @@ const SidebarFP = () => {
           >
             FilePino VISA Submissions
           </button>
+          <button
+            onClick={() => scrollToSection("log")}
+            className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+          >
+            Deleted Submissions
+          </button>
         </div>
       </div>
 
