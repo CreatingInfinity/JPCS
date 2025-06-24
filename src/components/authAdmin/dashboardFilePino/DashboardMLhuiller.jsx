@@ -3,6 +3,7 @@ import SidebarFP from "./SidebarFilepino";
 import InquiryML from "./InquiryMLhuiller";
 import SidebarML from "./SidebarMLhuiller";
 import LogMLhuillier from "./LogMLhuillier";
+import ApprovedML from "./ApprovedMLhuillier";
 
 const DashboardMLhuiller = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,6 +52,9 @@ const DashboardMLhuiller = () => {
         </div>
         <div id="log" className="w-full min-h-screen rounded">
           <LogMLhuillier />
+        </div>
+        <div id="approved" className="w-full min-h-screen rounded">
+          <ApprovedML />
         </div>
       </div>
     </section>

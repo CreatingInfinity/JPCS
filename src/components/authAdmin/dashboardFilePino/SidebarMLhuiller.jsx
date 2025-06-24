@@ -48,6 +48,12 @@ const SidebarML = () => {
           >
             Deleted Submissions
           </button>
+          <button
+            onClick={() => scrollToSection("approved")}
+            className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
+          >
+            Approved Submissions
+          </button>
         </div>
       </div>
 

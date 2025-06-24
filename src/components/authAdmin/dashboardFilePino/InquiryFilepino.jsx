@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  onSnapshot
+} from "firebase/firestore";
 import { auth, db } from "../../../Firebase";
 import emailjs from "@emailjs/browser";
 import { flagAUS } from "../../../utils";
@@ -14,6 +22,7 @@ const InquiryFP = () => {
   const [adminMessage, setAdminMessage] = useState("");
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [sortDirection, setSortDirection] = useState("desc");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
 
@@ -36,24 +45,23 @@ const InquiryFP = () => {
   }, []);
 
   useEffect(() => {
-    const fetchSubmissions = async () => {
-      try {
-        const querySnapshot = await getDocs(
-          collection(db, "filepinoSubmissions")
-        );
+    const unsubscribe = onSnapshot(
+      collection(db, "filepinoSubmissions"),
+      (querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
         setSubmissions(data);
-      } catch (error) {
+        setLoading(false);
+      },
+      (error) => {
         console.error("Error fetching submissions:", error);
-      } finally {
         setLoading(false);
       }
-    };
+    );
 
-    fetchSubmissions();
+    return () => unsubscribe();
   }, []);
 
   const handleReplyClick = (item) => {
@@ -64,6 +72,37 @@ const InquiryFP = () => {
   const handleRowClick = (item) => {
     setSelectedClient(item);
     setShowDetailsModal(true);
+  };
+
+  const handleApprove = async (id) => {
+    const confirmApprove = window.confirm("Approve this submission?");
+    if (!confirmApprove) return;
+
+    try {
+      const submissionToApprove = submissions.find((sub) => sub.id === id);
+      if (!submissionToApprove) throw new Error("Submission not found.");
+
+      await setDoc(doc(db, "approveSubmissionsFP", id), {
+        ...submissionToApprove,
+        approved: true,
+        approvedAt: new Date(),
+      });
+
+      setSubmissions((prev) =>
+        prev.map((sub) =>
+          sub.id === id
+            ? { ...sub, approved: true, approvedAt: new Date() }
+            : sub
+        )
+      );
+
+      await deleteDoc(doc(db, "filepinoSubmissions", id));
+
+      alert("Submission approved successfully!");
+    } catch (error) {
+      console.error("Error approving submission:", error);
+      alert("Failed to approve submission.");
+    }
   };
 
   const handleDelete = async (id) => {
@@ -132,6 +171,10 @@ const InquiryFP = () => {
     return sortDirection === "asc" ? aTime - bTime : bTime - aTime;
   });
 
+  const filteredSubmissions = sortedSubmissions.filter((submission) =>
+    submission.referenceCode?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
@@ -143,7 +186,14 @@ const InquiryFP = () => {
             <img className="h-10 rounded" src={flagAUS} alt="flag" />
           </div>
 
-          <div className="mb-4 text-right">
+          <div className="mb-4 flex justify-between">
+            <input
+              type="text"
+              placeholder="Search by Reference Code..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border border-gray-300 rounded-full px-4 py-2 outline-none w-full max-w-sm"
+            />
             <button
               onClick={toggleSort}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -176,7 +226,7 @@ const InquiryFP = () => {
                       Full Name
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
-                      Birth Date
+                      Reference ID
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
                       Email
@@ -196,7 +246,7 @@ const InquiryFP = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedSubmissions.map((item, index) => (
+                  {filteredSubmissions.map((item, index) => (
                     <tr
                       key={item.id}
                       className="border-t hover:bg-blue-50 transition-all cursor-pointer"
@@ -209,7 +259,7 @@ const InquiryFP = () => {
                         {item.fullName}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.birthDate}
+                        {item.referenceCode}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.email}
@@ -223,7 +273,7 @@ const InquiryFP = () => {
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.submittedAt?.toDate().toLocaleString() || "N/A"}
                       </td>
-                      <td className="py-3 px-5 text-sm flex justify-center gap-4">
+                      <td className="py-3 px-5 text-sm flex justify-center gap-2">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -236,11 +286,61 @@ const InquiryFP = () => {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
+                            handleApprove(item.id);
+                          }}
+                          className="bg-green-500 px-2 rounded hover:bg-green-600"
+                        >
+                          <svg
+                            height="20px"
+                            width="20px"
+                            fill="#ffffff"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                            stroke="#ffffff"
+                            stroke-width="0.00512"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                              id="SVGRepo_tracerCarrier"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+                            </g>
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
                             handleDelete(item.id);
                           }}
-                          className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+                          className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
                         >
-                          Delete
+                          <svg
+                            height="20px"
+                            width="20px"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                              id="SVGRepo_tracerCarrier"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                              {" "}
+                              <path
+                                d="M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6"
+                                stroke="#ffffff"
+                                stroke-width="2.4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>{" "}
+                            </g>
+                          </svg>
                         </button>
                       </td>
                     </tr>

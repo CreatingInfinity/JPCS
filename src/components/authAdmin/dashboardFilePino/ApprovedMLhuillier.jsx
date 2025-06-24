@@ -14,7 +14,7 @@ import { flagAUS } from "../../../utils";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 
-const LogMLhuillier = () => {
+const ApprovedML = () => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -46,7 +46,7 @@ const LogMLhuillier = () => {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      collection(db, "log-MLhuiller"),
+      collection(db, "approveSubmissionsMH"),
       (querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -64,30 +64,99 @@ const LogMLhuillier = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleReplyClick = (item) => {
+    setSelectedClient(item);
+    setShowModal(true);
+  };
+
   const handleRowClick = (item) => {
     setSelectedClient(item);
     setShowDetailsModal(true);
   };
 
-  const handleRestore = async (item) => {
-    const confirm = window.confirm(
-      "Are you sure you want to restore this submission?"
-    );
-    if (!confirm) return;
+  const handleUnapprove = async (id) => {
+    const confirmUnapprove = window.confirm("Remove this submission?");
+    if (!confirmUnapprove) return;
 
     try {
-      const restoredData = { ...item };
-      delete restoredData.deletedAt;
+      const submissionToUnapprove = submissions.find((sub) => sub.id === id);
+      if (!submissionToUnapprove) throw new Error("Submission not found.");
 
-      await setDoc(doc(db, "mlhuillerSubmissions", item.id), restoredData);
+      await setDoc(doc(db, "mlhuillerSubmissions", id), {
+        ...submissionToUnapprove,
+        approved: false,
+        approvedAt: null,
+      });
 
-      await deleteDoc(doc(db, "log-MLhuiller", item.id));
+      setSubmissions((prev) =>
+        prev.map((sub) =>
+          sub.id === id ? { ...sub, approved: false, approvedAt: null } : sub
+        )
+      );
 
-      alert("Submission restored successfully!");
+      await deleteDoc(doc(db, "approveSubmissionsMH", id));
+
+      alert("Submission removed successfully!");
     } catch (error) {
-      console.error("Error restoring submission:", error);
-      alert("Failed to restore submission.");
+      console.error("Error unapproving submission:", error);
+      alert("Failed to unapprove submission.");
     }
+  };
+
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this submission?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      const submissionToDelete = submissions.find((sub) => sub.id === id);
+      if (!submissionToDelete) throw new Error("Submission not found.");
+
+      await setDoc(doc(db, "log-MLhuiller", id), {
+        ...submissionToDelete,
+        deletedAt: new Date(),
+      });
+
+      await deleteDoc(doc(db, "mlhuillerSubmissions", id));
+
+      setSubmissions((prev) => prev.filter((sub) => sub.id !== id));
+
+      alert("Submission deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting submission:", error);
+      alert("Failed to delete submission.");
+    }
+  };
+
+  const sendEmail = () => {
+    if (!adminMessage.trim()) {
+      alert("Please write a message before sending.");
+      return;
+    }
+
+    const templateParams = {
+      to_name: `${selectedClient.firstName} ${selectedClient.lastName}`,
+      to_email: selectedClient.email,
+      message: adminMessage,
+    };
+
+    emailjs
+      .send(
+        "service_9jiaa2l",
+        "template_daa2yw1",
+        templateParams,
+        "Iv7RzQsVofIVfwg2I"
+      )
+      .then(() => {
+        alert(`Email sent to ${selectedClient.email}`);
+        setShowModal(false);
+        setAdminMessage("");
+      })
+      .catch((error) => {
+        console.error("Email error:", error.text);
+        alert("Failed to send email.");
+      });
   };
 
   const toggleSort = () => {
@@ -95,8 +164,8 @@ const LogMLhuillier = () => {
   };
 
   const sortedSubmissions = [...submissions].sort((a, b) => {
-    const aTime = a.submittedAt?.seconds || 0;
-    const bTime = b.submittedAt?.seconds || 0;
+    const aTime = a.approvedAt?.seconds || 0;
+    const bTime = b.approvedAt?.seconds || 0;
     return sortDirection === "asc" ? aTime - bTime : bTime - aTime;
   });
 
@@ -110,12 +179,19 @@ const LogMLhuillier = () => {
         <div className="bg-white p-8 rounded-lg shadow-md josefin">
           <div className="flex justify-between">
             <h1 className="text-3xl font-semibold text-gray-800 mb-6">
-              Deleted Applications
+              Approved Submissions
             </h1>
             <img className="h-10 rounded" src={flagAUS} alt="flag" />
           </div>
 
-          <div className="mb-4 text-right">
+          <div className="mb-4 flex justify-between">
+            <input
+              type="text"
+              placeholder="Search by Reference Code..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border border-gray-300 rounded-full px-4 py-2 outline-none w-full max-w-sm"
+            />
             <button
               onClick={toggleSort}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -160,9 +236,9 @@ const LogMLhuillier = () => {
                       Purpose
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
-                      Submitted
+                      Approved
                     </th>
-                    <th className="py-3 px-3 text-left text-sm font-semibold text-gray-600">
+                    <th className="py-3 px-3 text-center text-sm font-semibold text-gray-600">
                       Action
                     </th>
                   </tr>
@@ -193,17 +269,104 @@ const LogMLhuillier = () => {
                         {item.selection}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.submittedAt?.toDate().toLocaleString() || "N/A"}
+                        {item.approvedAt?.toDate().toLocaleString() || "N/A"}
                       </td>
-                      <td className="py-3 px-3 text-sm">
+                      <td className="py-3 px-5 text-sm flex justify-center gap-2">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleRestore(item);
+                            handleReplyClick(item);
                           }}
-                          className="bg-teal-600 text-white px-4 py-1 rounded hover:bg-teal-700"
+                          className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600"
                         >
-                          Restore
+                          Reply
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleUnapprove(item.id);
+                          }}
+                          className="bg-gray-500 px-2 rounded hover:bg-gray-600"
+                        >
+                          <svg
+                            height="20px"
+                            viewBox="0 -12 32 32"
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                            fill="#ffffff"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                              id="SVGRepo_tracerCarrier"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                              {" "}
+                              <title>minus</title>{" "}
+                              <desc>Created with Sketch Beta.</desc>{" "}
+                              <defs> </defs>{" "}
+                              <g
+                                id="Page-1"
+                                stroke="none"
+                                stroke-width="1"
+                                fill="none"
+                                fill-rule="evenodd"
+                                sketch:type="MSPage"
+                              >
+                                {" "}
+                                <g
+                                  id="Icon-Set-Filled"
+                                  sketch:type="MSLayerGroup"
+                                  transform="translate(-414.000000, -1049.000000)"
+                                  fill="#ffffff"
+                                >
+                                  {" "}
+                                  <path
+                                    d="M442,1049 L418,1049 C415.791,1049 414,1050.79 414,1053 C414,1055.21 415.791,1057 418,1057 L442,1057 C444.209,1057 446,1055.21 446,1053 C446,1050.79 444.209,1049 442,1049"
+                                    id="minus"
+                                    sketch:type="MSShapeGroup"
+                                  >
+                                    {" "}
+                                  </path>{" "}
+                                </g>{" "}
+                              </g>{" "}
+                            </g>
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(item.id);
+                          }}
+                          className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                        >
+                          <svg
+                            height="20px"
+                            width="20px"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                              id="SVGRepo_tracerCarrier"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                              {" "}
+                              <path
+                                d="M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6"
+                                stroke="#ffffff"
+                                stroke-width="2.4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>{" "}
+                            </g>
+                          </svg>
                         </button>
                       </td>
                     </tr>
@@ -214,6 +377,55 @@ const LogMLhuillier = () => {
           )}
         </div>
       </div>
+      {showModal && selectedClient && (
+        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg shadow-lg flex flex-col justify-between w-full max-w-lg p-6">
+            <div>
+              <h2 className="text-xl josefin font-semibold mb-4">
+                Reply to {selectedClient.email}
+              </h2>
+              <textarea
+                className="w-full p-3 josefin font-bold resize-y outline-none"
+                value={adminMessage}
+                onChange={(e) => setAdminMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Tab" || e.key === "Enter") {
+                    e.preventDefault();
+                    const { selectionStart, selectionEnd } = e.target;
+                    const value = adminMessage;
+                    const newValue =
+                      value.substring(0, selectionStart) +
+                      "\n    " +
+                      value.substring(selectionEnd);
+
+                    setAdminMessage(newValue);
+
+                    setTimeout(() => {
+                      e.target.selectionStart = e.target.selectionEnd =
+                        selectionStart + 4;
+                    }, 0);
+                  }
+                }}
+                placeholder={`Dear ${selectedClient.firstName},`}
+              />
+            </div>
+            <div className="mt-4 flex justify-end gap-3">
+              <button
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+                onClick={() => setShowModal(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                onClick={sendEmail}
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showDetailsModal && selectedClient && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center font-sans">
@@ -349,6 +561,16 @@ const LogMLhuillier = () => {
             {/* Action Buttons */}
             <div className="flex justify-end gap-4 pt-6">
               <button
+                onClick={() => {
+                  setShowDetailsModal(false);
+                  setShowModal(true);
+                  handleReplyClick(selectedClient);
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
+              >
+                Reply
+              </button>
+              <button
                 onClick={() => setShowDetailsModal(false)}
                 className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2 rounded-lg transition"
               >
@@ -362,4 +584,4 @@ const LogMLhuillier = () => {
   );
 };
 
-export default LogMLhuillier;
+export default ApprovedML;

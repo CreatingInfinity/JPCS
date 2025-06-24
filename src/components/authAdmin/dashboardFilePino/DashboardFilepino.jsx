@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SidebarFP from "./SidebarFilepino";
 import InquiryFP from "./InquiryFilepino";
 import LogFilePino from "./LogFilePino";
+import ApprovedFP from "./ApprovedFilePino";
 
 const DashboardFilepino = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +13,6 @@ const DashboardFilepino = () => {
 
   return (
     <section className="flex w-full h-screen p-4 gap-2 font-bold relative overflow-hidden">
-      {/* Hamburger Icon */}
       <div
         className="lg:hidden border-1 border-gray-800 bg-white p-2 rounded-full absolute top-4 right-2 z-50"
         onClick={toggleMenu}
@@ -33,12 +33,10 @@ const DashboardFilepino = () => {
         </button>
       </div>
 
-      {/* Sidebar (Desktop) */}
       <div className="hidden lg:flex">
         <SidebarFP />
       </div>
 
-      {/* Sidebar (Mobile) */}
       {menuOpen && (
         <div className="fixed inset-0 backdrop-blur-sm bg-opacity-30 z-40 lg:hidden">
           <div className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50">
@@ -47,13 +45,15 @@ const DashboardFilepino = () => {
         </div>
       )}
 
-      {/* Main Content */}
       <div className="flex-1 overflow-y-auto rounded space-y-4 z-0">
         <div id="inquiry" className="w-full min-h-screen rounded">
           <InquiryFP />
         </div>
         <div id="log" className="w-full min-h-screen rounded">
           <LogFilePino />
+        </div>
+        <div id="approved" className="w-full min-h-screen rounded">
+          <ApprovedFP />
         </div>
       </div>
     </section>

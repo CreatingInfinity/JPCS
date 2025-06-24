@@ -6,6 +6,7 @@ import {
   getDocs,
   deleteDoc,
   setDoc,
+  onSnapshot
 } from "firebase/firestore";
 import { auth, db } from "../../../Firebase";
 import emailjs from "@emailjs/browser";
@@ -21,6 +22,7 @@ const LogFilePino = () => {
   const [adminMessage, setAdminMessage] = useState("");
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [sortDirection, setSortDirection] = useState("desc");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
 
@@ -43,22 +45,23 @@ const LogFilePino = () => {
   }, []);
 
   useEffect(() => {
-    const fetchSubmissions = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "log-Filepino"));
+    const unsubscribe = onSnapshot(
+      collection(db, "log-Filepino"),
+      (querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
         setSubmissions(data);
-      } catch (error) {
+        setLoading(false);
+      },
+      (error) => {
         console.error("Error fetching submissions:", error);
-      } finally {
         setLoading(false);
       }
-    };
+    );
 
-    fetchSubmissions();
+    return () => unsubscribe();
   }, []);
 
   const handleRowClick = (item) => {
@@ -74,14 +77,13 @@ const LogFilePino = () => {
 
     try {
       const restoredData = { ...item };
-      delete restoredData.deletedAt; 
+      delete restoredData.deletedAt;
 
       await setDoc(doc(db, "filepinoSubmissions", item.id), restoredData);
 
       await deleteDoc(doc(db, "log-Filepino", item.id));
 
       alert("Submission restored successfully!");
-
     } catch (error) {
       console.error("Error restoring submission:", error);
       alert("Failed to restore submission.");
@@ -98,6 +100,10 @@ const LogFilePino = () => {
     return sortDirection === "asc" ? aTime - bTime : bTime - aTime;
   });
 
+  const filteredSubmissions = sortedSubmissions.filter((submission) =>
+    submission.referenceCode?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
@@ -109,7 +115,14 @@ const LogFilePino = () => {
             <img className="h-10 rounded" src={flagAUS} alt="flag" />
           </div>
 
-          <div className="mb-4 text-right">
+          <div className="mb-4 flex justify-between">
+            <input
+              type="text"
+              placeholder="Search by Reference Code..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border border-gray-300 rounded-full px-4 py-2 outline-none w-full max-w-sm"
+            />
             <button
               onClick={toggleSort}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -142,7 +155,7 @@ const LogFilePino = () => {
                       Full Name
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
-                      Birth Date
+                      Reference ID
                     </th>
                     <th className="py-3 px-6 text-left text-sm font-semibold text-gray-600">
                       Email
@@ -162,7 +175,7 @@ const LogFilePino = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedSubmissions.map((item, index) => (
+                  {filteredSubmissions.map((item, index) => (
                     <tr
                       key={item.id}
                       className="border-t hover:bg-blue-50 transition-all cursor-pointer"
@@ -175,7 +188,7 @@ const LogFilePino = () => {
                         {item.fullName}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
-                        {item.birthDate}
+                        {item.referenceCode}
                       </td>
                       <td className="py-3 px-6 text-sm text-gray-600">
                         {item.email}
