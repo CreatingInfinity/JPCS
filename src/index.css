@@ -284,3 +284,9 @@ body {
     border-radius: 5px;
     padding: 10px 5px;
 }
+
+#pinInput::-webkit-outer-spin-button,
+#pinInput::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin:0;
+}
