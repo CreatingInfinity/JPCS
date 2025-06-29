@@ -4,6 +4,7 @@ import InquiryML from "./InquiryMLhuiller";
 import SidebarML from "./SidebarMLhuiller";
 import LogMLhuillier from "./LogMLhuillier";
 import ApprovedML from "./ApprovedMLhuillier";
+import ManualMlhuillier from "./ManualMlhuillier";
 
 const DashboardMLhuiller = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,9 +47,12 @@ const DashboardMLhuiller = () => {
         </div>
       )}
 
-      <div className="flex-1 overflow-y-auto rounded space-y-4 z-0">
+      <div id="main-section" className="flex-1 overflow-y-auto rounded space-y-4 z-0">
         <div id="inquiry" className="w-full min-h-screen rounded">
           <InquiryML />
+        </div>
+        <div id="manual" className="w-full min-h-screen rounded">
+          <ManualMlhuillier />
         </div>
         <div id="log" className="w-full min-h-screen rounded">
           <LogMLhuillier />

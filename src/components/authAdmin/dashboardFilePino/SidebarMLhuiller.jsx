@@ -3,7 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { filepinoLogo, logo, mlhuillerLogo } from "../../../utils";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../../../Firebase";
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const SidebarML = () => {
   const navigate = useNavigate();
@@ -20,7 +27,7 @@ const SidebarML = () => {
     try {
       const q = query(
         collection(db, "adminAuth"),
-        where("email", "==", "adminaus@gmail.com") 
+        where("email", "==", "adminaus@gmail.com")
       );
 
       const querySnapshot = await getDocs(q);
@@ -33,7 +40,7 @@ const SidebarML = () => {
       const adminDoc = querySnapshot.docs[0].data();
 
       if (adminDoc.pin === Number(pin)) {
-        navigate('/admin/dashboard-filepino')
+        navigate("/admin/dashboard-filepino");
       } else {
         alert("Incorrect pin, please retry.");
       }
@@ -78,17 +85,25 @@ const SidebarML = () => {
             M-Lhuillier VISA Submissions
           </button>
           <button
-            onClick={() => scrollToSection("log")}
+            onClick={() => scrollToSection("manual")}
             className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
           >
-            Deleted Submissions
+            Manual Submission
           </button>
-          <button
-            onClick={() => scrollToSection("approved")}
-            className="text-md  text-gray-800 p-2 text-center hover:bg-gray-100 rounded transition-all"
-          >
-            Approved Submissions
-          </button>
+          <div className="flex gap-4 justify-center mt-10">
+            <button
+              onClick={() => scrollToSection("log")}
+              className="text-md bg-red-500 text-white p-2 text-center hover:bg-red-600 rounded transition-all cursor-pointer"
+            >
+              Deleted
+            </button>
+            <button
+              onClick={() => scrollToSection("approved")}
+              className="text-md bg-green-400 text-gray-800 p-2 text-center hover:bg-green-500 rounded transition-all cursor-pointer"
+            >
+              Approved
+            </button>
+          </div>
         </div>
       </div>
 

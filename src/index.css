@@ -290,3 +290,9 @@ body {
     -webkit-appearance: none;
     margin:0;
 }
+
+#main-section::-webkit-scrollbar,
+#main-section::-webkit-scrollbar-track{
+    -moz-appearance: none;
+    margin: 0;
+}
