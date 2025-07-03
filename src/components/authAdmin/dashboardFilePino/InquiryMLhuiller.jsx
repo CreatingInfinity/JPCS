@@ -146,10 +146,10 @@ const InquiryML = () => {
 
     emailjs
       .send(
-        "service_9jiaa2l",
-        "template_daa2yw1",
+        "service_btzde8z",
+        "template_5eq0xoo",
         templateParams,
-        "Iv7RzQsVofIVfwg2I"
+        "qL1iONUMYHDuykTXK"
       )
       .then(() => {
         alert(`Email sent to ${selectedClient.email}`);
