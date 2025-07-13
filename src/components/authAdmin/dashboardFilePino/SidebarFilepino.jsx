@@ -24,7 +24,7 @@ const SidebarFP = () => {
   };
 
   return (
-    <div className="basis-1/4 min-w-[320px] bg-white josefin rounded flex flex-col h-full font-bold justify-between">
+    <div className="basis-1/4 min-w-[320px] bg-white  rounded flex flex-col h-full font-bold justify-between">
       <div>
         <div
           onClick={() => navigate("/")}

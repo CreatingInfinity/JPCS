@@ -5,41 +5,7 @@ import {
   onImage,
   castImage,
   perImage,
-  blueprintingImage,
-  documenteImage,
-  setImage,
-  dupImage,
-  proImage,
-  secImage,
-  tranImage,
-  typoImage,
-  alImage,
-  cybImage,
-  itImage,
-  syImage,
-  seImage,
-  soImage,
-  cyImage,
-  adImage,
-  carImage,
-  deImage,
-  diImage,
-  heImage,
-  hoImage,
-  imImage,
-  loImage,
-  logImage,
-  marImage,
-  procImage,
-  projImage,
-  pubImage,
-  quImage,
-  strImage,
-  viImage,
-  wideImage,
-  vipImage,
-  depImage,
-  corImage,
+  downArrow,
 } from "../utils";
 // Import images if needed
 
@@ -69,255 +35,83 @@ const employment = [
 
 const business = [
   {
-    title: "BLUEPRINTING",
-    description:
-      " Helps you map out your business processes, goals, and systems. We work with you to create a clear, step-by-step plan that sets the foundation for success and smooth operations.",
-    image: blueprintingImage,
-    link: "Blueprinting",
+    title : "UNLIMITED VISA ALLOCATION",
+    link: "Personel",
   },
   {
-    title: "DOCUMENT EDITING",
-    description:
-      "We provide professional document editing to ensure your content is clear, accurate, and polished. Whether it's reports, proposals, or business documents, we help you present your ideas with confidence.",
-    image: documenteImage,
-    link: "DocumentEditing",
+    title : "VIP MEDICAL AND EMIRATES ID",
+    link: "Personel",
   },
   {
-    title: "DOCUMENT SETUP",
-    description:
-      "Helps you create well-structured, professional documents from the start. We format, organize, and design your files to meet your specific business needs and branding.",
-    image: setImage,
-    link: "DocumentSetup",
+    title : "STRATEGY ADVISORY SERVICES",
+    link: "Personel",
   },
   {
-    title: "DUPLICATING",
-    description:
-      "We offer fast and reliable duplicating services for all your business documents. Whether you need copies for meetings, records, or distribution, we ensure high-quality results every time.",
-    image: dupImage,
-    link: "Duplicating",
+    title : "MARKETING CONSULTANCY",
+    link: "Personel",
   },
   {
-    title: "PROVISION",
-    description:
-      "We supply businesses with the essential tools, resources, and services they need to operate smoothly. From office supplies to administrative support, JP Consulting & Services ensures you're always well-equipped",
-    image: proImage,
-    link: "Provision",
+    title : "BUSINESS LICENCE",
+    link: "Personel",
   },
   {
-    title: "SECRETARIAL SUPPORT",
-    description:
-      "We offers reliable assistance with day-to-day administrative tasks. From managing correspondence to scheduling and document handling, we help keep your business organized and running smoothly.",
-    image: secImage,
-    link: "SecretarialSupport",
+    title : "HEALTH MANAGEMENT",
+    link: "Personel",
   },
   {
-    title: "TRANSCRIPTION",
-    description:
-      "Our Transcription service converts audio and video recordings into accurate, well-organized written documents. Whether it’s meetings, interviews, or conferences, we provide clear and precise transcripts to meet your needs.",
-    image: tranImage,
-    link: "Transcription",
-  },
-  {
-    title: "TYPOGRAPHY",
-    description:
-      "We focus on creating visually appealing and effective text designs. From font selection to layout optimization, we ensure your message is presented in a way that enhances readability and impact.",
-    image: typoImage,
-    link: "Typography",
-  },
-  {
-    title: "UNLIMITED VISA ALLOCATION",
-    description:
-      "This allocation model removes barriers commonly associated with restricted visa quotas, enabling businesses to scale their workforce efficiently and compliantly.",
-    image: viImage,
-    link: "UnlimitedVisa",
-  },
-   {
-    title: "WIDE RANGE BUSINESS ACTIVIES",
-    description:
-      "We offer a comprehensive portfolio of business solutions designed to meet the diverse needs of our clients across various industries.",
-    image: wideImage,
-    link: "Wide",
-  },
-  {
-    title: "CORPORATE BANKING SERVICES",
-    description:
-      "We offer specialized Corporate Banking Services designed to support the financial operations and growth strategies of businesses of all sizes.",
-    image: wideImage,
-    link: "Corporate",
-  },
-  {
-    title: "VIP MEDICAL AND EMIRATES ID",
-    description:
-      "We provide fast-track VIP Medical and Emirates ID services to ensure a smooth and efficient immigration process for professionals, investors, and their families. ",
-    image: vipImage,
-    link: "Vip",
-  },
-  {
-    title: "DEPENDENT VISAS",
-    description:
-      "We offer comprehensive Dependent Visa Services to help individuals reunite with their families while living and working abroad ",
-    image: depImage,
-    link: "Dependent",
+    title : "HOSPITALITY MANAGEMENT",
+    link: "Personel",
   },
 ];
 
 const itservices = [
   {
-    title: "INNOVATION AND ARTIFICIAL INTELLEGENCE",
-    description:
-      "Step into the future with AI-powered innovation! We help transform complex data into intelligent decisions, boosting efficiency and growth.",
-    image: alImage,
-    link: "Al",
+    title: "IT & INFRASTRUCTURE SERVICES",
   },
   {
-    title: "CYBER RISK",
-    description:
-      "We proactively assess vulnerabilities, strengthen policies, and support compliance — creating a digitally secure foundation for growth.",
-    image: cyImage,
-    link: "CyberRisk",
+    title: "APPLICATION DEVELOPMENT",
   },
   {
-    title: "CYBER SECURITY",
-    description:
-      "From threat monitoring to security strategies, we build trust and ensure your business is protected at every digital checkpoint.",
-    image: cybImage,
-    link: "CyberSecurity",
-  },
-  {
-    title: "IT SECURITY",
-    description:
-      "Defend your business from malware, hacks, and breaches with advanced IT security solutions tailored to your needs.",
-    image: itImage,
-    link: "ITSecurity",
-  },
-  {
-    title: "SECURITY SYSTEM",
-    description:
-      "Go beyond alarms — our smart surveillance and access systems keep your space secure, proactive, and intelligent.",
-    image: syImage,
-    link: "SecuritySystem",
-  },
-  {
-    title: "SETTING UP",
-    description:
-      "We handle system installations and upgrades with precision — delivering seamless, secure, and efficient setups from day one.",
-    image: seImage,
-    link: "SettingUp",
-  },
-  {
-    title: "SOFTWARE INSTALLATION",
-    description:
-      "Get the right tools running, optimized, and secured for your team's productivity. We handle everything from simple to complex installs.",
-    image: soImage,
-    link: "SoftwareInstall",
+    title: "DIGITAL MARKETING",
   },
 ];
 
-const marketing = [
+const australia = [
   {
-    title: "ADVICE",
-    description:
-      "At JP Consulting & Services, we provide expert advice to support businesses and public service organizations in their planning processes. Whether you're launching a new initiative, undergoing a transition, or setting long-term goals, we help you plan with clarity, precision, and purpose.",
-    image: adImage,
-    link: "Advice",
+    title: "ADMINISTRATIVE APPEALS TRIBUNAL",
+    link: "SoftwareInstall",
   },
   {
-    title: "CARGO FREIGHT",
-    description:
-      "We offer reliable and efficient cargo freight services, ensuring your goods are transported securely and on time. Whether by air, sea, or land, we handle all logistics to get your cargo to its destination smoothly and safely.",
-    image: carImage,
-    link: "CargoFreight",
+    title: "BUSINESS/INVESTOR VISA",
+    link: "SoftwareInstall",
   },
   {
-    title: "DESIGN OF ACCOUNTING METHODS",
-    description:
-      "we offer expert design and implementation of accounting systems tailored to your business needs. Our service focuses on developing efficient accounting methods, robust cost accounting programs, and reliable budgetary control procedures to help you manage financial operations with confidence and clarity. ",
-    image: deImage,
-    link: "Desing",
+    title: "STUDENT VISA",
+    link: "SoftwareInstall",
   },
   {
-    title: "DIGITAL CONTENT",
-    description:
-      "We create engaging and high-quality digital content tailored to your audience. From blogs and social media posts to videos and graphics, we help you build a strong online presence and effectively communicate your brand message.",
-    image: diImage,
-    link: "DigitalContent",
+    title: "SKILLED VISA",
+    link: "SoftwareInstall",
   },
   {
-    title: "HEALTH MANAGEMENT",
-    description:
-      "We offer comprehensive solutions for improving health, managing wellness programs, and ensuring effective healthcare practices for a healthier, more productive environment.",
-    image: heImage,
-    link: "HealthManagement",
+    title: "GSM 189/190/491 VISA",
+    link: "SoftwareInstall",
   },
   {
-    title: "HOSPITALITY MANAGEMENT",
-    description:
-      "We provide expert Hospitality Management services to enhance guest experiences and streamline operations. From hotel and restaurant management to event coordination, we help businesses in the hospitality industry deliver exceptional service and optimize their performance.",
-    image: hoImage,
-    link: "HospitalityConsultancy",
+    title: "PARTNER VISA",
+    link: "SoftwareInstall",
   },
   {
-    title: "IMMIGRATION CONSULTANCY",
-    description:
-      "We help individuals and businesses navigate the complexities of immigration law, ensuring a smooth and efficient process for relocation or expansion.",
-    image: imImage,
-    link: "ImmigrationConsultancy",
+    title: "VISITOR VISA",
+    link: "SoftwareInstall",
   },
   {
-    title: "LOBBYING ACTIVITIES",
-    description:
-      "We work strategically to influence decisions, regulations, and legislation that impact your industry, ensuring your voice is heard.",
-    image: loImage,
-    link: "Lobbying",
+    title: "SKILLS ASSESSMENT",
+    link: "SoftwareInstall",
   },
   {
-    title: "LOGISTIC CONSULTANCY",
-    description:
-      "We provide expert advice on transportation, inventory management, and distribution, ensuring that your business moves goods effectively and cost-efficiently.",
-    image: logImage,
-    link: "Logistic",
-  },
-  {
-    title: "MARKETING CONSULTANCY",
-    description:
-      "We provide expert advice on transportation, inventory management, and distribution, ensuring that your business moves goods effectively and cost-efficiently.",
-    image: marImage,
-    link: "MarketingConsultancy",
-  },
-  {
-    title: "PROCUREMENT CONSULTANCY",
-    description:
-      "We offer expert advice on sourcing, negotiation, and cost management to ensure you get the best value while maintaining quality and efficiency.",
-    image: procImage,
-    link: "ProcurementConsulting",
-  },
-  {
-    title: "PROJECT MANAGEMENT",
-    description:
-      "We provide expert planning, coordination, and execution across all phases, helping you achieve your business objectives with efficiency and precision.",
-    image: projImage,
-    link: "ProjectManagement",
-  },
-  {
-    title: "PUBLIC RELATION SERVICES",
-    description:
-      "We manage media relations, craft compelling stories, and create effective communication strategies to enhance your reputation and strengthen relationships with your target audience.",
-    image: pubImage,
-    link: "PublicRelationManagement",
-  },
-  {
-    title: "QUALITY CONSULTANCY",
-    description:
-      "We provide expert advice on quality management systems, compliance, and continuous improvement strategies to enhance efficiency and customer satisfaction.",
-    image: quImage,
-    link: "QualityConsultancy",
-  },
-  {
-    title: "STRATEGY ADVISORY SERVICES",
-    description:
-      "We work with you to identify growth opportunities, optimize operations, and navigate challenges, ensuring your business is positioned for long-term success.",
-    image: strImage,
-    link: "Strategy",
+    title: "OTHER VISAS",
+    link: "SoftwareInstall",
   },
 ];
 
@@ -338,7 +132,7 @@ const DropDown = () => {
   return (
     <nav
       id="dropDownProduct"
-      className="w-full fixed z-9 transparent shadow-sm relative select-none flex justify-between josefin"
+      className="w-full fixed z-9 transparent shadow-sm relative select-none flex justify-between "
     >
       <div
         className="relative w-full p-4"
@@ -346,7 +140,7 @@ const DropDown = () => {
         onMouseLeave={() => setBHovered(false)}
       >
         <Link to="/Business" reloadDocument className="w-full">
-          <p>Consulting & Business Set Up</p>
+          <p>Business Setup</p>
         </Link>
         {/* Submenu appears when hovered */}
         {bHovered && (
@@ -358,14 +152,13 @@ const DropDown = () => {
                 className="flex items-start relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
-                <img
+                {/* <img
                   src={item.image}
                   alt={item.title}
                   className="object-cover h-full w-15 bg-black mx-1 rounded-xs"
-                />
+                /> */}
                 <div>
                   <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
               </Link>
             ))}
@@ -379,26 +172,22 @@ const DropDown = () => {
         onMouseLeave={() => setITHovered(false)}
       >
         <Link to="/ITServices" reloadDocument className="w-full">
-          <p>IT Services</p>
+          <p>Innovation and Artificial Intelligence</p>
         </Link>
         {/* Submenu appears when hovered */}
+        
         {ITHovered && (
-          <section className="absolute top-full left-0 w-full h-120 overflow-y-scroll bg-white shadow-lg p-4 flex flex-col space-y-4 z-20">
+          <section className="absolute top-full left-0 w-full h-auto overflow-y-scroll bg-white shadow-lg flex flex-col space-y-4 z-20">
             {itservices.map((item, index) => (
               <Link
                 key={index}
                 to={`/ITServices/${item.link}`}
-                className="flex items-start relative hover:bg-white rounded transition-all"
+                className="flex items-center relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover h-full w-15 bg-black mx-1 rounded-xs"
-                />
-                <div>
-                  <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
+                <div className="relative flex items-center gap-2">
+                  <h3 className="flex-6 font-semibold ">{item.title}</h3>
+                  <img className="flex-1 h-4 justify-self-end" src={downArrow} alt="" />
                 </div>
               </Link>
             ))}
@@ -417,7 +206,7 @@ const DropDown = () => {
 
         {/* Submenu appears when hovered */}
         {hovered && (
-          <section className="absolute top-full left-0 w-full h-120 overflow-y-scroll bg-white shadow-lg p-4 flex flex-col space-y-4 z-20">
+          <section className="absolute top-full left-0 w-full h-auto overflow-y-scroll bg-white shadow-lg p-4 flex flex-col space-y-4 z-20">
             {employment.map((item, index) => (
               <Link
                 key={index}
@@ -425,14 +214,8 @@ const DropDown = () => {
                 className="flex items-start relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover h-full w-15 bg-black mx-1 rounded-xs"
-                />
                 <div>
                   <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
               </Link>
             ))}
@@ -445,28 +228,22 @@ const DropDown = () => {
         onMouseEnter={() => setMHovered(true)}
         onMouseLeave={() => setMHovered(false)}
       >
-        <Link to="/MarketingStrategies" reloadDocument className="w-full">
-          <p>Marketing Strategies</p>
+        <Link to="/Australia" reloadDocument className="w-full">
+          <p>Australian Immigration Consultancy</p>
         </Link>
 
         {/* Submenu appears when hovered */}
         {mHovered && (
-          <section className="absolute top-full left-0 w-full h-120 overflow-y-scroll bg-amber-100 shadow-lg p-4 flex flex-col space-y-4 z-20">
-            {marketing.map((item, index) => (
+          <section className="absolute top-full left-0 w-full h-120 overflow-y-scroll bg-white shadow-lg p-4 flex flex-col space-y-4 z-20">
+            {australia.map((item, index) => (
               <Link
                 key={index}
                 to={`/MarketingStrategies/${item.link}`}
                 className="flex items-start relative hover:bg-white rounded transition-all"
                 reloadDocument
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover h-full w-15 bg-black mx-1 rounded-xs"
-                />
                 <div>
                   <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
               </Link>
             ))}

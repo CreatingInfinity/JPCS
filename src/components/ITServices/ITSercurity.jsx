@@ -73,7 +73,7 @@ const ITSecurity = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             IT SECURITY
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -87,7 +87,7 @@ const ITSecurity = () => {
               className="w-full max-w-md rounded-lg"
               alt="IT Security Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               IT Security refers to the strategies, tools, and practices used to
               protect your company’s digital infrastructure, data, and
               operations from cyber threats. At JP Consulting & Services, we
@@ -112,7 +112,7 @@ const ITSecurity = () => {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">PROTECTING</span> YOUR BUSINESS, SECURING YOUR FUTURE</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">
                   Comprehensive Protection. Strategic Peace of Mind.
                 </span>
@@ -130,7 +130,7 @@ const ITSecurity = () => {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">YOUR PATH</span> TO DIGITAL CONFIDENCE</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Customized Cybersecurity Strategies</span>
                 We understand that no two businesses have the same security
                 needs. That’s why we tailor our solutions to your
@@ -145,7 +145,7 @@ const ITSecurity = () => {
               className="text-center max-w-5xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">WE UNDERSTAND</span> WHAT’S AT RISK</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Cyber Threats Are Constant—So Are We</span>
                 In today’s digital-first world, cyberattacks aren’t just
                 threats; they’re daily realities. We help you stay ahead of
@@ -172,7 +172,7 @@ const ITSecurity = () => {
               className="text-center max-w-5xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOU STAY PROTECTED</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Strategic IT Security Services</span>
                 🔍 Risk Assessment & Vulnerability Scanning
                 <br />

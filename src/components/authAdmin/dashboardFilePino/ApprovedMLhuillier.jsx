@@ -176,7 +176,7 @@ const ApprovedML = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white p-8 rounded-lg shadow-md josefin">
+        <div className="bg-white p-8 rounded-lg shadow-md ">
           <div className="flex justify-between">
             <h1 className="text-3xl font-semibold text-gray-800 mb-6">
               Approved Submissions
@@ -381,11 +381,11 @@ const ApprovedML = () => {
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg shadow-lg flex flex-col justify-between w-full max-w-lg p-6">
             <div>
-              <h2 className="text-xl josefin font-semibold mb-4">
+              <h2 className="text-xl  font-semibold mb-4">
                 Reply to {selectedClient.email}
               </h2>
               <textarea
-                className="w-full p-3 josefin font-bold resize-y outline-none"
+                className="w-full p-3  font-bold resize-y outline-none"
                 value={adminMessage}
                 onChange={(e) => setAdminMessage(e.target.value)}
                 onKeyDown={(e) => {

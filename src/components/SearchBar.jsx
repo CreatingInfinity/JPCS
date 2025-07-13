@@ -227,7 +227,7 @@ const SearchBar = () => {
     <div ref={searchRef} className="relative hidden sm:flex opacity-100 items-center flex-none">
       <img className="h-6 translate-x-7" src={searchIcon} alt="search" />
       <input
-        className="border-gray-500 py-2 font-bold text-black border w-full rounded-full josefin px-7"
+        className="border-gray-500 py-2 font-regular text-black border w-full rounded-full  px-7"
         type="text"
         placeholder="Search"
         value={query}

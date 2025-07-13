@@ -72,7 +72,7 @@ const Personel = () => {
         {/* Header */}
         <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">PERSONNEL</h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">JP Consulting & Services</h2>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">JP Consulting & Services</h2>
         </div>
 
         <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
@@ -84,7 +84,7 @@ const Personel = () => {
               className="w-full max-w-md rounded-lg"
               alt="Personnel Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               At JP Consulting & Services, we support businesses by optimizing their personnel structure, improving team alignment, and implementing HR strategies that enhance efficiency and engagement. Our personnel consulting services help ensure you have the right people in the right roles — and the systems to support them.
             </p>
           </div>
@@ -94,7 +94,7 @@ const Personel = () => {
             {/* Section 1 */}
             <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">BUILDING YOUR TEAM</span>, STRENGTHENING YOUR BUSINESS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">The Right People Make All the Difference</span>
                 A business is only as strong as its people. We align talent with company goals, optimize roles, and ensure everyone contributes to growth.
               </p>
@@ -103,7 +103,7 @@ const Personel = () => {
             {/* Section 2 */}
             <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">TAILORED</span> TALENT STRATEGIES</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Built Around Your Business Needs</span>
                 Whether you’re scaling or restructuring, we provide staffing solutions, training plans, and development roadmaps customized to your goals.
               </p>
@@ -112,7 +112,7 @@ const Personel = () => {
             {/* Section 3 */}
             <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">UNDERSTANDING</span> YOUR TEAM CHALLENGES</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">We Focus on What Matters Most</span>
                 From inefficient hiring processes to high turnover, we target core issues that block team performance.
               </p>
@@ -131,7 +131,7 @@ const Personel = () => {
             {/* Section 4 */}
             <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOUR BUSINESS GROW</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Comprehensive Personnel Solutions</span>
                 We deliver people-first strategies backed by data, structure, and coaching to drive sustainable team growth.
               </p>

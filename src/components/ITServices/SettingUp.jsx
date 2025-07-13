@@ -76,7 +76,7 @@ const SettingUp = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             SETTING UP
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -90,7 +90,7 @@ const SettingUp = () => {
               className="w-full max-w-md rounded-lg"
               alt="Setting Up Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               Our Installation of Computer Setup service ensures your business
               technology is installed, configured, and optimized from the start.
               We handle everything from hardware assembly and software
@@ -110,7 +110,7 @@ const SettingUp = () => {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">SMART TECH,</span> SMARTER START</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">
                   Efficient Setup for a Future-Ready Business
                 </span>
@@ -129,7 +129,7 @@ const SettingUp = () => {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">TAILORED TO</span> YOUR WORKFLOW</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Customized Setup for Maximum Efficiency</span>
                 No two businesses operate the same — and neither should your
                 tech. We assess your industry, team size, and operational needs
@@ -146,7 +146,7 @@ const SettingUp = () => {
               className="text-center max-w-5xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">WE HANDLE THE</span> TECH, YOU GET THE RESULTS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Seamless Integration, Zero Hassle</span>
                 Technology shouldn’t slow you down. Our team manages the entire
                 installation process — from equipment sourcing and setup to
@@ -172,7 +172,7 @@ const SettingUp = () => {
               className="text-center max-w-5xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOUR BUSINESS GROW</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Full-Service IT Setup Solutions</span>
                 🛠️ Hardware & Software Installation — We install all necessary
                 components for your operations

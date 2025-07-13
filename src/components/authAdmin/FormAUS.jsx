@@ -87,7 +87,7 @@ const VisaApplicationForm = () => {
   return (
     <div className="bg-gray-50 borderInput">
       <div className="min-h-screen flex flex-col items-center p-6 text-gray-800">
-        <Link to="/" className="flex items-center mb-6 gap-5 text-2xl font-bold josefin">
+        <Link to="/" className="flex items-center mb-6 gap-5 text-2xl font-bold ">
           <img src={logo} alt="logo" className="h-15" />
           <span><span className="text-orange-500">JP</span> Consulting & Services</span>
         </Link>

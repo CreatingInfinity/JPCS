@@ -10,7 +10,7 @@ const DashboardAUS = () => {
   };
 
   return (
-    <section className="flex w-full h-screen p-4 gap-2 josefin font-bold relative overflow-hidden">
+    <section className="flex w-full h-screen p-4 gap-2  font-bold relative overflow-hidden">
       {/* Hamburger Icon */}
       <div
         className="md:hidden border-1 border-gray-800 bg-white p-2 rounded-full absolute top-4 right-2 z-50"

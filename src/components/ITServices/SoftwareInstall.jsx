@@ -71,7 +71,7 @@ const SoftwareInstall = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             SOFTWARE INSTALLATION
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -85,7 +85,7 @@ const SoftwareInstall = () => {
               className="w-full max-w-md rounded-lg"
               alt="Software Install Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               Software Installation is the process of setting up, configuring, and
               optimizing software applications to ensure they run smoothly and securely
               within your business environment. This includes everything from installing
@@ -106,7 +106,7 @@ const SoftwareInstall = () => {
             {/* Section 1 */}
             <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">SMART SETUP</span> FOR SEAMLESS OPERATIONS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 At JP Consulting & Services, our Software Installation service ensures
                 your business tools are set up correctly from day one. Whether you’re
                 implementing productivity software, industry-specific tools, or enterprise-level
@@ -117,7 +117,7 @@ const SoftwareInstall = () => {
             {/* Section 2 */}
             <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">TAILORED TO</span> YOUR WORKFLOW</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 We understand that every business uses technology differently. That’s why
                 we assess your specific needs and select the best-fit software, configuring
                 it to align with your operations, team size, and long-term goals. Our approach
@@ -128,7 +128,7 @@ const SoftwareInstall = () => {
             {/* Section 3 */}
             <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">WE HANDLE</span> THE COMPLEXITY</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 Installing new software can be overwhelming — from compatibility checks to
                 licensing, updates, and user access control. Our experienced team manages
                 the entire process, ensuring everything runs smoothly, securely, and in
@@ -148,7 +148,7 @@ const SoftwareInstall = () => {
             {/* Section 4 */}
             <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOUR BUSINESS GROW</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 From developing winning strategies to integrating modern tech stacks, we
                 work closely with you to enhance your operational performance and market edge.
               </p>

@@ -73,7 +73,7 @@ const CyberSecurity = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             CYBER SECURITY
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -87,7 +87,7 @@ const CyberSecurity = () => {
               className="w-full max-w-md rounded-lg"
               alt="Cyber Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               At JP Consulting & Services, we offer tailored cybersecurity solutions that go beyond firewalls and antivirus software. We help businesses assess vulnerabilities, monitor threats, and build a resilient defense strategy that ensures compliance, protects sensitive data, and supports long-term digital growth. Whether you're a startup or an established enterprise, securing your digital assets is key to building trust and sustaining success.
             </p>
           </div>
@@ -99,7 +99,7 @@ const CyberSecurity = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">PROTECTING WHAT MATTERS MOST</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Secure Systems. Confident Business.</span>
                 At JP Consulting & Services, we provide cybersecurity solutions that protect your business from digital threats and vulnerabilities. In today’s fast-paced digital world, a strong cybersecurity posture is not optional — it’s essential. Our mission is to keep your data, systems, and operations safe, so you can focus on growing your business with peace of mind.
               </p>
@@ -110,7 +110,7 @@ const CyberSecurity = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">CUSTOMIZED SECURITY STRATEGY</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Tailored Protection for Your Business Environment</span>
                 Every business faces unique risks based on its operations, size, and digital infrastructure. We analyze your current systems, identify vulnerabilities, and design a personalized cybersecurity strategy that aligns with your specific needs and industry requirements.
               </p>
@@ -121,7 +121,7 @@ const CyberSecurity = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">WE KNOW THE RISKS YOU FACE</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Proactive Defense is Key</span>
                 From ransomware attacks and phishing scams to data breaches and system outages — digital threats are constant. We help you stay ahead of them with robust prevention, detection, and response plans.
               </p>
@@ -142,7 +142,7 @@ const CyberSecurity = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">HOW WE SECURE YOUR BUSINESS</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">End-to-End Cybersecurity Solutions</span>
                 🔒 Risk Assessment & Audits: Evaluate current security posture and gaps<br />
                 🧰 Threat Detection & Monitoring: Implement real-time systems to identify and respond to threats<br />

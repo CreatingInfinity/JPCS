@@ -156,7 +156,7 @@ const Contact = () => {
                 />
 
                 {showSuggestions && filteredTitles.length > 0 && (
-                  <ul className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded-md shadow-lg max-h-40 overflow-auto">
+                  <ul id="prod" className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded-md shadow-lg max-h-40 overflow-auto">
                     {filteredTitles.map((title, index) => (
                       <li
                         key={index}

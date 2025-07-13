@@ -72,7 +72,7 @@ const OnLine = () => {
         {/* Header */}
         <div className="min-h-screen flex flex-col justify-center items-center text-white text-center px-4 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">ONLINE</h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">JP Consulting & Services</h2>
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">JP Consulting & Services</h2>
         </div>
 
         <div className="bgSVG text-gray-800 px-4 md:px-16 py-16 space-y-24">
@@ -84,7 +84,7 @@ const OnLine = () => {
               className="w-full max-w-md rounded-lg"
               alt="Online Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               <span className="orange">Online Employment</span> at JP Consulting & Services streamlines the hiring and remote workforce management experience. From virtual assistants to specialized freelancers, we help you build lean, scalable, and performance-ready teams that meet your evolving business needs.
               <br /><br />
               This service is ideal for startups and SMEs looking to boost efficiency and flexibility while ensuring legal compliance and quality results.
@@ -96,7 +96,7 @@ const OnLine = () => {
             {/* Section 1 */}
             <section id="section1" className="text-center max-w-4xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">BRIDGING</span> OPPORTUNITIES IN THE DIGITAL AGE</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Hire Smarter. Work Remotely. Grow Faster.</span>
                 Our Online Employment service connects businesses with top-tier remote talent and supports entrepreneurs in building lean, scalable teams.
               </p>
@@ -105,7 +105,7 @@ const OnLine = () => {
             {/* Section 2 */}
             <section id="section2" className="text-center max-w-4xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">YOUR TEAM</span>, WITHOUT BORDERS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Flexible Staffing for Modern Business Needs</span>
                 Tap into a global talent pool — from admin support to digital marketing — all legally compliant and scalable.
               </p>
@@ -114,7 +114,7 @@ const OnLine = () => {
             {/* Section 3 */}
             <section id="section3" className="text-center max-w-5xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">UNDERSTANDING</span> YOUR GOALS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Smart Hiring That Supports Growth</span>
                 We guide you through sourcing, vetting, onboarding, and productivity tracking.
               </p>
@@ -133,7 +133,7 @@ const OnLine = () => {
             {/* Section 4 */}
             <section id="section4" className="text-center max-w-5xl mx-auto space-y-6">
               <h3 className="text-2xl font-bold"><span className="orange">HOW WE HELP</span> YOU SCALE</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Efficient, Agile Workforce Solutions</span>
                 With our global reach, legal expertise, and performance tracking, we help you operate lean and grow smart.
               </p>

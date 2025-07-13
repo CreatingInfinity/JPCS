@@ -10,7 +10,7 @@ const Dashboard = () => {
   };
 
   return (
-    <section className="flex w-full josefin font-semibold h-screen p-4 gap-2 relative overflow-hidden">
+    <section className="flex w-full  font-semibold h-screen p-4 gap-2 relative overflow-hidden">
       {/* Hamburger Button */}
       <div
         className="md:hidden border-1 border-gray-800 bg-white p-2 rounded-full absolute top-4 right-2 z-50"

@@ -151,7 +151,7 @@ const MarketingStrategies = () => {
   return (
     <div className="p-6 min-h-screen text-gray-800">
       <section className="text-center space-y-4 mb-12 max-w-4xl mx-auto h-screen flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold font-josefin">
+        <h1 className="text-4xl font-bold font-">
           <span className="text-orange-600">Marketing</span> Strategies & Management
         </h1>
         <p className="text-lg text-gray-700 font-medium">
@@ -160,7 +160,7 @@ const MarketingStrategies = () => {
       </section>
 
       <section className="text-center mb-10">
-        <h2 className="text-3xl font-bold font-josefin">
+        <h2 className="text-3xl font-bold font-">
           Here’s what we offer:
         </h2>
       </section>

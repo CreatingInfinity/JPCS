@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="">
       {/* Section 1: Company Overview */}
-      <section className="min-h-screen pt-60 px-6 space-y-10 josefin flex flex-col items-center text-center animate-fade-in">
+      <section className="min-h-screen pt-60 px-6 space-y-10  flex flex-col items-center text-center animate-fade-in">
         <h1 className="text-4xl font-bold text-gray-800">
           About{" "}
           <span className="text-orange-600">JP Consulting & Services</span>
@@ -25,7 +25,7 @@ const About = () => {
       </section>
 
       {/* Section 2: Who We Are */}
-      <section className="min-h-screen px-6 pt-40 space-y-10 josefin flex flex-col items-center text-center animate-slide-up">
+      <section className="min-h-screen px-6 pt-40 space-y-10  flex flex-col items-center text-center animate-slide-up">
         <h2 className="text-4xl font-bold text-gray-800">Who We Are</h2>
         <p className="max-w-3xl text-lg font-semibold text-gray-600 leading-relaxed">
           We are a tight-knit team of industry professionals with diverse

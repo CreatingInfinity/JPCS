@@ -64,7 +64,7 @@ const CastingAgency = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             CASTING AGENCY
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -78,7 +78,7 @@ const CastingAgency = () => {
               className="w-full max-w-md rounded-lg"
               alt="Casting Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               At JP Consulting & Services, our <span className="orange">Casting Agency</span> discovers and connects
               top-tier talent with extraordinary opportunities. Whether for screen, stage, or brand
               representation, we help bring visions to life with the right faces and voices.
@@ -96,7 +96,7 @@ const CastingAgency = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">FINDING THE RIGHT</span> FACES FOR YOUR VISION
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Talent That Brings Your Brand to Life</span>
                 Our agency specializes in matching charismatic talent with the needs of your creative
                 vision—whether it’s commercials, corporate videos, or feature films.
@@ -108,7 +108,7 @@ const CastingAgency = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">YOUR CAST</span>, YOUR MESSAGE
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Tailored Talent Solutions</span>
                 From emerging performers to seasoned professionals, we ensure the right individuals
                 represent your story with authenticity and charisma.
@@ -120,7 +120,7 @@ const CastingAgency = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">WE UNDERSTAND</span> YOUR CREATIVE NEEDS
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Precision, Professionalism, and Performance</span>
                 Our casting directors bring an eye for talent and alignment, analyzing your script,
                 tone, and target audience to create perfect-fit casting rosters.
@@ -141,7 +141,7 @@ const CastingAgency = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">HOW WE SUPPORT</span> YOUR PRODUCTION
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">End-to-End Talent Management</span>
                 We handle everything—from auditions to contracts—so you can focus on direction,
                 story, and delivery.

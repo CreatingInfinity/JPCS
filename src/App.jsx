@@ -9,20 +9,7 @@ import Dashboard from './components/authAdmin/dashboardJPCS/Dashboard';
 
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import Blueprinting from './components/BusinessSetup/Blueprinting';
-import DocumentEditing from './components/BusinessSetup/DocumentEditing';
-import DocumentSetup from './components/BusinessSetup/DocumentSetup';
 import Contact from './components/Contact';
-import Duplicating from './components/BusinessSetup/Duplicating';
-import Provision from './components/BusinessSetup/Provision';
-import SecretarialSupport from './components/BusinessSetup/SecretarialSupport';
-import Transcription from './components/BusinessSetup/Transcription';
-import Typography from './components/BusinessSetup/Typography';
-import UnlimitedVisa from './components/BusinessSetup/UnlimitedVisa';
-import Wide from './components/BusinessSetup/Wide';
-import Corporate from './components/BusinessSetup/Corporate';
-import Vip from './components/BusinessSetup/Vip';
-import Dependent from './components/BusinessSetup/Dependent';
 import CastingAgency from './components/EmploymentServices/CastingAgency';
 import Personel from './components/EmploymentServices/Personel';
 import OnLine from './components/EmploymentServices/OnLine';
@@ -39,21 +26,6 @@ import EmploymentServices from './components/EmploymentServices';
 import ITServices from './components/ITServices';
 import MarketingStrategies from './components/MarketingStrategies';
 
-import Advice from './components/MarketingStrategies/Advice';
-import CargoFreight from './components/MarketingStrategies/CargoFreight';
-import Desing from './components/MarketingStrategies/Desing';
-import DigitalContent from './components/MarketingStrategies/DigitalContent';
-import HealthManagement from './components/MarketingStrategies/HealthManagement';
-import HospitalityConsultancy from './components/MarketingStrategies/HospitalityConsultancy';
-import ImmigrationConsultancy from './components/MarketingStrategies/ImmigrationConsultancy';
-import Lobbying from './components/MarketingStrategies/Lobbying';
-import Logistic from './components/MarketingStrategies/Logistic';
-import MarketingConsultancy from './components/MarketingStrategies/MarketingConsultancy';
-import ProcurementConsulting from './components/MarketingStrategies/ProcurementConsulting';
-import ProjectManagement from './components/MarketingStrategies/ProjectManagement';
-import PublicRelationManagement from './components/MarketingStrategies/PublicRelationManagement';
-import QualityConsultancy from './components/MarketingStrategies/QualityConsultancy';
-import Strategy from './components/MarketingStrategies/Strategy';
 import Footer from './components/Footer';
 import ContactUsFooter from './components/ContactUsFooter';
 import ChatBot from './ChatBot';
@@ -104,19 +76,6 @@ function AppContent() {
         <Route path='/MarketingStrategies' element={<MarketingStrategies />} />
 
         {/* Business */}
-        <Route path='/Business/Blueprinting' element={<Blueprinting />} />
-        <Route path='/Business/DocumentEditing' element={<DocumentEditing />} />
-        <Route path='/Business/DocumentSetup' element={<DocumentSetup />} />
-        <Route path='/Business/Duplicating' element={<Duplicating />} />
-        <Route path='/Business/Provision' element={<Provision />} />
-        <Route path='/Business/SecretarialSupport' element={<SecretarialSupport />} />
-        <Route path='/Business/Transcription' element={<Transcription />} />
-        <Route path='/Business/Typography' element={<Typography />} />
-        <Route path='/Business/UnlimitedVisa' element={<UnlimitedVisa />} />
-        <Route path='/Business/Wide' element={<Wide />} />
-        <Route path='/Business/Corporate' element={<Corporate />} />
-        <Route path='/Business/Vip' element={<Vip />} />
-        <Route path='/Business/Dependent' element={<Dependent />} />
 
         {/* Employment */}
         <Route path='/EmploymentServices/CastingAgency' element={<CastingAgency />} />
@@ -132,22 +91,6 @@ function AppContent() {
         <Route path='/ITServices/SettingUp' element={<SettingUp />} />
         <Route path='/ITServices/SoftwareInstall' element={<SoftwareInstall />} />
 
-        {/* Marketing Strategies */}
-        <Route path='/MarketingStrategies/Advice' element={<Advice />} />
-        <Route path='/MarketingStrategies/CargoFreight' element={<CargoFreight />} />
-        <Route path='/MarketingStrategies/Desing' element={<Desing />} />
-        <Route path='/MarketingStrategies/DigitalContent' element={<DigitalContent />} />
-        <Route path='/MarketingStrategies/HealthManagement' element={<HealthManagement />} />
-        <Route path='/MarketingStrategies/HospitalityConsultancy' element={<HospitalityConsultancy />} />
-        <Route path='/MarketingStrategies/ImmigrationConsultancy' element={<ImmigrationConsultancy />} />
-        <Route path='/MarketingStrategies/Lobbying' element={<Lobbying />} />
-        <Route path='/MarketingStrategies/Logistic' element={<Logistic />} />
-        <Route path='/MarketingStrategies/MarketingConsultancy' element={<MarketingConsultancy />} />
-        <Route path='/MarketingStrategies/ProcurementConsulting' element={<ProcurementConsulting />} />
-        <Route path='/MarketingStrategies/ProjectManagement' element={<ProjectManagement />} />
-        <Route path='/MarketingStrategies/PublicRelationManagement' element={<PublicRelationManagement />} />
-        <Route path='/MarketingStrategies/QualityConsultancy' element={<QualityConsultancy />} />
-        <Route path='/MarketingStrategies/Strategy' element={<Strategy />} />
       </Routes>
 
       <ChatBot />

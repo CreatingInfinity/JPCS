@@ -73,7 +73,7 @@ const Al = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             INNOVATION AND ARTIFICIAL INTELLIGENCE
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -87,7 +87,7 @@ const Al = () => {
               className="w-full max-w-md rounded-lg"
               alt="A.I Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               <span className="orange">A.I</span> is revolutionizing industries by driving efficiency, innovation, and transformation. At JP Consulting & Services, we help you harness the power of artificial intelligence to solve complex challenges and achieve long-term success.
               <br />
               <br />
@@ -102,7 +102,7 @@ const Al = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">OUR PROMISE</span> TO YOU
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">
                   Transforming Your Business with AI-Powered Solutions
                 </span>
@@ -115,7 +115,7 @@ const Al = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">YOUR PATH</span> TO SUCCESS
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Personalized AI Solutions</span>
                 We create AI solutions tailored to your unique business challenges, driving efficiencies and enhancing innovation.
               </p>
@@ -126,7 +126,7 @@ const Al = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">UNDERSTAND</span> YOUR CHALLENGES
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">AI-Driven Insights</span>
                 We focus on understanding your challenges to design AI solutions that solve problems and open opportunities.
               </p>
@@ -147,7 +147,7 @@ const Al = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">HOW WE HELP</span> YOUR BUSINESS GROW
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Custom AI Solutions</span>
                 We collaborate with you to create AI-powered strategies that streamline operations, enhance insights, and drive business growth.
               </p>

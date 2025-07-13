@@ -191,11 +191,11 @@ const Inquiry = () => {
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg shadow-lg flex flex-col justify-between w-full max-w-lg p-6">
             <div>
-              <h2 className="text-xl josefin font-semibold mb-4">
+              <h2 className="text-xl  font-semibold mb-4">
                 Reply to {selectedClient.email}
               </h2>
               <textarea
-                className="w-full p-3 josefin font-bold resize-y outline-none"
+                className="w-full p-3  font-bold resize-y outline-none"
                 value={adminMessage}
                 onChange={(e) => setAdminMessage(e.target.value)}
                 onKeyDown={(e) => {

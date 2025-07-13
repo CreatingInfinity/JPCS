@@ -15,7 +15,7 @@ const MobileMenu = () => {
       id="mobileMenu"
       className="fixed top-[100px] z-40 opacity-0 bg-white transition-all duration-300 w-full lg:hidden p-5 shadow-md"
     >
-      <ul className="flex flex-col gap-5 text-center josefin font-semibold">
+      <ul className="flex flex-col gap-5 text-center  font-semibold">
         <li onClick={() => setMobileMenuOpen(false)}>
           <Link to="/" reloadDocument>
             Home

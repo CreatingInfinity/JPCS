@@ -73,7 +73,7 @@ const SecuritySystem = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             SECURITY SYSTEM
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -87,7 +87,7 @@ const SecuritySystem = () => {
               className="w-full max-w-md rounded-lg"
               alt="Security Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               Security Systems are essential in today’s fast-moving business world. At JP Consulting & Services, we provide intelligent, integrated solutions to protect your business from physical and digital threats. Our security systems include advanced surveillance, access control, and alarm technologies designed to monitor, detect, and prevent potential risks.
               <br />
               <br />
@@ -102,7 +102,7 @@ const SecuritySystem = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">PROTECTING WHAT MATTERS MOST</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 Intelligent Protection, Tailored for Your Business. At JP Consulting & Services, we offer advanced security system solutions designed to safeguard your assets, people, and operations.
               </p>
             </section>
@@ -112,7 +112,7 @@ const SecuritySystem = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">YOUR SAFETY, OUR PRIORITY</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 Customized Security That Fits Your Needs. Whether it’s setting up a new business or upgrading your existing security infrastructure, we provide tailored solutions.
               </p>
             </section>
@@ -122,7 +122,7 @@ const SecuritySystem = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">UNDERSTANDING YOUR RISKS</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 Proactive Planning, Real-Time Protection. We assess vulnerabilities, anticipate threats, and design systems that not only detect but deter unauthorized access and incidents.
               </p>
               <div className="text-left mx-auto max-w-md">
@@ -143,7 +143,7 @@ const SecuritySystem = () => {
               <h3 className="text-2xl font-bold">
                 <span className="orange">HOW WE HELP YOU STAY SECURED</span>
               </h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 End-to-End Security Services. From site assessment to ongoing maintenance, we ensure your system runs efficiently and effectively.
               </p>
               <div className="text-left mx-auto max-w-md">

@@ -78,7 +78,7 @@ const CyberRisk = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500 tracking-wide">
             CYBER RISK
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mt-2 font-josefin">
+          <h2 className="text-xl md:text-2xl font-medium mt-2 font-">
             JP Consulting & Services
           </h2>
         </div>
@@ -92,7 +92,7 @@ const CyberRisk = () => {
               className="w-full max-w-md rounded-lg"
               alt="Cyber Risk Icon"
             />
-            <p className="text-base md:text-lg font-semibold font-josefin leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
+            <p className="text-base md:text-lg font-semibold font- leading-relaxed text-center lg:text-left border-l-4 border-black pl-4 italic max-w-2xl">
               In today’s increasingly connected world, cyber threats — such as data breaches, ransomware, and phishing — are not just technical issues, but serious business risks. Managing cyber risk involves identifying these threats, assessing their potential impact, and implementing proactive measures to protect your organization.
               <br />
               <br />
@@ -108,7 +108,7 @@ const CyberRisk = () => {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">PROTECTING</span> YOUR FUTURE IN A DIGITAL WORLD</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Strategic Protection, Real Peace of Mind</span>
                 At JP Consulting & Services, we understand that in today’s digital age, cybersecurity is business security. Our Cyber Risk services are designed to identify, assess, and mitigate threats before they impact your operations. We empower your business to stay secure, compliant, and resilient — even in an evolving risk landscape.
               </p>
@@ -120,7 +120,7 @@ const CyberRisk = () => {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">TAILORED</span> RISK MANAGEMENT</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Custom Cyber Defense Solutions</span>
                 We don’t offer generic security checklists — we provide tailored strategies that address your industry, infrastructure, and business needs. From startups to enterprise-level organizations, we help you safeguard what matters most.
               </p>
@@ -132,7 +132,7 @@ const CyberRisk = () => {
               className="text-center max-w-5xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">KNOW</span> YOUR THREATS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Visibility is the First Step to Security</span>
                 Cyber threats can strike at any time — data breaches, phishing attacks, ransomware, and insider threats are just a few risks modern businesses face. We help you identify vulnerabilities across your systems and create a proactive defense plan.
               </p>
@@ -155,7 +155,7 @@ const CyberRisk = () => {
               className="text-center max-w-5xl mx-auto space-y-6"
             >
               <h3 className="text-2xl font-bold"><span className="orange">HOW WE</span> PROTECT YOUR BUSINESS</h3>
-              <p className="text-base md:text-lg font-josefin">
+              <p className="text-base md:text-lg font-">
                 <span className="font-bold block">Strategic Innovation Consulting</span>
                 🔍 Risk Assessments: Discover system vulnerabilities before attackers do
                 <br />
