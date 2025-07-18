@@ -139,7 +139,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="relative z-[100]">
+    <div id="navHead" className="relative z-[100]">
       {/* Nav Container */}
       <div
         ref={navRef}

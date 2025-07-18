@@ -93,7 +93,7 @@ function AppContent() {
 
       </Routes>
 
-      <ChatBot />
+      {/* <ChatBot /> */}
 
       {!isStandalonePage && location.pathname !== '/Contact' && location.pathname !== '/Australia' && <ContactUsFooter />}
       {!isStandalonePage && (
