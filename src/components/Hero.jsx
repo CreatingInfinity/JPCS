@@ -117,18 +117,18 @@ const Hero = () => {
       <video
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-screen object-cover z-0"
-        src={heroVideo2}
+        src="https://firebasestorage.googleapis.com/v0/b/jpcs-website.firebasestorage.app/o/jpcs-files%2FhomepageJPCS.mp4?alt=media&token=ba344284-aa0b-4a10-8043-03ba9dd90a87"
         autoPlay
         muted
         loop
         playsInline
       />
-      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black/40 to-black/100 z-0" />
+      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black/10 to-black/100 z-0" />
 
       {/* Hero Text */}
       <div className="relative z-10 h-screen flex flex-col justify-center items-center  text-center px-4 sm:px-8 md:px-16 snap-start">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl/14 font-bold leading-snug fade-in">
-          Empowering businesses, <br /> one solution at a time.
+        <h1 className="text-3xl drop-shadow-lg sm:text-5xl md:text-6xl/14 font-bold leading-snug fade-in">
+          Embrace the problems, <br /> one solution at a time.
         </h1>
         <p className="max-w-md sm:max-w-2xl mt-6 text-base sm:text-lg md:text-xl fade-in">
           At JP Consulting & Services, we provide tailored, high-impact
@@ -142,12 +142,17 @@ const Hero = () => {
         </Link>
       </div>
 
+      
       {/* Services Section */}
       <div className="pt-24 text-white bg-black snap-start">
         <Swiper
           modules={[Pagination, Navigation, Autoplay]}
           slidesPerView={1}
-          autoplay 
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           loop
           navigation
           pagination={{ clickable: true }}
@@ -158,40 +163,79 @@ const Hero = () => {
               title: "BUSINESS SETUP",
               image: businessImage,
               link: "/Business",
+              child: [
+                "Strategy Advisory Services",
+                "Business License",
+                "Health Management",
+                "Hospitality Management",
+                "Marketing Consultancy",
+                "VIP Medical And Emirates ID",
+              ],
             },
             {
               title: "INNOVATION AND ARTIFICIAL INTELLIGENCE",
               image: castImage,
               link: "/ITServices",
+              child: ["Machine Learning", "Automation", "AI Tools"],
             },
             {
               title: "EMPLOYMENT AND RECRUITMENT SERVICES",
               image: setImage,
               link: "/EmploymentServices",
+              child: [
+                "Casting Agency",
+                "Personnel Search",
+                "Online Employment",
+                "Placement Agencies",
+              ],
             },
             {
               title: "AUSTRALIAN IMMIGRATION CONSULTANCY",
               image: marketingImage,
               link: "/Australia",
+              child: [
+                "Administrative Appeals Tribunal",
+                "Business/Investor Visa",
+                "Student Visa",
+                "Skilled Visa",
+                "GSM 189/190/491 Visa",
+                "Partner Visa",
+                "Visitor Visa",
+                "Skills Assessment",
+                "Other Visas",
+              ],
             },
-          ].map(({ title, image, link }, i) => (
+          ].map(({ title, image, link, child }, i) => (
             <SwiperSlide key={i}>
               <Link to={link} reloadDocument className="relative group block">
                 <img
                   src={image}
                   alt={title}
-                  className="w-full h-64 sm:h-80 md:h-140 object-cover group-hover:opacity-90 transition duration-300 opacity-40 rounded"
+                  className="w-full h-64 sm:h-80 md:h-140 object-cover group-hover:opacity-60 transition duration-300 opacity-40 rounded"
                 />
-                <span className="text-7xl font-bold left-15 z-99 absolute top-10 drop-shadow-lg">
-                  {title}
-                </span>
+                <div className="absolute top-10 left-15 z-50">
+                  <h2 className="text-4xl sm:text-6xl font-bold pb-4 drop-shadow-lg">
+                    {title}
+                  </h2>
+                  {child && (
+                    <ul className="mt-3 space-y-1 text-lg">
+                      {child.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="drop-shadow-md bg-orange-500/30 text-white font-semibold py-1 pl-5"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </Link>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      
       {/* Why Choose Us Section */}
       <div className="h-screen bg-gray-100 flex flex-col justify-center items-center px-4 text-center">
         <h2 className="text-3xl sm:text-5xl font-bold text-gray-800">
@@ -209,6 +253,7 @@ const Hero = () => {
           Learn More
         </Link>
       </div>
+
 
       <section className="">
         {vid.map((src, i) => (
@@ -230,7 +275,6 @@ const Hero = () => {
           </div>
         ))}
       </section>
-
     </div>
   );
 };

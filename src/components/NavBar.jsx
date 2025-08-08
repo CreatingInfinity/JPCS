@@ -146,11 +146,9 @@ const NavBar = () => {
         className="flex justify-between w-full items-center h-[100px] fixed gap-10 transparent px-5 sm:px-10 py-5 z-[100] transition-all duration-300 ease-in-out"
       >
         {/* Logo */}
-        <Link to='/' reloadDocument className="flex gap-2 items-center cursor-pointer">
-          <img className="h-12 py-1" src={logo} alt="logo" />
-          <span className=" font-regular text-sm sm:text-base text-black md:text-lg whitespace-nowrap">
-            <span className="font-regular text-orange-500">JP</span> CONSULTING & SERVICES
-          </span>
+        <Link to='/' reloadDocument className="flex flex-col items-center cursor-pointer">
+          <img className="h-12 py-1 translate-y-1" src={logo} alt="logo" />
+          <p className="text-md/20 font-bold drop-shadow-orange-500/50 text-gray-800"><span className="text-orange-600">JP</span>CS</p>  
         </Link>
 
         {/* Nav Links Desktop */}
