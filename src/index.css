@@ -3,6 +3,7 @@
 body {
     overflow: overlay;
     background-color: oklch(0.985 0.002 247.839);
+    margin: 0;
 }
 
 ig {
@@ -28,12 +29,12 @@ ig {
     cursor: pointer;
 }
 
-.swiper-button-next {
-    --swiper-theme-color: #f1f1f18e;
+.swiper-button-next, .swiper-button-prev {
+    --swiper-theme-color: #f1f1f147;
 }
 
-.swiper-button-prev {
-    --swiper-theme-color: #f1f1f18e;
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    --swiper-theme-color: #f1f1f17a;
 }
 
 .swiper-pagination-bullet-active {
@@ -311,4 +312,35 @@ ig {
     display: none;
     margin: 0;
     padding: 0;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+}
+
+/* Default small scale + dimmed */
+.swiper-slide .expanding-card {
+  transform: scale(0.8);
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+/* Active slide expands */
+.swiper-slide-active .expanding-card {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Show hidden content when active */
+.swiper-slide-active .card-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-content {
+  transform: translateY(100%);
 }

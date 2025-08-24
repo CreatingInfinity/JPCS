@@ -79,7 +79,7 @@ const NavBar = () => {
           duration: 0.4,
           ease: "power3.out",
         }
-      );
+      );  
     }
   }, [isClicked, isScrolled]);
 
@@ -148,7 +148,7 @@ const NavBar = () => {
         {/* Logo */}
         <Link to='/' reloadDocument className="flex flex-col items-center cursor-pointer">
           <img className="h-12 py-1 translate-y-1" src={logo} alt="logo" />
-          <p className="text-md/20 font-bold drop-shadow-orange-500/50 text-gray-800"><span className="text-orange-600">JP</span>CS</p>  
+          <p className="text-md/20 font-bold drop-shadow-orange-500/50 text-black"><span className="text-orange-600">JP</span>CS</p>  
         </Link>
 
         {/* Nav Links Desktop */}
