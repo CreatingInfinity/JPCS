@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ContactUsFooter = () => {
   return (
-    <div className="h-auto bgSVG2 relative z-10 px-4 sm:px-6 py-8 md:py-12 bg-gray-100">
+    <div className="h-auto bg-orange-400/20 relative z-10 px-4 sm:px-6 py-8 md:py-12 bg-gray-100">
       {/* Header */}
       <div className="text-center mb-8 md:mb-12 select-none">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">

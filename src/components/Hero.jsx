@@ -145,11 +145,13 @@ const Hero = () => {
         </h1>
         <div className="space-y-10">
           <p className="max-w-md sm:max-w-2xl mt-6 text-sm sm:text-lg md:text-sm fade-in">
-            JP Consulting and Services LLC is your trusted partner for
+            JP Consulting and Services LLC (JPCS) is your trusted partner for
             innovation, growth, and opportunity without limits. We deliver
             world-class IT infrastructure, strategic digital marketing,
-            transformative AI solutions, and trusted international immigration
-            consultancy — all under one roof to accelerate your success.
+            transformative AI solutions, and international immigration
+            consultancy — all under one roof to accelerate your success. Member
+            of the FIS Inventors Society – reinforcing our commitment to
+            innovation, excellence, and forward-thinking solutions.
           </p>
           <Link
             to="/Contact"
@@ -163,7 +165,7 @@ const Hero = () => {
       {/* Services Section */}
       <div className="relative py-24 text-white bg-black snap-start">
         <span className="absolute top-[14%] left-30 text-5xl bold z-99 drop-shadow-lg">
-          OUR SERVICES
+          OUR <span className="text-orange-600">SERVICES</span>
         </span>
         <div className="absolute h-20 w-20 bg-orange-500 z-9 rounded-full blur-3xl"></div>
         <div className="absolute bottom-5 right-2 h-10 w-20 bg-orange-500 z-9 rounded-full blur-3xl"></div>
@@ -247,7 +249,7 @@ const Hero = () => {
                   <Link
                     to={link}
                     reloadDocument
-                    className="text-xl sm:text-2xl w-100 hover:underline poppins-bold pb-4 drop-shadow-lg"
+                    className="text-xl sm:text-2xl w-100 hover:underline hover:text-orange-500 transition poppins-bold pb-4 drop-shadow-lg"
                   >
                     {title}
                   </Link>
@@ -259,7 +261,7 @@ const Hero = () => {
                       {child.map((item, idx) => (
                         <li
                           key={idx}
-                          className="px-5 py-2 rounded-full hover:bg-orange-200 no-select cursor-pointer transition bg-white text-black text-xs"
+                          className="px-5 py-2 rounded-full hover:bg-orange-600 hover:text-white no-select cursor-pointer transition bg-white text-black text-xs"
                         >
                           {item}
                         </li>
@@ -275,13 +277,16 @@ const Hero = () => {
 
       {/* Why Choose Us Section */}
       <div className="h-screen bg-gray-100 flex flex-col justify-center items-center px-4 text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold text-gray-800">
-          What Makes Us Different?
+        <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
+          What Makes Us <span className="text-orange-600">Different?</span>
         </h2>
-        <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-lg sm:max-w-2xl">
-          We are committed to delivering exceptional service and innovative
-          solutions tailored to your unique needs.
-        </p>
+        <ul className="mt-4 text-base text-start sm:text-lg text-gray-600 max-w-lg sm:max-w-2xl space-y-2 list-disc">
+          <li>Integrated Expertise – Technology, marketing, and migration mastery in one partner.</li>
+          <li>20+ Years of Leadership – Proven entrepreneurial excellence.</li>
+          <li>International Reach – Serving clients across multiple regions.</li>
+          <li>Luxury-Grade Service – Corporate sophistication with personal precision.</li>
+          <li>Innovation-Driven – Member of the FIS Inventors Society, driving the future of business solutions.</li>
+        </ul>
         <Link
           to="/About"
           reloadDocument
@@ -309,6 +314,7 @@ const Hero = () => {
                   src={item.link}
                   muted
                   loop
+                  autoPlay
                   playsInline
                 />
 
@@ -316,9 +322,7 @@ const Hero = () => {
                   <h3 className="text-lg font-bold text-gray-900">
                     {item.title}
                   </h3>
-                  <p className="text-black/90 pt-5 ">
-                    {item.desc}
-                  </p>
+                  <p className="text-black/90 pt-5 ">{item.desc}</p>
                 </div>
               </div>
             </SwiperSlide>
